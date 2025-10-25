@@ -83,6 +83,29 @@ export function EntrancesTable() {
   // Get unique areas from DESTINATIONS_BY_AREA
   const allAreas = Object.keys(DESTINATIONS_BY_AREA).sort();
 
+  // Get all destinations that are already used (excluding the current row)
+  const usedDestinations = useMemo(() => {
+    return new Set(
+      entrances
+        .filter((e) => e.to && e.to.trim() !== '')
+        .map((e) => e.to)
+    );
+  }, [entrances]);
+
+  // Filter out used destinations from DESTINATIONS_BY_AREA
+  const availableDestinationsByArea = useMemo(() => {
+    const filtered: Record<string, string[]> = {};
+
+    for (const [area, destinations] of Object.entries(DESTINATIONS_BY_AREA)) {
+      const availableInArea = destinations.filter(dest => !usedDestinations.has(dest));
+      if (availableInArea.length > 0) {
+        filtered[area] = availableInArea;
+      }
+    }
+
+    return filtered;
+  }, [usedDestinations]);
+
   const columns = useMemo<ColumnDef<Entrance>[]>(
     () => [
       {
@@ -108,19 +131,37 @@ export function EntrancesTable() {
       {
         accessorKey: 'to',
         header: 'To',
-        cell: ({ row }) => (
-          <GroupedSearchableSelect
-            value={row.original.to}
-            onChange={(value) => {
-              // Auto-extract toArea when destination is selected
-              const toArea = extractArea(value);
-              updateEntrance(row.original.id, { to: value, toArea });
-            }}
-            groupedOptions={DESTINATIONS_BY_AREA}
-            placeholder="Select destination..."
-            className="min-w-[250px]"
-          />
-        ),
+        cell: ({ row }) => {
+          // For this specific row, include its current value even if used elsewhere
+          const currentDestination = row.original.to;
+          const optionsForThisRow = { ...availableDestinationsByArea };
+
+          // If this row has a value, make sure it's available in the options
+          if (currentDestination && currentDestination.trim() !== '') {
+            const destArea = extractArea(currentDestination);
+            if (!optionsForThisRow[destArea]?.includes(currentDestination)) {
+              // Add it back to its area
+              if (!optionsForThisRow[destArea]) {
+                optionsForThisRow[destArea] = [];
+              }
+              optionsForThisRow[destArea] = [...optionsForThisRow[destArea], currentDestination].sort();
+            }
+          }
+
+          return (
+            <GroupedSearchableSelect
+              value={currentDestination}
+              onChange={(value) => {
+                // Auto-extract toArea when destination is selected
+                const toArea = extractArea(value);
+                updateEntrance(row.original.id, { to: value, toArea });
+              }}
+              groupedOptions={optionsForThisRow}
+              placeholder="Select destination..."
+              className="min-w-[250px]"
+            />
+          );
+        },
         size: 300,
       },
       {
@@ -190,7 +231,7 @@ export function EntrancesTable() {
         ),
       },
     ],
-    [updateEntrance, editingNotes]
+    [updateEntrance, editingNotes, availableDestinationsByArea]
   );
 
   const table = useReactTable({

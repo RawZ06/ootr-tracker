@@ -159,14 +159,27 @@ async function main() {
   const itemsWithoutCategory = [];
 
   for (const itemName of allItemsSet) {
+    // Normalize bottles: group all "Bottle with X" (except Rutos Letter and Big Poe) into "Bottle"
+    let normalizedName = itemName;
+    if (itemName.startsWith('Bottle with ') &&
+        itemName !== 'Bottle with Big Poe' &&
+        itemName !== 'Rutos Letter') {
+      normalizedName = 'Bottle';
+    }
+
     if (itemCategoryMap && itemCategoryMap[itemName]) {
       const category = itemCategoryMap[itemName];
       if (!itemsByCategory[category]) {
         itemsByCategory[category] = [];
       }
-      itemsByCategory[category].push(itemName);
+      // Only add if not already present (for normalized bottles)
+      if (!itemsByCategory[category].includes(normalizedName)) {
+        itemsByCategory[category].push(normalizedName);
+      }
     } else {
-      itemsWithoutCategory.push(itemName);
+      if (!itemsWithoutCategory.includes(normalizedName)) {
+        itemsWithoutCategory.push(normalizedName);
+      }
     }
   }
 
@@ -323,7 +336,19 @@ async function main() {
     return extractAreaSimple(locationName, locationAreaMap);
   }
 
-  const ALL_ITEMS = Array.from(allItemsSet).sort();
+  // Normalize ALL_ITEMS: group bottles (except Rutos Letter and Big Poe)
+  const normalizedItemsSet = new Set();
+  for (const itemName of allItemsSet) {
+    if (itemName.startsWith('Bottle with ') &&
+        itemName !== 'Bottle with Big Poe' &&
+        itemName !== 'Rutos Letter') {
+      normalizedItemsSet.add('Bottle');
+    } else {
+      normalizedItemsSet.add(itemName);
+    }
+  }
+
+  const ALL_ITEMS = Array.from(normalizedItemsSet).sort();
   const ALL_DESTINATIONS = Array.from(allDestinationsSet).sort();
 
   // Build comprehensive location -> area mapping from entrance types
@@ -438,7 +463,10 @@ async function main() {
     let fromArea = extractArea(fromPart, locationAreaMap);
 
     // Special case: Warp songs and Spawns have no fixed location (can be used from anywhere)
-    if (entranceType === 'WarpSong' || entranceType === 'Spawn') {
+    // Check the official type from Python before it was mapped
+    const officialType = entranceTypeMap ? Object.entries(entranceTypeMap).find(([name]) => name === from)?.[1] : null;
+    if (officialType === 'WarpSong' || officialType === 'Spawn' ||
+        officialType === 'ChildSpawn' || officialType === 'AdultSpawn') {
       fromArea = 'Warp';
     }
 

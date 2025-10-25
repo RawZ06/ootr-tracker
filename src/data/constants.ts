@@ -34,7 +34,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0001",
     "from": "Adult Spawn -> Temple of Time",
-    "fromArea": "Unknown",
+    "fromArea": "Warp",
     "to": "",
     "toArea": "",
     "region": "",
@@ -44,7 +44,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0002",
     "from": "Child Spawn -> KF Links House",
-    "fromArea": "Unknown",
+    "fromArea": "Warp",
     "to": "",
     "toArea": "",
     "region": "",
@@ -54,7 +54,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0003",
     "from": "Bolero of Fire Warp -> DMC Central Local",
-    "fromArea": "Unknown",
+    "fromArea": "Warp",
     "to": "",
     "toArea": "",
     "region": "DMC Central Local",
@@ -64,7 +64,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0004",
     "from": "Minuet of Forest Warp -> Sacred Forest Meadow",
-    "fromArea": "Unknown",
+    "fromArea": "Warp",
     "to": "",
     "toArea": "",
     "region": "",
@@ -74,7 +74,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0005",
     "from": "Nocturne of Shadow Warp -> Graveyard Warp Pad Region",
-    "fromArea": "Unknown",
+    "fromArea": "Warp",
     "to": "",
     "toArea": "",
     "region": "Kokiri Forest",
@@ -84,7 +84,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0006",
     "from": "Prelude of Light Warp -> Temple of Time",
-    "fromArea": "Unknown",
+    "fromArea": "Warp",
     "to": "",
     "toArea": "",
     "region": "Zoras Domain",
@@ -94,7 +94,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0007",
     "from": "Requiem of Spirit Warp -> Desert Colossus",
-    "fromArea": "Unknown",
+    "fromArea": "Warp",
     "to": "",
     "toArea": "",
     "region": "",
@@ -104,7 +104,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0008",
     "from": "Serenade of Water Warp -> Lake Hylia",
-    "fromArea": "Unknown",
+    "fromArea": "Warp",
     "to": "",
     "toArea": "",
     "region": "Market",
@@ -26209,9 +26209,7 @@ export const ALL_ITEMS = [
   "Boss Key (Shadow Temple)",
   "Boss Key (Spirit Temple)",
   "Boss Key (Water Temple)",
-  "Bottle with Blue Potion",
-  "Bottle with Green Potion",
-  "Bottle with Poe",
+  "Bottle",
   "Bow",
   "Broken Sword",
   "Bubble Soul",
@@ -26455,9 +26453,7 @@ export const ITEMS_BY_CATEGORY = {
     "Bombs (20)",
     "Bombs (5)",
     "Boomerang",
-    "Bottle with Blue Potion",
-    "Bottle with Green Potion",
-    "Bottle with Poe",
+    "Bottle",
     "Bow",
     "Broken Sword",
     "Bunny Hood",
