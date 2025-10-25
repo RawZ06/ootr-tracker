@@ -6,8 +6,10 @@ import { ChecksTable } from './components/ChecksTable';
 import { Stats } from './components/Stats';
 import { ImportExport } from './components/ImportExport';
 import { Pathfinder } from './components/Pathfinder';
+import { BetaBanner } from './components/BetaBanner';
 import { SEED_INFO } from './data/constants';
 import type { TabType } from './types';
+import packageJson from '../package.json';
 
 function App() {
   const [activeTab, setActiveTab] = useState<TabType>('checks');
@@ -23,15 +25,20 @@ function App() {
     }
   }, [darkMode]);
 
-  const tabs: { id: TabType; label: string }[] = [
+  const tabs: { id: TabType; label: string; badge?: string }[] = [
     { id: 'checks', label: 'Checks' },
     { id: 'entrances', label: 'Entrances' },
-    { id: 'pathfinder', label: 'Pathfinder' },
+    {
+      id: 'pathfinder',
+      label: 'Pathfinder',
+      badge: packageJson.appStatus?.features?.pathfinder
+    },
     { id: 'stats', label: 'Statistics' },
   ];
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
+      <BetaBanner />
       {/* Header */}
       <header className="bg-white dark:bg-gray-800 shadow">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -64,13 +71,22 @@ function App() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-6 py-3 font-medium transition-colors ${
+                className={`px-6 py-3 font-medium transition-colors flex items-center gap-2 ${
                   activeTab === tab.id
                     ? 'border-b-2 border-blue-600 text-blue-600 dark:text-blue-400'
                     : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                 }`}
               >
                 {tab.label}
+                {tab.badge && (
+                  <span className={`text-xs px-2 py-0.5 rounded-full ${
+                    tab.badge === 'alpha'
+                      ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
+                      : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
+                  }`}>
+                    {tab.badge.toUpperCase()}
+                  </span>
+                )}
               </button>
             ))}
           </div>

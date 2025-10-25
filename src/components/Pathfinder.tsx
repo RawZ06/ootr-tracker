@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { useTrackerStore } from '../store/trackerStore';
 import { REGIONS } from '../data/constants';
 import type { Entrance } from '../types';
+import packageJson from '../../package.json';
 
 interface PathStep {
   from: string;
@@ -18,6 +19,42 @@ export function Pathfinder() {
   const [path, setPath] = useState<PathStep[] | null>(null);
   const [error, setError] = useState<string>('');
 
+  const featureStatus = packageJson.appStatus?.features?.pathfinder;
+
+  // Helper function to extract interior name as a separate zone
+  const extractInteriorZone = (entranceName: string, entranceType: string): string | null => {
+    if (entranceType !== 'Interior') return null;
+
+    // Format: "Area -> Area Interior Name" or "Area Interior Name -> Area"
+    const parts = entranceName.split(' -> ');
+    if (parts.length !== 2) return null;
+
+    const [part1, part2] = parts;
+
+    // Check if part1 contains an interior (e.g., "Market Mask Shop")
+    // Interior names are usually longer and contain the parent area name
+    if (part1.includes(' ') && !part1.startsWith('KF ') && !part1.startsWith('LW ') &&
+        !part1.startsWith('HF ') && !part1.startsWith('Market ') && !part1.startsWith('Kak ')) {
+      // This might be an interior like "Market Mask Shop"
+      const words = part1.split(' ');
+      if (words.length >= 2) {
+        // Return everything after the first word as the interior name
+        return words.slice(1).join(' ');
+      }
+    }
+
+    // Check if part2 contains an interior
+    if (part2.includes(' ') && !part2.startsWith('KF ') && !part2.startsWith('LW ') &&
+        !part2.startsWith('HF ') && !part2.startsWith('Market ') && !part2.startsWith('Kak ')) {
+      const words = part2.split(' ');
+      if (words.length >= 2) {
+        return words.slice(1).join(' ');
+      }
+    }
+
+    return null;
+  };
+
   // Build a graph of connections from entrances that have been filled
   const graph = useMemo(() => {
     const connections: Map<string, Array<{ to: string; entrance: Entrance }>> = new Map();
@@ -26,10 +63,29 @@ export function Pathfinder() {
     const filledEntrances = entrances.filter(e => e.to && e.to.trim() !== '' && e.toArea && e.toArea.trim() !== '');
 
     for (const entrance of filledEntrances) {
-      const from = entrance.fromArea;
-      const to = entrance.toArea;
+      let from = entrance.fromArea;
+      let to = entrance.toArea;
 
       if (!from || !to || from === 'Unknown' || to === 'Unknown' || from === 'Warp') continue;
+
+      // For Interior type, extract the actual interior name as a zone
+      if (entrance.type === 'Interior') {
+        const interiorName = extractInteriorZone(entrance.from, entrance.type);
+        if (interiorName) {
+          // Determine if this entrance is ENTERING or EXITING the interior
+          const fromPart = entrance.from.split(' -> ')[0];
+          const toPart = entrance.from.split(' -> ')[1];
+
+          // If fromPart contains the interior name, we're exiting
+          if (fromPart.includes(interiorName)) {
+            from = interiorName;
+          }
+          // If toPart contains the interior name, we're entering
+          else if (toPart.includes(interiorName)) {
+            to = interiorName;
+          }
+        }
+      }
 
       // Add forward connection
       if (!connections.has(from)) {
@@ -116,6 +172,21 @@ export function Pathfinder() {
         <p className="text-sm text-gray-600 dark:text-gray-400">
           Find a route between two areas using your discovered entrances
         </p>
+        {featureStatus && (
+          <div className={`mt-3 p-3 rounded-lg ${
+            featureStatus === 'alpha'
+              ? 'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800'
+              : 'bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800'
+          }`}>
+            <p className={`text-sm font-medium ${
+              featureStatus === 'alpha'
+                ? 'text-red-800 dark:text-red-200'
+                : 'text-yellow-800 dark:text-yellow-200'
+            }`}>
+              ⚠️ {featureStatus === 'alpha' ? 'Alpha Feature' : 'Beta Feature'}: This feature is currently under development and may not work as expected or may contain bugs.
+            </p>
+          </div>
+        )}
       </div>
 
       {/* Input Section */}
