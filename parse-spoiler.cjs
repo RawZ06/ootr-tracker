@@ -519,6 +519,7 @@ async function main() {
       // Map official types to our simplified types
       const typeMapping = {
         'Boss': 'Boss',
+        'BossHeart': 'Boss',
         'Song': 'Song',
         'Chest': 'Chest',
         'Collectable': 'Freestanding',
@@ -531,18 +532,30 @@ async function main() {
         'Freestanding': 'Freestanding',
         'RupeeTower': 'Freestanding',
         'Pot': 'Pot',
+        'FlyingPot': 'Pot',
         'Crate': 'Crate',
         'SmallCrate': 'Crate',
         'Beehive': 'Beehive',
         'Grass': 'Grass',
         'Wonderitem': 'Wonderitem',
         'GossipStone': 'GossipStone',
+        'HintStone': 'GossipStone',
         'EnemyDrop': 'EnemyDrop',
         'Cutscene': 'NPC',
         'Event': 'Boss',
+        'Drop': 'Freestanding',
+        'SilverRupee': 'SilverRupee',
+        'Fish': 'Fish',
+        'Hint': 'Hint',
       };
 
       checkType = typeMapping[checkType] || 'Other';
+
+      // Special case: Cows are NPC type in Python but we want them separate
+      // Cows always have "Cow" in their location name
+      if (checkType === 'NPC' && location.includes(' Cow')) {
+        checkType = 'Cow';
+      }
     }
 
     // Track stats
@@ -584,7 +597,7 @@ export interface Check {
   area: string;
   type: 'Chest' | 'GoldSkulltula' | 'Song' | 'Shop' | 'Cow' | 'Scrub' | 'GrottoScrub' | 'NPC' | 'Boss' |
         'Freestanding' | 'Grass' | 'Pot' | 'Crate' | 'Beehive' | 'Wonderitem' | 'GossipStone' |
-        'EnemyDrop' | 'Other';
+        'EnemyDrop' | 'SilverRupee' | 'Fish' | 'Hint' | 'Other';
   item: string;
   price: number | null;
   status: 'pending' | 'done' | 'blocked' | 'partial' | 'important';
@@ -611,7 +624,7 @@ export const ENTRANCE_TYPES = ['Warp', 'Grotto', 'Dungeon', 'Interior', 'Hideout
 export const CHECK_TYPES = [
   'Chest', 'GoldSkulltula', 'Song', 'Shop', 'Cow', 'Scrub', 'GrottoScrub', 'NPC', 'Boss',
   'Freestanding', 'Grass', 'Pot', 'Crate', 'Beehive', 'Wonderitem', 'GossipStone',
-  'EnemyDrop', 'Other'
+  'EnemyDrop', 'SilverRupee', 'Fish', 'Hint', 'Other'
 ] as const;
 export const CHECK_STATUSES = ['pending', 'done', 'blocked', 'partial', 'important'] as const;
 
