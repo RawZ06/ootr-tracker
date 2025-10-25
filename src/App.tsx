@@ -5,6 +5,7 @@ import { EntrancesTable } from './components/EntrancesTable';
 import { ChecksTable } from './components/ChecksTable';
 import { Stats } from './components/Stats';
 import { ImportExport } from './components/ImportExport';
+import { Pathfinder } from './components/Pathfinder';
 import { SEED_INFO } from './data/constants';
 import type { TabType } from './types';
 
@@ -25,6 +26,7 @@ function App() {
   const tabs: { id: TabType; label: string }[] = [
     { id: 'checks', label: 'Checks' },
     { id: 'entrances', label: 'Entrances' },
+    { id: 'pathfinder', label: 'Pathfinder' },
     { id: 'stats', label: 'Statistics' },
   ];
 
@@ -79,6 +81,7 @@ function App() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeTab === 'checks' && <ChecksTable />}
         {activeTab === 'entrances' && <EntrancesTable />}
+        {activeTab === 'pathfinder' && <Pathfinder />}
         {activeTab === 'stats' && <Stats />}
       </main>
 

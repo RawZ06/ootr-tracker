@@ -25,4 +25,4 @@ export interface FilterOptions {
   toAreas?: string[];
 }
 
-export type TabType = 'entrances' | 'checks' | 'stats';
+export type TabType = 'entrances' | 'checks' | 'stats' | 'pathfinder';

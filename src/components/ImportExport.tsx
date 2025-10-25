@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import { FaDownload, FaUpload, FaTrash } from 'react-icons/fa';
+import { useRef, useState } from 'react';
+import { FaDownload, FaUpload, FaTrash, FaFlask } from 'react-icons/fa';
 import { useTrackerStore } from '../store/trackerStore';
 import type { SaveData } from '../types';
 
@@ -7,6 +7,8 @@ export function ImportExport() {
   const exportData = useTrackerStore((state) => state.exportData);
   const importData = useTrackerStore((state) => state.importData);
   const resetData = useTrackerStore((state) => state.resetData);
+  const loadSampleData = useTrackerStore((state) => state.loadSampleData);
+  const [loading, setLoading] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -59,6 +61,25 @@ export function ImportExport() {
     }
   };
 
+  const handleLoadSample = async () => {
+    if (
+      confirm(
+        'Load sample data from spoiler log? This will fill all entrances and checks with the correct answers.'
+      )
+    ) {
+      setLoading(true);
+      try {
+        await loadSampleData();
+        alert('Sample data loaded successfully!');
+      } catch (error) {
+        alert('Error loading sample data. Please check the console for details.');
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+  };
+
   return (
     <div className="flex flex-wrap gap-3">
       <button onClick={handleExport} className="btn-success flex items-center gap-2">
@@ -77,6 +98,15 @@ export function ImportExport() {
           className="hidden"
         />
       </label>
+
+      <button
+        onClick={handleLoadSample}
+        disabled={loading}
+        className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        <FaFlask />
+        {loading ? 'Loading...' : 'Load Sample'}
+      </button>
 
       <button
         onClick={handleReset}
