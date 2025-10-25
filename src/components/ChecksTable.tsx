@@ -11,7 +11,7 @@ import {
 import type { Check } from '../types';
 import { useTrackerStore } from '../store/trackerStore';
 import { useCheckFilters } from '../hooks/useFilters';
-import { CHECK_STATUSES, CHECK_TYPES, ITEMS_BY_CATEGORY, REGIONS } from '../data/constants';
+import { CHECK_STATUSES, CHECK_TYPES, ITEMS_BY_CATEGORY } from '../data/constants';
 import { GroupedSearchableSelect } from './GroupedSearchableSelect';
 
 const STATUS_ICONS = {
@@ -38,6 +38,12 @@ export function ChecksTable() {
   const { filters, setFilters, filteredChecks } = useCheckFilters(checks);
   const [sorting, setSorting] = useState<SortingState>([]);
   const [editingNotes, setEditingNotes] = useState<string | null>(null);
+
+  // Get unique areas from checks
+  const uniqueAreas = useMemo(() => {
+    const areas = new Set(checks.map(check => check.area));
+    return Array.from(areas).sort();
+  }, [checks]);
 
   const columns = useMemo<ColumnDef<Check>[]>(
     () => [
@@ -69,14 +75,17 @@ export function ChecksTable() {
         ),
       },
       {
-        accessorKey: 'region',
-        header: 'Region',
-        cell: ({ getValue }) => (
-          <span className="status-badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-            {getValue() as string}
-          </span>
-        ),
-        size: 100,
+        accessorKey: 'area',
+        header: 'Area',
+        cell: ({ getValue }) => {
+          const area = getValue() as string;
+          return (
+            <span className="status-badge bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">
+              {area}
+            </span>
+          );
+        },
+        size: 80,
       },
       {
         accessorKey: 'type',
@@ -197,38 +206,38 @@ export function ChecksTable() {
         />
 
         <div className="flex flex-wrap gap-2">
-          {/* Region filter */}
+          {/* Area filter */}
           <select
             value=""
             onChange={(e) => {
-              if (e.target.value && !filters.regions.includes(e.target.value)) {
+              if (e.target.value && filters.areas && !filters.areas.includes(e.target.value)) {
                 setFilters({
                   ...filters,
-                  regions: [...filters.regions, e.target.value],
+                  areas: [...(filters.areas || []), e.target.value],
                 });
               }
             }}
             className="input-field"
           >
-            <option value="">Add region filter...</option>
-            {REGIONS.map((region) => (
-              <option key={region} value={region}>
-                {region}
+            <option value="">Add area filter...</option>
+            {uniqueAreas.map((area) => (
+              <option key={area} value={area}>
+                {area}
               </option>
             ))}
           </select>
 
-          {filters.regions.map((region) => (
+          {filters.areas && filters.areas.map((area) => (
             <span
-              key={region}
+              key={area}
               className="status-badge bg-purple-500 text-white flex items-center gap-2"
             >
-              {region}
+              {area}
               <button
                 onClick={() =>
                   setFilters({
                     ...filters,
-                    regions: filters.regions.filter((r) => r !== region),
+                    areas: filters.areas?.filter((a) => a !== area) || [],
                   })
                 }
               >

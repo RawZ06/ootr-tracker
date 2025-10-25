@@ -8,14 +8,14 @@ export interface Entrance {
   to: string;
   toArea: string;
   region: string;
-  type: 'Warp' | 'Grotto' | 'Dungeon' | 'Interior' | 'Overworld' | 'Unknown';
+  type: 'Warp' | 'Grotto' | 'Dungeon' | 'Interior' | 'Hideout' | 'Overworld' | 'Boss' | 'Unknown';
   notes: string;
 }
 
 export interface Check {
   id: string;
   location: string;
-  region: string;
+  area: string;
   type: 'Chest' | 'GoldSkulltula' | 'Song' | 'Shop' | 'Cow' | 'Scrub' | 'GrottoScrub' | 'NPC' | 'Boss' |
         'Freestanding' | 'Grass' | 'Pot' | 'Crate' | 'Beehive' | 'Wonderitem' | 'GossipStone' |
         'EnemyDrop' | 'Other';
@@ -54,7 +54,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0003",
     "from": "Bolero of Fire Warp -> DMC Central Local",
-    "fromArea": "Fire",
+    "fromArea": "Unknown",
     "to": "",
     "toArea": "",
     "region": "DMC Central Local",
@@ -64,7 +64,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0004",
     "from": "Minuet of Forest Warp -> Sacred Forest Meadow",
-    "fromArea": "Forest",
+    "fromArea": "Unknown",
     "to": "",
     "toArea": "",
     "region": "",
@@ -74,7 +74,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0005",
     "from": "Nocturne of Shadow Warp -> Graveyard Warp Pad Region",
-    "fromArea": "Shadow",
+    "fromArea": "Unknown",
     "to": "",
     "toArea": "",
     "region": "Kokiri Forest",
@@ -94,7 +94,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0007",
     "from": "Requiem of Spirit Warp -> Desert Colossus",
-    "fromArea": "Spirit",
+    "fromArea": "Unknown",
     "to": "",
     "toArea": "",
     "region": "",
@@ -104,7 +104,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0008",
     "from": "Serenade of Water Warp -> Lake Hylia",
-    "fromArea": "Water",
+    "fromArea": "Unknown",
     "to": "",
     "toArea": "",
     "region": "Market",
@@ -138,13 +138,13 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Kak Impas Rooftop",
-    "type": "Unknown",
+    "type": "Overworld",
     "notes": ""
   },
   {
     "id": "entrance_0012",
     "from": "Castle Grounds -> Market",
-    "fromArea": "Unknown",
+    "fromArea": "HC",
     "to": "",
     "toArea": "",
     "region": "Hideout Kitchen Hallway",
@@ -174,7 +174,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0015",
     "from": "Death Mountain -> Goron City",
-    "fromArea": "Unknown",
+    "fromArea": "DC",
     "to": "",
     "toArea": "",
     "region": "",
@@ -184,7 +184,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0016",
     "from": "Death Mountain -> Kak Behind Gate",
-    "fromArea": "Unknown",
+    "fromArea": "DC",
     "to": "",
     "toArea": "",
     "region": "Lon Lon Ranch",
@@ -194,7 +194,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0017",
     "from": "Death Mountain Summit -> DMC Upper Local",
-    "fromArea": "Unknown",
+    "fromArea": "DC",
     "to": "",
     "toArea": "",
     "region": "Forest Temple Lobby",
@@ -214,7 +214,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0019",
     "from": "GC Darunias Chamber -> DMC Lower Local",
-    "fromArea": "GC",
+    "fromArea": "DMC",
     "to": "",
     "toArea": "",
     "region": "Hyrule Field",
@@ -224,11 +224,11 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0020",
     "from": "GC Woods Warp -> Lost Woods",
-    "fromArea": "GC",
+    "fromArea": "LW",
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Warp",
+    "type": "Overworld",
     "notes": ""
   },
   {
@@ -264,7 +264,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0024",
     "from": "Gerudo Valley -> Hyrule Field",
-    "fromArea": "GV",
+    "fromArea": "HF",
     "to": "",
     "toArea": "",
     "region": "",
@@ -364,7 +364,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0034",
     "from": "Kak Behind Gate -> Death Mountain",
-    "fromArea": "Kak",
+    "fromArea": "DC",
     "to": "",
     "toArea": "",
     "region": "GF Outside Gate",
@@ -424,7 +424,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0040",
     "from": "LW Bridge -> Hyrule Field",
-    "fromArea": "LW",
+    "fromArea": "HF",
     "to": "",
     "toArea": "",
     "region": "Graveyard",
@@ -434,7 +434,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0041",
     "from": "LW Bridge -> Kokiri Forest",
-    "fromArea": "LW",
+    "fromArea": "HF",
     "to": "",
     "toArea": "",
     "region": "ZD Behind King Zora",
@@ -574,7 +574,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0055",
     "from": "Wasteland Near Colossus -> Desert Colossus",
-    "fromArea": "Wasteland",
+    "fromArea": "Colossus",
     "to": "",
     "toArea": "",
     "region": "",
@@ -584,7 +584,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0056",
     "from": "Wasteland Near Fortress -> GF Outside Gate",
-    "fromArea": "Wasteland",
+    "fromArea": "GF",
     "to": "",
     "toArea": "",
     "region": "GF Roof Entrance Cluster",
@@ -594,7 +594,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0057",
     "from": "ZD Behind King Zora -> Zoras Fountain",
-    "fromArea": "ZD",
+    "fromArea": "ZF",
     "to": "",
     "toArea": "",
     "region": "",
@@ -604,7 +604,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0058",
     "from": "ZR Behind Waterfall -> Zoras Domain",
-    "fromArea": "ZR",
+    "fromArea": "ZD",
     "to": "",
     "toArea": "",
     "region": "Death Mountain Summit",
@@ -614,7 +614,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0059",
     "from": "ZR Front -> Hyrule Field",
-    "fromArea": "ZR",
+    "fromArea": "HF",
     "to": "",
     "toArea": "",
     "region": "Hideout 4 Torches Jail",
@@ -654,7 +654,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0063",
     "from": "Zoras Fountain -> ZD Behind King Zora",
-    "fromArea": "Unknown",
+    "fromArea": "ZF",
     "to": "",
     "toArea": "",
     "region": "GF Roof Entrance Cluster",
@@ -664,7 +664,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0064",
     "from": "Bottom of the Well -> Kakariko Village",
-    "fromArea": "Unknown",
+    "fromArea": "Kak",
     "to": "",
     "toArea": "",
     "region": "Wasteland Near Colossus",
@@ -684,7 +684,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0066",
     "from": "Death Mountain -> Dodongos Cavern Beginning",
-    "fromArea": "Unknown",
+    "fromArea": "DC",
     "to": "",
     "toArea": "",
     "region": "Zoras Fountain",
@@ -694,11 +694,11 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0067",
     "from": "Deku Tree Lobby -> KF Outside Deku Tree",
-    "fromArea": "Deku",
+    "fromArea": "KF",
     "to": "",
     "toArea": "",
     "region": "DMC Lower Local",
-    "type": "Overworld",
+    "type": "Dungeon",
     "notes": ""
   },
   {
@@ -714,7 +714,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0069",
     "from": "Dodongos Cavern Beginning -> Death Mountain",
-    "fromArea": "Unknown",
+    "fromArea": "DC",
     "to": "",
     "toArea": "",
     "region": "Market",
@@ -724,7 +724,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0070",
     "from": "Fire Temple Lower -> DMC Fire Temple Entrance",
-    "fromArea": "Fire",
+    "fromArea": "DMC",
     "to": "",
     "toArea": "",
     "region": "GV Fortress Side",
@@ -734,7 +734,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0071",
     "from": "Forest Temple Lobby -> SFM Forest Temple Entrance Ledge",
-    "fromArea": "Forest",
+    "fromArea": "SFM",
     "to": "",
     "toArea": "",
     "region": "Gerudo Valley",
@@ -748,7 +748,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Gerudo Fortress",
-    "type": "Unknown",
+    "type": "Dungeon",
     "notes": ""
   },
   {
@@ -758,7 +758,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Hyrule Field",
-    "type": "Overworld",
+    "type": "Dungeon",
     "notes": ""
   },
   {
@@ -774,11 +774,11 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0075",
     "from": "Gerudo Training Ground Lobby -> Gerudo Fortress",
-    "fromArea": "GTG",
+    "fromArea": "GF",
     "to": "",
     "toArea": "",
     "region": "ZR Front",
-    "type": "Overworld",
+    "type": "Dungeon",
     "notes": ""
   },
   {
@@ -794,7 +794,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0077",
     "from": "Ice Cavern Beginning -> ZF Ice Ledge",
-    "fromArea": "Ice",
+    "fromArea": "ZF",
     "to": "",
     "toArea": "",
     "region": "Death Mountain",
@@ -804,11 +804,11 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0078",
     "from": "Jabu Jabus Belly Beginning -> Zoras Fountain",
-    "fromArea": "Jabu",
+    "fromArea": "ZF",
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Overworld",
+    "type": "Dungeon",
     "notes": ""
   },
   {
@@ -854,17 +854,17 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0083",
     "from": "Shadow Temple Entryway -> Graveyard Warp Pad Region",
-    "fromArea": "Shadow",
+    "fromArea": "GY",
     "to": "",
     "toArea": "",
     "region": "Goron City",
-    "type": "Warp",
+    "type": "Dungeon",
     "notes": ""
   },
   {
     "id": "entrance_0084",
     "from": "Spirit Temple Lobby -> Desert Colossus From Spirit Lobby",
-    "fromArea": "Spirit",
+    "fromArea": "Colossus",
     "to": "",
     "toArea": "",
     "region": "",
@@ -874,7 +874,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0085",
     "from": "Water Temple Lobby -> Lake Hylia",
-    "fromArea": "Water",
+    "fromArea": "LH",
     "to": "",
     "toArea": "",
     "region": "Kokiri Forest",
@@ -894,7 +894,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0087",
     "from": "Zoras Fountain -> Jabu Jabus Belly Beginning",
-    "fromArea": "Unknown",
+    "fromArea": "ZF",
     "to": "",
     "toArea": "",
     "region": "Hideout 1 Torch Jail",
@@ -908,17 +908,17 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Barinade Boss Room",
-    "type": "Unknown",
+    "type": "Boss",
     "notes": ""
   },
   {
     "id": "entrance_0089",
     "from": "Dodongos Cavern Before Boss -> King Dodongo Boss Room",
-    "fromArea": "Unknown",
+    "fromArea": "DC",
     "to": "",
     "toArea": "",
     "region": "Bongo Bongo Boss Room",
-    "type": "Unknown",
+    "type": "Boss",
     "notes": ""
   },
   {
@@ -928,7 +928,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Volvagia Boss Room",
-    "type": "Unknown",
+    "type": "Boss",
     "notes": ""
   },
   {
@@ -938,7 +938,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "King Dodongo Boss Room",
-    "type": "Unknown",
+    "type": "Boss",
     "notes": ""
   },
   {
@@ -948,7 +948,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Queen Gohma Boss Room",
-    "type": "Unknown",
+    "type": "Boss",
     "notes": ""
   },
   {
@@ -958,7 +958,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Phantom Ganon Boss Room",
-    "type": "Unknown",
+    "type": "Boss",
     "notes": ""
   },
   {
@@ -968,7 +968,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Ganons Castle Tower",
-    "type": "Unknown",
+    "type": "Boss",
     "notes": ""
   },
   {
@@ -978,7 +978,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Morpha Boss Room",
-    "type": "Unknown",
+    "type": "Boss",
     "notes": ""
   },
   {
@@ -988,7 +988,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Twinrova Boss Room",
-    "type": "Unknown",
+    "type": "Boss",
     "notes": ""
   },
   {
@@ -998,7 +998,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "LW Bridge From Forest",
-    "type": "Overworld",
+    "type": "Interior",
     "notes": ""
   },
   {
@@ -1008,7 +1008,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Overworld",
+    "type": "Interior",
     "notes": ""
   },
   {
@@ -1024,17 +1024,17 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0100",
     "from": "DMT Great Fairy Fountain -> Death Mountain Summit",
-    "fromArea": "DMT",
+    "fromArea": "DC",
     "to": "",
     "toArea": "",
     "region": "SFM Entryway",
-    "type": "Overworld",
+    "type": "Interior",
     "notes": ""
   },
   {
     "id": "entrance_0101",
     "from": "Death Mountain Summit -> DMT Great Fairy Fountain",
-    "fromArea": "Unknown",
+    "fromArea": "DC",
     "to": "",
     "toArea": "",
     "region": "Kakariko Village",
@@ -1068,7 +1068,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Desert Colossus",
-    "type": "Unknown",
+    "type": "Hideout",
     "notes": ""
   },
   {
@@ -1078,7 +1078,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Unknown",
+    "type": "Hideout",
     "notes": ""
   },
   {
@@ -1088,7 +1088,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Unknown",
+    "type": "Hideout",
     "notes": ""
   },
   {
@@ -1098,7 +1098,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Unknown",
+    "type": "Hideout",
     "notes": ""
   },
   {
@@ -1108,7 +1108,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Unknown",
+    "type": "Hideout",
     "notes": ""
   },
   {
@@ -1118,7 +1118,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Unknown",
+    "type": "Hideout",
     "notes": ""
   },
   {
@@ -1128,7 +1128,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Unknown",
+    "type": "Hideout",
     "notes": ""
   },
   {
@@ -1138,7 +1138,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Kakariko Village",
-    "type": "Unknown",
+    "type": "Hideout",
     "notes": ""
   },
   {
@@ -1148,7 +1148,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Zora River",
-    "type": "Unknown",
+    "type": "Hideout",
     "notes": ""
   },
   {
@@ -1158,7 +1158,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Overworld",
+    "type": "Interior",
     "notes": ""
   },
   {
@@ -1188,7 +1188,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Graveyard",
-    "type": "Unknown",
+    "type": "Hideout",
     "notes": ""
   },
   {
@@ -1198,7 +1198,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Lake Hylia",
-    "type": "Unknown",
+    "type": "Hideout",
     "notes": ""
   },
   {
@@ -1208,7 +1208,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Kakariko Village",
-    "type": "Unknown",
+    "type": "Hideout",
     "notes": ""
   },
   {
@@ -1218,7 +1218,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Death Mountain",
-    "type": "Unknown",
+    "type": "Hideout",
     "notes": ""
   },
   {
@@ -1258,137 +1258,137 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Kak Impas Ledge",
-    "type": "Overworld",
+    "type": "Interior",
     "notes": ""
   },
   {
     "id": "entrance_0124",
     "from": "Hideout 1 Torch Jail -> GF Entrances Behind Crates",
-    "fromArea": "Unknown",
+    "fromArea": "GF",
     "to": "",
     "toArea": "",
     "region": "GV Fortress Side",
-    "type": "Overworld",
+    "type": "Hideout",
     "notes": ""
   },
   {
     "id": "entrance_0125",
     "from": "Hideout 1 Torch Jail -> Gerudo Fortress",
-    "fromArea": "Unknown",
+    "fromArea": "GF",
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Overworld",
+    "type": "Hideout",
     "notes": ""
   },
   {
     "id": "entrance_0126",
     "from": "Hideout 2 Torches Jail -> GF Roof Entrance Cluster",
-    "fromArea": "Unknown",
+    "fromArea": "GF",
     "to": "",
     "toArea": "",
     "region": "Kokiri Forest",
-    "type": "Overworld",
+    "type": "Hideout",
     "notes": ""
   },
   {
     "id": "entrance_0127",
     "from": "Hideout 2 Torches Jail -> Gerudo Fortress",
-    "fromArea": "Unknown",
+    "fromArea": "GF",
     "to": "",
     "toArea": "",
     "region": "Lake Hylia",
-    "type": "Overworld",
+    "type": "Hideout",
     "notes": ""
   },
   {
     "id": "entrance_0128",
     "from": "Hideout 3 Torches Jail -> GF 3 Torches Jail Exterior",
-    "fromArea": "Unknown",
+    "fromArea": "GF",
     "to": "",
     "toArea": "",
     "region": "Hyrule Field",
-    "type": "Overworld",
+    "type": "Hideout",
     "notes": ""
   },
   {
     "id": "entrance_0129",
     "from": "Hideout 4 Torches Jail -> GF Roof Entrance Cluster",
-    "fromArea": "Unknown",
+    "fromArea": "GF",
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Overworld",
+    "type": "Hideout",
     "notes": ""
   },
   {
     "id": "entrance_0130",
     "from": "Hideout 4 Torches Jail -> Gerudo Fortress",
-    "fromArea": "Unknown",
+    "fromArea": "GF",
     "to": "",
     "toArea": "",
     "region": "Death Mountain Summit",
-    "type": "Overworld",
+    "type": "Hideout",
     "notes": ""
   },
   {
     "id": "entrance_0131",
     "from": "Hideout Break Room -> GF Break Room Entrance",
-    "fromArea": "Unknown",
+    "fromArea": "GF",
     "to": "",
     "toArea": "",
     "region": "Castle Grounds",
-    "type": "Overworld",
+    "type": "Hideout",
     "notes": ""
   },
   {
     "id": "entrance_0132",
     "from": "Hideout Hall to Balcony -> GF Balcony",
-    "fromArea": "Unknown",
+    "fromArea": "GF",
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Overworld",
+    "type": "Hideout",
     "notes": ""
   },
   {
     "id": "entrance_0133",
     "from": "Hideout Kitchen Front -> GF Roof Entrance Cluster",
-    "fromArea": "Unknown",
+    "fromArea": "GF",
     "to": "",
     "toArea": "",
     "region": "Hideout 4 Torches Jail",
-    "type": "Overworld",
+    "type": "Hideout",
     "notes": ""
   },
   {
     "id": "entrance_0134",
     "from": "Hideout Kitchen Hallway -> GF Entrances Behind Crates",
-    "fromArea": "Unknown",
+    "fromArea": "GF",
     "to": "",
     "toArea": "",
     "region": "Graveyard Warp Pad Region",
-    "type": "Overworld",
+    "type": "Hideout",
     "notes": ""
   },
   {
     "id": "entrance_0135",
     "from": "Hideout Kitchen Hallway -> Gerudo Fortress",
-    "fromArea": "Unknown",
+    "fromArea": "GF",
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Overworld",
+    "type": "Hideout",
     "notes": ""
   },
   {
     "id": "entrance_0136",
     "from": "Hideout Kitchen Rear -> GF Kitchen Roof Access",
-    "fromArea": "Unknown",
+    "fromArea": "GF",
     "to": "",
     "toArea": "",
     "region": "DMC Upper Local",
-    "type": "Overworld",
+    "type": "Hideout",
     "notes": ""
   },
   {
@@ -1548,7 +1548,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Zoras Fountain",
-    "type": "Overworld",
+    "type": "Interior",
     "notes": ""
   },
   {
@@ -1578,7 +1578,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "GF Kitchen Roof Access",
-    "type": "Overworld",
+    "type": "Interior",
     "notes": ""
   },
   {
@@ -1588,7 +1588,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Overworld",
+    "type": "Interior",
     "notes": ""
   },
   {
@@ -1728,7 +1728,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Overworld",
+    "type": "Interior",
     "notes": ""
   },
   {
@@ -1748,7 +1748,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Overworld",
+    "type": "Interior",
     "notes": ""
   },
   {
@@ -1758,7 +1758,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "GV Grotto Ledge",
-    "type": "Overworld",
+    "type": "Interior",
     "notes": ""
   },
   {
@@ -1778,7 +1778,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Overworld",
+    "type": "Interior",
     "notes": ""
   },
   {
@@ -1918,7 +1918,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "LW Beyond Mido",
-    "type": "Overworld",
+    "type": "Interior",
     "notes": ""
   },
   {
@@ -1988,7 +1988,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Market",
-    "type": "Overworld",
+    "type": "Interior",
     "notes": ""
   },
   {
@@ -1998,27 +1998,27 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Overworld",
+    "type": "Interior",
     "notes": ""
   },
   {
     "id": "entrance_0198",
     "from": "OGC Great Fairy Fountain -> Castle Grounds",
-    "fromArea": "OGC",
+    "fromArea": "Ganon",
     "to": "",
     "toArea": "",
     "region": "Market Back Alley",
-    "type": "Overworld",
+    "type": "Interior",
     "notes": ""
   },
   {
     "id": "entrance_0199",
     "from": "Temple of Time -> ToT Entrance",
-    "fromArea": "Unknown",
+    "fromArea": "ToT",
     "to": "",
     "toArea": "",
     "region": "Hyrule Field",
-    "type": "Dungeon",
+    "type": "Interior",
     "notes": ""
   },
   {
@@ -2048,7 +2048,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Hyrule Field",
-    "type": "Overworld",
+    "type": "Interior",
     "notes": ""
   },
   {
@@ -2064,7 +2064,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0204",
     "from": "Zoras Fountain -> ZF Great Fairy Fountain",
-    "fromArea": "Unknown",
+    "fromArea": "ZF",
     "to": "",
     "toArea": "",
     "region": "",
@@ -2124,7 +2124,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0210",
     "from": "DMT Cow Grotto -> Death Mountain Summit",
-    "fromArea": "DMT",
+    "fromArea": "DC",
     "to": "",
     "toArea": "",
     "region": "",
@@ -2134,7 +2134,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0211",
     "from": "DMT Storms Grotto -> Death Mountain",
-    "fromArea": "DMT",
+    "fromArea": "DC",
     "to": "",
     "toArea": "",
     "region": "",
@@ -2144,7 +2144,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0212",
     "from": "Death Mountain -> DMT Storms Grotto",
-    "fromArea": "Unknown",
+    "fromArea": "DC",
     "to": "",
     "toArea": "",
     "region": "Gerudo Fortress",
@@ -2154,7 +2154,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0213",
     "from": "Death Mountain Summit -> DMT Cow Grotto",
-    "fromArea": "Unknown",
+    "fromArea": "DC",
     "to": "",
     "toArea": "",
     "region": "Market",
@@ -2164,11 +2164,11 @@ export const INITIAL_ENTRANCES: Entrance[] = [
   {
     "id": "entrance_0214",
     "from": "Deku Theater -> LW Beyond Mido",
-    "fromArea": "Deku",
+    "fromArea": "LW",
     "to": "",
     "toArea": "",
     "region": "GC Darunias Chamber",
-    "type": "Overworld",
+    "type": "Grotto",
     "notes": ""
   },
   {
@@ -2308,7 +2308,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Overworld",
+    "type": "Grotto",
     "notes": ""
   },
   {
@@ -2318,7 +2318,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Lost Woods",
-    "type": "Overworld",
+    "type": "Grotto",
     "notes": ""
   },
   {
@@ -2328,7 +2328,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "",
-    "type": "Overworld",
+    "type": "Grotto",
     "notes": ""
   },
   {
@@ -2338,7 +2338,7 @@ export const INITIAL_ENTRANCES: Entrance[] = [
     "to": "",
     "toArea": "",
     "region": "Kak Backyard",
-    "type": "Overworld",
+    "type": "Grotto",
     "notes": ""
   },
   {
@@ -2817,7 +2817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0001",
     "location": "ToT Reward from Rauru",
-    "region": "ToT",
+    "area": "ToT",
     "type": "Boss",
     "item": "",
     "price": null,
@@ -2827,7 +2827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0002",
     "location": "Queen Gohma",
-    "region": "Unknown",
+    "area": "Deku",
     "type": "Boss",
     "item": "",
     "price": null,
@@ -2837,7 +2837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0003",
     "location": "King Dodongo",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Boss",
     "item": "",
     "price": null,
@@ -2847,7 +2847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0004",
     "location": "Barinade",
-    "region": "Unknown",
+    "area": "Jabu",
     "type": "Boss",
     "item": "",
     "price": null,
@@ -2857,7 +2857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0005",
     "location": "Phantom Ganon",
-    "region": "Unknown",
+    "area": "Forest",
     "type": "Boss",
     "item": "",
     "price": null,
@@ -2867,7 +2867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0006",
     "location": "Volvagia",
-    "region": "Unknown",
+    "area": "Fire",
     "type": "Boss",
     "item": "",
     "price": null,
@@ -2877,7 +2877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0007",
     "location": "Morpha",
-    "region": "Unknown",
+    "area": "Water",
     "type": "Boss",
     "item": "",
     "price": null,
@@ -2887,7 +2887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0008",
     "location": "Bongo Bongo",
-    "region": "Unknown",
+    "area": "Shadow",
     "type": "Boss",
     "item": "",
     "price": null,
@@ -2897,7 +2897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0009",
     "location": "Twinrova",
-    "region": "Unknown",
+    "area": "Spirit",
     "type": "Boss",
     "item": "",
     "price": null,
@@ -2907,7 +2907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0010",
     "location": "Song from Impa",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Song",
     "item": "",
     "price": null,
@@ -2917,7 +2917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0011",
     "location": "Song from Malon",
-    "region": "Unknown",
+    "area": "LLR",
     "type": "Song",
     "item": "",
     "price": null,
@@ -2927,7 +2927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0012",
     "location": "Song from Saria",
-    "region": "Unknown",
+    "area": "SFM",
     "type": "Song",
     "item": "",
     "price": null,
@@ -2937,7 +2937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0013",
     "location": "Song from Royal Familys Tomb",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Song",
     "item": "",
     "price": null,
@@ -2947,7 +2947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0014",
     "location": "Song from Ocarina of Time",
-    "region": "Unknown",
+    "area": "ToT",
     "type": "Song",
     "item": "",
     "price": null,
@@ -2957,7 +2957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0015",
     "location": "Song from Windmill",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Song",
     "item": "",
     "price": null,
@@ -2967,7 +2967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0016",
     "location": "Sheik in Forest",
-    "region": "Unknown",
+    "area": "Forest",
     "type": "Song",
     "item": "",
     "price": null,
@@ -2977,7 +2977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0017",
     "location": "Sheik in Crater",
-    "region": "Unknown",
+    "area": "DMC",
     "type": "Song",
     "item": "",
     "price": null,
@@ -2987,7 +2987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0018",
     "location": "Sheik in Ice Cavern",
-    "region": "Unknown",
+    "area": "Ice",
     "type": "Song",
     "item": "",
     "price": null,
@@ -2997,7 +2997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0019",
     "location": "Sheik at Colossus",
-    "region": "Unknown",
+    "area": "Colossus",
     "type": "Song",
     "item": "",
     "price": null,
@@ -3007,7 +3007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0020",
     "location": "Sheik in Kakariko",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Song",
     "item": "",
     "price": null,
@@ -3017,7 +3017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0021",
     "location": "Sheik at Temple",
-    "region": "Unknown",
+    "area": "Water",
     "type": "Song",
     "item": "",
     "price": null,
@@ -3027,7 +3027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0022",
     "location": "KF Midos Top Left Chest",
-    "region": "KF",
+    "area": "KF",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -3037,7 +3037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0023",
     "location": "KF Midos Top Right Chest",
-    "region": "KF",
+    "area": "KF",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -3047,7 +3047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0024",
     "location": "KF Midos Bottom Left Chest",
-    "region": "KF",
+    "area": "KF",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -3057,7 +3057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0025",
     "location": "KF Midos Bottom Right Chest",
-    "region": "KF",
+    "area": "KF",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -3067,7 +3067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0026",
     "location": "KF Kokiri Sword Chest",
-    "region": "KF",
+    "area": "KF",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -3077,7 +3077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0027",
     "location": "KF Storms Grotto Chest",
-    "region": "KF",
+    "area": "KF",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -3087,7 +3087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0028",
     "location": "KF Links House Cow",
-    "region": "KF",
+    "area": "KF",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -3097,7 +3097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0029",
     "location": "KF GS Know It All House",
-    "region": "KF",
+    "area": "KF",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -3107,7 +3107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0030",
     "location": "KF GS Bean Patch",
-    "region": "KF",
+    "area": "KF",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -3117,7 +3117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0031",
     "location": "KF GS House of Twins",
-    "region": "KF",
+    "area": "KF",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -3127,7 +3127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0032",
     "location": "KF Shop Item 1",
-    "region": "KF",
+    "area": "KF",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -3137,7 +3137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0033",
     "location": "KF Shop Item 2",
-    "region": "KF",
+    "area": "KF",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -3147,7 +3147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0034",
     "location": "KF Shop Item 3",
-    "region": "KF",
+    "area": "KF",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -3157,7 +3157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0035",
     "location": "KF Shop Item 4",
-    "region": "KF",
+    "area": "KF",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -3167,7 +3167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0036",
     "location": "KF Shop Item 5",
-    "region": "KF",
+    "area": "KF",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -3177,7 +3177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0037",
     "location": "KF Shop Item 6",
-    "region": "KF",
+    "area": "KF",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -3187,7 +3187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0038",
     "location": "KF Shop Item 7",
-    "region": "KF",
+    "area": "KF",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -3197,7 +3197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0039",
     "location": "KF Shop Item 8",
-    "region": "KF",
+    "area": "KF",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -3207,7 +3207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0040",
     "location": "KF Behind Midos Blue Rupee",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3217,7 +3217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0041",
     "location": "KF Boulder Maze Blue Rupee 1",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3227,7 +3227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0042",
     "location": "KF Boulder Maze Blue Rupee 2",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3237,7 +3237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0043",
     "location": "KF End of Bridge Blue Rupee",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3247,7 +3247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0044",
     "location": "KF Top of Sarias Recovery Heart 1",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3257,7 +3257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0045",
     "location": "KF Top of Sarias Recovery Heart 2",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3267,7 +3267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0046",
     "location": "KF Top of Sarias Recovery Heart 3",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3277,7 +3277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0047",
     "location": "KF Bean Platform Green Rupee 1",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3287,7 +3287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0048",
     "location": "KF Bean Platform Green Rupee 2",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3297,7 +3297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0049",
     "location": "KF Bean Platform Green Rupee 3",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3307,7 +3307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0050",
     "location": "KF Bean Platform Green Rupee 4",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3317,7 +3317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0051",
     "location": "KF Bean Platform Green Rupee 5",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3327,7 +3327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0052",
     "location": "KF Bean Platform Green Rupee 6",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3337,7 +3337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0053",
     "location": "KF Bean Platform Red Rupee",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3347,7 +3347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0054",
     "location": "KF Grass Near Ramp Green Rupee 1",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3357,7 +3357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0055",
     "location": "KF Grass Near Ramp Green Rupee 2",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3367,7 +3367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0056",
     "location": "KF Grass Near Midos Green Rupee 1",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3377,7 +3377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0057",
     "location": "KF Grass Near Midos Green Rupee 2",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3387,7 +3387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0058",
     "location": "KF Sarias House Recovery Heart 1",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3397,7 +3397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0059",
     "location": "KF Sarias House Recovery Heart 2",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3407,7 +3407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0060",
     "location": "KF Sarias House Recovery Heart 3",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3417,7 +3417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0061",
     "location": "KF Sarias House Recovery Heart 4",
-    "region": "KF",
+    "area": "KF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -3427,7 +3427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0062",
     "location": "KF Links House Pot",
-    "region": "KF",
+    "area": "KF",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -3437,7 +3437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0063",
     "location": "KF Know it All House Pot 1",
-    "region": "KF",
+    "area": "KF",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -3447,7 +3447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0064",
     "location": "KF Know it All House Pot 2",
-    "region": "KF",
+    "area": "KF",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -3457,7 +3457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0065",
     "location": "KF House of Twins Pot 1",
-    "region": "KF",
+    "area": "KF",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -3467,7 +3467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0066",
     "location": "KF House of Twins Pot 2",
-    "region": "KF",
+    "area": "KF",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -3477,7 +3477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0067",
     "location": "KF Storms Grotto Beehive 1",
-    "region": "KF",
+    "area": "KF",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -3487,7 +3487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0068",
     "location": "KF Storms Grotto Beehive 2",
-    "region": "KF",
+    "area": "KF",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -3497,7 +3497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0069",
     "location": "KF Child Stepping Stones Wonderitem",
-    "region": "KF",
+    "area": "KF",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -3507,7 +3507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0070",
     "location": "KF Child Water Wonderitem",
-    "region": "KF",
+    "area": "KF",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -3517,7 +3517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0071",
     "location": "KF Child Sign Wonderitem",
-    "region": "KF",
+    "area": "KF",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -3527,7 +3527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0072",
     "location": "KF Child Training Wonderitem 1",
-    "region": "KF",
+    "area": "KF",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -3537,7 +3537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0073",
     "location": "KF Child Training Wonderitem 2",
-    "region": "KF",
+    "area": "KF",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -3547,7 +3547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0074",
     "location": "KF Child Training Wonderitem 3",
-    "region": "KF",
+    "area": "KF",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -3557,7 +3557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0075",
     "location": "KF Child Maze Grass Wonderitem 1",
-    "region": "KF",
+    "area": "KF",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -3567,7 +3567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0076",
     "location": "KF Child Maze Grass Wonderitem 2",
-    "region": "KF",
+    "area": "KF",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -3577,7 +3577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0077",
     "location": "KF Shop Wonderitem",
-    "region": "KF",
+    "area": "KF",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -3587,7 +3587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0078",
     "location": "KF Adult Platforms Octorok",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3597,7 +3597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0079",
     "location": "KF Adult Near Shop Octorok",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3607,7 +3607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0080",
     "location": "KF Adult Path To Deku Skulltula",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3617,7 +3617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0081",
     "location": "KF Adult Near Midos House Scrub",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3627,7 +3627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0082",
     "location": "KF Adult Near Links House Scrub",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3637,7 +3637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0083",
     "location": "KF Adult Near Lost Woods Scrub",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3647,7 +3647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0084",
     "location": "KF Adult Near Field Deku Baba",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3657,7 +3657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0085",
     "location": "KF Adult Inside Fence Deku Baba",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3667,7 +3667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0086",
     "location": "KF Adult Near Links House Deku Baba",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3677,7 +3677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0087",
     "location": "KF Adult Near Path To Deku Tree Deku Baba",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3687,7 +3687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0088",
     "location": "KF Child Deku Tree Withered Deku Baba 1",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3697,7 +3697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0089",
     "location": "KF Child Deku Tree Withered Deku Baba 2",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3707,7 +3707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0090",
     "location": "KF Child Deku Tree Withered Deku Baba 3",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3717,7 +3717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0091",
     "location": "KF Child Deku Tree Withered Deku Baba 4",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3727,7 +3727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0092",
     "location": "KF Child Deku Tree Withered Deku Baba 5",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3737,7 +3737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0093",
     "location": "KF Adult Deku Tree Deku Baba 1",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3747,7 +3747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0094",
     "location": "KF Adult Deku Tree Deku Baba 2",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3757,7 +3757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0095",
     "location": "KF Adult Deku Tree Deku Baba 3",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3767,7 +3767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0096",
     "location": "KF Adult Deku Tree Deku Baba 4",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3777,7 +3777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0097",
     "location": "KF Adult Deku Tree Deku Baba 5",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3787,7 +3787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0098",
     "location": "KF Adult Deku Tree Deku Baba 6",
-    "region": "KF",
+    "area": "KF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -3797,7 +3797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0099",
     "location": "KF Storms Grotto Grass 1",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -3807,7 +3807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0100",
     "location": "KF Storms Grotto Grass 2",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -3817,7 +3817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0101",
     "location": "KF Storms Grotto Grass 3",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -3827,7 +3827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0102",
     "location": "KF Storms Grotto Grass 4",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -3837,7 +3837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0103",
     "location": "KF Child Grass 1",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -3847,7 +3847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0104",
     "location": "KF Child Grass 2",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -3857,7 +3857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0105",
     "location": "KF Child Grass 3",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -3867,7 +3867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0106",
     "location": "KF Child Grass 4",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -3877,7 +3877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0107",
     "location": "KF Child Grass 5",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -3887,7 +3887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0108",
     "location": "KF Child Grass 6",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -3897,7 +3897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0109",
     "location": "KF Child Grass 7",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -3907,7 +3907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0110",
     "location": "KF Child Grass 8",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -3917,7 +3917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0111",
     "location": "KF Child Grass 9",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -3927,7 +3927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0112",
     "location": "KF Child Grass 10",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -3937,7 +3937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0113",
     "location": "KF Child Grass 11",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -3947,7 +3947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0114",
     "location": "KF Child Grass 12",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -3957,7 +3957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0115",
     "location": "KF Child Maze Grass 1",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -3967,7 +3967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0116",
     "location": "KF Child Maze Grass 2",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -3977,7 +3977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0117",
     "location": "KF Child Maze Grass 3",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -3987,7 +3987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0118",
     "location": "KF Adult Grass 1",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -3997,7 +3997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0119",
     "location": "KF Adult Grass 2",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4007,7 +4007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0120",
     "location": "KF Adult Grass 3",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4017,7 +4017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0121",
     "location": "KF Adult Grass 4",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4027,7 +4027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0122",
     "location": "KF Adult Grass 5",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4037,7 +4037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0123",
     "location": "KF Adult Grass 6",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4047,7 +4047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0124",
     "location": "KF Adult Grass 7",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4057,7 +4057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0125",
     "location": "KF Adult Grass 8",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4067,7 +4067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0126",
     "location": "KF Adult Grass 9",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4077,7 +4077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0127",
     "location": "KF Adult Grass 10",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4087,7 +4087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0128",
     "location": "KF Adult Grass 11",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4097,7 +4097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0129",
     "location": "KF Adult Grass 12",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4107,7 +4107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0130",
     "location": "KF Adult Grass 13",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4117,7 +4117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0131",
     "location": "KF Adult Grass 14",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4127,7 +4127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0132",
     "location": "KF Adult Grass 15",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4137,7 +4137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0133",
     "location": "KF Adult Grass 16",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4147,7 +4147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0134",
     "location": "KF Adult Grass 17",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4157,7 +4157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0135",
     "location": "KF Adult Grass 18",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4167,7 +4167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0136",
     "location": "KF Adult Grass 19",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4177,7 +4177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0137",
     "location": "KF Adult Grass 20",
-    "region": "KF",
+    "area": "KF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4187,7 +4187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0138",
     "location": "KF Deku Tree Gossip Stone (Left) Drop",
-    "region": "KF",
+    "area": "KF",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -4197,7 +4197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0139",
     "location": "KF Deku Tree Gossip Stone (Right) Drop",
-    "region": "KF",
+    "area": "KF",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -4207,7 +4207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0140",
     "location": "KF Gossip Stone Drop",
-    "region": "KF",
+    "area": "KF",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -4217,7 +4217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0141",
     "location": "KF Storms Grotto Gossip Stone Drop",
-    "region": "KF",
+    "area": "KF",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -4227,7 +4227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0142",
     "location": "LW Gift from Saria",
-    "region": "LW",
+    "area": "LW",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -4237,7 +4237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0143",
     "location": "LW Ocarina Memory Game",
-    "region": "LW",
+    "area": "LW",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -4247,7 +4247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0144",
     "location": "LW Target in Woods",
-    "region": "LW",
+    "area": "LW",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -4257,7 +4257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0145",
     "location": "LW Near Shortcuts Grotto Chest",
-    "region": "LW",
+    "area": "LW",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -4267,7 +4267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0146",
     "location": "LW Trade Cojiro",
-    "region": "LW",
+    "area": "LW",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -4277,7 +4277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0147",
     "location": "LW Trade Odd Potion",
-    "region": "LW",
+    "area": "LW",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -4287,7 +4287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0148",
     "location": "Deku Theater Skull Mask",
-    "region": "Deku",
+    "area": "Deku",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -4297,7 +4297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0149",
     "location": "Deku Theater Mask of Truth",
-    "region": "Deku",
+    "area": "Deku",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -4307,7 +4307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0150",
     "location": "LW Skull Kid",
-    "region": "LW",
+    "area": "LW",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -4317,7 +4317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0151",
     "location": "LW Deku Scrub Near Bridge",
-    "region": "LW",
+    "area": "LW",
     "type": "Scrub",
     "item": "",
     "price": null,
@@ -4327,7 +4327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0152",
     "location": "LW Deku Scrub Near Deku Theater Left",
-    "region": "LW",
+    "area": "LW",
     "type": "Scrub",
     "item": "",
     "price": null,
@@ -4337,7 +4337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0153",
     "location": "LW Deku Scrub Near Deku Theater Right",
-    "region": "LW",
+    "area": "LW",
     "type": "Scrub",
     "item": "",
     "price": null,
@@ -4347,7 +4347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0154",
     "location": "LW Deku Scrub Grotto Front",
-    "region": "LW",
+    "area": "LW",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -4357,7 +4357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0155",
     "location": "LW Deku Scrub Grotto Rear",
-    "region": "LW",
+    "area": "LW",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -4367,7 +4367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0156",
     "location": "LW GS Bean Patch Near Bridge",
-    "region": "LW",
+    "area": "LW",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -4377,7 +4377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0157",
     "location": "LW GS Bean Patch Near Theater",
-    "region": "LW",
+    "area": "LW",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -4387,7 +4387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0158",
     "location": "LW GS Above Theater",
-    "region": "LW",
+    "area": "LW",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -4397,7 +4397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0159",
     "location": "LW Under Boulder Blue Rupee",
-    "region": "LW",
+    "area": "LW",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -4407,7 +4407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0160",
     "location": "LW Underwater Green Rupee 1",
-    "region": "LW",
+    "area": "LW",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -4417,7 +4417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0161",
     "location": "LW Underwater Green Rupee 2",
-    "region": "LW",
+    "area": "LW",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -4427,7 +4427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0162",
     "location": "LW Underwater Green Rupee 3",
-    "region": "LW",
+    "area": "LW",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -4437,7 +4437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0163",
     "location": "LW Underwater Green Rupee 4",
-    "region": "LW",
+    "area": "LW",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -4447,7 +4447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0164",
     "location": "LW Underwater Green Rupee 5",
-    "region": "LW",
+    "area": "LW",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -4457,7 +4457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0165",
     "location": "LW Underwater Green Rupee 6",
-    "region": "LW",
+    "area": "LW",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -4467,7 +4467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0166",
     "location": "LW Underwater Green Rupee 7",
-    "region": "LW",
+    "area": "LW",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -4477,7 +4477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0167",
     "location": "LW Underwater Shortcut Green Rupee",
-    "region": "LW",
+    "area": "LW",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -4487,7 +4487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0168",
     "location": "LW Near Shortcuts Grotto Beehive 1",
-    "region": "LW",
+    "area": "LW",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -4497,7 +4497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0169",
     "location": "LW Near Shortcuts Grotto Beehive 2",
-    "region": "LW",
+    "area": "LW",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -4507,7 +4507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0170",
     "location": "LW Scrubs Grotto Beehive",
-    "region": "LW",
+    "area": "LW",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -4517,7 +4517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0171",
     "location": "LW Near Ocarina Game Wonderitem 1",
-    "region": "LW",
+    "area": "LW",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -4527,7 +4527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0172",
     "location": "LW Near Ocarina Game Wonderitem 2",
-    "region": "LW",
+    "area": "LW",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -4537,7 +4537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0173",
     "location": "LW Near Ocarina Game Wonderitem 3",
-    "region": "LW",
+    "area": "LW",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -4547,7 +4547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0174",
     "location": "LW Adult Sarias Friend Skullkid Enemy",
-    "region": "LW",
+    "area": "LW",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -4557,7 +4557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0175",
     "location": "LW Adult Ocarina Game Skullkid Enemy 1",
-    "region": "LW",
+    "area": "LW",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -4567,7 +4567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0176",
     "location": "LW Adult Ocarina Game Skullkid Enemy 2",
-    "region": "LW",
+    "area": "LW",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -4577,7 +4577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0177",
     "location": "LW Near Shortcuts Grotto Grass 1",
-    "region": "LW",
+    "area": "LW",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4587,7 +4587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0178",
     "location": "LW Near Shortcuts Grotto Grass 2",
-    "region": "LW",
+    "area": "LW",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4597,7 +4597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0179",
     "location": "LW Near Shortcuts Grotto Grass 3",
-    "region": "LW",
+    "area": "LW",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4607,7 +4607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0180",
     "location": "LW Near Shortcuts Grotto Grass 4",
-    "region": "LW",
+    "area": "LW",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4617,7 +4617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0181",
     "location": "Lost Woods Near Goron City Grass 1",
-    "region": "Unknown",
+    "area": "LW",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4627,7 +4627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0182",
     "location": "Lost Woods Near Goron City Grass 2",
-    "region": "Unknown",
+    "area": "LW",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4637,7 +4637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0183",
     "location": "Lost Woods Near Goron City Grass 3",
-    "region": "Unknown",
+    "area": "LW",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4647,7 +4647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0184",
     "location": "Lost Woods Boulder Grass 1",
-    "region": "Unknown",
+    "area": "LW",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4657,7 +4657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0185",
     "location": "Lost Woods Boulder Grass 2",
-    "region": "Unknown",
+    "area": "LW",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4667,7 +4667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0186",
     "location": "Lost Woods Boulder Grass 3",
-    "region": "Unknown",
+    "area": "LW",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4677,7 +4677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0187",
     "location": "Lost Woods Near Meadow Grass 1",
-    "region": "Unknown",
+    "area": "LW",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4687,7 +4687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0188",
     "location": "Lost Woods Near Meadow Grass 2",
-    "region": "Unknown",
+    "area": "LW",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4697,7 +4697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0189",
     "location": "Lost Woods Near Meadow Grass 3",
-    "region": "Unknown",
+    "area": "LW",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -4707,7 +4707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0190",
     "location": "LW Gossip Stone Drop",
-    "region": "LW",
+    "area": "LW",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -4717,7 +4717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0191",
     "location": "LW Near Shortcuts Grotto Gossip Stone Drop",
-    "region": "LW",
+    "area": "LW",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -4727,7 +4727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0192",
     "location": "SFM Wolfos Grotto Chest",
-    "region": "SFM",
+    "area": "SFM",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -4737,7 +4737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0193",
     "location": "SFM Deku Scrub Grotto Front",
-    "region": "SFM",
+    "area": "SFM",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -4747,7 +4747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0194",
     "location": "SFM Deku Scrub Grotto Rear",
-    "region": "SFM",
+    "area": "SFM",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -4757,7 +4757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0195",
     "location": "SFM GS",
-    "region": "SFM",
+    "area": "SFM",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -4767,7 +4767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0196",
     "location": "SFM Storms Grotto Beehive",
-    "region": "SFM",
+    "area": "SFM",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -4777,7 +4777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0197",
     "location": "SFM Near Lost Woods Wonderitem",
-    "region": "SFM",
+    "area": "SFM",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -4787,7 +4787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0198",
     "location": "SFM Maze Wonderitem 1",
-    "region": "SFM",
+    "area": "SFM",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -4797,7 +4797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0199",
     "location": "SFM Maze Wonderitem 2",
-    "region": "SFM",
+    "area": "SFM",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -4807,7 +4807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0200",
     "location": "SFM Maze Wonderitem 3",
-    "region": "SFM",
+    "area": "SFM",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -4817,7 +4817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0201",
     "location": "SFM Maze Wonderitem 4",
-    "region": "SFM",
+    "area": "SFM",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -4827,7 +4827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0202",
     "location": "SFM Maze Wonderitem 5",
-    "region": "SFM",
+    "area": "SFM",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -4837,7 +4837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0203",
     "location": "SFM Child Wolfos",
-    "region": "SFM",
+    "area": "SFM",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -4847,7 +4847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0204",
     "location": "SFM Child Maze Scrub 1",
-    "region": "SFM",
+    "area": "SFM",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -4857,7 +4857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0205",
     "location": "SFM Child Maze Scrub 2",
-    "region": "SFM",
+    "area": "SFM",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -4867,7 +4867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0206",
     "location": "SFM Child Maze Scrub 3",
-    "region": "SFM",
+    "area": "SFM",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -4877,7 +4877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0207",
     "location": "SFM Child Maze Scrub 4",
-    "region": "SFM",
+    "area": "SFM",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -4887,7 +4887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0208",
     "location": "SFM Child Near Saria Scrub 1",
-    "region": "SFM",
+    "area": "SFM",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -4897,7 +4897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0209",
     "location": "SFM Child Near Saria Scrub 2",
-    "region": "SFM",
+    "area": "SFM",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -4907,7 +4907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0210",
     "location": "SFM Adult Maze Moblin 1",
-    "region": "SFM",
+    "area": "SFM",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -4917,7 +4917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0211",
     "location": "SFM Adult Maze Moblin 2",
-    "region": "SFM",
+    "area": "SFM",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -4927,7 +4927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0212",
     "location": "SFM Adult Maze Moblin 3",
-    "region": "SFM",
+    "area": "SFM",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -4937,7 +4937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0213",
     "location": "SFM Adult Maze Moblin 4",
-    "region": "SFM",
+    "area": "SFM",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -4947,7 +4947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0214",
     "location": "SFM Adult Maze Moblin 5",
-    "region": "SFM",
+    "area": "SFM",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -4957,7 +4957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0215",
     "location": "SFM Adult Smashing Moblin",
-    "region": "SFM",
+    "area": "SFM",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -4967,7 +4967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0216",
     "location": "SFM Wolfos Grotto Wolfos 1",
-    "region": "SFM",
+    "area": "SFM",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -4977,7 +4977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0217",
     "location": "SFM Wolfos Grotto Wolfos 2",
-    "region": "SFM",
+    "area": "SFM",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -4987,7 +4987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0218",
     "location": "SFM Maze Gossip Stone (Lower) Drop",
-    "region": "SFM",
+    "area": "SFM",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -4997,7 +4997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0219",
     "location": "SFM Maze Gossip Stone (Upper) Drop",
-    "region": "SFM",
+    "area": "SFM",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -5007,7 +5007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0220",
     "location": "SFM Saria Gossip Stone Drop",
-    "region": "SFM",
+    "area": "SFM",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -5017,7 +5017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0221",
     "location": "HF Ocarina of Time Item",
-    "region": "HF",
+    "area": "HF",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -5027,7 +5027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0222",
     "location": "HF Near Market Grotto Chest",
-    "region": "HF",
+    "area": "HF",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -5037,7 +5037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0223",
     "location": "HF Tektite Grotto Freestanding PoH",
-    "region": "HF",
+    "area": "HF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -5047,7 +5047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0224",
     "location": "HF Southeast Grotto Chest",
-    "region": "HF",
+    "area": "HF",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -5057,7 +5057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0225",
     "location": "HF Open Grotto Chest",
-    "region": "HF",
+    "area": "HF",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -5067,7 +5067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0226",
     "location": "HF Deku Scrub Grotto",
-    "region": "HF",
+    "area": "HF",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -5077,7 +5077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0227",
     "location": "HF Cow Grotto Cow",
-    "region": "HF",
+    "area": "HF",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -5087,7 +5087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0228",
     "location": "HF GS Cow Grotto",
-    "region": "HF",
+    "area": "HF",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -5097,7 +5097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0229",
     "location": "HF GS Near Kak Grotto",
-    "region": "HF",
+    "area": "HF",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -5107,7 +5107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0230",
     "location": "HF Cow Grotto Pot 1",
-    "region": "HF",
+    "area": "HF",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -5117,7 +5117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0231",
     "location": "HF Cow Grotto Pot 2",
-    "region": "HF",
+    "area": "HF",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -5127,7 +5127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0232",
     "location": "HF Near Market Grotto Beehive 1",
-    "region": "HF",
+    "area": "HF",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -5137,7 +5137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0233",
     "location": "HF Near Market Grotto Beehive 2",
-    "region": "HF",
+    "area": "HF",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -5147,7 +5147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0234",
     "location": "HF Open Grotto Beehive 1",
-    "region": "HF",
+    "area": "HF",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -5157,7 +5157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0235",
     "location": "HF Open Grotto Beehive 2",
-    "region": "HF",
+    "area": "HF",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -5167,7 +5167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0236",
     "location": "HF Southeast Grotto Beehive 1",
-    "region": "HF",
+    "area": "HF",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -5177,7 +5177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0237",
     "location": "HF Southeast Grotto Beehive 2",
-    "region": "HF",
+    "area": "HF",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -5187,7 +5187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0238",
     "location": "HF Inside Fence Grotto Beehive",
-    "region": "HF",
+    "area": "HF",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -5197,7 +5197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0239",
     "location": "HF Near Market Grotto Grass 1",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5207,7 +5207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0240",
     "location": "HF Near Market Grotto Grass 2",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5217,7 +5217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0241",
     "location": "HF Near Market Grotto Grass 3",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5227,7 +5227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0242",
     "location": "HF Near Market Grotto Grass 4",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5237,7 +5237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0243",
     "location": "HF Open Grotto Grass 1",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5247,7 +5247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0244",
     "location": "HF Open Grotto Grass 2",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5257,7 +5257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0245",
     "location": "HF Open Grotto Grass 3",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5267,7 +5267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0246",
     "location": "HF Open Grotto Grass 4",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5277,7 +5277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0247",
     "location": "HF Southeast Grotto Grass 1",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5287,7 +5287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0248",
     "location": "HF Southeast Grotto Grass 2",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5297,7 +5297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0249",
     "location": "HF Southeast Grotto Grass 3",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5307,7 +5307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0250",
     "location": "HF Southeast Grotto Grass 4",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5317,7 +5317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0251",
     "location": "HF Child Above Drawbridge Wonderitem 1",
-    "region": "HF",
+    "area": "HF",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -5327,7 +5327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0252",
     "location": "HF Child Above Drawbridge Wonderitem 2",
-    "region": "HF",
+    "area": "HF",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -5337,7 +5337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0253",
     "location": "HF Child Above Drawbridge Wonderitem 3",
-    "region": "HF",
+    "area": "HF",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -5347,7 +5347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0254",
     "location": "HF Cow Grotto Skulltula",
-    "region": "HF",
+    "area": "HF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -5357,7 +5357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0255",
     "location": "HF Tektite Grotto Tektite",
-    "region": "HF",
+    "area": "HF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -5367,7 +5367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0256",
     "location": "HF Near Kak Grotto Skulltula",
-    "region": "HF",
+    "area": "HF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -5377,7 +5377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0257",
     "location": "HF Child Near Fairy Grotto Peahat",
-    "region": "HF",
+    "area": "HF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -5387,7 +5387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0258",
     "location": "HF Child Near Kokiri Forest Peahat",
-    "region": "HF",
+    "area": "HF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -5397,7 +5397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0259",
     "location": "HF Child South Field Peahat 1",
-    "region": "HF",
+    "area": "HF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -5407,7 +5407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0260",
     "location": "HF Child South Field Peahat 2",
-    "region": "HF",
+    "area": "HF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -5417,7 +5417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0261",
     "location": "HF Child South Field Peahat 3",
-    "region": "HF",
+    "area": "HF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -5427,7 +5427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0262",
     "location": "HF Child South Field Flying Peahat",
-    "region": "HF",
+    "area": "HF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -5437,7 +5437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0263",
     "location": "HF Child Near Valley Flying Peahat",
-    "region": "HF",
+    "area": "HF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -5447,7 +5447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0264",
     "location": "HF Cow Grotto Grass 1",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5457,7 +5457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0265",
     "location": "HF Cow Grotto Grass 2",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5467,7 +5467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0266",
     "location": "HF South Grass Patch 1",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5477,7 +5477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0267",
     "location": "HF South Grass Patch 2",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5487,7 +5487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0268",
     "location": "HF South Grass Patch 3",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5497,7 +5497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0269",
     "location": "HF South Grass Patch 4",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5507,7 +5507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0270",
     "location": "HF South Grass Patch 5",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5517,7 +5517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0271",
     "location": "HF South Grass Patch 6",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5527,7 +5527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0272",
     "location": "HF South Grass Patch 7",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5537,7 +5537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0273",
     "location": "HF South Grass Patch 8",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5547,7 +5547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0274",
     "location": "HF South Grass Patch 9",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5557,7 +5557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0275",
     "location": "HF South Grass Patch 10",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5567,7 +5567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0276",
     "location": "HF South Grass Patch 11",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5577,7 +5577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0277",
     "location": "HF South Grass Patch 12",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5587,7 +5587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0278",
     "location": "HF South 2 Grass Patch 1",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5597,7 +5597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0279",
     "location": "HF South 2 Grass Patch 2",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5607,7 +5607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0280",
     "location": "HF South 2 Grass Patch 3",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5617,7 +5617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0281",
     "location": "HF South 2 Grass Patch 4",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5627,7 +5627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0282",
     "location": "HF South 2 Grass Patch 5",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5637,7 +5637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0283",
     "location": "HF South 2 Grass Patch 6",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5647,7 +5647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0284",
     "location": "HF South 2 Grass Patch 7",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5657,7 +5657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0285",
     "location": "HF South 2 Grass Patch 8",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5667,7 +5667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0286",
     "location": "HF South 2 Grass Patch 9",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5677,7 +5677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0287",
     "location": "HF South 2 Grass Patch 10",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5687,7 +5687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0288",
     "location": "HF South 2 Grass Patch 11",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5697,7 +5697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0289",
     "location": "HF South 2 Grass Patch 12",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5707,7 +5707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0290",
     "location": "HF Central Grass Patch 1",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5717,7 +5717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0291",
     "location": "HF Central Grass Patch 2",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5727,7 +5727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0292",
     "location": "HF Central Grass Patch 3",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5737,7 +5737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0293",
     "location": "HF Central Grass Patch 4",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5747,7 +5747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0294",
     "location": "HF Central Grass Patch 5",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5757,7 +5757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0295",
     "location": "HF Central Grass Patch 6",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5767,7 +5767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0296",
     "location": "HF Central Grass Patch 7",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5777,7 +5777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0297",
     "location": "HF Central Grass Patch 8",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5787,7 +5787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0298",
     "location": "HF Central Grass Patch 9",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5797,7 +5797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0299",
     "location": "HF Central Grass Patch 10",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5807,7 +5807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0300",
     "location": "HF Central Grass Patch 11",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5817,7 +5817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0301",
     "location": "HF Central Grass Patch 12",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5827,7 +5827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0302",
     "location": "HF Near KF Grass Patch 1",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5837,7 +5837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0303",
     "location": "HF Near KF Grass Patch 2",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5847,7 +5847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0304",
     "location": "HF Near KF Grass Patch 3",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5857,7 +5857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0305",
     "location": "HF Near KF Grass Patch 4",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5867,7 +5867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0306",
     "location": "HF Near KF Grass Patch 5",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5877,7 +5877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0307",
     "location": "HF Near KF Grass Patch 6",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5887,7 +5887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0308",
     "location": "HF Near KF Grass Patch 7",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5897,7 +5897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0309",
     "location": "HF Near KF Grass Patch 8",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5907,7 +5907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0310",
     "location": "HF Near KF Grass Patch 9",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5917,7 +5917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0311",
     "location": "HF Near KF Grass Patch 10",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5927,7 +5927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0312",
     "location": "HF Near KF Grass Patch 11",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5937,7 +5937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0313",
     "location": "HF Near KF Grass Patch 12",
-    "region": "HF",
+    "area": "HF",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -5947,7 +5947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0314",
     "location": "HF Near Market Grotto Gossip Stone Drop",
-    "region": "HF",
+    "area": "HF",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -5957,7 +5957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0315",
     "location": "HF Southeast Grotto Gossip Stone Drop",
-    "region": "HF",
+    "area": "HF",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -5967,7 +5967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0316",
     "location": "HF Open Grotto Gossip Stone Drop",
-    "region": "HF",
+    "area": "HF",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -5977,7 +5977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0317",
     "location": "HF Cow Grotto Gossip Stone Drop",
-    "region": "HF",
+    "area": "HF",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -5987,7 +5987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0318",
     "location": "Market Shooting Gallery Reward",
-    "region": "Market",
+    "area": "Market",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -5997,7 +5997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0319",
     "location": "Market Bombchu Bowling First Prize",
-    "region": "Market",
+    "area": "Market",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -6007,7 +6007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0320",
     "location": "Market Bombchu Bowling Second Prize",
-    "region": "Market",
+    "area": "Market",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -6017,7 +6017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0321",
     "location": "Market Lost Dog",
-    "region": "Market",
+    "area": "Market",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -6027,7 +6027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0322",
     "location": "Market Treasure Chest Game Salesman",
-    "region": "Market",
+    "area": "Market",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -6037,7 +6037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0323",
     "location": "Market Treasure Chest Game Room 1 Bottom",
-    "region": "Market",
+    "area": "Market",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -6047,7 +6047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0324",
     "location": "Market Treasure Chest Game Room 1 Top",
-    "region": "Market",
+    "area": "Market",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -6057,7 +6057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0325",
     "location": "Market Treasure Chest Game Room 2 Bottom",
-    "region": "Market",
+    "area": "Market",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -6067,7 +6067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0326",
     "location": "Market Treasure Chest Game Room 2 Top",
-    "region": "Market",
+    "area": "Market",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -6077,7 +6077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0327",
     "location": "Market Treasure Chest Game Room 3 Bottom",
-    "region": "Market",
+    "area": "Market",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -6087,7 +6087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0328",
     "location": "Market Treasure Chest Game Room 3 Top",
-    "region": "Market",
+    "area": "Market",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -6097,7 +6097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0329",
     "location": "Market Treasure Chest Game Room 4 Bottom",
-    "region": "Market",
+    "area": "Market",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -6107,7 +6107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0330",
     "location": "Market Treasure Chest Game Room 4 Top",
-    "region": "Market",
+    "area": "Market",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -6117,7 +6117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0331",
     "location": "Market Treasure Chest Game Room 5 Bottom",
-    "region": "Market",
+    "area": "Market",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -6127,7 +6127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0332",
     "location": "Market Treasure Chest Game Room 5 Top",
-    "region": "Market",
+    "area": "Market",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -6137,7 +6137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0333",
     "location": "Market Treasure Chest Game Reward",
-    "region": "Market",
+    "area": "Market",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -6147,7 +6147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0334",
     "location": "Market 10 Big Poes",
-    "region": "Market",
+    "area": "Market",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -6157,7 +6157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0335",
     "location": "Market GS Guard House",
-    "region": "Market",
+    "area": "Market",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -6167,7 +6167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0336",
     "location": "Market Mask Shop Item 1",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6177,7 +6177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0337",
     "location": "Market Mask Shop Item 2",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6187,7 +6187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0338",
     "location": "Market Mask Shop Item 3",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6197,7 +6197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0339",
     "location": "Market Mask Shop Item 4",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6207,7 +6207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0340",
     "location": "Market Mask Shop Item 5",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6217,7 +6217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0341",
     "location": "Market Mask Shop Item 6",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6227,7 +6227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0342",
     "location": "Market Mask Shop Item 7",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6237,7 +6237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0343",
     "location": "Market Mask Shop Item 8",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6247,7 +6247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0344",
     "location": "Market Bazaar Item 1",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6257,7 +6257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0345",
     "location": "Market Bazaar Item 2",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6267,7 +6267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0346",
     "location": "Market Bazaar Item 3",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6277,7 +6277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0347",
     "location": "Market Bazaar Item 4",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6287,7 +6287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0348",
     "location": "Market Bazaar Item 5",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6297,7 +6297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0349",
     "location": "Market Bazaar Item 6",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6307,7 +6307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0350",
     "location": "Market Bazaar Item 7",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6317,7 +6317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0351",
     "location": "Market Bazaar Item 8",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6327,7 +6327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0352",
     "location": "Market Potion Shop Item 1",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6337,7 +6337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0353",
     "location": "Market Potion Shop Item 2",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6347,7 +6347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0354",
     "location": "Market Potion Shop Item 3",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6357,7 +6357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0355",
     "location": "Market Potion Shop Item 4",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6367,7 +6367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0356",
     "location": "Market Potion Shop Item 5",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6377,7 +6377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0357",
     "location": "Market Potion Shop Item 6",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6387,7 +6387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0358",
     "location": "Market Potion Shop Item 7",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6397,7 +6397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0359",
     "location": "Market Potion Shop Item 8",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6407,7 +6407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0360",
     "location": "Market Bombchu Shop Item 1",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6417,7 +6417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0361",
     "location": "Market Bombchu Shop Item 2",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6427,7 +6427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0362",
     "location": "Market Bombchu Shop Item 3",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6437,7 +6437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0363",
     "location": "Market Bombchu Shop Item 4",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6447,7 +6447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0364",
     "location": "Market Bombchu Shop Item 5",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6457,7 +6457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0365",
     "location": "Market Bombchu Shop Item 6",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6467,7 +6467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0366",
     "location": "Market Bombchu Shop Item 7",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6477,7 +6477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0367",
     "location": "Market Bombchu Shop Item 8",
-    "region": "Market",
+    "area": "Market",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -6487,7 +6487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0368",
     "location": "Market Guard House Child Pot 1",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6497,7 +6497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0369",
     "location": "Market Guard House Child Pot 2",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6507,7 +6507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0370",
     "location": "Market Guard House Child Pot 3",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6517,7 +6517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0371",
     "location": "Market Guard House Child Pot 4",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6527,7 +6527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0372",
     "location": "Market Guard House Child Pot 5",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6537,7 +6537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0373",
     "location": "Market Guard House Child Pot 6",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6547,7 +6547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0374",
     "location": "Market Guard House Child Pot 7",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6557,7 +6557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0375",
     "location": "Market Guard House Child Pot 8",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6567,7 +6567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0376",
     "location": "Market Guard House Child Pot 9",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6577,7 +6577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0377",
     "location": "Market Guard House Child Pot 10",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6587,7 +6587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0378",
     "location": "Market Guard House Child Pot 11",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6597,7 +6597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0379",
     "location": "Market Guard House Child Pot 12",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6607,7 +6607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0380",
     "location": "Market Guard House Child Pot 13",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6617,7 +6617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0381",
     "location": "Market Guard House Child Pot 14",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6627,7 +6627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0382",
     "location": "Market Guard House Child Pot 15",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6637,7 +6637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0383",
     "location": "Market Guard House Child Pot 16",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6647,7 +6647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0384",
     "location": "Market Guard House Child Pot 17",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6657,7 +6657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0385",
     "location": "Market Guard House Child Pot 18",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6667,7 +6667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0386",
     "location": "Market Guard House Child Pot 19",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6677,7 +6677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0387",
     "location": "Market Guard House Child Pot 20",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6687,7 +6687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0388",
     "location": "Market Guard House Child Pot 21",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6697,7 +6697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0389",
     "location": "Market Guard House Child Pot 22",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6707,7 +6707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0390",
     "location": "Market Guard House Child Pot 23",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6717,7 +6717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0391",
     "location": "Market Guard House Child Pot 24",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6727,7 +6727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0392",
     "location": "Market Guard House Child Pot 25",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6737,7 +6737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0393",
     "location": "Market Guard House Child Pot 26",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6747,7 +6747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0394",
     "location": "Market Guard House Child Pot 27",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6757,7 +6757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0395",
     "location": "Market Guard House Child Pot 28",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6767,7 +6767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0396",
     "location": "Market Guard House Child Pot 29",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6777,7 +6777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0397",
     "location": "Market Guard House Child Pot 30",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6787,7 +6787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0398",
     "location": "Market Guard House Child Pot 31",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6797,7 +6797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0399",
     "location": "Market Guard House Child Pot 32",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6807,7 +6807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0400",
     "location": "Market Guard House Child Pot 33",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6817,7 +6817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0401",
     "location": "Market Guard House Child Pot 34",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6827,7 +6827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0402",
     "location": "Market Guard House Child Pot 35",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6837,7 +6837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0403",
     "location": "Market Guard House Child Pot 36",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6847,7 +6847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0404",
     "location": "Market Guard House Child Pot 37",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6857,7 +6857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0405",
     "location": "Market Guard House Child Pot 38",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6867,7 +6867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0406",
     "location": "Market Guard House Child Pot 39",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6877,7 +6877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0407",
     "location": "Market Guard House Child Pot 40",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6887,7 +6887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0408",
     "location": "Market Guard House Child Pot 41",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6897,7 +6897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0409",
     "location": "Market Guard House Child Pot 42",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6907,7 +6907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0410",
     "location": "Market Guard House Child Pot 43",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6917,7 +6917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0411",
     "location": "Market Guard House Child Pot 44",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6927,7 +6927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0412",
     "location": "Market Guard House Adult Pot 1",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6937,7 +6937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0413",
     "location": "Market Guard House Adult Pot 2",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6947,7 +6947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0414",
     "location": "Market Guard House Adult Pot 3",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6957,7 +6957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0415",
     "location": "Market Guard House Adult Pot 4",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6967,7 +6967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0416",
     "location": "Market Guard House Adult Pot 5",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6977,7 +6977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0417",
     "location": "Market Guard House Adult Pot 6",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6987,7 +6987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0418",
     "location": "Market Guard House Adult Pot 7",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -6997,7 +6997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0419",
     "location": "Market Guard House Adult Pot 8",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7007,7 +7007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0420",
     "location": "Market Guard House Adult Pot 9",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7017,7 +7017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0421",
     "location": "Market Guard House Adult Pot 10",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7027,7 +7027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0422",
     "location": "Market Guard House Adult Pot 11",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7037,7 +7037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0423",
     "location": "Market Man in Green House Pot 1",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7047,7 +7047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0424",
     "location": "Market Man in Green House Pot 2",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7057,7 +7057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0425",
     "location": "Market Man in Green House Pot 3",
-    "region": "Market",
+    "area": "Market",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7067,7 +7067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0426",
     "location": "Market Child Grass 1",
-    "region": "Market",
+    "area": "Market",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -7077,7 +7077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0427",
     "location": "Market Child Grass 2",
-    "region": "Market",
+    "area": "Market",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -7087,7 +7087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0428",
     "location": "Market Child Grass 3",
-    "region": "Market",
+    "area": "Market",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -7097,7 +7097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0429",
     "location": "Market Child Grass 4",
-    "region": "Market",
+    "area": "Market",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -7107,7 +7107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0430",
     "location": "Market Child Grass 5",
-    "region": "Market",
+    "area": "Market",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -7117,7 +7117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0431",
     "location": "Market Child Grass 6",
-    "region": "Market",
+    "area": "Market",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -7127,7 +7127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0432",
     "location": "Market Child Grass 7",
-    "region": "Market",
+    "area": "Market",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -7137,7 +7137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0433",
     "location": "Market Child Grass 8",
-    "region": "Market",
+    "area": "Market",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -7147,7 +7147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0434",
     "location": "Market Night Red Rupee Crate",
-    "region": "Market",
+    "area": "Market",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -7157,7 +7157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0435",
     "location": "Market Night Green Rupee Crate 1",
-    "region": "Market",
+    "area": "Market",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -7167,7 +7167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0436",
     "location": "Market Night Green Rupee Crate 2",
-    "region": "Market",
+    "area": "Market",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -7177,7 +7177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0437",
     "location": "Market Night Green Rupee Crate 3",
-    "region": "Market",
+    "area": "Market",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -7187,7 +7187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0438",
     "location": "Market Day Crate 1",
-    "region": "Market",
+    "area": "Market",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -7197,7 +7197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0439",
     "location": "Market Day Crate 2",
-    "region": "Market",
+    "area": "Market",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -7207,7 +7207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0440",
     "location": "Market Day Crate 3",
-    "region": "Market",
+    "area": "Market",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -7217,7 +7217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0441",
     "location": "Market Day Crate 4",
-    "region": "Market",
+    "area": "Market",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -7227,7 +7227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0442",
     "location": "Market Dog Lady House Crate",
-    "region": "Market",
+    "area": "Market",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -7237,7 +7237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0443",
     "location": "Market Guard House Child Crate 1",
-    "region": "Market",
+    "area": "Market",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -7247,7 +7247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0444",
     "location": "Market Guard House Child Crate 2",
-    "region": "Market",
+    "area": "Market",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -7257,7 +7257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0445",
     "location": "Market Guard House Child Crate 3",
-    "region": "Market",
+    "area": "Market",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -7267,7 +7267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0446",
     "location": "Market Guard House Child Crate 4",
-    "region": "Market",
+    "area": "Market",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -7277,7 +7277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0447",
     "location": "Market Daytime Balcony Wonderitem 1",
-    "region": "Market",
+    "area": "Market",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -7287,7 +7287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0448",
     "location": "Market Daytime Balcony Wonderitem 2",
-    "region": "Market",
+    "area": "Market",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -7297,7 +7297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0449",
     "location": "Market Daytime Balcony Wonderitem 3",
-    "region": "Market",
+    "area": "Market",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -7307,7 +7307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0450",
     "location": "Market Daytime Balcony Wonderitem 4",
-    "region": "Market",
+    "area": "Market",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -7317,7 +7317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0451",
     "location": "Market Daytime Balcony Wonderitem 5",
-    "region": "Market",
+    "area": "Market",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -7327,7 +7327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0452",
     "location": "Market Night Balcony Wonderitem 1",
-    "region": "Market",
+    "area": "Market",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -7337,7 +7337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0453",
     "location": "Market Night Balcony Wonderitem 2",
-    "region": "Market",
+    "area": "Market",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -7347,7 +7347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0454",
     "location": "Market Adult ReDead 1",
-    "region": "Market",
+    "area": "Market",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -7357,7 +7357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0455",
     "location": "Market Adult ReDead 2",
-    "region": "Market",
+    "area": "Market",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -7367,7 +7367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0456",
     "location": "Market Adult ReDead 3",
-    "region": "Market",
+    "area": "Market",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -7377,7 +7377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0457",
     "location": "Market Adult ReDead 4",
-    "region": "Market",
+    "area": "Market",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -7387,7 +7387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0458",
     "location": "Market Adult ReDead 5",
-    "region": "Market",
+    "area": "Market",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -7397,7 +7397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0459",
     "location": "Market Adult ReDead 6",
-    "region": "Market",
+    "area": "Market",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -7407,7 +7407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0460",
     "location": "Market Adult ReDead 7",
-    "region": "Market",
+    "area": "Market",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -7417,7 +7417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0461",
     "location": "Market Adult ReDead 8",
-    "region": "Market",
+    "area": "Market",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -7427,7 +7427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0462",
     "location": "ToT Light Arrows Cutscene",
-    "region": "ToT",
+    "area": "ToT",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -7437,7 +7437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0463",
     "location": "ToT Gossip Stone (Left) Drop",
-    "region": "ToT",
+    "area": "ToT",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -7447,7 +7447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0464",
     "location": "ToT Gossip Stone (Left-Center) Drop",
-    "region": "ToT",
+    "area": "ToT",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -7457,7 +7457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0465",
     "location": "ToT Gossip Stone (Right) Drop",
-    "region": "ToT",
+    "area": "ToT",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -7467,7 +7467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0466",
     "location": "ToT Gossip Stone (Right-Center) Drop",
-    "region": "ToT",
+    "area": "ToT",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -7477,7 +7477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0467",
     "location": "HC Malon Egg",
-    "region": "HC",
+    "area": "HC",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -7487,7 +7487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0468",
     "location": "HC Zeldas Letter",
-    "region": "HC",
+    "area": "HC",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -7497,7 +7497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0469",
     "location": "HC Great Fairy Reward",
-    "region": "HC",
+    "area": "HC",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -7507,7 +7507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0470",
     "location": "HC GS Tree",
-    "region": "HC",
+    "area": "HC",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -7517,7 +7517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0471",
     "location": "HC GS Storms Grotto",
-    "region": "HC",
+    "area": "HC",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -7527,7 +7527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0472",
     "location": "HC Storms Grotto Pot 1",
-    "region": "HC",
+    "area": "HC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7537,7 +7537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0473",
     "location": "HC Storms Grotto Pot 2",
-    "region": "HC",
+    "area": "HC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7547,7 +7547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0474",
     "location": "HC Storms Grotto Pot 3",
-    "region": "HC",
+    "area": "HC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7557,7 +7557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0475",
     "location": "HC Storms Grotto Pot 4",
-    "region": "HC",
+    "area": "HC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7567,7 +7567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0476",
     "location": "Hyrule Castle Grass 1",
-    "region": "Unknown",
+    "area": "HC",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -7577,7 +7577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0477",
     "location": "Hyrule Castle Grass 2",
-    "region": "Unknown",
+    "area": "HC",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -7587,7 +7587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0478",
     "location": "HC Castle Torch Wonderitem 1",
-    "region": "HC",
+    "area": "HC",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -7597,7 +7597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0479",
     "location": "HC Castle Torch Wonderitem 2",
-    "region": "HC",
+    "area": "HC",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -7607,7 +7607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0480",
     "location": "HC Castle Moat Wonderitem 1",
-    "region": "HC",
+    "area": "HC",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -7617,7 +7617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0481",
     "location": "HC Castle Moat Wonderitem 2",
-    "region": "HC",
+    "area": "HC",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -7627,7 +7627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0482",
     "location": "HC Castle Moat Wonderitem 3",
-    "region": "HC",
+    "area": "HC",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -7637,7 +7637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0483",
     "location": "HC Castle Moat Wonderitem 4",
-    "region": "HC",
+    "area": "HC",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -7647,7 +7647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0484",
     "location": "HC Castle Moat Wonderitem 5",
-    "region": "HC",
+    "area": "HC",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -7657,7 +7657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0485",
     "location": "HC Castle Moat Wonderitem 6",
-    "region": "HC",
+    "area": "HC",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -7667,7 +7667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0486",
     "location": "HC Castle Moat Wonderitem 7",
-    "region": "HC",
+    "area": "HC",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -7677,7 +7677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0487",
     "location": "HC Castle Moat Wonderitem 8",
-    "region": "HC",
+    "area": "HC",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -7687,7 +7687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0488",
     "location": "HC Castle Moat Wonderitem 9",
-    "region": "HC",
+    "area": "HC",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -7697,7 +7697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0489",
     "location": "HC Castle Moat Wonderitem 10",
-    "region": "HC",
+    "area": "HC",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -7707,7 +7707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0490",
     "location": "HC Zeldas Courtyard Mario Wonderitem",
-    "region": "HC",
+    "area": "HC",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -7717,7 +7717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0491",
     "location": "HC Malon Gossip Stone Drop",
-    "region": "HC",
+    "area": "HC",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -7727,7 +7727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0492",
     "location": "HC Rock Wall Gossip Stone Drop",
-    "region": "HC",
+    "area": "HC",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -7737,7 +7737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0493",
     "location": "HC Storms Grotto Gossip Stone Drop",
-    "region": "HC",
+    "area": "HC",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -7747,7 +7747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0494",
     "location": "HC Storms Grotto Skullwalltula 1",
-    "region": "HC",
+    "area": "HC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -7757,7 +7757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0495",
     "location": "HC Storms Grotto Skullwalltula 2",
-    "region": "HC",
+    "area": "HC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -7767,7 +7767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0496",
     "location": "LLR Talons Chickens",
-    "region": "LLR",
+    "area": "LLR",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -7777,7 +7777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0497",
     "location": "LLR Freestanding PoH",
-    "region": "LLR",
+    "area": "LLR",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -7787,7 +7787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0498",
     "location": "LLR Deku Scrub Grotto Left",
-    "region": "LLR",
+    "area": "LLR",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -7797,7 +7797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0499",
     "location": "LLR Deku Scrub Grotto Center",
-    "region": "LLR",
+    "area": "LLR",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -7807,7 +7807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0500",
     "location": "LLR Deku Scrub Grotto Right",
-    "region": "LLR",
+    "area": "LLR",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -7817,7 +7817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0501",
     "location": "LLR Stables Left Cow",
-    "region": "LLR",
+    "area": "LLR",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -7827,7 +7827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0502",
     "location": "LLR Stables Right Cow",
-    "region": "LLR",
+    "area": "LLR",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -7837,7 +7837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0503",
     "location": "LLR Tower Left Cow",
-    "region": "LLR",
+    "area": "LLR",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -7847,7 +7847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0504",
     "location": "LLR Tower Right Cow",
-    "region": "LLR",
+    "area": "LLR",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -7857,7 +7857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0505",
     "location": "LLR GS House Window",
-    "region": "LLR",
+    "area": "LLR",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -7867,7 +7867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0506",
     "location": "LLR GS Tree",
-    "region": "LLR",
+    "area": "LLR",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -7877,7 +7877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0507",
     "location": "LLR GS Rain Shed",
-    "region": "LLR",
+    "area": "LLR",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -7887,7 +7887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0508",
     "location": "LLR GS Back Wall",
-    "region": "LLR",
+    "area": "LLR",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -7897,7 +7897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0509",
     "location": "LLR Front Pot 1",
-    "region": "LLR",
+    "area": "LLR",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7907,7 +7907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0510",
     "location": "LLR Front Pot 2",
-    "region": "LLR",
+    "area": "LLR",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7917,7 +7917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0511",
     "location": "LLR Front Pot 3",
-    "region": "LLR",
+    "area": "LLR",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7927,7 +7927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0512",
     "location": "LLR Front Pot 4",
-    "region": "LLR",
+    "area": "LLR",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7937,7 +7937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0513",
     "location": "LLR Rain Shed Pot 1",
-    "region": "LLR",
+    "area": "LLR",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7947,7 +7947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0514",
     "location": "LLR Rain Shed Pot 2",
-    "region": "LLR",
+    "area": "LLR",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7957,7 +7957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0515",
     "location": "LLR Rain Shed Pot 3",
-    "region": "LLR",
+    "area": "LLR",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7967,7 +7967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0516",
     "location": "LLR Talons House Pot 1",
-    "region": "LLR",
+    "area": "LLR",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7977,7 +7977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0517",
     "location": "LLR Talons House Pot 2",
-    "region": "LLR",
+    "area": "LLR",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7987,7 +7987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0518",
     "location": "LLR Talons House Pot 3",
-    "region": "LLR",
+    "area": "LLR",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -7997,7 +7997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0519",
     "location": "LLR Child Crate",
-    "region": "LLR",
+    "area": "LLR",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -8007,7 +8007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0520",
     "location": "LLR Grotto Beehive",
-    "region": "LLR",
+    "area": "LLR",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -8017,7 +8017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0521",
     "location": "LLR Epona Hurdle Wonderitem 1",
-    "region": "LLR",
+    "area": "LLR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -8027,7 +8027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0522",
     "location": "LLR Epona Hurdle Wonderitem 2",
-    "region": "LLR",
+    "area": "LLR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -8037,7 +8037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0523",
     "location": "LLR Child Night Guay 1",
-    "region": "LLR",
+    "area": "LLR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -8047,7 +8047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0524",
     "location": "LLR Child Night Guay 2",
-    "region": "LLR",
+    "area": "LLR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -8057,7 +8057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0525",
     "location": "LLR Child Night Guay 3",
-    "region": "LLR",
+    "area": "LLR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -8067,7 +8067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0526",
     "location": "LLR Child Night Guay 4",
-    "region": "LLR",
+    "area": "LLR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -8077,7 +8077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0527",
     "location": "LLR Child Night Guay 5",
-    "region": "LLR",
+    "area": "LLR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -8087,7 +8087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0528",
     "location": "LLR Child Night Guay 6",
-    "region": "LLR",
+    "area": "LLR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -8097,7 +8097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0529",
     "location": "LLR Child Night Guay 7",
-    "region": "LLR",
+    "area": "LLR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -8107,7 +8107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0530",
     "location": "LLR Child Night Guay 8",
-    "region": "LLR",
+    "area": "LLR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -8117,7 +8117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0531",
     "location": "LLR Child Night Guay 9",
-    "region": "LLR",
+    "area": "LLR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -8127,7 +8127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0532",
     "location": "LLR Child Night Guay 10",
-    "region": "LLR",
+    "area": "LLR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -8137,7 +8137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0533",
     "location": "LLR Child Night Guay 11",
-    "region": "LLR",
+    "area": "LLR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -8147,7 +8147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0534",
     "location": "LLR Child Night Guay 12",
-    "region": "LLR",
+    "area": "LLR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -8157,7 +8157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0535",
     "location": "LLR Child Night Guay 13",
-    "region": "LLR",
+    "area": "LLR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -8167,7 +8167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0536",
     "location": "LLR Child Night Guay 14",
-    "region": "LLR",
+    "area": "LLR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -8177,7 +8177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0537",
     "location": "LLR Child Night Guay 15",
-    "region": "LLR",
+    "area": "LLR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -8187,7 +8187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0538",
     "location": "Kak Anju as Child",
-    "region": "Kak",
+    "area": "Kak",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -8197,7 +8197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0539",
     "location": "Kak Anju as Adult",
-    "region": "Kak",
+    "area": "Kak",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -8207,7 +8207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0540",
     "location": "Kak Anju Trade Pocket Cucco",
-    "region": "Kak",
+    "area": "Kak",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -8217,7 +8217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0541",
     "location": "Kak Granny Trade Odd Mushroom",
-    "region": "Kak",
+    "area": "Kak",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -8227,7 +8227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0542",
     "location": "Kak Granny Buy Blue Potion",
-    "region": "Kak",
+    "area": "Kak",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -8237,7 +8237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0543",
     "location": "Kak Impas House Freestanding PoH",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -8247,7 +8247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0544",
     "location": "Kak Windmill Freestanding PoH",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -8257,7 +8257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0545",
     "location": "Kak Man on Roof",
-    "region": "Kak",
+    "area": "Kak",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -8267,7 +8267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0546",
     "location": "Kak Open Grotto Chest",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -8277,7 +8277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0547",
     "location": "Kak ReDead Grotto Chest",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -8287,7 +8287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0548",
     "location": "Kak Shooting Gallery Reward",
-    "region": "Kak",
+    "area": "Kak",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -8297,7 +8297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0549",
     "location": "Kak 10 Gold Skulltula Reward",
-    "region": "Kak",
+    "area": "Kak",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -8307,7 +8307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0550",
     "location": "Kak 20 Gold Skulltula Reward",
-    "region": "Kak",
+    "area": "Kak",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -8317,7 +8317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0551",
     "location": "Kak 30 Gold Skulltula Reward",
-    "region": "Kak",
+    "area": "Kak",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -8327,7 +8327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0552",
     "location": "Kak 40 Gold Skulltula Reward",
-    "region": "Kak",
+    "area": "Kak",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -8337,7 +8337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0553",
     "location": "Kak 50 Gold Skulltula Reward",
-    "region": "Kak",
+    "area": "Kak",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -8347,7 +8347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0554",
     "location": "Kak Impas House Cow",
-    "region": "Kak",
+    "area": "Kak",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -8357,7 +8357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0555",
     "location": "Kak GS Tree",
-    "region": "Kak",
+    "area": "Kak",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -8367,7 +8367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0556",
     "location": "Kak GS Near Gate Guard",
-    "region": "Kak",
+    "area": "Kak",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -8377,7 +8377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0557",
     "location": "Kak GS Watchtower",
-    "region": "Kak",
+    "area": "Kak",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -8387,7 +8387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0558",
     "location": "Kak GS Skulltula House",
-    "region": "Kak",
+    "area": "Kak",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -8397,7 +8397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0559",
     "location": "Kak GS House Under Construction",
-    "region": "Kak",
+    "area": "Kak",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -8407,7 +8407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0560",
     "location": "Kak GS Above Impas House",
-    "region": "Kak",
+    "area": "Kak",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -8417,7 +8417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0561",
     "location": "Kak Bazaar Item 1",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -8427,7 +8427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0562",
     "location": "Kak Bazaar Item 2",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -8437,7 +8437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0563",
     "location": "Kak Bazaar Item 3",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -8447,7 +8447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0564",
     "location": "Kak Bazaar Item 4",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -8457,7 +8457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0565",
     "location": "Kak Bazaar Item 5",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -8467,7 +8467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0566",
     "location": "Kak Bazaar Item 6",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -8477,7 +8477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0567",
     "location": "Kak Bazaar Item 7",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -8487,7 +8487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0568",
     "location": "Kak Bazaar Item 8",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -8497,7 +8497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0569",
     "location": "Kak Potion Shop Item 1",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -8507,7 +8507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0570",
     "location": "Kak Potion Shop Item 2",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -8517,7 +8517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0571",
     "location": "Kak Potion Shop Item 3",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -8527,7 +8527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0572",
     "location": "Kak Potion Shop Item 4",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -8537,7 +8537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0573",
     "location": "Kak Potion Shop Item 5",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -8547,7 +8547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0574",
     "location": "Kak Potion Shop Item 6",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -8557,7 +8557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0575",
     "location": "Kak Potion Shop Item 7",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -8567,7 +8567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0576",
     "location": "Kak Potion Shop Item 8",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -8577,7 +8577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0577",
     "location": "Kak Near Potion Shop Pot 1",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -8587,7 +8587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0578",
     "location": "Kak Near Potion Shop Pot 2",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -8597,7 +8597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0579",
     "location": "Kak Near Potion Shop Pot 3",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -8607,7 +8607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0580",
     "location": "Kak Near Impas House Pot 1",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -8617,7 +8617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0581",
     "location": "Kak Near Impas House Pot 2",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -8627,7 +8627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0582",
     "location": "Kak Near Impas House Pot 3",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -8637,7 +8637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0583",
     "location": "Kak Near Guards House Pot 1",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -8647,7 +8647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0584",
     "location": "Kak Near Guards House Pot 2",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -8657,7 +8657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0585",
     "location": "Kak Near Guards House Pot 3",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -8667,7 +8667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0586",
     "location": "Kak Near Odd Medicine Building Pot 1",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -8677,7 +8677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0587",
     "location": "Kak Near Odd Medicine Building Pot 2",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -8687,7 +8687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0588",
     "location": "Kak Adult Crate 1",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -8697,7 +8697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0589",
     "location": "Kak Adult Crate 2",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -8707,7 +8707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0590",
     "location": "Kak Adult Arrows Crate",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -8717,7 +8717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0591",
     "location": "Kak Adult Crate 3",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -8727,7 +8727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0592",
     "location": "Kak Adult Crate 4",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -8737,7 +8737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0593",
     "location": "Kak Adult Crate 5",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -8747,7 +8747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0594",
     "location": "Kak Adult Crate 6",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -8757,7 +8757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0595",
     "location": "Kak Adult Crate 7",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -8767,7 +8767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0596",
     "location": "Kak Adult Crate 8",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -8777,7 +8777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0597",
     "location": "Kak Adult Backyard Crate 1",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -8787,7 +8787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0598",
     "location": "Kak Adult Backyard Crate 2",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -8797,7 +8797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0599",
     "location": "Kak Adult Red Rupee Crate",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -8807,7 +8807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0600",
     "location": "Kak Adult Backyard Crate 3",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -8817,7 +8817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0601",
     "location": "Kak Child Crate 1",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -8827,7 +8827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0602",
     "location": "Kak Child Crate 2",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -8837,7 +8837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0603",
     "location": "Kak Child Crate 3",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -8847,7 +8847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0604",
     "location": "Kak Child Crate 4",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -8857,7 +8857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0605",
     "location": "Kak Child Crate 5",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -8867,7 +8867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0606",
     "location": "Kak Open Grotto Beehive 1",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -8877,7 +8877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0607",
     "location": "Kak Open Grotto Beehive 2",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -8887,7 +8887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0608",
     "location": "Kak Child Construction Wonderitem",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -8897,7 +8897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0609",
     "location": "Kak Impas House Wonderitem",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -8907,7 +8907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0610",
     "location": "Kak ReDead Grotto ReDead Left",
-    "region": "Kak",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -8917,7 +8917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0611",
     "location": "Kak ReDead Grotto ReDead Right",
-    "region": "Kak",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -8927,7 +8927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0612",
     "location": "Kak Open Grotto Grass 1",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -8937,7 +8937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0613",
     "location": "Kak Open Grotto Grass 2",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -8947,7 +8947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0614",
     "location": "Kak Open Grotto Grass 3",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -8957,7 +8957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0615",
     "location": "Kak Open Grotto Grass 4",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -8967,7 +8967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0616",
     "location": "Kak Grass 1",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -8977,7 +8977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0617",
     "location": "Kak Grass 2",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -8987,7 +8987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0618",
     "location": "Kak Grass 3",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -8997,7 +8997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0619",
     "location": "Kak Grass 4",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -9007,7 +9007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0620",
     "location": "Kak Grass 5",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -9017,7 +9017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0621",
     "location": "Kak Grass 6",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -9027,7 +9027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0622",
     "location": "Kak Grass 7",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -9037,7 +9037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0623",
     "location": "Kak Grass 8",
-    "region": "Kak",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -9047,7 +9047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0624",
     "location": "Kak Open Grotto Gossip Stone Drop",
-    "region": "Kak",
+    "area": "Kak",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -9057,7 +9057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0625",
     "location": "Graveyard Shield Grave Chest",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -9067,7 +9067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0626",
     "location": "Graveyard Heart Piece Grave Chest",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -9077,7 +9077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0627",
     "location": "Graveyard Royal Familys Tomb Chest",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -9087,7 +9087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0628",
     "location": "Graveyard Freestanding PoH",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9097,7 +9097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0629",
     "location": "Graveyard Dampe Gravedigging Tour",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9107,7 +9107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0630",
     "location": "Graveyard Dampe Race Hookshot Chest",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -9117,7 +9117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0631",
     "location": "Graveyard Dampe Race Freestanding PoH",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9127,7 +9127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0632",
     "location": "Graveyard GS Bean Patch",
-    "region": "Unknown",
+    "area": "GY",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -9137,7 +9137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0633",
     "location": "Graveyard GS Wall",
-    "region": "Unknown",
+    "area": "GY",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -9147,7 +9147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0634",
     "location": "Graveyard Dampe Race Rupee 1",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9157,7 +9157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0635",
     "location": "Graveyard Dampe Race Rupee 2",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9167,7 +9167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0636",
     "location": "Graveyard Dampe Race Rupee 3",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9177,7 +9177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0637",
     "location": "Graveyard Dampe Race Rupee 4",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9187,7 +9187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0638",
     "location": "Graveyard Dampe Race Rupee 5",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9197,7 +9197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0639",
     "location": "Graveyard Dampe Race Rupee 6",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9207,7 +9207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0640",
     "location": "Graveyard Dampe Race Rupee 7",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9217,7 +9217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0641",
     "location": "Graveyard Dampe Race Rupee 8",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9227,7 +9227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0642",
     "location": "Graveyard Dampe Pot 1",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -9237,7 +9237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0643",
     "location": "Graveyard Dampe Pot 2",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -9247,7 +9247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0644",
     "location": "Graveyard Dampe Pot 3",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -9257,7 +9257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0645",
     "location": "Graveyard Dampe Pot 4",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -9267,7 +9267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0646",
     "location": "Graveyard Dampe Pot 5",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -9277,7 +9277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0647",
     "location": "Graveyard Dampe Pot 6",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -9287,7 +9287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0648",
     "location": "Graveyard Grass Patch 1",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -9297,7 +9297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0649",
     "location": "Graveyard Grass Patch 2",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -9307,7 +9307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0650",
     "location": "Graveyard Grass Patch 3",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -9317,7 +9317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0651",
     "location": "Graveyard Grass Patch 4",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -9327,7 +9327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0652",
     "location": "Graveyard Grass Patch 5",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -9337,7 +9337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0653",
     "location": "Graveyard Grass Patch 6",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -9347,7 +9347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0654",
     "location": "Graveyard Grass Patch 7",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -9357,7 +9357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0655",
     "location": "Graveyard Grass Patch 8",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -9367,7 +9367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0656",
     "location": "Graveyard Grass Patch 9",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -9377,7 +9377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0657",
     "location": "Graveyard Grass Patch 10",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -9387,7 +9387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0658",
     "location": "Graveyard Grass Patch 11",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -9397,7 +9397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0659",
     "location": "Graveyard Grass Patch 12",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -9407,7 +9407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0660",
     "location": "Graveyard Freestanding PoH Crate",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -9417,7 +9417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0661",
     "location": "Graveyard Gossip Stone Drop",
-    "region": "Unknown",
+    "area": "GY",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -9427,7 +9427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0662",
     "location": "Graveyard Dampe Race Wonderitem 1",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -9437,7 +9437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0663",
     "location": "Graveyard Dampe Race Wonderitem 2",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -9447,7 +9447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0664",
     "location": "Graveyard Dampe Race Wonderitem 3",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -9457,7 +9457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0665",
     "location": "Graveyard Dampe Race Wonderitem 4",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -9467,7 +9467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0666",
     "location": "Graveyard Dampe Race Wonderitem 5",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -9477,7 +9477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0667",
     "location": "Graveyard Dampe Race Wonderitem 6",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -9487,7 +9487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0668",
     "location": "Graveyard Dampe Race Wonderitem 7",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -9497,7 +9497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0669",
     "location": "Graveyard Dampe Race Wonderitem 8",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -9507,7 +9507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0670",
     "location": "Graveyard Dampe Race Wonderitem 9",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -9517,7 +9517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0671",
     "location": "Graveyard Dampe Race Wonderitem 10",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -9527,7 +9527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0672",
     "location": "Graveyard Dampe Race Wonderitem 11",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -9537,7 +9537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0673",
     "location": "Graveyard Dampe Race Wonderitem 12",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -9547,7 +9547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0674",
     "location": "Graveyard Dampe Race Wonderitem 13",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -9557,7 +9557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0675",
     "location": "Graveyard Dampe Race Wonderitem 14",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -9567,7 +9567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0676",
     "location": "Graveyard Dampe Race Wonderitem 15",
-    "region": "Unknown",
+    "area": "GY",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -9577,7 +9577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0677",
     "location": "Graveyard Heart Piece Grave ReDead",
-    "region": "Unknown",
+    "area": "GY",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -9587,7 +9587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0678",
     "location": "Graveyard Royal Familys Tomb Keese 1",
-    "region": "Unknown",
+    "area": "GY",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -9597,7 +9597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0679",
     "location": "Graveyard Royal Familys Tomb Keese 2",
-    "region": "Unknown",
+    "area": "GY",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -9607,7 +9607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0680",
     "location": "Graveyard Royal Familys Tomb Keese 3",
-    "region": "Unknown",
+    "area": "GY",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -9617,7 +9617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0681",
     "location": "Graveyard Royal Familys Tomb Keese 4",
-    "region": "Unknown",
+    "area": "GY",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -9627,7 +9627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0682",
     "location": "Graveyard Royal Familys Tomb ReDead 1",
-    "region": "Unknown",
+    "area": "GY",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -9637,7 +9637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0683",
     "location": "Graveyard Royal Familys Tomb ReDead 2",
-    "region": "Unknown",
+    "area": "GY",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -9647,7 +9647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0684",
     "location": "Graveyard Royal Familys Tomb ReDead 3",
-    "region": "Unknown",
+    "area": "GY",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -9657,7 +9657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0685",
     "location": "Graveyard Dampe Race ReDead 1",
-    "region": "Unknown",
+    "area": "GY",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -9667,7 +9667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0686",
     "location": "Graveyard Dampe Race ReDead 2",
-    "region": "Unknown",
+    "area": "GY",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -9677,7 +9677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0687",
     "location": "Graveyard Dampe Race ReDead 3",
-    "region": "Unknown",
+    "area": "GY",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -9687,7 +9687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0688",
     "location": "Graveyard Dampe Race ReDead 4",
-    "region": "Unknown",
+    "area": "GY",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -9697,7 +9697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0689",
     "location": "DMT Freestanding PoH",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9707,7 +9707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0690",
     "location": "DMT Chest",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -9717,7 +9717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0691",
     "location": "DMT Storms Grotto Chest",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -9727,7 +9727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0692",
     "location": "DMT Great Fairy Reward",
-    "region": "DMT",
+    "area": "DMT",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -9737,7 +9737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0693",
     "location": "DMT Biggoron",
-    "region": "DMT",
+    "area": "DMT",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -9747,7 +9747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0694",
     "location": "DMT Trade Broken Sword",
-    "region": "DMT",
+    "area": "DMT",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -9757,7 +9757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0695",
     "location": "DMT Trade Eyedrops",
-    "region": "DMT",
+    "area": "DMT",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -9767,7 +9767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0696",
     "location": "DMT Cow Grotto Cow",
-    "region": "DMT",
+    "area": "DMT",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -9777,7 +9777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0697",
     "location": "DMT GS Near Kak",
-    "region": "DMT",
+    "area": "DMT",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -9787,7 +9787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0698",
     "location": "DMT GS Bean Patch",
-    "region": "DMT",
+    "area": "DMT",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -9797,7 +9797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0699",
     "location": "DMT GS Above Dodongos Cavern",
-    "region": "DMT",
+    "area": "DMT",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -9807,7 +9807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0700",
     "location": "DMT GS Falling Rocks Path",
-    "region": "DMT",
+    "area": "DMT",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -9817,7 +9817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0701",
     "location": "DMT Rock Red Rupee",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9827,7 +9827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0702",
     "location": "DMT Rock Blue Rupee",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9837,7 +9837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0703",
     "location": "DMT Cow Grotto Green Rupee 1",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9847,7 +9847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0704",
     "location": "DMT Cow Grotto Green Rupee 2",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9857,7 +9857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0705",
     "location": "DMT Cow Grotto Green Rupee 3",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9867,7 +9867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0706",
     "location": "DMT Cow Grotto Green Rupee 4",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9877,7 +9877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0707",
     "location": "DMT Cow Grotto Green Rupee 5",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9887,7 +9887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0708",
     "location": "DMT Cow Grotto Green Rupee 6",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9897,7 +9897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0709",
     "location": "DMT Cow Grotto Red Rupee",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9907,7 +9907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0710",
     "location": "DMT Cow Grotto Recovery Heart 1",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9917,7 +9917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0711",
     "location": "DMT Cow Grotto Recovery Heart 2",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9927,7 +9927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0712",
     "location": "DMT Cow Grotto Recovery Heart 3",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9937,7 +9937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0713",
     "location": "DMT Cow Grotto Recovery Heart 4",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -9947,7 +9947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0714",
     "location": "DMT Cow Grotto Beehive",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -9957,7 +9957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0715",
     "location": "DMT Storms Grotto Beehive 1",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -9967,7 +9967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0716",
     "location": "DMT Storms Grotto Beehive 2",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -9977,7 +9977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0717",
     "location": "DMT Adult First Tektite",
-    "region": "DMT",
+    "area": "DMT",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -9987,7 +9987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0718",
     "location": "DMT Adult Second Tektite",
-    "region": "DMT",
+    "area": "DMT",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -9997,7 +9997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0719",
     "location": "DMT Adult Summit Tektite",
-    "region": "DMT",
+    "area": "DMT",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -10007,7 +10007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0720",
     "location": "DMT Adult Summit Skullwalltula Lower",
-    "region": "DMT",
+    "area": "DMT",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -10017,7 +10017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0721",
     "location": "DMT Adult Summit Skullwalltula Middle",
-    "region": "DMT",
+    "area": "DMT",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -10027,7 +10027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0722",
     "location": "DMT Adult Summit Skullwalltula Upper",
-    "region": "DMT",
+    "area": "DMT",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -10037,7 +10037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0723",
     "location": "DMT Child First Tektite",
-    "region": "DMT",
+    "area": "DMT",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -10047,7 +10047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0724",
     "location": "DMT Child Second Tektite",
-    "region": "DMT",
+    "area": "DMT",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -10057,7 +10057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0725",
     "location": "DMT Child Third Tektite",
-    "region": "DMT",
+    "area": "DMT",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -10067,7 +10067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0726",
     "location": "DMT Child Near DC Tektite",
-    "region": "DMT",
+    "area": "DMT",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -10077,7 +10077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0727",
     "location": "DMT Child Summit Skullwalltula Lower",
-    "region": "DMT",
+    "area": "DMT",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -10087,7 +10087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0728",
     "location": "DMT Child Summit Skullwalltula Middle",
-    "region": "DMT",
+    "area": "DMT",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -10097,7 +10097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0729",
     "location": "DMT Child Summit Skullwalltula Upper",
-    "region": "DMT",
+    "area": "DMT",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -10107,7 +10107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0730",
     "location": "DMT Storms Grotto Grass 1",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -10117,7 +10117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0731",
     "location": "DMT Storms Grotto Grass 2",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -10127,7 +10127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0732",
     "location": "DMT Storms Grotto Grass 3",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -10137,7 +10137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0733",
     "location": "DMT Storms Grotto Grass 4",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -10147,7 +10147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0734",
     "location": "DMT Cow Grotto Grass 1",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -10157,7 +10157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0735",
     "location": "DMT Cow Grotto Grass 2",
-    "region": "DMT",
+    "area": "DMT",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -10167,7 +10167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0736",
     "location": "DMT Gossip Stone Drop",
-    "region": "DMT",
+    "area": "DMT",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -10177,7 +10177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0737",
     "location": "DMT Storms Grotto Gossip Stone Drop",
-    "region": "DMT",
+    "area": "DMT",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -10187,7 +10187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0738",
     "location": "GC Darunias Joy",
-    "region": "GC",
+    "area": "GC",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -10197,7 +10197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0739",
     "location": "GC Pot Freestanding PoH",
-    "region": "GC",
+    "area": "GC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10207,7 +10207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0740",
     "location": "GC Rolling Goron as Child",
-    "region": "GC",
+    "area": "GC",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -10217,7 +10217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0741",
     "location": "GC Rolling Goron as Adult",
-    "region": "GC",
+    "area": "GC",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -10227,7 +10227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0742",
     "location": "GC Medigoron",
-    "region": "GC",
+    "area": "GC",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -10237,7 +10237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0743",
     "location": "GC Maze Left Chest",
-    "region": "GC",
+    "area": "GC",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -10247,7 +10247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0744",
     "location": "GC Maze Center Chest",
-    "region": "GC",
+    "area": "GC",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -10257,7 +10257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0745",
     "location": "GC Maze Right Chest",
-    "region": "GC",
+    "area": "GC",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -10267,7 +10267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0746",
     "location": "GC Deku Scrub Grotto Left",
-    "region": "GC",
+    "area": "GC",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -10277,7 +10277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0747",
     "location": "GC Deku Scrub Grotto Center",
-    "region": "GC",
+    "area": "GC",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -10287,7 +10287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0748",
     "location": "GC Deku Scrub Grotto Right",
-    "region": "GC",
+    "area": "GC",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -10297,7 +10297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0749",
     "location": "GC GS Center Platform",
-    "region": "GC",
+    "area": "GC",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -10307,7 +10307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0750",
     "location": "GC GS Boulder Maze",
-    "region": "GC",
+    "area": "GC",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -10317,7 +10317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0751",
     "location": "GC Shop Item 1",
-    "region": "GC",
+    "area": "GC",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -10327,7 +10327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0752",
     "location": "GC Shop Item 2",
-    "region": "GC",
+    "area": "GC",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -10337,7 +10337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0753",
     "location": "GC Shop Item 3",
-    "region": "GC",
+    "area": "GC",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -10347,7 +10347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0754",
     "location": "GC Shop Item 4",
-    "region": "GC",
+    "area": "GC",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -10357,7 +10357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0755",
     "location": "GC Shop Item 5",
-    "region": "GC",
+    "area": "GC",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -10367,7 +10367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0756",
     "location": "GC Shop Item 6",
-    "region": "GC",
+    "area": "GC",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -10377,7 +10377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0757",
     "location": "GC Shop Item 7",
-    "region": "GC",
+    "area": "GC",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -10387,7 +10387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0758",
     "location": "GC Shop Item 8",
-    "region": "GC",
+    "area": "GC",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -10397,7 +10397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0759",
     "location": "GC Spinning Pot Bomb Drop 1",
-    "region": "GC",
+    "area": "GC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10407,7 +10407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0760",
     "location": "GC Spinning Pot Bomb Drop 2",
-    "region": "GC",
+    "area": "GC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10417,7 +10417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0761",
     "location": "GC Spinning Pot Bomb Drop 3",
-    "region": "GC",
+    "area": "GC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10427,7 +10427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0762",
     "location": "GC Spinning Pot Rupee Drop 1",
-    "region": "GC",
+    "area": "GC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10437,7 +10437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0763",
     "location": "GC Spinning Pot Rupee Drop 2",
-    "region": "GC",
+    "area": "GC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10447,7 +10447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0764",
     "location": "GC Spinning Pot Rupee Drop 3",
-    "region": "GC",
+    "area": "GC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10457,7 +10457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0765",
     "location": "GC Spinning Pot PoH Drop Rupee 1",
-    "region": "GC",
+    "area": "GC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10467,7 +10467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0766",
     "location": "GC Spinning Pot PoH Drop Rupee 2",
-    "region": "GC",
+    "area": "GC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10477,7 +10477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0767",
     "location": "GC Darunia Pot 1",
-    "region": "GC",
+    "area": "GC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -10487,7 +10487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0768",
     "location": "GC Darunia Pot 2",
-    "region": "GC",
+    "area": "GC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -10497,7 +10497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0769",
     "location": "GC Darunia Pot 3",
-    "region": "GC",
+    "area": "GC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -10507,7 +10507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0770",
     "location": "GC Medigoron Pot",
-    "region": "GC",
+    "area": "GC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -10517,7 +10517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0771",
     "location": "GC Lower Staircase Pot 1",
-    "region": "GC",
+    "area": "GC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -10527,7 +10527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0772",
     "location": "GC Lower Staircase Pot 2",
-    "region": "GC",
+    "area": "GC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -10537,7 +10537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0773",
     "location": "GC Upper Staircase Pot 1",
-    "region": "GC",
+    "area": "GC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -10547,7 +10547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0774",
     "location": "GC Upper Staircase Pot 2",
-    "region": "GC",
+    "area": "GC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -10557,7 +10557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0775",
     "location": "GC Upper Staircase Pot 3",
-    "region": "GC",
+    "area": "GC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -10567,7 +10567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0776",
     "location": "GC Boulder Maze Crate",
-    "region": "GC",
+    "area": "GC",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -10577,7 +10577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0777",
     "location": "GC Grotto Beehive",
-    "region": "GC",
+    "area": "GC",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -10587,7 +10587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0778",
     "location": "GC Maze Gossip Stone Drop",
-    "region": "GC",
+    "area": "GC",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -10597,7 +10597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0779",
     "location": "GC Medigoron Gossip Stone Drop",
-    "region": "GC",
+    "area": "GC",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -10607,7 +10607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0780",
     "location": "DMC Volcano Freestanding PoH",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10617,7 +10617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0781",
     "location": "DMC Wall Freestanding PoH",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10627,7 +10627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0782",
     "location": "DMC Upper Grotto Chest",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -10637,7 +10637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0783",
     "location": "DMC Great Fairy Reward",
-    "region": "DMC",
+    "area": "DMC",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -10647,7 +10647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0784",
     "location": "DMC Deku Scrub",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Scrub",
     "item": "",
     "price": null,
@@ -10657,7 +10657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0785",
     "location": "DMC Deku Scrub Grotto Left",
-    "region": "DMC",
+    "area": "DMC",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -10667,7 +10667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0786",
     "location": "DMC Deku Scrub Grotto Center",
-    "region": "DMC",
+    "area": "DMC",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -10677,7 +10677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0787",
     "location": "DMC Deku Scrub Grotto Right",
-    "region": "DMC",
+    "area": "DMC",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -10687,7 +10687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0788",
     "location": "DMC GS Crate",
-    "region": "DMC",
+    "area": "DMC",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -10697,7 +10697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0789",
     "location": "DMC GS Bean Patch",
-    "region": "DMC",
+    "area": "DMC",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -10707,7 +10707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0790",
     "location": "DMC Adult Green Rupee 1",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10717,7 +10717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0791",
     "location": "DMC Adult Green Rupee 2",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10727,7 +10727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0792",
     "location": "DMC Adult Green Rupee 3",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10737,7 +10737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0793",
     "location": "DMC Adult Green Rupee 4",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10747,7 +10747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0794",
     "location": "DMC Adult Green Rupee 5",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10757,7 +10757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0795",
     "location": "DMC Adult Green Rupee 6",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10767,7 +10767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0796",
     "location": "DMC Adult Red Rupee",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10777,7 +10777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0797",
     "location": "DMC Child Red Rupee 1",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10787,7 +10787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0798",
     "location": "DMC Child Red Rupee 2",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10797,7 +10797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0799",
     "location": "DMC Child Blue Rupee 1",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10807,7 +10807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0800",
     "location": "DMC Child Blue Rupee 2",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10817,7 +10817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0801",
     "location": "DMC Child Blue Rupee 3",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10827,7 +10827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0802",
     "location": "DMC Child Blue Rupee 4",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10837,7 +10837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0803",
     "location": "DMC Child Blue Rupee 5",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10847,7 +10847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0804",
     "location": "DMC Child Blue Rupee 6",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -10857,7 +10857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0805",
     "location": "DMC Near GC Pot 1",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -10867,7 +10867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0806",
     "location": "DMC Near GC Pot 2",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -10877,7 +10877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0807",
     "location": "DMC Near GC Pot 3",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -10887,7 +10887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0808",
     "location": "DMC Near GC Pot 4",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -10897,7 +10897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0809",
     "location": "DMC Upper Grotto Beehive 1",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -10907,7 +10907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0810",
     "location": "DMC Upper Grotto Beehive 2",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -10917,7 +10917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0811",
     "location": "DMC Hammer Grotto Beehive",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -10927,7 +10927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0812",
     "location": "DMC Upper Grotto Grass 1",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -10937,7 +10937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0813",
     "location": "DMC Upper Grotto Grass 2",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -10947,7 +10947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0814",
     "location": "DMC Upper Grotto Grass 3",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -10957,7 +10957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0815",
     "location": "DMC Upper Grotto Grass 4",
-    "region": "DMC",
+    "area": "DMC",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -10967,7 +10967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0816",
     "location": "DMC Red Bubble Below Bridge To Fire Temple",
-    "region": "DMC",
+    "area": "DMC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -10977,7 +10977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0817",
     "location": "DMC First Plank Red Bubble",
-    "region": "DMC",
+    "area": "DMC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -10987,7 +10987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0818",
     "location": "DMC Second Plank Red Bubble 1",
-    "region": "DMC",
+    "area": "DMC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -10997,7 +10997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0819",
     "location": "DMC Second Plank Red Bubble 2",
-    "region": "DMC",
+    "area": "DMC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -11007,7 +11007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0820",
     "location": "DMC Pierre Platform Red Bubble",
-    "region": "DMC",
+    "area": "DMC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -11017,7 +11017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0821",
     "location": "DMC Gossip Stone Drop",
-    "region": "DMC",
+    "area": "DMC",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -11027,7 +11027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0822",
     "location": "DMC Upper Grotto Gossip Stone Drop",
-    "region": "DMC",
+    "area": "DMC",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -11037,7 +11037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0823",
     "location": "ZR Magic Bean Salesman",
-    "region": "ZR",
+    "area": "ZR",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -11047,7 +11047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0824",
     "location": "ZR Open Grotto Chest",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -11057,7 +11057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0825",
     "location": "ZR Frogs Zeldas Lullaby",
-    "region": "ZR",
+    "area": "ZR",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -11067,7 +11067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0826",
     "location": "ZR Frogs Eponas Song",
-    "region": "ZR",
+    "area": "ZR",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -11077,7 +11077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0827",
     "location": "ZR Frogs Sarias Song",
-    "region": "ZR",
+    "area": "ZR",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -11087,7 +11087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0828",
     "location": "ZR Frogs Suns Song",
-    "region": "ZR",
+    "area": "ZR",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -11097,7 +11097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0829",
     "location": "ZR Frogs Song of Time",
-    "region": "ZR",
+    "area": "ZR",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -11107,7 +11107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0830",
     "location": "ZR Frogs in the Rain",
-    "region": "ZR",
+    "area": "ZR",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -11117,7 +11117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0831",
     "location": "ZR Frogs Ocarina Game",
-    "region": "ZR",
+    "area": "ZR",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -11127,7 +11127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0832",
     "location": "ZR Near Open Grotto Freestanding PoH",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -11137,7 +11137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0833",
     "location": "ZR Near Domain Freestanding PoH",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -11147,7 +11147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0834",
     "location": "ZR Deku Scrub Grotto Front",
-    "region": "ZR",
+    "area": "ZR",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -11157,7 +11157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0835",
     "location": "ZR Deku Scrub Grotto Rear",
-    "region": "ZR",
+    "area": "ZR",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -11167,7 +11167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0836",
     "location": "ZR GS Tree",
-    "region": "ZR",
+    "area": "ZR",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -11177,7 +11177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0837",
     "location": "ZR GS Ladder",
-    "region": "ZR",
+    "area": "ZR",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -11187,7 +11187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0838",
     "location": "ZR GS Near Raised Grottos",
-    "region": "ZR",
+    "area": "ZR",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -11197,7 +11197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0839",
     "location": "ZR GS Above Bridge",
-    "region": "ZR",
+    "area": "ZR",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -11207,7 +11207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0840",
     "location": "ZR Waterfall Red Rupee 1",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -11217,7 +11217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0841",
     "location": "ZR Waterfall Red Rupee 2",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -11227,7 +11227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0842",
     "location": "ZR Waterfall Red Rupee 3",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -11237,7 +11237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0843",
     "location": "ZR Waterfall Red Rupee 4",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -11247,7 +11247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0844",
     "location": "ZR Open Grotto Beehive 1",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -11257,7 +11257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0845",
     "location": "ZR Open Grotto Beehive 2",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -11267,7 +11267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0846",
     "location": "ZR Storms Grotto Beehive",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -11277,7 +11277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0847",
     "location": "ZR Open Grotto Grass 1",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -11287,7 +11287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0848",
     "location": "ZR Open Grotto Grass 2",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -11297,7 +11297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0849",
     "location": "ZR Open Grotto Grass 3",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -11307,7 +11307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0850",
     "location": "ZR Open Grotto Grass 4",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -11317,7 +11317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0851",
     "location": "ZR Near Freestanding PoH Grass",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -11327,7 +11327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0852",
     "location": "ZR Front Grass Patch 1",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -11337,7 +11337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0853",
     "location": "ZR Front Grass Patch 2",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -11347,7 +11347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0854",
     "location": "ZR Front Grass Patch 3",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -11357,7 +11357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0855",
     "location": "ZR Front Grass Patch 4",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -11367,7 +11367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0856",
     "location": "ZR Front Grass Patch 5",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -11377,7 +11377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0857",
     "location": "ZR Front Grass Patch 6",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -11387,7 +11387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0858",
     "location": "ZR Front Grass Patch 7",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -11397,7 +11397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0859",
     "location": "ZR Front Grass Patch 8",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -11407,7 +11407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0860",
     "location": "ZR Front Grass Patch 9",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -11417,7 +11417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0861",
     "location": "ZR Front Grass Patch 10",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -11427,7 +11427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0862",
     "location": "ZR Front Grass Patch 11",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -11437,7 +11437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0863",
     "location": "ZR Front Grass Patch 12",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -11447,7 +11447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0864",
     "location": "ZR Child Front River Wonderitem 1",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11457,7 +11457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0865",
     "location": "ZR Child Front River Wonderitem 2",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11467,7 +11467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0866",
     "location": "ZR Child Front River Wonderitem 3",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11477,7 +11477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0867",
     "location": "ZR Child Front River Wonderitem 4",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11487,7 +11487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0868",
     "location": "ZR Child River Wonderitem 1",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11497,7 +11497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0869",
     "location": "ZR Child River Wonderitem 2",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11507,7 +11507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0870",
     "location": "ZR Child River Wonderitem 3",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11517,7 +11517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0871",
     "location": "ZR Child River Wonderitem 4",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11527,7 +11527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0872",
     "location": "ZR Child River Wonderitem 5",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11537,7 +11537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0873",
     "location": "ZR Child River Wonderitem 6",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11547,7 +11547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0874",
     "location": "ZR Child River Wonderitem 7",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11557,7 +11557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0875",
     "location": "ZR Child River Wonderitem 8",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11567,7 +11567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0876",
     "location": "ZR Child River Wonderitem 9",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11577,7 +11577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0877",
     "location": "ZR Child River Wonderitem 10",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11587,7 +11587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0878",
     "location": "ZR Child River Wonderitem 11",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11597,7 +11597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0879",
     "location": "ZR Child River Wonderitem 12",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11607,7 +11607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0880",
     "location": "ZR Child River Wonderitem 13",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11617,7 +11617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0881",
     "location": "ZR Child River Wonderitem 14",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11627,7 +11627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0882",
     "location": "ZR Child River Wonderitem 15",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11637,7 +11637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0883",
     "location": "ZR Child River Wonderitem 16",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11647,7 +11647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0884",
     "location": "ZR Child River Wonderitem 17",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11657,7 +11657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0885",
     "location": "ZR Child River Wonderitem 18",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11667,7 +11667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0886",
     "location": "ZR Child River Wonderitem 19",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11677,7 +11677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0887",
     "location": "ZR Child River Wonderitem 20",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11687,7 +11687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0888",
     "location": "ZR Child River Wonderitem 21",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11697,7 +11697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0889",
     "location": "ZR Child River Wonderitem 22",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11707,7 +11707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0890",
     "location": "ZR Child River Wonderitem 23",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11717,7 +11717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0891",
     "location": "ZR Child River Wonderitem 24",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11727,7 +11727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0892",
     "location": "ZR Child River Wonderitem 25",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11737,7 +11737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0893",
     "location": "ZR Child River Wonderitem 26",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11747,7 +11747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0894",
     "location": "ZR Child River Wonderitem 27",
-    "region": "ZR",
+    "area": "ZR",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -11757,7 +11757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0895",
     "location": "ZR Child Octorok Near Bean Salesman",
-    "region": "ZR",
+    "area": "ZR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -11767,7 +11767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0896",
     "location": "ZR Child Octorok Near Bridge",
-    "region": "ZR",
+    "area": "ZR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -11777,7 +11777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0897",
     "location": "ZR Child Near Frogs Tektite 1",
-    "region": "ZR",
+    "area": "ZR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -11787,7 +11787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0898",
     "location": "ZR Child Near Frogs Tektite 2",
-    "region": "ZR",
+    "area": "ZR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -11797,7 +11797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0899",
     "location": "ZR Adult Lower Octorok 1",
-    "region": "ZR",
+    "area": "ZR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -11807,7 +11807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0900",
     "location": "ZR Adult Lower Octorok 2",
-    "region": "ZR",
+    "area": "ZR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -11817,7 +11817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0901",
     "location": "ZR Adult Octorok 1",
-    "region": "ZR",
+    "area": "ZR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -11827,7 +11827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0902",
     "location": "ZR Adult Octorok 2",
-    "region": "ZR",
+    "area": "ZR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -11837,7 +11837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0903",
     "location": "ZR Adult Octorok 3",
-    "region": "ZR",
+    "area": "ZR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -11847,7 +11847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0904",
     "location": "ZR Adult Octorok 4",
-    "region": "ZR",
+    "area": "ZR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -11857,7 +11857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0905",
     "location": "ZR Adult Octorok 5",
-    "region": "ZR",
+    "area": "ZR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -11867,7 +11867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0906",
     "location": "ZR Adult Octorok 6",
-    "region": "ZR",
+    "area": "ZR",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -11877,7 +11877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0907",
     "location": "ZR Near Grottos Gossip Stone Drop",
-    "region": "ZR",
+    "area": "ZR",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -11887,7 +11887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0908",
     "location": "ZR Near Domain Gossip Stone Drop",
-    "region": "ZR",
+    "area": "ZR",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -11897,7 +11897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0909",
     "location": "ZR Open Grotto Gossip Stone Drop",
-    "region": "ZR",
+    "area": "ZR",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -11907,7 +11907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0910",
     "location": "ZD Diving Minigame",
-    "region": "ZD",
+    "area": "ZD",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -11917,7 +11917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0911",
     "location": "ZD Chest",
-    "region": "ZD",
+    "area": "ZD",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -11927,7 +11927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0912",
     "location": "ZD King Zora Thawed",
-    "region": "ZD",
+    "area": "ZD",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -11937,7 +11937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0913",
     "location": "ZD Trade Prescription",
-    "region": "ZD",
+    "area": "ZD",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -11947,7 +11947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0914",
     "location": "ZD GS Frozen Waterfall",
-    "region": "ZD",
+    "area": "ZD",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -11957,7 +11957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0915",
     "location": "ZD Shop Item 1",
-    "region": "ZD",
+    "area": "ZD",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -11967,7 +11967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0916",
     "location": "ZD Shop Item 2",
-    "region": "ZD",
+    "area": "ZD",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -11977,7 +11977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0917",
     "location": "ZD Shop Item 3",
-    "region": "ZD",
+    "area": "ZD",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -11987,7 +11987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0918",
     "location": "ZD Shop Item 4",
-    "region": "ZD",
+    "area": "ZD",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -11997,7 +11997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0919",
     "location": "ZD Shop Item 5",
-    "region": "ZD",
+    "area": "ZD",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -12007,7 +12007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0920",
     "location": "ZD Shop Item 6",
-    "region": "ZD",
+    "area": "ZD",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -12017,7 +12017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0921",
     "location": "ZD Shop Item 7",
-    "region": "ZD",
+    "area": "ZD",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -12027,7 +12027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0922",
     "location": "ZD Shop Item 8",
-    "region": "ZD",
+    "area": "ZD",
     "type": "Shop",
     "item": "",
     "price": null,
@@ -12037,7 +12037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0923",
     "location": "ZD Pot 1",
-    "region": "ZD",
+    "area": "ZD",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -12047,7 +12047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0924",
     "location": "ZD Pot 2",
-    "region": "ZD",
+    "area": "ZD",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -12057,7 +12057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0925",
     "location": "ZD Pot 3",
-    "region": "ZD",
+    "area": "ZD",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -12067,7 +12067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0926",
     "location": "ZD Pot 4",
-    "region": "ZD",
+    "area": "ZD",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -12077,7 +12077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0927",
     "location": "ZD Pot 5",
-    "region": "ZD",
+    "area": "ZD",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -12087,7 +12087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0928",
     "location": "ZD In Front of King Zora Beehive 1",
-    "region": "ZD",
+    "area": "ZD",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -12097,7 +12097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0929",
     "location": "ZD In Front of King Zora Beehive 2",
-    "region": "ZD",
+    "area": "ZD",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -12107,7 +12107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0930",
     "location": "ZD Behind King Zora Beehive",
-    "region": "ZD",
+    "area": "ZD",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -12117,7 +12117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0931",
     "location": "ZD Gossip Stone Drop",
-    "region": "ZD",
+    "area": "ZD",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -12127,7 +12127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0932",
     "location": "ZF Great Fairy Reward",
-    "region": "ZF",
+    "area": "ZF",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -12137,7 +12137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0933",
     "location": "ZF Iceberg Freestanding PoH",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12147,7 +12147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0934",
     "location": "ZF Bottom Freestanding PoH",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12157,7 +12157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0935",
     "location": "ZF GS Above the Log",
-    "region": "ZF",
+    "area": "ZF",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -12167,7 +12167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0936",
     "location": "ZF GS Tree",
-    "region": "ZF",
+    "area": "ZF",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -12177,7 +12177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0937",
     "location": "ZF GS Hidden Cave",
-    "region": "ZF",
+    "area": "ZF",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -12187,7 +12187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0938",
     "location": "ZF Bottom Green Rupee 1",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12197,7 +12197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0939",
     "location": "ZF Bottom Green Rupee 2",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12207,7 +12207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0940",
     "location": "ZF Bottom Green Rupee 3",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12217,7 +12217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0941",
     "location": "ZF Bottom Green Rupee 4",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12227,7 +12227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0942",
     "location": "ZF Bottom Green Rupee 5",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12237,7 +12237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0943",
     "location": "ZF Bottom Green Rupee 6",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12247,7 +12247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0944",
     "location": "ZF Bottom Green Rupee 7",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12257,7 +12257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0945",
     "location": "ZF Bottom Green Rupee 8",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12267,7 +12267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0946",
     "location": "ZF Bottom Green Rupee 9",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12277,7 +12277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0947",
     "location": "ZF Bottom Green Rupee 10",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12287,7 +12287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0948",
     "location": "ZF Bottom Green Rupee 11",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12297,7 +12297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0949",
     "location": "ZF Bottom Green Rupee 12",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12307,7 +12307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0950",
     "location": "ZF Bottom Green Rupee 13",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12317,7 +12317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0951",
     "location": "ZF Bottom Green Rupee 14",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12327,7 +12327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0952",
     "location": "ZF Bottom Green Rupee 15",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12337,7 +12337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0953",
     "location": "ZF Bottom Green Rupee 16",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12347,7 +12347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0954",
     "location": "ZF Bottom Green Rupee 17",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12357,7 +12357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0955",
     "location": "ZF Bottom Green Rupee 18",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12367,7 +12367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0956",
     "location": "ZF Hidden Cave Pot 1",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -12377,7 +12377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0957",
     "location": "ZF Hidden Cave Pot 2",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -12387,7 +12387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0958",
     "location": "ZF Hidden Cave Pot 3",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -12397,7 +12397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0959",
     "location": "ZF Near Jabu Pot 1",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -12407,7 +12407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0960",
     "location": "ZF Near Jabu Pot 2",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -12417,7 +12417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0961",
     "location": "ZF Near Jabu Pot 3",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -12427,7 +12427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0962",
     "location": "ZF Near Jabu Pot 4",
-    "region": "ZF",
+    "area": "ZF",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -12437,7 +12437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0963",
     "location": "ZF Fairy Gossip Stone Drop",
-    "region": "ZF",
+    "area": "ZF",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -12447,7 +12447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0964",
     "location": "ZF Jabu Gossip Stone Drop",
-    "region": "ZF",
+    "area": "ZF",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -12457,7 +12457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0965",
     "location": "ZF Adult Octorok 1",
-    "region": "ZF",
+    "area": "ZF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -12467,7 +12467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0966",
     "location": "ZF Adult Octorok 2",
-    "region": "ZF",
+    "area": "ZF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -12477,7 +12477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0967",
     "location": "ZF Adult Near Circling Platforms Octorok 1",
-    "region": "ZF",
+    "area": "ZF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -12487,7 +12487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0968",
     "location": "ZF Adult Near Circling Platforms Octorok 2",
-    "region": "ZF",
+    "area": "ZF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -12497,7 +12497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0969",
     "location": "ZF Adult Tektite",
-    "region": "ZF",
+    "area": "ZF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -12507,7 +12507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0970",
     "location": "ZF Hidden Cave Invisible Skulltula 1",
-    "region": "ZF",
+    "area": "ZF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -12517,7 +12517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0971",
     "location": "ZF Hidden Cave Invisible Skulltula 2",
-    "region": "ZF",
+    "area": "ZF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -12527,7 +12527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0972",
     "location": "ZF Hidden Cave Invisible Skulltula 3",
-    "region": "ZF",
+    "area": "ZF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -12537,7 +12537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0973",
     "location": "ZF Hidden Cave Invisible Skulltula 4",
-    "region": "ZF",
+    "area": "ZF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -12547,7 +12547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0974",
     "location": "ZF Hidden Cave Visible Skulltula",
-    "region": "ZF",
+    "area": "ZF",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -12557,7 +12557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0975",
     "location": "LH Underwater Item",
-    "region": "LH",
+    "area": "LH",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -12567,7 +12567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0976",
     "location": "LH Child Fishing",
-    "region": "LH",
+    "area": "LH",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -12577,7 +12577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0977",
     "location": "LH Adult Fishing",
-    "region": "LH",
+    "area": "LH",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -12587,7 +12587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0978",
     "location": "LH Loach Fishing",
-    "region": "LH",
+    "area": "LH",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -12597,7 +12597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0979",
     "location": "LH Lab Dive",
-    "region": "LH",
+    "area": "LH",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -12607,7 +12607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0980",
     "location": "LH Trade Eyeball Frog",
-    "region": "LH",
+    "area": "LH",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -12617,7 +12617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0981",
     "location": "LH Freestanding PoH",
-    "region": "LH",
+    "area": "LH",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12627,7 +12627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0982",
     "location": "LH Sun",
-    "region": "LH",
+    "area": "LH",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -12637,7 +12637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0983",
     "location": "LH Deku Scrub Grotto Left",
-    "region": "LH",
+    "area": "LH",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -12647,7 +12647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0984",
     "location": "LH Deku Scrub Grotto Center",
-    "region": "LH",
+    "area": "LH",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -12657,7 +12657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0985",
     "location": "LH Deku Scrub Grotto Right",
-    "region": "LH",
+    "area": "LH",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -12667,7 +12667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0986",
     "location": "LH GS Bean Patch",
-    "region": "LH",
+    "area": "LH",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -12677,7 +12677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0987",
     "location": "LH GS Lab Wall",
-    "region": "LH",
+    "area": "LH",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -12687,7 +12687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0988",
     "location": "LH GS Small Island",
-    "region": "LH",
+    "area": "LH",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -12697,7 +12697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0989",
     "location": "LH GS Lab Crate",
-    "region": "LH",
+    "area": "LH",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -12707,7 +12707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0990",
     "location": "LH GS Tree",
-    "region": "LH",
+    "area": "LH",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -12717,7 +12717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0991",
     "location": "LH Underwater Near Shore Green Rupee",
-    "region": "LH",
+    "area": "LH",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12727,7 +12727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0992",
     "location": "LH Underwater Green Rupee 1",
-    "region": "LH",
+    "area": "LH",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12737,7 +12737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0993",
     "location": "LH Underwater Green Rupee 2",
-    "region": "LH",
+    "area": "LH",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12747,7 +12747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0994",
     "location": "LH Lab Dive Red Rupee 1",
-    "region": "LH",
+    "area": "LH",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12757,7 +12757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0995",
     "location": "LH Lab Dive Red Rupee 2",
-    "region": "LH",
+    "area": "LH",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12767,7 +12767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0996",
     "location": "LH Lab Dive Red Rupee 3",
-    "region": "LH",
+    "area": "LH",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -12777,7 +12777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0997",
     "location": "LH Grotto Beehive",
-    "region": "LH",
+    "area": "LH",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -12787,7 +12787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0998",
     "location": "Lake Hylia Warp Pad Grass 1",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12797,7 +12797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_0999",
     "location": "Lake Hylia Warp Pad Grass 2",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12807,7 +12807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1000",
     "location": "Lake Hylia Child Scarecrow Grass 1",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12817,7 +12817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1001",
     "location": "Lake Hylia Child Scarecrow Grass 2",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12827,7 +12827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1002",
     "location": "Lake Hylia Child Scarecrow Grass 3",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12837,7 +12837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1003",
     "location": "Lake Hylia Child Scarecrow Grass 4",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12847,7 +12847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1004",
     "location": "Lake Hylia Grass Patch 1",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12857,7 +12857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1005",
     "location": "Lake Hylia Grass Patch 2",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12867,7 +12867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1006",
     "location": "Lake Hylia Grass Patch 3",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12877,7 +12877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1007",
     "location": "Lake Hylia Grass Patch 4",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12887,7 +12887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1008",
     "location": "Lake Hylia Grass Patch 5",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12897,7 +12897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1009",
     "location": "Lake Hylia Grass Patch 6",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12907,7 +12907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1010",
     "location": "Lake Hylia Grass Patch 7",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12917,7 +12917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1011",
     "location": "Lake Hylia Grass Patch 8",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12927,7 +12927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1012",
     "location": "Lake Hylia Grass Patch 9",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12937,7 +12937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1013",
     "location": "Lake Hylia Grass Patch 10",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12947,7 +12947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1014",
     "location": "Lake Hylia Grass Patch 11",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12957,7 +12957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1015",
     "location": "Lake Hylia Grass Patch 12",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12967,7 +12967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1016",
     "location": "Lake Hylia Grass Patch 13",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12977,7 +12977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1017",
     "location": "Lake Hylia Grass Patch 14",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12987,7 +12987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1018",
     "location": "Lake Hylia Grass Patch 15",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -12997,7 +12997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1019",
     "location": "Lake Hylia Grass Patch 16",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13007,7 +13007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1020",
     "location": "Lake Hylia Grass Patch 17",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13017,7 +13017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1021",
     "location": "Lake Hylia Grass Patch 18",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13027,7 +13027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1022",
     "location": "Lake Hylia Grass Patch 19",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13037,7 +13037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1023",
     "location": "Lake Hylia Grass Patch 20",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13047,7 +13047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1024",
     "location": "Lake Hylia Grass Patch 21",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13057,7 +13057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1025",
     "location": "Lake Hylia Grass Patch 22",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13067,7 +13067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1026",
     "location": "Lake Hylia Grass Patch 23",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13077,7 +13077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1027",
     "location": "Lake Hylia Grass Patch 24",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13087,7 +13087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1028",
     "location": "Lake Hylia Grass Patch 25",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13097,7 +13097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1029",
     "location": "Lake Hylia Grass Patch 26",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13107,7 +13107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1030",
     "location": "Lake Hylia Grass Patch 27",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13117,7 +13117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1031",
     "location": "Lake Hylia Grass Patch 28",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13127,7 +13127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1032",
     "location": "Lake Hylia Grass Patch 29",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13137,7 +13137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1033",
     "location": "Lake Hylia Grass Patch 30",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13147,7 +13147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1034",
     "location": "Lake Hylia Grass Patch 31",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13157,7 +13157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1035",
     "location": "Lake Hylia Grass Patch 32",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13167,7 +13167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1036",
     "location": "Lake Hylia Grass Patch 33",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13177,7 +13177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1037",
     "location": "Lake Hylia Grass Patch 34",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13187,7 +13187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1038",
     "location": "Lake Hylia Grass Patch 35",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13197,7 +13197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1039",
     "location": "Lake Hylia Grass Patch 36",
-    "region": "Unknown",
+    "area": "LH",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -13207,7 +13207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1040",
     "location": "LH Child Near Lab Octorok",
-    "region": "LH",
+    "area": "LH",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -13217,7 +13217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1041",
     "location": "LH Child Bridge Octorok 1",
-    "region": "LH",
+    "area": "LH",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -13227,7 +13227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1042",
     "location": "LH Child Bridge Octorok 2",
-    "region": "LH",
+    "area": "LH",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -13237,7 +13237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1043",
     "location": "LH Child Tektite 1",
-    "region": "LH",
+    "area": "LH",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -13247,7 +13247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1044",
     "location": "LH Child Tektite 2",
-    "region": "LH",
+    "area": "LH",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -13257,7 +13257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1045",
     "location": "LH Child Tektite 3",
-    "region": "LH",
+    "area": "LH",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -13267,7 +13267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1046",
     "location": "LH Adult Guay 1",
-    "region": "LH",
+    "area": "LH",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -13277,7 +13277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1047",
     "location": "LH Adult Guay 2",
-    "region": "LH",
+    "area": "LH",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -13287,7 +13287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1048",
     "location": "LH Adult Guay 3",
-    "region": "LH",
+    "area": "LH",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -13297,7 +13297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1049",
     "location": "LH Adult Guay 4",
-    "region": "LH",
+    "area": "LH",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -13307,7 +13307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1050",
     "location": "LH Adult Tektite 1",
-    "region": "LH",
+    "area": "LH",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -13317,7 +13317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1051",
     "location": "LH Adult Tektite 2",
-    "region": "LH",
+    "area": "LH",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -13327,7 +13327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1052",
     "location": "LH Adult Tektite 3",
-    "region": "LH",
+    "area": "LH",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -13337,7 +13337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1053",
     "location": "LH Adult Tektite 4",
-    "region": "LH",
+    "area": "LH",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -13347,7 +13347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1054",
     "location": "LH Adult Tektite 5",
-    "region": "LH",
+    "area": "LH",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -13357,7 +13357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1055",
     "location": "LH Adult Tektite 6",
-    "region": "LH",
+    "area": "LH",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -13367,7 +13367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1056",
     "location": "LH Adult Tektite 7",
-    "region": "LH",
+    "area": "LH",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -13377,7 +13377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1057",
     "location": "LH Adult Tektite 8",
-    "region": "LH",
+    "area": "LH",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -13387,7 +13387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1058",
     "location": "LH Child Fish 1",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13397,7 +13397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1059",
     "location": "LH Child Fish 2",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13407,7 +13407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1060",
     "location": "LH Child Fish 3",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13417,7 +13417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1061",
     "location": "LH Child Fish 4",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13427,7 +13427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1062",
     "location": "LH Child Fish 5",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13437,7 +13437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1063",
     "location": "LH Child Fish 6",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13447,7 +13447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1064",
     "location": "LH Child Fish 7",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13457,7 +13457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1065",
     "location": "LH Child Fish 8",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13467,7 +13467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1066",
     "location": "LH Child Fish 9",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13477,7 +13477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1067",
     "location": "LH Child Fish 10",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13487,7 +13487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1068",
     "location": "LH Child Fish 11",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13497,7 +13497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1069",
     "location": "LH Child Fish 12",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13507,7 +13507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1070",
     "location": "LH Child Fish 13",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13517,7 +13517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1071",
     "location": "LH Child Fish 14",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13527,7 +13527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1072",
     "location": "LH Child Fish 15",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13537,7 +13537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1073",
     "location": "LH Child Loach 1",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13547,7 +13547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1074",
     "location": "LH Child Loach 2",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13557,7 +13557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1075",
     "location": "LH Adult Fish 1",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13567,7 +13567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1076",
     "location": "LH Adult Fish 2",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13577,7 +13577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1077",
     "location": "LH Adult Fish 3",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13587,7 +13587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1078",
     "location": "LH Adult Fish 4",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13597,7 +13597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1079",
     "location": "LH Adult Fish 5",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13607,7 +13607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1080",
     "location": "LH Adult Fish 6",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13617,7 +13617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1081",
     "location": "LH Adult Fish 7",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13627,7 +13627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1082",
     "location": "LH Adult Fish 8",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13637,7 +13637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1083",
     "location": "LH Adult Fish 9",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13647,7 +13647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1084",
     "location": "LH Adult Fish 10",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13657,7 +13657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1085",
     "location": "LH Adult Fish 11",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13667,7 +13667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1086",
     "location": "LH Adult Fish 12",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13677,7 +13677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1087",
     "location": "LH Adult Fish 13",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13687,7 +13687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1088",
     "location": "LH Adult Fish 14",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13697,7 +13697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1089",
     "location": "LH Adult Fish 15",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13707,7 +13707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1090",
     "location": "LH Adult Loach",
-    "region": "LH",
+    "area": "LH",
     "type": "Other",
     "item": "",
     "price": null,
@@ -13717,7 +13717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1091",
     "location": "LH Lab Gossip Stone Drop",
-    "region": "LH",
+    "area": "LH",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -13727,7 +13727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1092",
     "location": "LH Gossip Stone (Southeast) Drop",
-    "region": "LH",
+    "area": "LH",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -13737,7 +13737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1093",
     "location": "LH Gossip Stone (Southwest) Drop",
-    "region": "LH",
+    "area": "LH",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -13747,7 +13747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1094",
     "location": "GV Crate Freestanding PoH",
-    "region": "GV",
+    "area": "GV",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -13757,7 +13757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1095",
     "location": "GV Waterfall Freestanding PoH",
-    "region": "GV",
+    "area": "GV",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -13767,7 +13767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1096",
     "location": "GV Chest",
-    "region": "GV",
+    "area": "GV",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -13777,7 +13777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1097",
     "location": "GV Trade Poachers Saw",
-    "region": "GV",
+    "area": "GV",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -13787,7 +13787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1098",
     "location": "GV Deku Scrub Grotto Front",
-    "region": "GV",
+    "area": "GV",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -13797,7 +13797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1099",
     "location": "GV Deku Scrub Grotto Rear",
-    "region": "GV",
+    "area": "GV",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -13807,7 +13807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1100",
     "location": "GV Cow",
-    "region": "GV",
+    "area": "GV",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -13817,7 +13817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1101",
     "location": "GV GS Small Bridge",
-    "region": "GV",
+    "area": "GV",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -13827,7 +13827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1102",
     "location": "GV GS Bean Patch",
-    "region": "GV",
+    "area": "GV",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -13837,7 +13837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1103",
     "location": "GV GS Behind Tent",
-    "region": "GV",
+    "area": "GV",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -13847,7 +13847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1104",
     "location": "GV GS Pillar",
-    "region": "GV",
+    "area": "GV",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -13857,7 +13857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1105",
     "location": "GV Octorok Grotto Red Rupee",
-    "region": "GV",
+    "area": "GV",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -13867,7 +13867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1106",
     "location": "GV Octorok Grotto Blue Rupee 1",
-    "region": "GV",
+    "area": "GV",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -13877,7 +13877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1107",
     "location": "GV Octorok Grotto Blue Rupee 2",
-    "region": "GV",
+    "area": "GV",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -13887,7 +13887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1108",
     "location": "GV Octorok Grotto Blue Rupee 3",
-    "region": "GV",
+    "area": "GV",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -13897,7 +13897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1109",
     "location": "GV Octorok Grotto Green Rupee 1",
-    "region": "GV",
+    "area": "GV",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -13907,7 +13907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1110",
     "location": "GV Octorok Grotto Green Rupee 2",
-    "region": "GV",
+    "area": "GV",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -13917,7 +13917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1111",
     "location": "GV Octorok Grotto Green Rupee 3",
-    "region": "GV",
+    "area": "GV",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -13927,7 +13927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1112",
     "location": "GV Octorok Grotto Green Rupee 4",
-    "region": "GV",
+    "area": "GV",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -13937,7 +13937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1113",
     "location": "GV Crate Near Cow",
-    "region": "GV",
+    "area": "GV",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -13947,7 +13947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1114",
     "location": "GV Freestanding PoH Crate",
-    "region": "GV",
+    "area": "GV",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -13957,7 +13957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1115",
     "location": "GV Storms Grotto Beehive",
-    "region": "GV",
+    "area": "GV",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -13967,7 +13967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1116",
     "location": "GV Adult Upper Waterfall Wonderitem",
-    "region": "GV",
+    "area": "GV",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -13977,7 +13977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1117",
     "location": "GV Adult Lower Waterfall Wonderitem",
-    "region": "GV",
+    "area": "GV",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -13987,7 +13987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1118",
     "location": "GV Adult Upper Octorok 1",
-    "region": "GV",
+    "area": "GV",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -13997,7 +13997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1119",
     "location": "GV Adult Upper Octorok 2",
-    "region": "GV",
+    "area": "GV",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -14007,7 +14007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1120",
     "location": "GV Adult Upper Octorok 3",
-    "region": "GV",
+    "area": "GV",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -14017,7 +14017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1121",
     "location": "GV Adult Lower Octorok 1",
-    "region": "GV",
+    "area": "GV",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -14027,7 +14027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1122",
     "location": "GV Adult Lower Octorok 2",
-    "region": "GV",
+    "area": "GV",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -14037,7 +14037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1123",
     "location": "GV Octorok Grotto Octorok",
-    "region": "GV",
+    "area": "GV",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -14047,7 +14047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1124",
     "location": "GV Gossip Stone Drop",
-    "region": "GV",
+    "area": "GV",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -14057,7 +14057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1125",
     "location": "GF Chest",
-    "region": "GF",
+    "area": "GF",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -14067,7 +14067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1126",
     "location": "GF HBA 1000 Points",
-    "region": "GF",
+    "area": "GF",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -14077,7 +14077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1127",
     "location": "GF HBA 1500 Points",
-    "region": "GF",
+    "area": "GF",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -14087,7 +14087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1128",
     "location": "GF GS Top Floor",
-    "region": "GF",
+    "area": "GF",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -14097,7 +14097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1129",
     "location": "GF GS Archery Range",
-    "region": "GF",
+    "area": "GF",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -14107,7 +14107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1130",
     "location": "GF Crate 1",
-    "region": "GF",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14117,7 +14117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1131",
     "location": "GF Crate 2",
-    "region": "GF",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14127,7 +14127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1132",
     "location": "GF Crate 3",
-    "region": "GF",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14137,7 +14137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1133",
     "location": "GF Crate 4",
-    "region": "GF",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14147,7 +14147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1134",
     "location": "GF Crate 5",
-    "region": "GF",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14157,7 +14157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1135",
     "location": "GF Crate 6",
-    "region": "GF",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14167,7 +14167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1136",
     "location": "GF Above Jail Crate",
-    "region": "GF",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14177,7 +14177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1137",
     "location": "GF HBA Crate 1",
-    "region": "GF",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14187,7 +14187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1138",
     "location": "GF HBA Crate 2",
-    "region": "GF",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14197,7 +14197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1139",
     "location": "GF HBA Crate 3",
-    "region": "GF",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14207,7 +14207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1140",
     "location": "GF HBA Crate 4",
-    "region": "GF",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14217,7 +14217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1141",
     "location": "GF HBA Crate 5",
-    "region": "GF",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14227,7 +14227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1142",
     "location": "GF HBA Crate 6",
-    "region": "GF",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14237,7 +14237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1143",
     "location": "GF HBA Crate 7",
-    "region": "GF",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14247,7 +14247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1144",
     "location": "GF HBA Crate 8",
-    "region": "GF",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14257,7 +14257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1145",
     "location": "GF HBA Crate 9",
-    "region": "GF",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14267,7 +14267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1146",
     "location": "GF HBA Crate 10",
-    "region": "GF",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14277,7 +14277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1147",
     "location": "GF HBA Crate 11",
-    "region": "GF",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14287,7 +14287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1148",
     "location": "GF HBA Crate 12",
-    "region": "GF",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14297,7 +14297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1149",
     "location": "GF HBA Crate 13",
-    "region": "GF",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14307,7 +14307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1150",
     "location": "GF Sign Wonderitem Near Entrance",
-    "region": "GF",
+    "area": "GF",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -14317,7 +14317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1151",
     "location": "GF Sign Wonderitem Near HBA",
-    "region": "GF",
+    "area": "GF",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -14327,7 +14327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1152",
     "location": "Hideout 1 Torch Jail Gerudo Key",
-    "region": "Unknown",
+    "area": "GF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -14337,7 +14337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1153",
     "location": "Hideout 2 Torches Jail Gerudo Key",
-    "region": "Unknown",
+    "area": "GF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -14347,7 +14347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1154",
     "location": "Hideout 3 Torches Jail Gerudo Key",
-    "region": "Unknown",
+    "area": "GF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -14357,7 +14357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1155",
     "location": "Hideout 4 Torches Jail Gerudo Key",
-    "region": "Unknown",
+    "area": "GF",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -14367,7 +14367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1156",
     "location": "Hideout Gerudo Membership Card",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -14377,7 +14377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1157",
     "location": "Hideout Break Room Pot 1",
-    "region": "Unknown",
+    "area": "GF",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -14387,7 +14387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1158",
     "location": "Hideout Break Room Pot 2",
-    "region": "Unknown",
+    "area": "GF",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -14397,7 +14397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1159",
     "location": "Hideout 1 Torch Jail Pot 1",
-    "region": "Unknown",
+    "area": "GF",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -14407,7 +14407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1160",
     "location": "Hideout 1 Torch Jail Pot 2",
-    "region": "Unknown",
+    "area": "GF",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -14417,7 +14417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1161",
     "location": "Hideout 1 Torch Jail Pot 3",
-    "region": "Unknown",
+    "area": "GF",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -14427,7 +14427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1162",
     "location": "Hideout Kitchen Pot 1",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -14437,7 +14437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1163",
     "location": "Hideout Kitchen Pot 2",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -14447,7 +14447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1164",
     "location": "Hideout 4 Torch Jail Pot 1",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -14457,7 +14457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1165",
     "location": "Hideout 4 Torch Jail Pot 2",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -14467,7 +14467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1166",
     "location": "Hideout 2 Torch Jail Pot 1",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -14477,7 +14477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1167",
     "location": "Hideout 2 Torch Jail Pot 2",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -14487,7 +14487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1168",
     "location": "Hideout 2 Torch Jail Pot 3",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -14497,7 +14497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1169",
     "location": "Hideout 2 Torch Jail In Cell Pot 1",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -14507,7 +14507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1170",
     "location": "Hideout 2 Torch Jail In Cell Pot 2",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -14517,7 +14517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1171",
     "location": "Hideout 2 Torch Jail In Cell Pot 3",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -14527,7 +14527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1172",
     "location": "Hideout 2 Torch Jail In Cell Pot 4",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -14537,7 +14537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1173",
     "location": "Hideout Break Room Crate 1",
-    "region": "Unknown",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14547,7 +14547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1174",
     "location": "Hideout Break Room Crate 2",
-    "region": "Unknown",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14557,7 +14557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1175",
     "location": "Hideout Break Room Hallway Crate 1",
-    "region": "Unknown",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14567,7 +14567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1176",
     "location": "Hideout Break Room Hallway Crate 2",
-    "region": "Unknown",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14577,7 +14577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1177",
     "location": "Hideout 1 Torch Jail Crate",
-    "region": "Unknown",
+    "area": "GF",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14587,7 +14587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1178",
     "location": "Hideout 3 Torch Jail Crate",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14597,7 +14597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1179",
     "location": "Hideout Near Kitchen Crate 1",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14607,7 +14607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1180",
     "location": "Hideout Near Kitchen Crate 2",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14617,7 +14617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1181",
     "location": "Hideout Near Kitchen Crate 3",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14627,7 +14627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1182",
     "location": "Hideout Near Kitchen Crate 4",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14637,7 +14637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1183",
     "location": "Hideout Near Kitchen Crate 5",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14647,7 +14647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1184",
     "location": "Hideout 2 Torch Jail Crate 1",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14657,7 +14657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1185",
     "location": "Hideout 2 Torch Jail Crate 2",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14667,7 +14667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1186",
     "location": "Hideout Break Room Wonderitem",
-    "region": "Unknown",
+    "area": "GF",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -14677,7 +14677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1187",
     "location": "Hideout Break Room Hall to Balcony Wonderitem",
-    "region": "Unknown",
+    "area": "GF",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -14687,7 +14687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1188",
     "location": "Hideout 3 Torch Jail Wonderitem 1",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -14697,7 +14697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1189",
     "location": "Hideout 3 Torch Jail Wonderitem 2",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -14707,7 +14707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1190",
     "location": "Hideout 1 Torch Jail Wonderitem 1",
-    "region": "Unknown",
+    "area": "GF",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -14717,7 +14717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1191",
     "location": "Hideout 1 Torch Jail Wonderitem 2",
-    "region": "Unknown",
+    "area": "GF",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -14727,7 +14727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1192",
     "location": "Hideout Kitchen Stove Wonderitem",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -14737,7 +14737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1193",
     "location": "Hideout Kitchen Wonderitem",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -14747,7 +14747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1194",
     "location": "Hideout 4 Torch Jail Wonderitem 1",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -14757,7 +14757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1195",
     "location": "Hideout 4 Torch Jail Wonderitem 2",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -14767,7 +14767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1196",
     "location": "Hideout 2 Torch Jail Wonderitem 1",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -14777,7 +14777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1197",
     "location": "Hideout 2 Torch Jail Wonderitem 2",
-    "region": "Unknown",
+    "area": "Hideout",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -14787,7 +14787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1198",
     "location": "Wasteland Bombchu Salesman",
-    "region": "Wasteland",
+    "area": "Wasteland",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -14797,7 +14797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1199",
     "location": "Wasteland Chest",
-    "region": "Wasteland",
+    "area": "Wasteland",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -14807,7 +14807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1200",
     "location": "Wasteland GS",
-    "region": "Wasteland",
+    "area": "Wasteland",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -14817,7 +14817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1201",
     "location": "Wasteland Near GS Pot 1",
-    "region": "Wasteland",
+    "area": "Wasteland",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -14827,7 +14827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1202",
     "location": "Wasteland Near GS Pot 2",
-    "region": "Wasteland",
+    "area": "Wasteland",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -14837,7 +14837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1203",
     "location": "Wasteland Near GS Pot 3",
-    "region": "Wasteland",
+    "area": "Wasteland",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -14847,7 +14847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1204",
     "location": "Wasteland Near GS Pot 4",
-    "region": "Wasteland",
+    "area": "Wasteland",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -14857,7 +14857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1205",
     "location": "Wasteland Crate Before Quicksand",
-    "region": "Wasteland",
+    "area": "Wasteland",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14867,7 +14867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1206",
     "location": "Wasteland Crate After Quicksand 1",
-    "region": "Wasteland",
+    "area": "Wasteland",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14877,7 +14877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1207",
     "location": "Wasteland Crate After Quicksand 2",
-    "region": "Wasteland",
+    "area": "Wasteland",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14887,7 +14887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1208",
     "location": "Wasteland Crate After Quicksand 3",
-    "region": "Wasteland",
+    "area": "Wasteland",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14897,7 +14897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1209",
     "location": "Wasteland Crate Near Colossus",
-    "region": "Wasteland",
+    "area": "Wasteland",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -14907,7 +14907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1210",
     "location": "Colossus Great Fairy Reward",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -14917,7 +14917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1211",
     "location": "Colossus Freestanding PoH",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -14927,7 +14927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1212",
     "location": "Colossus Deku Scrub Grotto Front",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -14937,7 +14937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1213",
     "location": "Colossus Deku Scrub Grotto Rear",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "GrottoScrub",
     "item": "",
     "price": null,
@@ -14947,7 +14947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1214",
     "location": "Colossus GS Bean Patch",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -14957,7 +14957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1215",
     "location": "Colossus GS Tree",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -14967,7 +14967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1216",
     "location": "Colossus GS Hill",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -14977,7 +14977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1217",
     "location": "Colossus Grotto Beehive",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "Beehive",
     "item": "",
     "price": null,
@@ -14987,7 +14987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1218",
     "location": "Colossus Tree Wonderitem 1",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -14997,7 +14997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1219",
     "location": "Colossus Tree Wonderitem 2",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -15007,7 +15007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1220",
     "location": "Colossus Tree Wonderitem 3 Child",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -15017,7 +15017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1221",
     "location": "Colossus Tree Wonderitem 4",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -15027,7 +15027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1222",
     "location": "Colossus Tree Wonderitem 5",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -15037,7 +15037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1223",
     "location": "Colossus Child Guay 1",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15047,7 +15047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1224",
     "location": "Colossus Child Guay 2",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15057,7 +15057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1225",
     "location": "Colossus Child Guay 3",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15067,7 +15067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1226",
     "location": "Colossus Adult Guay 1",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15077,7 +15077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1227",
     "location": "Colossus Adult Guay 2",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15087,7 +15087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1228",
     "location": "Colossus Adult Guay 3",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15097,7 +15097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1229",
     "location": "Colossus Adult Guay 4",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15107,7 +15107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1230",
     "location": "Colossus Adult Guay 5",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15117,7 +15117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1231",
     "location": "Colossus Gossip Stone Drop",
-    "region": "Colossus",
+    "area": "Colossus",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -15127,7 +15127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1232",
     "location": "OGC Great Fairy Reward",
-    "region": "OGC",
+    "area": "OGC",
     "type": "NPC",
     "item": "",
     "price": null,
@@ -15137,7 +15137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1233",
     "location": "OGC GS",
-    "region": "OGC",
+    "area": "OGC",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -15147,7 +15147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1234",
     "location": "Deku Tree Map Chest",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -15157,7 +15157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1235",
     "location": "Deku Tree Slingshot Room Side Chest",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -15167,7 +15167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1236",
     "location": "Deku Tree Slingshot Chest",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -15177,7 +15177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1237",
     "location": "Deku Tree Compass Chest",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -15187,7 +15187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1238",
     "location": "Deku Tree Compass Room Side Chest",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -15197,7 +15197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1239",
     "location": "Deku Tree Basement Chest",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -15207,7 +15207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1240",
     "location": "Deku Tree GS Compass Room",
-    "region": "Deku",
+    "area": "Deku",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -15217,7 +15217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1241",
     "location": "Deku Tree GS Basement Vines",
-    "region": "Deku",
+    "area": "Deku",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -15227,7 +15227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1242",
     "location": "Deku Tree GS Basement Gate",
-    "region": "Deku",
+    "area": "Deku",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -15237,7 +15237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1243",
     "location": "Deku Tree GS Basement Back Room",
-    "region": "Deku",
+    "area": "Deku",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -15247,7 +15247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1244",
     "location": "Deku Tree Lower Lobby Recovery Heart",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -15257,7 +15257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1245",
     "location": "Deku Tree Upper Lobby Recovery Heart",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -15267,7 +15267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1246",
     "location": "Deku Tree Basement Recovery Heart 1",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -15277,7 +15277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1247",
     "location": "Deku Tree Basement Recovery Heart 2",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -15287,7 +15287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1248",
     "location": "Deku Tree Basement Recovery Heart 3",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -15297,7 +15297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1249",
     "location": "Deku Tree Lobby Grass 1",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15307,7 +15307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1250",
     "location": "Deku Tree Lobby Grass 2",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15317,7 +15317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1251",
     "location": "Deku Tree Lobby Grass 3",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15327,7 +15327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1252",
     "location": "Deku Tree Lobby Grass 4",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15337,7 +15337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1253",
     "location": "Deku Tree Lobby Grass 5",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15347,7 +15347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1254",
     "location": "Deku Tree Slingshot Room Grass 1",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15357,7 +15357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1255",
     "location": "Deku Tree Slingshot Room Grass 2",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15367,7 +15367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1256",
     "location": "Deku Tree Slingshot Room Grass 3",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15377,7 +15377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1257",
     "location": "Deku Tree Slingshot Room Grass 4",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15387,7 +15387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1258",
     "location": "Deku Tree Basement Grass 1",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15397,7 +15397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1259",
     "location": "Deku Tree Basement Grass 2",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15407,7 +15407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1260",
     "location": "Deku Tree Basement Eye Switch Room Grass 1",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15417,7 +15417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1261",
     "location": "Deku Tree Basement Eye Switch Room Grass 2",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15427,7 +15427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1262",
     "location": "Deku Tree Basement Eye Switch Room Grass 3",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15437,7 +15437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1263",
     "location": "Deku Tree Basement Eye Switch Room Grass 4",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15447,7 +15447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1264",
     "location": "Deku Tree Basement Spinning Log Grass 1",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15457,7 +15457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1265",
     "location": "Deku Tree Basement Spinning Log Grass 2",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15467,7 +15467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1266",
     "location": "Deku Tree Basement Torch Room Grass 1",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15477,7 +15477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1267",
     "location": "Deku Tree Basement Torch Room Grass 2",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15487,7 +15487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1268",
     "location": "Deku Tree Basement Larvae Room Grass 1",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15497,7 +15497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1269",
     "location": "Deku Tree Basement Larvae Room Grass 2",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15507,7 +15507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1270",
     "location": "Deku Tree Before Boss Grass 1",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15517,7 +15517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1271",
     "location": "Deku Tree Before Boss Grass 2",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15527,7 +15527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1272",
     "location": "Deku Tree Before Boss Grass 3",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15537,7 +15537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1273",
     "location": "Deku Tree Compass Room Grass 1",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15547,7 +15547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1274",
     "location": "Deku Tree Compass Room Grass 2",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15557,7 +15557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1275",
     "location": "Deku Tree Gohma Grass 1",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15567,7 +15567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1276",
     "location": "Deku Tree Gohma Grass 2",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15577,7 +15577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1277",
     "location": "Deku Tree Gohma Grass 3",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15587,7 +15587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1278",
     "location": "Deku Tree Gohma Grass 4",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15597,7 +15597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1279",
     "location": "Deku Tree Gohma Grass 5",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15607,7 +15607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1280",
     "location": "Deku Tree Gohma Grass 6",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15617,7 +15617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1281",
     "location": "Deku Tree Gohma Grass 7",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15627,7 +15627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1282",
     "location": "Deku Tree Gohma Grass 8",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -15637,7 +15637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1283",
     "location": "Deku Tree Lobby Deku Baba 1",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15647,7 +15647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1284",
     "location": "Deku Tree Lobby Deku Baba 2",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15657,7 +15657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1285",
     "location": "Deku Tree Lobby Deku Baba 3",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15667,7 +15667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1286",
     "location": "Deku Tree Lobby Vines Lowest Skullwalltula",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15677,7 +15677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1287",
     "location": "Deku Tree Lobby Vines Left Lower Skullwalltula",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15687,7 +15687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1288",
     "location": "Deku Tree Lobby Vines Upper Skullwalltula",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15697,7 +15697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1289",
     "location": "Deku Tree Before Slingshot Hint Scrub",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15707,7 +15707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1290",
     "location": "Deku Tree Compass Room Skulltula",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15717,7 +15717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1291",
     "location": "Deku Tree Compass Room Deku Baba",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15727,7 +15727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1292",
     "location": "Deku Tree Lobby Skulltula 1",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15737,7 +15737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1293",
     "location": "Deku Tree Lobby Skulltula 2",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15747,7 +15747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1294",
     "location": "Deku Tree Lobby Skulltula 3",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15757,7 +15757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1295",
     "location": "Deku Tree Basement Lower Deku Baba",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15767,7 +15767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1296",
     "location": "Deku Tree Basement Upper Ledge Deku Baba 1",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15777,7 +15777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1297",
     "location": "Deku Tree Basement Upper Ledge Deku Baba 2",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15787,7 +15787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1298",
     "location": "Deku Tree Basement Upper Ledge Withered Deku Baba",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15797,7 +15797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1299",
     "location": "Deku Tree Basement Eye Switch Room Hint Scrub",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15807,7 +15807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1300",
     "location": "Deku Tree Spinning Log Skulltula",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15817,7 +15817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1301",
     "location": "Deku Tree Basement Torch Room Withered Deku Baba 1",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15827,7 +15827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1302",
     "location": "Deku Tree Basement Torch Room Withered Deku Baba 2",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15837,7 +15837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1303",
     "location": "Deku Tree Basement Torch Room Deku Baba 3",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15847,7 +15847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1304",
     "location": "Deku Tree Back Room Deku Baba 1",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15857,7 +15857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1305",
     "location": "Deku Tree Back Room Deku Baba 2",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15867,7 +15867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1306",
     "location": "Deku Tree Basement Back Room Skulltula",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15877,7 +15877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1307",
     "location": "Deku Tree Basement Back Room Gohma Larva 1",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15887,7 +15887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1308",
     "location": "Deku Tree Basement Back Room Gohma Larva 2",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15897,7 +15897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1309",
     "location": "Deku Tree Basement Back Room Gohma Larva 3",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15907,7 +15907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1310",
     "location": "Deku Tree Basement Back Room Near GS Skulltula",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15917,7 +15917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1311",
     "location": "Deku Tree Before Boss 3-2-1 Scrubs Left",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15927,7 +15927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1312",
     "location": "Deku Tree Before Boss 3-2-1 Scrubs Middle",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15937,7 +15937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1313",
     "location": "Deku Tree Before Boss 3-2-1 Scrubs Right",
-    "region": "Deku",
+    "area": "Deku",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -15947,7 +15947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1314",
     "location": "Deku Tree Queen Gohma Heart",
-    "region": "Deku",
+    "area": "Deku",
     "type": "Other",
     "item": "",
     "price": null,
@@ -15957,7 +15957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1315",
     "location": "Dodongos Cavern Map Chest",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -15967,7 +15967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1316",
     "location": "Dodongos Cavern Compass Chest",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -15977,7 +15977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1317",
     "location": "Dodongos Cavern Bomb Flower Platform Chest",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -15987,7 +15987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1318",
     "location": "Dodongos Cavern Bomb Bag Chest",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -15997,7 +15997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1319",
     "location": "Dodongos Cavern End of Bridge Chest",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -16007,7 +16007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1320",
     "location": "Dodongos Cavern Deku Scrub Side Room Near Dodongos",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Scrub",
     "item": "",
     "price": null,
@@ -16017,7 +16017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1321",
     "location": "Dodongos Cavern Deku Scrub Lobby",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Scrub",
     "item": "",
     "price": null,
@@ -16027,7 +16027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1322",
     "location": "Dodongos Cavern Deku Scrub Near Bomb Bag Left",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Scrub",
     "item": "",
     "price": null,
@@ -16037,7 +16037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1323",
     "location": "Dodongos Cavern Deku Scrub Near Bomb Bag Right",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Scrub",
     "item": "",
     "price": null,
@@ -16047,7 +16047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1324",
     "location": "Dodongos Cavern GS Side Room Near Lower Lizalfos",
-    "region": "Unknown",
+    "area": "DC",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -16057,7 +16057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1325",
     "location": "Dodongos Cavern GS Scarecrow",
-    "region": "Unknown",
+    "area": "DC",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -16067,7 +16067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1326",
     "location": "Dodongos Cavern GS Alcove Above Stairs",
-    "region": "Unknown",
+    "area": "DC",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -16077,7 +16077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1327",
     "location": "Dodongos Cavern GS Vines Above Stairs",
-    "region": "Unknown",
+    "area": "DC",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -16087,7 +16087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1328",
     "location": "Dodongos Cavern GS Back Room",
-    "region": "Unknown",
+    "area": "DC",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -16097,7 +16097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1329",
     "location": "Dodongos Cavern Lower Lizalfos Hidden Recovery Heart",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -16107,7 +16107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1330",
     "location": "Dodongos Cavern Upper Lizalfos Recovery Heart 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -16117,7 +16117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1331",
     "location": "Dodongos Cavern Upper Lizalfos Recovery Heart 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -16127,7 +16127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1332",
     "location": "Dodongos Cavern Blade Room Behind Block Recovery Heart",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -16137,7 +16137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1333",
     "location": "Dodongos Cavern Right Side Pot 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16147,7 +16147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1334",
     "location": "Dodongos Cavern Right Side Pot 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16157,7 +16157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1335",
     "location": "Dodongos Cavern Right Side Pot 3",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16167,7 +16167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1336",
     "location": "Dodongos Cavern Right Side Pot 4",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16177,7 +16177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1337",
     "location": "Dodongos Cavern Right Side Pot 5",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16187,7 +16187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1338",
     "location": "Dodongos Cavern Right Side Pot 6",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16197,7 +16197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1339",
     "location": "Dodongos Cavern Lower Lizalfos Pot 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16207,7 +16207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1340",
     "location": "Dodongos Cavern Lower Lizalfos Pot 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16217,7 +16217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1341",
     "location": "Dodongos Cavern Lower Lizalfos Pot 3",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16227,7 +16227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1342",
     "location": "Dodongos Cavern Lower Lizalfos Pot 4",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16237,7 +16237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1343",
     "location": "Dodongos Cavern Torch Room Pot 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16247,7 +16247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1344",
     "location": "Dodongos Cavern Torch Room Pot 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16257,7 +16257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1345",
     "location": "Dodongos Cavern Torch Room Pot 3",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16267,7 +16267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1346",
     "location": "Dodongos Cavern Torch Room Pot 4",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16277,7 +16277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1347",
     "location": "Dodongos Cavern Staircase Pot 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16287,7 +16287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1348",
     "location": "Dodongos Cavern Staircase Pot 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16297,7 +16297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1349",
     "location": "Dodongos Cavern Staircase Pot 3",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16307,7 +16307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1350",
     "location": "Dodongos Cavern Staircase Pot 4",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16317,7 +16317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1351",
     "location": "Dodongos Cavern Last Block Pot 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16327,7 +16327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1352",
     "location": "Dodongos Cavern Last Block Pot 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16337,7 +16337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1353",
     "location": "Dodongos Cavern Last Block Pot 3",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16347,7 +16347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1354",
     "location": "Dodongos Cavern Last Block Pot 4",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16357,7 +16357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1355",
     "location": "Dodongos Cavern Blade Room Pot 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16367,7 +16367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1356",
     "location": "Dodongos Cavern Blade Room Pot 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16377,7 +16377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1357",
     "location": "Dodongos Cavern Single Eye Switch Room Pot 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16387,7 +16387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1358",
     "location": "Dodongos Cavern Single Eye Switch Room Pot 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16397,7 +16397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1359",
     "location": "Dodongos Cavern Double Eye Switch Room Pot 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16407,7 +16407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1360",
     "location": "Dodongos Cavern Double Eye Switch Room Pot 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16417,7 +16417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1361",
     "location": "Dodongos Cavern First Bridge Grass",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -16427,7 +16427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1362",
     "location": "Dodongos Cavern Before Boss Grass",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -16437,7 +16437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1363",
     "location": "Dodongos Cavern Blade Room Grass",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -16447,7 +16447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1364",
     "location": "Dodongos Cavern Single Eye Switch Room Grass",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -16457,7 +16457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1365",
     "location": "Dodongos Cavern Beamos Left Side",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16467,7 +16467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1366",
     "location": "Dodongos Cavern Beamos Right Side",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16477,7 +16477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1367",
     "location": "Dodongos Cavern Beamos Center",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16487,7 +16487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1368",
     "location": "Dodongos Cavern Right Side Baby Dodongo 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16497,7 +16497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1369",
     "location": "Dodongos Cavern Right Side Baby Dodongo 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16507,7 +16507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1370",
     "location": "Dodongos Cavern Right Side Baby Dodongo 3",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16517,7 +16517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1371",
     "location": "Dodongos Cavern Right Side Baby Dodongo 4",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16527,7 +16527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1372",
     "location": "Dodongos Cavern Right Side Baby Dodongo 5",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16537,7 +16537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1373",
     "location": "Dodongos Cavern Right Side Baby Dodongo 6",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16547,7 +16547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1374",
     "location": "Dodongos Cavern Right Side Keese 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16557,7 +16557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1375",
     "location": "Dodongos Cavern Right Side Keese 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16567,7 +16567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1376",
     "location": "Dodongos Cavern Lower Lizalfos 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16577,7 +16577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1377",
     "location": "Dodongos Cavern Lower Lizalfos 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16587,7 +16587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1378",
     "location": "Dodongos Cavern Torch Room Dodongo 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16597,7 +16597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1379",
     "location": "Dodongos Cavern Torch Room Dodongo 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16607,7 +16607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1380",
     "location": "Dodongos Cavern Torch Room Dodongo 3",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16617,7 +16617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1381",
     "location": "Dodongos Cavern Side Room Near Lower Lizalfos Keese 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16627,7 +16627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1382",
     "location": "Dodongos Cavern Side Room Near Lower Lizalfos Keese 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16637,7 +16637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1383",
     "location": "Dodongos Cavern Side Room Near Lower Lizalfos Keese 3",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16647,7 +16647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1384",
     "location": "Dodongos Cavern Compass Room Armos",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16657,7 +16657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1385",
     "location": "Dodongos Cavern Staircase Skullwalltula",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16667,7 +16667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1386",
     "location": "Dodongos Cavern Climb Switch Room Armos 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16677,7 +16677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1387",
     "location": "Dodongos Cavern Climb Switch Room Armos 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16687,7 +16687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1388",
     "location": "Dodongos Cavern Climb Switch Room Armos 3",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16697,7 +16697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1389",
     "location": "Dodongos Cavern Climb Switch Room Keese 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16707,7 +16707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1390",
     "location": "Dodongos Cavern Climb Switch Room Keese 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16717,7 +16717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1391",
     "location": "Dodongos Cavern Upper Bridge Keese 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16727,7 +16727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1392",
     "location": "Dodongos Cavern Upper Bridge Keese 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16737,7 +16737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1393",
     "location": "Dodongos Cavern Before Upper Lizalfos Baby Dodongo 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16747,7 +16747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1394",
     "location": "Dodongos Cavern Before Upper Lizalfos Baby Dodongo 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16757,7 +16757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1395",
     "location": "Dodongos Cavern Before Upper Lizalfos Baby Dodongo 3",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16767,7 +16767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1396",
     "location": "Dodongos Cavern Upper Lizalfos 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16777,7 +16777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1397",
     "location": "Dodongos Cavern Upper Lizalfos 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16787,7 +16787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1398",
     "location": "Dodongos Cavern Before Boss Keese 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16797,7 +16797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1399",
     "location": "Dodongos Cavern Before Boss Keese 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16807,7 +16807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1400",
     "location": "Dodongos Cavern Before Back Room Keese 1",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16817,7 +16817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1401",
     "location": "Dodongos Cavern Before Back Room Keese 2",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16827,7 +16827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1402",
     "location": "Dodongos Cavern Back Room Armos",
-    "region": "Unknown",
+    "area": "DC",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -16837,7 +16837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1403",
     "location": "Dodongos Cavern Gossip Stone Drop",
-    "region": "Unknown",
+    "area": "DC",
     "type": "GossipStone",
     "item": "",
     "price": null,
@@ -16847,7 +16847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1404",
     "location": "Dodongos Cavern Boss Room Chest",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -16857,7 +16857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1405",
     "location": "Dodongos Cavern King Dodongo Heart",
-    "region": "Unknown",
+    "area": "DC",
     "type": "Other",
     "item": "",
     "price": null,
@@ -16867,7 +16867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1406",
     "location": "Jabu Jabus Belly Boomerang Chest",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -16877,7 +16877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1407",
     "location": "Jabu Jabus Belly Map Chest",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -16887,7 +16887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1408",
     "location": "Jabu Jabus Belly Compass Chest",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -16897,7 +16897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1409",
     "location": "Jabu Jabus Belly Deku Scrub",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Scrub",
     "item": "",
     "price": null,
@@ -16907,7 +16907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1410",
     "location": "Jabu Jabus Belly GS Water Switch Room",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -16917,7 +16917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1411",
     "location": "Jabu Jabus Belly GS Lobby Basement Lower",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -16927,7 +16927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1412",
     "location": "Jabu Jabus Belly GS Lobby Basement Upper",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -16937,7 +16937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1413",
     "location": "Jabu Jabus Belly GS Near Boss",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -16947,7 +16947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1414",
     "location": "Jabu Jabus Belly Above Big Octo Pot 1",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16957,7 +16957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1415",
     "location": "Jabu Jabus Belly Above Big Octo Pot 2",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16967,7 +16967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1416",
     "location": "Jabu Jabus Belly Above Big Octo Pot 3",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16977,7 +16977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1417",
     "location": "Jabu Jabus Belly Basement 2 Octoroks Pot 5",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16987,7 +16987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1418",
     "location": "Jabu Jabus Belly Basement 2 Octoroks Pot 1",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -16997,7 +16997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1419",
     "location": "Jabu Jabus Belly Basement 2 Octoroks Pot 2",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -17007,7 +17007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1420",
     "location": "Jabu Jabus Belly Basement 2 Octoroks Pot 3",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -17017,7 +17017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1421",
     "location": "Jabu Jabus Belly Basement 2 Octoroks Pot 4",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -17027,7 +17027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1422",
     "location": "Jabu Jabus Belly Basement Switch Room Pot 1",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -17037,7 +17037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1423",
     "location": "Jabu Jabus Belly Basement Switch Room Pot 2",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -17047,7 +17047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1424",
     "location": "Jabu Jabus Belly Basement Switch Room Pot 3",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -17057,7 +17057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1425",
     "location": "Jabu Jabus Belly Small Wooden Crate 1",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -17067,7 +17067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1426",
     "location": "Jabu Jabus Belly Small Wooden Crate 2",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -17077,7 +17077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1427",
     "location": "Jabu Jabus Belly Entryway Octorok Left",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17087,7 +17087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1428",
     "location": "Jabu Jabus Belly Entryway Octorok Right",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17097,7 +17097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1429",
     "location": "Jabu Jabus Belly Entryway Shabom 1",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17107,7 +17107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1430",
     "location": "Jabu Jabus Belly Entryway Shabom 2",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17117,7 +17117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1431",
     "location": "Jabu Jabus Belly Elevator Room Biri",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17127,7 +17127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1432",
     "location": "Jabu Jabus Belly Pit Room Biri 1",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17137,7 +17137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1433",
     "location": "Jabu Jabus Belly Pit Room Biri 2",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17147,7 +17147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1434",
     "location": "Jabu Jabus Belly Pit Room Biri 3",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17157,7 +17157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1435",
     "location": "Jabu Jabus Belly Pit Room Bari 1",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17167,7 +17167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1436",
     "location": "Jabu Jabus Belly Pit Room Bari 2",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17177,7 +17177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1437",
     "location": "Jabu Jabus Belly Basement Biri 1",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17187,7 +17187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1438",
     "location": "Jabu Jabus Belly Basement Biri 2",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17197,7 +17197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1439",
     "location": "Jabu Jabus Belly Basement Biri 3",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17207,7 +17207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1440",
     "location": "Jabu Jabus Belly Basement Biri 4",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17217,7 +17217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1441",
     "location": "Jabu Jabus Belly Basement Switch Room Shabom 1",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17227,7 +17227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1442",
     "location": "Jabu Jabus Belly Basement Switch Room Shabom 2",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17237,7 +17237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1443",
     "location": "Jabu Jabus Belly Basement Switch Room Shabom 3",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17247,7 +17247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1444",
     "location": "Jabu Jabus Belly Basement Switch Room Shabom 4",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17257,7 +17257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1445",
     "location": "Jabu Jabus Belly Basement Switch Room Shabom 5",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17267,7 +17267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1446",
     "location": "Jabu Jabus Belly Basement Switch Room Shabom 6",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17277,7 +17277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1447",
     "location": "Jabu Jabus Belly Basement Switch Room Shabom 7",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17287,7 +17287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1448",
     "location": "Jabu Jabus Belly Basement Switch Room Stinger 1",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17297,7 +17297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1449",
     "location": "Jabu Jabus Belly Basement Switch Room Stinger 2",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17307,7 +17307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1450",
     "location": "Jabu Jabus Belly Basement Switch Room Stinger 3",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17317,7 +17317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1451",
     "location": "Jabu Jabus Belly Basement 2 Octoroks Left Octorok",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17327,7 +17327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1452",
     "location": "Jabu Jabus Belly Basement 2 Octoroks Right Octorok",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17337,7 +17337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1453",
     "location": "Jabu Jabus Belly Elevator Room Octorok",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17347,7 +17347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1454",
     "location": "Jabu Jabus Belly Hallway Tailsparan 1",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17357,7 +17357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1455",
     "location": "Jabu Jabus Belly Hallway Tailsparan 2",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17367,7 +17367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1456",
     "location": "Jabu Jabus Belly Hallway Tailsparan 3",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17377,7 +17377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1457",
     "location": "Jabu Jabus Belly Hallway Tailsparan 4",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17387,7 +17387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1458",
     "location": "Jabu Jabus Belly Hallway Tailsparan 5",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17397,7 +17397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1459",
     "location": "Jabu Jabus Belly Boomerang Chest Stinger 1",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17407,7 +17407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1460",
     "location": "Jabu Jabus Belly Boomerang Chest Stinger 2",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17417,7 +17417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1461",
     "location": "Jabu Jabus Belly Boomerang Chest Stinger 3",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17427,7 +17427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1462",
     "location": "Jabu Jabus Belly Boomerang Chest Stinger 4",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17437,7 +17437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1463",
     "location": "Jabu Jabus Belly Compass Chest Shabom 1",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17447,7 +17447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1464",
     "location": "Jabu Jabus Belly Compass Chest Shabom 2",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17457,7 +17457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1465",
     "location": "Jabu Jabus Belly Compass Chest Shabom 3",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17467,7 +17467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1466",
     "location": "Jabu Jabus Belly Compass Chest Shabom 4",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17477,7 +17477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1467",
     "location": "Jabu Jabus Belly Compass Chest Shabom 5",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17487,7 +17487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1468",
     "location": "Jabu Jabus Belly Compass Chest Shabom 6",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17497,7 +17497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1469",
     "location": "Jabu Jabus Belly Compass Chest Shabom 7",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17507,7 +17507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1470",
     "location": "Jabu Jabus Belly Compass Chest Shabom 8",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17517,7 +17517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1471",
     "location": "Jabu Jabus Belly Compass Chest Shabom 9",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17527,7 +17527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1472",
     "location": "Jabu Jabus Belly Last Tentacle Biri 1",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17537,7 +17537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1473",
     "location": "Jabu Jabus Belly Last Tentacle Biri 2",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17547,7 +17547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1474",
     "location": "Jabu Jabus Belly Last Tentacle Biri 3",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17557,7 +17557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1475",
     "location": "Jabu Jabus Belly Last Tentacle Biri 4",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17567,7 +17567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1476",
     "location": "Jabu Jabus Belly After Big Octo Biri 1",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17577,7 +17577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1477",
     "location": "Jabu Jabus Belly After Big Octo Biri 2",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17587,7 +17587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1478",
     "location": "Jabu Jabus Belly Wiggler Platforms Octorok",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17597,7 +17597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1479",
     "location": "Jabu Jabus Belly Before Boss Biri 1",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17607,7 +17607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1480",
     "location": "Jabu Jabus Belly Before Boss Biri 2",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17617,7 +17617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1481",
     "location": "Jabu Jabus Belly Before Boss Biri 3",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17627,7 +17627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1482",
     "location": "Jabu Jabus Belly Before Boss Biri 4",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17637,7 +17637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1483",
     "location": "Jabu Jabus Belly Before Boss Biri 5",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -17647,7 +17647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1484",
     "location": "Jabu Jabus Belly Barinade Pot 1",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -17657,7 +17657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1485",
     "location": "Jabu Jabus Belly Barinade Pot 2",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -17667,7 +17667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1486",
     "location": "Jabu Jabus Belly Barinade Pot 3",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -17677,7 +17677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1487",
     "location": "Jabu Jabus Belly Barinade Pot 4",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -17687,7 +17687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1488",
     "location": "Jabu Jabus Belly Barinade Pot 5",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -17697,7 +17697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1489",
     "location": "Jabu Jabus Belly Barinade Pot 6",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -17707,7 +17707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1490",
     "location": "Jabu Jabus Belly Barinade Heart",
-    "region": "Jabu",
+    "area": "Jabu",
     "type": "Other",
     "item": "",
     "price": null,
@@ -17717,7 +17717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1491",
     "location": "Bottom of the Well Front Left Fake Wall Chest",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -17727,7 +17727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1492",
     "location": "Bottom of the Well Front Center Bombable Chest",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -17737,7 +17737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1493",
     "location": "Bottom of the Well Back Left Bombable Chest",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -17747,7 +17747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1494",
     "location": "Bottom of the Well Underwater Left Chest",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -17757,7 +17757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1495",
     "location": "Bottom of the Well Freestanding Key",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -17767,7 +17767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1496",
     "location": "Bottom of the Well Compass Chest",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -17777,7 +17777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1497",
     "location": "Bottom of the Well Center Skulltula Chest",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -17787,7 +17787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1498",
     "location": "Bottom of the Well Right Bottom Fake Wall Chest",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -17797,7 +17797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1499",
     "location": "Bottom of the Well Fire Keese Chest",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -17807,7 +17807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1500",
     "location": "Bottom of the Well Like Like Chest",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -17817,7 +17817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1501",
     "location": "Bottom of the Well Map Chest",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -17827,7 +17827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1502",
     "location": "Bottom of the Well Underwater Front Chest",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -17837,7 +17837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1503",
     "location": "Bottom of the Well Invisible Chest",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -17847,7 +17847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1504",
     "location": "Bottom of the Well Lens of Truth Chest",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -17857,7 +17857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1505",
     "location": "Bottom of the Well GS West Inner Room",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -17867,7 +17867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1506",
     "location": "Bottom of the Well GS East Inner Room",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -17877,7 +17877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1507",
     "location": "Bottom of the Well GS Like Like Cage",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -17887,7 +17887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1508",
     "location": "Bottom of the Well Center Room Pit Fall Blue Rupee 1",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -17897,7 +17897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1509",
     "location": "Bottom of the Well Center Room Pit Fall Blue Rupee 2",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -17907,7 +17907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1510",
     "location": "Bottom of the Well Center Room Pit Fall Blue Rupee 3",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -17917,7 +17917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1511",
     "location": "Bottom of the Well Center Room Pit Fall Blue Rupee 4",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -17927,7 +17927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1512",
     "location": "Bottom of the Well Center Room Pit Fall Blue Rupee 5",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -17937,7 +17937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1513",
     "location": "Bottom of the Well Coffin Recovery Heart 1",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -17947,7 +17947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1514",
     "location": "Bottom of the Well Coffin Recovery Heart 2",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -17957,7 +17957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1515",
     "location": "Bottom of the Well Left Side Pot 1",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -17967,7 +17967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1516",
     "location": "Bottom of the Well Left Side Pot 2",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -17977,7 +17977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1517",
     "location": "Bottom of the Well Left Side Pot 3",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -17987,7 +17987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1518",
     "location": "Bottom of the Well Near Entrance Pot 1",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -17997,7 +17997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1519",
     "location": "Bottom of the Well Near Entrance Pot 2",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18007,7 +18007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1520",
     "location": "Bottom of the Well Underwater Pot",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18017,7 +18017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1521",
     "location": "Bottom of the Well Basement Pot 1",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18027,7 +18027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1522",
     "location": "Bottom of the Well Basement Pot 2",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18037,7 +18037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1523",
     "location": "Bottom of the Well Basement Pot 3",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18047,7 +18047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1524",
     "location": "Bottom of the Well Basement Pot 4",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18057,7 +18057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1525",
     "location": "Bottom of the Well Basement Pot 5",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18067,7 +18067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1526",
     "location": "Bottom of the Well Basement Pot 6",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18077,7 +18077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1527",
     "location": "Bottom of the Well Basement Pot 7",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18087,7 +18087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1528",
     "location": "Bottom of the Well Basement Pot 8",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18097,7 +18097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1529",
     "location": "Bottom of the Well Basement Pot 9",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18107,7 +18107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1530",
     "location": "Bottom of the Well Basement Pot 10",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18117,7 +18117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1531",
     "location": "Bottom of the Well Basement Pot 11",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18127,7 +18127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1532",
     "location": "Bottom of the Well Basement Pot 12",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18137,7 +18137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1533",
     "location": "Bottom of the Well Fire Keese Pot",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18147,7 +18147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1534",
     "location": "Bottom of the Well West Inner Room Flying Pot 1",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Other",
     "item": "",
     "price": null,
@@ -18157,7 +18157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1535",
     "location": "Bottom of the Well West Inner Room Flying Pot 2",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Other",
     "item": "",
     "price": null,
@@ -18167,7 +18167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1536",
     "location": "Bottom of the Well West Inner Room Flying Pot 3",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Other",
     "item": "",
     "price": null,
@@ -18177,7 +18177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1537",
     "location": "Bottom of the Well Basement Silver Rupee Wood Beam Front",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Other",
     "item": "",
     "price": null,
@@ -18187,7 +18187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1538",
     "location": "Bottom of the Well Basement Silver Rupee Wood Beam Back",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Other",
     "item": "",
     "price": null,
@@ -18197,7 +18197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1539",
     "location": "Bottom of the Well Basement Silver Rupee Ladders Bottom",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Other",
     "item": "",
     "price": null,
@@ -18207,7 +18207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1540",
     "location": "Bottom of the Well Basement Silver Rupee Ladders Middle",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Other",
     "item": "",
     "price": null,
@@ -18217,7 +18217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1541",
     "location": "Bottom of the Well Basement Silver Rupee Ladders Top",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Other",
     "item": "",
     "price": null,
@@ -18227,7 +18227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1542",
     "location": "Bottom of the Well Basement Behind Rock Grass 1",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -18237,7 +18237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1543",
     "location": "Bottom of the Well Basement Behind Rock Grass 2",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -18247,7 +18247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1544",
     "location": "Bottom of the Well Basement Behind Rock Grass 3",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -18257,7 +18257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1545",
     "location": "Bottom of the Well Basement Behind Rock Grass 4",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -18267,7 +18267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1546",
     "location": "Bottom of the Well Basement Behind Rock Grass 5",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -18277,7 +18277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1547",
     "location": "Bottom of the Well Basement Behind Rock Grass 6",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -18287,7 +18287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1548",
     "location": "Bottom of the Well Basement Behind Rock Grass 7",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -18297,7 +18297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1549",
     "location": "Bottom of the Well Basement Behind Rock Grass 8",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -18307,7 +18307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1550",
     "location": "Bottom of the Well Basement Behind Rock Grass 9",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -18317,7 +18317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1551",
     "location": "Bottom of the Well Basement Grass 1",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -18327,7 +18327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1552",
     "location": "Bottom of the Well Basement Grass 2",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -18337,7 +18337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1553",
     "location": "Bottom of the Well Basement Grass 3",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "Grass",
     "item": "",
     "price": null,
@@ -18347,7 +18347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1554",
     "location": "Bottom of the Well Left Side Skulltula",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18357,7 +18357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1555",
     "location": "Bottom of the Well Entryway Skulltula",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18367,7 +18367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1556",
     "location": "Bottom of the Well Inside Gate Skulltula",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18377,7 +18377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1557",
     "location": "Bottom of the Well Before Dead Hand Skulltula",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18387,7 +18387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1558",
     "location": "Bottom of the Well Center Room Wallmaster",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18397,7 +18397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1559",
     "location": "Bottom of the Well Like Like",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18407,7 +18407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1560",
     "location": "Bottom of the Well Patrolling Green Bubble",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18417,7 +18417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1561",
     "location": "Bottom of the Well Basement ReDead Near Water",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18427,7 +18427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1562",
     "location": "Bottom of the Well Basement ReDead Near Chest",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18437,7 +18437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1563",
     "location": "Bottom of the Well Coffin Room Gibdo",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18447,7 +18447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1564",
     "location": "Bottom of the Well Fire Keese 1",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18457,7 +18457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1565",
     "location": "Bottom of the Well Fire Keese 2",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18467,7 +18467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1566",
     "location": "Bottom of the Well Fire Keese 3",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18477,7 +18477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1567",
     "location": "Bottom of the Well Fire Keese Beamos",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18487,7 +18487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1568",
     "location": "Bottom of the Well Dead Hand",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18497,7 +18497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1569",
     "location": "Bottom of the Well East Inner Room Keese 1",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18507,7 +18507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1570",
     "location": "Bottom of the Well East Inner Room Keese 2",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18517,7 +18517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1571",
     "location": "Bottom of the Well East Inner Room Keese 3",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18527,7 +18527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1572",
     "location": "Bottom of the Well East Inner Room Keese 4",
-    "region": "Unknown",
+    "area": "Kak",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18537,7 +18537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1573",
     "location": "Forest Temple First Room Chest",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -18547,7 +18547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1574",
     "location": "Forest Temple First Stalfos Chest",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -18557,7 +18557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1575",
     "location": "Forest Temple Raised Island Courtyard Chest",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -18567,7 +18567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1576",
     "location": "Forest Temple Map Chest",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -18577,7 +18577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1577",
     "location": "Forest Temple Well Chest",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -18587,7 +18587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1578",
     "location": "Forest Temple Eye Switch Chest",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -18597,7 +18597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1579",
     "location": "Forest Temple Boss Key Chest",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -18607,7 +18607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1580",
     "location": "Forest Temple Floormaster Chest",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -18617,7 +18617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1581",
     "location": "Forest Temple Red Poe Chest",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -18627,7 +18627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1582",
     "location": "Forest Temple Bow Chest",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -18637,7 +18637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1583",
     "location": "Forest Temple Blue Poe Chest",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -18647,7 +18647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1584",
     "location": "Forest Temple Falling Ceiling Room Chest",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -18657,7 +18657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1585",
     "location": "Forest Temple Basement Chest",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -18667,7 +18667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1586",
     "location": "Forest Temple GS First Room",
-    "region": "Forest",
+    "area": "Forest",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -18677,7 +18677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1587",
     "location": "Forest Temple GS Lobby",
-    "region": "Forest",
+    "area": "Forest",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -18687,7 +18687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1588",
     "location": "Forest Temple GS Raised Island Courtyard",
-    "region": "Forest",
+    "area": "Forest",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -18697,7 +18697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1589",
     "location": "Forest Temple GS Level Island Courtyard",
-    "region": "Forest",
+    "area": "Forest",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -18707,7 +18707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1590",
     "location": "Forest Temple GS Basement",
-    "region": "Forest",
+    "area": "Forest",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -18717,7 +18717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1591",
     "location": "Forest Temple Courtyard Recovery Heart 1",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -18727,7 +18727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1592",
     "location": "Forest Temple Courtyard Recovery Heart 2",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -18737,7 +18737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1593",
     "location": "Forest Temple Well Recovery Heart 1",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -18747,7 +18747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1594",
     "location": "Forest Temple Well Recovery Heart 2",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -18757,7 +18757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1595",
     "location": "Forest Temple Center Room Right Pot 1",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18767,7 +18767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1596",
     "location": "Forest Temple Center Room Right Pot 2",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18777,7 +18777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1597",
     "location": "Forest Temple Center Room Right Pot 3",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18787,7 +18787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1598",
     "location": "Forest Temple Center Room Left Pot 1",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18797,7 +18797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1599",
     "location": "Forest Temple Center Room Left Pot 2",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18807,7 +18807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1600",
     "location": "Forest Temple Center Room Left Pot 3",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18817,7 +18817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1601",
     "location": "Forest Temple Lower Stalfos Pot 1",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18827,7 +18827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1602",
     "location": "Forest Temple Lower Stalfos Pot 2",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18837,7 +18837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1603",
     "location": "Forest Temple Upper Stalfos Pot 1",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18847,7 +18847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1604",
     "location": "Forest Temple Upper Stalfos Pot 2",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18857,7 +18857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1605",
     "location": "Forest Temple Upper Stalfos Pot 3",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18867,7 +18867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1606",
     "location": "Forest Temple Upper Stalfos Pot 4",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18877,7 +18877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1607",
     "location": "Forest Temple Blue Poe Room Pot 1",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18887,7 +18887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1608",
     "location": "Forest Temple Blue Poe Room Pot 2",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18897,7 +18897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1609",
     "location": "Forest Temple Blue Poe Room Pot 3",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18907,7 +18907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1610",
     "location": "Forest Temple Frozen Eye Switch Room Pot 1",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18917,7 +18917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1611",
     "location": "Forest Temple Frozen Eye Switch Room Pot 2",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18927,7 +18927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1612",
     "location": "Forest Temple Green Poe Room Pot 1",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18937,7 +18937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1613",
     "location": "Forest Temple Green Poe Room Pot 2",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -18947,7 +18947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1614",
     "location": "Forest Temple First Room Wolfos 1",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18957,7 +18957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1615",
     "location": "Forest Temple First Room Wolfos 2",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18967,7 +18967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1616",
     "location": "Forest Temple First Hallway Skulltula",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18977,7 +18977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1617",
     "location": "Forest Temple Before Lower Stalfos Hallway Blue Bubble",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18987,7 +18987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1618",
     "location": "Forest Temple Lower Stalfos 1",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -18997,7 +18997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1619",
     "location": "Forest Temple Lower Stalfos 2",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19007,7 +19007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1620",
     "location": "Forest Temple Upper Stalfos 1",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19017,7 +19017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1621",
     "location": "Forest Temple Upper Stalfos Pair 1",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19027,7 +19027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1622",
     "location": "Forest Temple Upper Stalfos Pair 2",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19037,7 +19037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1623",
     "location": "Forest Temple Level Island Courtyard Octorok",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19047,7 +19047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1624",
     "location": "Forest Temple Level Island Courtyard Skullwalltula Lower",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19057,7 +19057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1625",
     "location": "Forest Temple Level Island Courtyard Skullwalltula Middle",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19067,7 +19067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1626",
     "location": "Forest Temple Level Island Courtyard Skullwalltula Upper",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19077,7 +19077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1627",
     "location": "Forest Temple Level Island Courtyard Lower Deku Baba",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19087,7 +19087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1628",
     "location": "Forest Temple Map Chest Blue Bubble",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19097,7 +19097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1629",
     "location": "Forest Temple Raised Island Courtyard Skullwalltula",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19107,7 +19107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1630",
     "location": "Forest Temple Raised Island Courtyard Upper Deku Baba",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19117,7 +19117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1631",
     "location": "Forest Temple Raised Island Courtyard Octorok",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19127,7 +19127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1632",
     "location": "Forest Temple Raised Island Courtyard Lower Deku Baba",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19137,7 +19137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1633",
     "location": "Forest Temple After First Locked Door Skulltula",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19147,7 +19147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1634",
     "location": "Forest Temple Block Push Room Lower Blue Bubble",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19157,7 +19157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1635",
     "location": "Forest Temple Block Push Room Upper Blue Bubble 1",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19167,7 +19167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1636",
     "location": "Forest Temple Block Push Room Upper Blue Bubble 2",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19177,7 +19177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1637",
     "location": "Forest Temple Level Island Courtyard Upper Deku Baba",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19187,7 +19187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1638",
     "location": "Forest Temple Floormaster",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19197,7 +19197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1639",
     "location": "Forest Temple Bubble Room Blue Bubble 1",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19207,7 +19207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1640",
     "location": "Forest Temple Bubble Room Blue Bubble 2",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19217,7 +19217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1641",
     "location": "Forest Temple First Twisted Hallway Wallmaster",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19227,7 +19227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1642",
     "location": "Forest Temple Second Twisted Hallway Green Bubble 1",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19237,7 +19237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1643",
     "location": "Forest Temple Second Twisted Hallway Green Bubble 2",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19247,7 +19247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1644",
     "location": "Forest Temple Second Twisted Hallway Wallmaster",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19257,7 +19257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1645",
     "location": "Forest Temple Falling Ceiling Room Skulltula 1",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19267,7 +19267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1646",
     "location": "Forest Temple Falling Ceiling Room Skulltula 2",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19277,7 +19277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1647",
     "location": "Forest Temple Falling Ceiling Room Skulltula 3",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19287,7 +19287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1648",
     "location": "Forest Temple After Green Poe Hallway Skulltula",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19297,7 +19297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1649",
     "location": "Forest Temple Basement Skulltula",
-    "region": "Forest",
+    "area": "Forest",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19307,7 +19307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1650",
     "location": "Forest Temple Phantom Ganon Heart",
-    "region": "Forest",
+    "area": "Forest",
     "type": "Other",
     "item": "",
     "price": null,
@@ -19317,7 +19317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1651",
     "location": "Fire Temple Near Boss Chest",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -19327,7 +19327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1652",
     "location": "Fire Temple Flare Dancer Chest",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -19337,7 +19337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1653",
     "location": "Fire Temple Boss Key Chest",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -19347,7 +19347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1654",
     "location": "Fire Temple Big Lava Room Lower Open Door Chest",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -19357,7 +19357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1655",
     "location": "Fire Temple Big Lava Room Blocked Door Chest",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -19367,7 +19367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1656",
     "location": "Fire Temple Boulder Maze Lower Chest",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -19377,7 +19377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1657",
     "location": "Fire Temple Boulder Maze Side Room Chest",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -19387,7 +19387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1658",
     "location": "Fire Temple Map Chest",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -19397,7 +19397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1659",
     "location": "Fire Temple Boulder Maze Shortcut Chest",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -19407,7 +19407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1660",
     "location": "Fire Temple Boulder Maze Upper Chest",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -19417,7 +19417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1661",
     "location": "Fire Temple Scarecrow Chest",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -19427,7 +19427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1662",
     "location": "Fire Temple Compass Chest",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -19437,7 +19437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1663",
     "location": "Fire Temple Megaton Hammer Chest",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -19447,7 +19447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1664",
     "location": "Fire Temple Highest Goron Chest",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -19457,7 +19457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1665",
     "location": "Fire Temple GS Boss Key Loop",
-    "region": "Fire",
+    "area": "Fire",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -19467,7 +19467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1666",
     "location": "Fire Temple GS Song of Time Room",
-    "region": "Fire",
+    "area": "Fire",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -19477,7 +19477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1667",
     "location": "Fire Temple GS Boulder Maze",
-    "region": "Fire",
+    "area": "Fire",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -19487,7 +19487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1668",
     "location": "Fire Temple GS Scarecrow Climb",
-    "region": "Fire",
+    "area": "Fire",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -19497,7 +19497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1669",
     "location": "Fire Temple GS Scarecrow Top",
-    "region": "Fire",
+    "area": "Fire",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -19507,7 +19507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1670",
     "location": "Fire Temple Elevator Room Recovery Heart 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -19517,7 +19517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1671",
     "location": "Fire Temple Elevator Room Recovery Heart 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -19527,7 +19527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1672",
     "location": "Fire Temple Elevator Room Recovery Heart 3",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -19537,7 +19537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1673",
     "location": "Fire Temple Narrow Path Room Recovery Heart 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -19547,7 +19547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1674",
     "location": "Fire Temple Narrow Path Room Recovery Heart 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -19557,7 +19557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1675",
     "location": "Fire Temple Narrow Path Room Recovery Heart 3",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -19567,7 +19567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1676",
     "location": "Fire Temple Moving Fire Room Recovery Heart 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -19577,7 +19577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1677",
     "location": "Fire Temple Moving Fire Room Recovery Heart 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -19587,7 +19587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1678",
     "location": "Fire Temple Moving Fire Room Recovery Heart 3",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -19597,7 +19597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1679",
     "location": "Fire Temple Big Lava Room Pot 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -19607,7 +19607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1680",
     "location": "Fire Temple Big Lava Room Pot 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -19617,7 +19617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1681",
     "location": "Fire Temple Big Lava Room Pot 3",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -19627,7 +19627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1682",
     "location": "Fire Temple Near Boss Pot 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -19637,7 +19637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1683",
     "location": "Fire Temple Near Boss Pot 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -19647,7 +19647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1684",
     "location": "Fire Temple Near Boss Pot 3",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -19657,7 +19657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1685",
     "location": "Fire Temple Near Boss Pot 4",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -19667,7 +19667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1686",
     "location": "Fire Temple Flame Maze Right Side Pot 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -19677,7 +19677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1687",
     "location": "Fire Temple Flame Maze Right Side Pot 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -19687,7 +19687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1688",
     "location": "Fire Temple Flame Maze Right Side Pot 3",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -19697,7 +19697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1689",
     "location": "Fire Temple Flame Maze Right Side Pot 4",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -19707,7 +19707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1690",
     "location": "Fire Temple Flame Maze Left Side Pot 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -19717,7 +19717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1691",
     "location": "Fire Temple Flame Maze Left Side Pot 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -19727,7 +19727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1692",
     "location": "Fire Temple Flame Maze Left Side Pot 3",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -19737,7 +19737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1693",
     "location": "Fire Temple Flame Maze Left Side Pot 4",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -19747,7 +19747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1694",
     "location": "Fire Temple Hammer Staircase Small Wooden Crate 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -19757,7 +19757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1695",
     "location": "Fire Temple Hammer Staircase Small Wooden Crate 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -19767,7 +19767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1696",
     "location": "Fire Temple Lobby Keese 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19777,7 +19777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1697",
     "location": "Fire Temple Lobby Keese 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19787,7 +19787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1698",
     "location": "Fire Temple Big Lava Room Keese 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19797,7 +19797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1699",
     "location": "Fire Temple Big Lava Room Keese 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19807,7 +19807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1700",
     "location": "Fire Temple Big Lava Room Keese 3",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19817,7 +19817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1701",
     "location": "Fire Temple Big Lava Room Keese 4",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19827,7 +19827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1702",
     "location": "Fire Temple Big Lava Room Red Bubble 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19837,7 +19837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1703",
     "location": "Fire Temple Big Lava Room Red Bubble 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19847,7 +19847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1704",
     "location": "Fire Temple Big Lava Room Red Bubble 3",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19857,7 +19857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1705",
     "location": "Fire Temple Big Lava Room Red Bubble 4",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19867,7 +19867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1706",
     "location": "Fire Temple Big Lava Room Red Bubble 5",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19877,7 +19877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1707",
     "location": "Fire Temple Big Lava Room Red Bubble 6",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19887,7 +19887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1708",
     "location": "Fire Temple Big Lava Room Red Bubble 7",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19897,7 +19897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1709",
     "location": "Fire Temple Big Lava Room Red Bubble 8",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19907,7 +19907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1710",
     "location": "Fire Temple Big Lava Room Red Bubble 9",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19917,7 +19917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1711",
     "location": "Fire Temple Song of Time Room Like Like",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19927,7 +19927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1712",
     "location": "Fire Temple Song of Time Room Flying Floor Tile 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19937,7 +19937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1713",
     "location": "Fire Temple Song of Time Room Flying Floor Tile 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19947,7 +19947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1714",
     "location": "Fire Temple Song of Time Room Flying Floor Tile 3",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19957,7 +19957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1715",
     "location": "Fire Temple Song of Time Room Flying Floor Tile 4",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19967,7 +19967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1716",
     "location": "Fire Temple Song of Time Room Flying Floor Tile 5",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19977,7 +19977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1717",
     "location": "Fire Temple Song of Time Room Flying Floor Tile 6",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19987,7 +19987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1718",
     "location": "Fire Temple Song of Time Room Flying Floor Tile 7",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -19997,7 +19997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1719",
     "location": "Fire Temple Song of Time Room Flying Floor Tile 8",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20007,7 +20007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1720",
     "location": "Fire Temple Elevator Room Keese 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20017,7 +20017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1721",
     "location": "Fire Temple Elevator Room Keese 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20027,7 +20027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1722",
     "location": "Fire Temple Elevator Room Keese 3",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20037,7 +20037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1723",
     "location": "Fire Temple Elevator Room Keese 4",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20047,7 +20047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1724",
     "location": "Fire Temple Shortcut Room Lower Torch Slug",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20057,7 +20057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1725",
     "location": "Fire Temple Shortcut Room Upper Torch Slug",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20067,7 +20067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1726",
     "location": "Fire Temple Upper Boulder Maze Torch Slug 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20077,7 +20077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1727",
     "location": "Fire Temple Upper Boulder Maze Torch Slug 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20087,7 +20087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1728",
     "location": "Fire Temple Upper Boulder Maze Torch Slug 3",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20097,7 +20097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1729",
     "location": "Fire Temple Moving Fire Room Red Bubble 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20107,7 +20107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1730",
     "location": "Fire Temple Moving Fire Room Red Bubble 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20117,7 +20117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1731",
     "location": "Fire Temple Moving Fire Room Red Bubble 3",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20127,7 +20127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1732",
     "location": "Fire Temple Moving Fire Room Red Bubble 4",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20137,7 +20137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1733",
     "location": "Fire Temple Moving Fire Room Red Bubble 5",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20147,7 +20147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1734",
     "location": "Fire Temple Flame Maze Right Side Keese 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20157,7 +20157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1735",
     "location": "Fire Temple Flame Maze Right Side Keese 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20167,7 +20167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1736",
     "location": "Fire Temple Flame Maze Left Side Keese",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20177,7 +20177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1737",
     "location": "Fire Temple Upper Flare Dancer",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20187,7 +20187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1738",
     "location": "Fire Temple Hammer Chest Keese 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20197,7 +20197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1739",
     "location": "Fire Temple Hammer Chest Keese 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20207,7 +20207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1740",
     "location": "Fire Temple Hammer Chest Keese 3",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20217,7 +20217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1741",
     "location": "Fire Temple Hammer Staircase Keese 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20227,7 +20227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1742",
     "location": "Fire Temple Hammer Staircase Keese 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20237,7 +20237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1743",
     "location": "Fire Temple Hammer Staircase Keese 3",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20247,7 +20247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1744",
     "location": "Fire Temple Hammer Staircase Keese 4",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20257,7 +20257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1745",
     "location": "Fire Temple Before Lower Flare Dancer Keese 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20267,7 +20267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1746",
     "location": "Fire Temple Before Lower Flare Dancer Keese 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20277,7 +20277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1747",
     "location": "Fire Temple Before Lower Flare Dancer Keese 3",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20287,7 +20287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1748",
     "location": "Fire Temple Before Lower Flare Dancer Torch Slug 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20297,7 +20297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1749",
     "location": "Fire Temple Before Lower Flare Dancer Torch Slug 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20307,7 +20307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1750",
     "location": "Fire Temple Before Lower Flare Dancer Torch Slug 3",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20317,7 +20317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1751",
     "location": "Fire Temple Before Lower Flare Dancer Torch Slug 4",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20327,7 +20327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1752",
     "location": "Fire Temple Before Lower Flare Dancer Like Like",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20337,7 +20337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1753",
     "location": "Fire Temple Before Lower Flare Dancer Flying Floor Tile 1",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20347,7 +20347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1754",
     "location": "Fire Temple Before Lower Flare Dancer Flying Floor Tile 2",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20357,7 +20357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1755",
     "location": "Fire Temple Before Lower Flare Dancer Flying Floor Tile 3",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20367,7 +20367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1756",
     "location": "Fire Temple Before Lower Flare Dancer Flying Floor Tile 4",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20377,7 +20377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1757",
     "location": "Fire Temple Before Lower Flare Dancer Flying Floor Tile 5",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20387,7 +20387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1758",
     "location": "Fire Temple Lower Flare Dancer",
-    "region": "Fire",
+    "area": "Fire",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20397,7 +20397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1759",
     "location": "Fire Temple Volvagia Heart",
-    "region": "Fire",
+    "area": "Fire",
     "type": "Other",
     "item": "",
     "price": null,
@@ -20407,7 +20407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1760",
     "location": "Water Temple Compass Chest",
-    "region": "Water",
+    "area": "Water",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -20417,7 +20417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1761",
     "location": "Water Temple Map Chest",
-    "region": "Water",
+    "area": "Water",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -20427,7 +20427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1762",
     "location": "Water Temple Cracked Wall Chest",
-    "region": "Water",
+    "area": "Water",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -20437,7 +20437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1763",
     "location": "Water Temple Torches Chest",
-    "region": "Water",
+    "area": "Water",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -20447,7 +20447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1764",
     "location": "Water Temple Boss Key Chest",
-    "region": "Water",
+    "area": "Water",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -20457,7 +20457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1765",
     "location": "Water Temple Central Pillar Chest",
-    "region": "Water",
+    "area": "Water",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -20467,7 +20467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1766",
     "location": "Water Temple Central Bow Target Chest",
-    "region": "Water",
+    "area": "Water",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -20477,7 +20477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1767",
     "location": "Water Temple Longshot Chest",
-    "region": "Water",
+    "area": "Water",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -20487,7 +20487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1768",
     "location": "Water Temple River Chest",
-    "region": "Water",
+    "area": "Water",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -20497,7 +20497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1769",
     "location": "Water Temple Dragon Chest",
-    "region": "Water",
+    "area": "Water",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -20507,7 +20507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1770",
     "location": "Water Temple GS Behind Gate",
-    "region": "Water",
+    "area": "Water",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -20517,7 +20517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1771",
     "location": "Water Temple GS Near Boss Key Chest",
-    "region": "Water",
+    "area": "Water",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -20527,7 +20527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1772",
     "location": "Water Temple GS Central Pillar",
-    "region": "Water",
+    "area": "Water",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -20537,7 +20537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1773",
     "location": "Water Temple GS Falling Platform Room",
-    "region": "Water",
+    "area": "Water",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -20547,7 +20547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1774",
     "location": "Water Temple GS River",
-    "region": "Water",
+    "area": "Water",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -20557,7 +20557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1775",
     "location": "Water Temple River Recovery Heart 1",
-    "region": "Water",
+    "area": "Water",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -20567,7 +20567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1776",
     "location": "Water Temple River Recovery Heart 2",
-    "region": "Water",
+    "area": "Water",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -20577,7 +20577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1777",
     "location": "Water Temple River Recovery Heart 3",
-    "region": "Water",
+    "area": "Water",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -20587,7 +20587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1778",
     "location": "Water Temple River Recovery Heart 4",
-    "region": "Water",
+    "area": "Water",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -20597,7 +20597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1779",
     "location": "Water Temple Main Room L2 Pot 1",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20607,7 +20607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1780",
     "location": "Water Temple Main Room L2 Pot 2",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20617,7 +20617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1781",
     "location": "Water Temple Near Boss Pot 1",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20627,7 +20627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1782",
     "location": "Water Temple Near Boss Pot 2",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20637,7 +20637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1783",
     "location": "Water Temple Behind Gate Pot 1",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20647,7 +20647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1784",
     "location": "Water Temple Behind Gate Pot 2",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20657,7 +20657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1785",
     "location": "Water Temple Behind Gate Pot 3",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20667,7 +20667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1786",
     "location": "Water Temple Behind Gate Pot 4",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20677,7 +20677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1787",
     "location": "Water Temple Near Compass Pot 1",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20687,7 +20687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1788",
     "location": "Water Temple Near Compass Pot 2",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20697,7 +20697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1789",
     "location": "Water Temple Near Compass Pot 3",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20707,7 +20707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1790",
     "location": "Water Temple Like Like Pot 1",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20717,7 +20717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1791",
     "location": "Water Temple Like Like Pot 2",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20727,7 +20727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1792",
     "location": "Water Temple North Basement Block Puzzle Pot 1",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20737,7 +20737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1793",
     "location": "Water Temple North Basement Block Puzzle Pot 2",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20747,7 +20747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1794",
     "location": "Water Temple Boss Key Pot 1",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20757,7 +20757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1795",
     "location": "Water Temple Boss Key Pot 2",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20767,7 +20767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1796",
     "location": "Water Temple L1 Torch Pot 1",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20777,7 +20777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1797",
     "location": "Water Temple L1 Torch Pot 2",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20787,7 +20787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1798",
     "location": "Water Temple River Pot 1",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20797,7 +20797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1799",
     "location": "Water Temple River Pot 2",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20807,7 +20807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1800",
     "location": "Water Temple Central Bow Target Pot 1",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20817,7 +20817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1801",
     "location": "Water Temple Central Bow Target Pot 2",
-    "region": "Water",
+    "area": "Water",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -20827,7 +20827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1802",
     "location": "Water Temple Lobby Spike 1",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20837,7 +20837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1803",
     "location": "Water Temple Lobby Spike 2",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20847,7 +20847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1804",
     "location": "Water Temple Lobby Tektite 1",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20857,7 +20857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1805",
     "location": "Water Temple Lobby Tektite 2",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20867,7 +20867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1806",
     "location": "Water Temple Central Pillar Shell Blade 1",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20877,7 +20877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1807",
     "location": "Water Temple Central Pillar Shell Blade 2",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20887,7 +20887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1808",
     "location": "Water Temple Central Pillar Spike 1",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20897,7 +20897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1809",
     "location": "Water Temple Central Pillar Spike 2",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20907,7 +20907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1810",
     "location": "Water Temple Central Pillar Spike 3",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20917,7 +20917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1811",
     "location": "Water Temple Central Pillar Spike 4",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20927,7 +20927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1812",
     "location": "Water Temple Central Pillar Spike 5",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20937,7 +20937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1813",
     "location": "Water Temple South Basement Shell Blade",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20947,7 +20947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1814",
     "location": "Water Temple South Basement Tektite 1",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20957,7 +20957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1815",
     "location": "Water Temple South Basement Tektite 2",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20967,7 +20967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1816",
     "location": "Water Temple Before Compass Chest Stingray 1",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20977,7 +20977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1817",
     "location": "Water Temple Before Compass Chest Stingray 2",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20987,7 +20987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1818",
     "location": "Water Temple Before Compass Chest Stingray 3",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -20997,7 +20997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1819",
     "location": "Water Temple Before Compass Chest Stingray 4",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21007,7 +21007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1820",
     "location": "Water Temple Falling Platform Room Keese 1",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21017,7 +21017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1821",
     "location": "Water Temple Falling Platform Room Keese 2",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21027,7 +21027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1822",
     "location": "Water Temple Statue Puzzle Tektite 1",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21037,7 +21037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1823",
     "location": "Water Temple Statue Puzzle Tektite 2",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21047,7 +21047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1824",
     "location": "Water Temple Statue Puzzle Tektite 3",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21057,7 +21057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1825",
     "location": "Water Temple Statue Puzzle Tektite 4",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21067,7 +21067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1826",
     "location": "Water Temple Statue Puzzle Tektite 5",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21077,7 +21077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1827",
     "location": "Water Temple Statue Puzzle Like Like",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21087,7 +21087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1828",
     "location": "Water Temple Dark Link",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21097,7 +21097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1829",
     "location": "Water Temple Dragon Statue Shell Blade 1",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21107,7 +21107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1830",
     "location": "Water Temple Dragon Statue Shell Blade 2",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21117,7 +21117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1831",
     "location": "Water Temple Water Spout Tektite",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21127,7 +21127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1832",
     "location": "Water Temple Before Upper Water Switch Tektite",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21137,7 +21137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1833",
     "location": "Water Temple Whirlpool Room Tektite 1",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21147,7 +21147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1834",
     "location": "Water Temple Whirlpool Room Tektite 2",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21157,7 +21157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1835",
     "location": "Water Temple Whirlpool Room Tektite 3",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21167,7 +21167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1836",
     "location": "Water Temple Whirlpool Room Tektite 4",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21177,7 +21177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1837",
     "location": "Water Temple Whirlpool Room Tektite 5",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21187,7 +21187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1838",
     "location": "Water Temple Whirlpool Room Tektite 6",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21197,7 +21197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1839",
     "location": "Water Temple Before BK Shell Blade",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21207,7 +21207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1840",
     "location": "Water Temple North Basement Block Puzzle Stingray 1",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21217,7 +21217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1841",
     "location": "Water Temple North Basement Block Puzzle Stingray 2",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21227,7 +21227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1842",
     "location": "Water Temple North Basement Block Puzzle Stingray 3",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21237,7 +21237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1843",
     "location": "Water Temple North Basement Block Puzzle Stingray 4",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21247,7 +21247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1844",
     "location": "Water Temple North Basement Block Puzzle Stingray 5",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21257,7 +21257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1845",
     "location": "Water Temple 3 Water Spouts Tektite 1",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21267,7 +21267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1846",
     "location": "Water Temple 3 Water Spouts Tektite 2",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21277,7 +21277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1847",
     "location": "Water Temple Torches Chest Shell Blade 1",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21287,7 +21287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1848",
     "location": "Water Temple Torches Chest Shell Blade 2",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21297,7 +21297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1849",
     "location": "Water Temple Torches Chest Shell Blade 3",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21307,7 +21307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1850",
     "location": "Water Temple Map Chest Spike 1",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21317,7 +21317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1851",
     "location": "Water Temple Map Chest Spike 2",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21327,7 +21327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1852",
     "location": "Water Temple Map Chest Spike 3",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21337,7 +21337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1853",
     "location": "Water Temple Map Chest Spike 4",
-    "region": "Water",
+    "area": "Water",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -21347,7 +21347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1854",
     "location": "Water Temple Morpha Heart",
-    "region": "Water",
+    "area": "Water",
     "type": "Other",
     "item": "",
     "price": null,
@@ -21357,7 +21357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1855",
     "location": "Shadow Temple Map Chest",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -21367,7 +21367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1856",
     "location": "Shadow Temple Hover Boots Chest",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -21377,7 +21377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1857",
     "location": "Shadow Temple Compass Chest",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -21387,7 +21387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1858",
     "location": "Shadow Temple Early Silver Rupee Chest",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -21397,7 +21397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1859",
     "location": "Shadow Temple Invisible Blades Visible Chest",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -21407,7 +21407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1860",
     "location": "Shadow Temple Invisible Blades Invisible Chest",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -21417,7 +21417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1861",
     "location": "Shadow Temple Falling Spikes Lower Chest",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -21427,7 +21427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1862",
     "location": "Shadow Temple Falling Spikes Upper Chest",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -21437,7 +21437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1863",
     "location": "Shadow Temple Falling Spikes Switch Chest",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -21447,7 +21447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1864",
     "location": "Shadow Temple Invisible Spikes Chest",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -21457,7 +21457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1865",
     "location": "Shadow Temple Freestanding Key",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -21467,7 +21467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1866",
     "location": "Shadow Temple Wind Hint Chest",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -21477,7 +21477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1867",
     "location": "Shadow Temple After Wind Enemy Chest",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -21487,7 +21487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1868",
     "location": "Shadow Temple After Wind Hidden Chest",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -21497,7 +21497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1869",
     "location": "Shadow Temple Spike Walls Left Chest",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -21507,7 +21507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1870",
     "location": "Shadow Temple Boss Key Chest",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -21517,7 +21517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1871",
     "location": "Shadow Temple Invisible Floormaster Chest",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -21527,7 +21527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1872",
     "location": "Shadow Temple GS Invisible Blades Room",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -21537,7 +21537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1873",
     "location": "Shadow Temple GS Falling Spikes Room",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -21547,7 +21547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1874",
     "location": "Shadow Temple GS Single Giant Pot",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -21557,7 +21557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1875",
     "location": "Shadow Temple GS Near Ship",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -21567,7 +21567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1876",
     "location": "Shadow Temple GS Triple Giant Pot",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -21577,7 +21577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1877",
     "location": "Shadow Temple Invisible Blades Recovery Heart 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -21587,7 +21587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1878",
     "location": "Shadow Temple Invisible Blades Recovery Heart 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -21597,7 +21597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1879",
     "location": "Shadow Temple Before Boat Recovery Heart 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -21607,7 +21607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1880",
     "location": "Shadow Temple Before Boat Recovery Heart 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -21617,7 +21617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1881",
     "location": "Shadow Temple After Boat Upper Recovery Heart 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -21627,7 +21627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1882",
     "location": "Shadow Temple After Boat Upper Recovery Heart 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -21637,7 +21637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1883",
     "location": "Shadow Temple After Boat Lower Recovery Heart",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -21647,7 +21647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1884",
     "location": "Shadow Temple 3 Spinning Pots Rupee 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -21657,7 +21657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1885",
     "location": "Shadow Temple 3 Spinning Pots Rupee 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -21667,7 +21667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1886",
     "location": "Shadow Temple 3 Spinning Pots Rupee 3",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -21677,7 +21677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1887",
     "location": "Shadow Temple 3 Spinning Pots Rupee 4",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -21687,7 +21687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1888",
     "location": "Shadow Temple 3 Spinning Pots Rupee 5",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -21697,7 +21697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1889",
     "location": "Shadow Temple 3 Spinning Pots Rupee 6",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -21707,7 +21707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1890",
     "location": "Shadow Temple 3 Spinning Pots Rupee 7",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -21717,7 +21717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1891",
     "location": "Shadow Temple 3 Spinning Pots Rupee 8",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -21727,7 +21727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1892",
     "location": "Shadow Temple 3 Spinning Pots Rupee 9",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -21737,7 +21737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1893",
     "location": "Shadow Temple Whispering Walls Near Dead Hand Pot",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21747,7 +21747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1894",
     "location": "Shadow Temple Whispering Walls Left Pot 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21757,7 +21757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1895",
     "location": "Shadow Temple Whispering Walls Left Pot 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21767,7 +21767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1896",
     "location": "Shadow Temple Whispering Walls Left Pot 3",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21777,7 +21777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1897",
     "location": "Shadow Temple Whispering Walls Front Pot 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21787,7 +21787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1898",
     "location": "Shadow Temple Whispering Walls Front Pot 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21797,7 +21797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1899",
     "location": "Shadow Temple Whispering Walls Flying Pot",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Other",
     "item": "",
     "price": null,
@@ -21807,7 +21807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1900",
     "location": "Shadow Temple Map Chest Room Pot 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21817,7 +21817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1901",
     "location": "Shadow Temple Map Chest Room Pot 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21827,7 +21827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1902",
     "location": "Shadow Temple Falling Spikes Lower Pot 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21837,7 +21837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1903",
     "location": "Shadow Temple Falling Spikes Lower Pot 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21847,7 +21847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1904",
     "location": "Shadow Temple Falling Spikes Upper Pot 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21857,7 +21857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1905",
     "location": "Shadow Temple Falling Spikes Upper Pot 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21867,7 +21867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1906",
     "location": "Shadow Temple Spike Walls Pot",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21877,7 +21877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1907",
     "location": "Shadow Temple Invisible Floormaster Pot 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21887,7 +21887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1908",
     "location": "Shadow Temple Invisible Floormaster Pot 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21897,7 +21897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1909",
     "location": "Shadow Temple After Wind Pot 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21907,7 +21907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1910",
     "location": "Shadow Temple After Wind Pot 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21917,7 +21917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1911",
     "location": "Shadow Temple After Wind Flying Pot 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Other",
     "item": "",
     "price": null,
@@ -21927,7 +21927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1912",
     "location": "Shadow Temple After Wind Flying Pot 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Other",
     "item": "",
     "price": null,
@@ -21937,7 +21937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1913",
     "location": "Shadow Temple After Boat Pot 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21947,7 +21947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1914",
     "location": "Shadow Temple After Boat Pot 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21957,7 +21957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1915",
     "location": "Shadow Temple Near Boss Pot 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21967,7 +21967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1916",
     "location": "Shadow Temple Near Boss Pot 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -21977,7 +21977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1917",
     "location": "Shadow Temple Scythe Shortcut Silver Rupee Center Left",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Other",
     "item": "",
     "price": null,
@@ -21987,7 +21987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1918",
     "location": "Shadow Temple Scythe Shortcut Silver Rupee Center Right",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Other",
     "item": "",
     "price": null,
@@ -21997,7 +21997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1919",
     "location": "Shadow Temple Scythe Shortcut Silver Rupee Left Alcove",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Other",
     "item": "",
     "price": null,
@@ -22007,7 +22007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1920",
     "location": "Shadow Temple Scythe Shortcut Silver Rupee Back Alcove",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Other",
     "item": "",
     "price": null,
@@ -22017,7 +22017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1921",
     "location": "Shadow Temple Scythe Shortcut Silver Rupee Ledge",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Other",
     "item": "",
     "price": null,
@@ -22027,7 +22027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1922",
     "location": "Shadow Temple Huge Pit Silver Rupee Left",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Other",
     "item": "",
     "price": null,
@@ -22037,7 +22037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1923",
     "location": "Shadow Temple Huge Pit Silver Rupee Center Front",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Other",
     "item": "",
     "price": null,
@@ -22047,7 +22047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1924",
     "location": "Shadow Temple Huge Pit Silver Rupee Center",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Other",
     "item": "",
     "price": null,
@@ -22057,7 +22057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1925",
     "location": "Shadow Temple Huge Pit Silver Rupee Center Back",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Other",
     "item": "",
     "price": null,
@@ -22067,7 +22067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1926",
     "location": "Shadow Temple Huge Pit Silver Rupee Right",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Other",
     "item": "",
     "price": null,
@@ -22077,7 +22077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1927",
     "location": "Shadow Temple Invisible Spikes Silver Rupee Right",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Other",
     "item": "",
     "price": null,
@@ -22087,7 +22087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1928",
     "location": "Shadow Temple Invisible Spikes Silver Rupee Center",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Other",
     "item": "",
     "price": null,
@@ -22097,7 +22097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1929",
     "location": "Shadow Temple Invisible Spikes Silver Rupee Left",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Other",
     "item": "",
     "price": null,
@@ -22107,7 +22107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1930",
     "location": "Shadow Temple Invisible Spikes Silver Rupee Ledge",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Other",
     "item": "",
     "price": null,
@@ -22117,7 +22117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1931",
     "location": "Shadow Temple Invisible Spikes Silver Rupee Near Ledge",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Other",
     "item": "",
     "price": null,
@@ -22127,7 +22127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1932",
     "location": "Shadow Temple 3 Spinning Pots Wonderitem",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -22137,7 +22137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1933",
     "location": "Shadow Temple Map Chest Room Keese 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22147,7 +22147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1934",
     "location": "Shadow Temple Map Chest Room Keese 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22157,7 +22157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1935",
     "location": "Shadow Temple Map Chest Room ReDead",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22167,7 +22167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1936",
     "location": "Shadow Temple Dead Hand",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22177,7 +22177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1937",
     "location": "Shadow Temple First Beamos",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22187,7 +22187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1938",
     "location": "Shadow Temple Compass Room Gibdo 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22197,7 +22197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1939",
     "location": "Shadow Temple Compass Room Gibdo 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22207,7 +22207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1940",
     "location": "Shadow Temple Guillotine Hallway Skulltula 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22217,7 +22217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1941",
     "location": "Shadow Temple Guillotine Hallway Skulltula 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22227,7 +22227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1942",
     "location": "Shadow Temple Guillotine Hallway Skulltula 3",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22237,7 +22237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1943",
     "location": "Shadow Temple Guillotine Hallway Skulltula 4",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22247,7 +22247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1944",
     "location": "Shadow Temple Huge Pit Red Bubble",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22257,7 +22257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1945",
     "location": "Shadow Temple Huge Pit Wallmaster",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22267,7 +22267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1946",
     "location": "Shadow Temple Huge Pit Beamos",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22277,7 +22277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1947",
     "location": "Shadow Temple Huge Pit Stalfos",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22287,7 +22287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1948",
     "location": "Shadow Temple Invisible Spikes ReDead 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22297,7 +22297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1949",
     "location": "Shadow Temple Invisible Spikes ReDead 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22307,7 +22307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1950",
     "location": "Shadow Temple Spike Walls Left ReDead",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22317,7 +22317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1951",
     "location": "Shadow Temple Spike Walls Right ReDead",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22327,7 +22327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1952",
     "location": "Shadow Temple Single Giant Pot Keese 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22337,7 +22337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1953",
     "location": "Shadow Temple Single Giant Pot Keese 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22347,7 +22347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1954",
     "location": "Shadow Temple Single Giant Pot Keese 3",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22357,7 +22357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1955",
     "location": "Shadow Temple Single Giant Pot Keese 4",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22367,7 +22367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1956",
     "location": "Shadow Temple Invisible Walls Floormaster 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22377,7 +22377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1957",
     "location": "Shadow Temple Invisible Walls Floormaster 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22387,7 +22387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1958",
     "location": "Shadow Temple Invisible Blades Keese 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22397,7 +22397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1959",
     "location": "Shadow Temple Invisible Blades Keese 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22407,7 +22407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1960",
     "location": "Shadow Temple Invisible Blades Keese 3",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22417,7 +22417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1961",
     "location": "Shadow Temple Invisible Blades Like Like",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22427,7 +22427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1962",
     "location": "Shadow Temple Invisible Floormaster",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22437,7 +22437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1963",
     "location": "Shadow Temple Wind Tunnel Skulltula",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22447,7 +22447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1964",
     "location": "Shadow Temple Wind Hint ReDead Left",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22457,7 +22457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1965",
     "location": "Shadow Temple Wind Hint ReDead Right",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22467,7 +22467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1966",
     "location": "Shadow Temple After Wind Gibdo Left",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22477,7 +22477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1967",
     "location": "Shadow Temple After Wind Gibdo Right",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22487,7 +22487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1968",
     "location": "Shadow Temple Boat Stalfos 1",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22497,7 +22497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1969",
     "location": "Shadow Temple Boat Stalfos 2",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -22507,7 +22507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1970",
     "location": "Shadow Temple Bongo Bongo Heart",
-    "region": "Shadow",
+    "area": "Shadow",
     "type": "Other",
     "item": "",
     "price": null,
@@ -22517,7 +22517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1971",
     "location": "Spirit Temple Child Bridge Chest",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -22527,7 +22527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1972",
     "location": "Spirit Temple Child Early Torches Chest",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -22537,7 +22537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1973",
     "location": "Spirit Temple Child Climb North Chest",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -22547,7 +22547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1974",
     "location": "Spirit Temple Child Climb East Chest",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -22557,7 +22557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1975",
     "location": "Spirit Temple Map Chest",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -22567,7 +22567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1976",
     "location": "Spirit Temple Sun Block Room Chest",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -22577,7 +22577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1977",
     "location": "Spirit Temple Silver Gauntlets Chest",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -22587,7 +22587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1978",
     "location": "Spirit Temple Compass Chest",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -22597,7 +22597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1979",
     "location": "Spirit Temple Early Adult Right Chest",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -22607,7 +22607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1980",
     "location": "Spirit Temple First Mirror Left Chest",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -22617,7 +22617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1981",
     "location": "Spirit Temple First Mirror Right Chest",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -22627,7 +22627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1982",
     "location": "Spirit Temple Statue Room Northeast Chest",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -22637,7 +22637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1983",
     "location": "Spirit Temple Statue Room Hand Chest",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -22647,7 +22647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1984",
     "location": "Spirit Temple Near Four Armos Chest",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -22657,7 +22657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1985",
     "location": "Spirit Temple Hallway Right Invisible Chest",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -22667,7 +22667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1986",
     "location": "Spirit Temple Hallway Left Invisible Chest",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -22677,7 +22677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1987",
     "location": "Spirit Temple Mirror Shield Chest",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -22687,7 +22687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1988",
     "location": "Spirit Temple Boss Key Chest",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -22697,7 +22697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1989",
     "location": "Spirit Temple Topmost Chest",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -22707,7 +22707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1990",
     "location": "Spirit Temple GS Metal Fence",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -22717,7 +22717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1991",
     "location": "Spirit Temple GS Sun on Floor Room",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -22727,7 +22727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1992",
     "location": "Spirit Temple GS Hall After Sun Block Room",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -22737,7 +22737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1993",
     "location": "Spirit Temple GS Lobby",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -22747,7 +22747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1994",
     "location": "Spirit Temple GS Boulder Room",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -22757,7 +22757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1995",
     "location": "Spirit Temple Shifting Wall Recovery Heart 1",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -22767,7 +22767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1996",
     "location": "Spirit Temple Shifting Wall Recovery Heart 2",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -22777,7 +22777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1997",
     "location": "Spirit Temple Lobby Pot 1",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -22787,7 +22787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1998",
     "location": "Spirit Temple Lobby Pot 2",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -22797,7 +22797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_1999",
     "location": "Spirit Temple Lobby Flying Pot 1",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -22807,7 +22807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2000",
     "location": "Spirit Temple Lobby Flying Pot 2",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -22817,7 +22817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2001",
     "location": "Spirit Temple Child Climb Pot",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -22827,7 +22827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2002",
     "location": "Spirit Temple Hall After Sun Block Room Pot 1",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -22837,7 +22837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2003",
     "location": "Spirit Temple Hall After Sun Block Room Pot 2",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -22847,7 +22847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2004",
     "location": "Spirit Temple Beamos Hall Pot",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -22857,7 +22857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2005",
     "location": "Spirit Temple Child Anubis Pot 1",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -22867,7 +22867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2006",
     "location": "Spirit Temple Child Anubis Pot 2",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -22877,7 +22877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2007",
     "location": "Spirit Temple Child Anubis Pot 3",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -22887,7 +22887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2008",
     "location": "Spirit Temple Child Anubis Pot 4",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -22897,7 +22897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2009",
     "location": "Spirit Temple Child Bridge Flying Pot 1",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -22907,7 +22907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2010",
     "location": "Spirit Temple Child Bridge Flying Pot 2",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -22917,7 +22917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2011",
     "location": "Spirit Temple Central Chamber Pot 1",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -22927,7 +22927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2012",
     "location": "Spirit Temple Central Chamber Pot 2",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -22937,7 +22937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2013",
     "location": "Spirit Temple Central Chamber Pot 3",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -22947,7 +22947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2014",
     "location": "Spirit Temple Central Chamber Pot 4",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -22957,7 +22957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2015",
     "location": "Spirit Temple Central Chamber Pot 5",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -22967,7 +22967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2016",
     "location": "Spirit Temple Central Chamber Pot 6",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -22977,7 +22977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2017",
     "location": "Spirit Temple Central Chamber Flying Pot 1",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -22987,7 +22987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2018",
     "location": "Spirit Temple Central Chamber Flying Pot 2",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -22997,7 +22997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2019",
     "location": "Spirit Temple Adult Climb Flying Pot 1",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23007,7 +23007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2020",
     "location": "Spirit Temple Adult Climb Flying Pot 2",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23017,7 +23017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2021",
     "location": "Spirit Temple Big Mirror Flying Pot 1",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23027,7 +23027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2022",
     "location": "Spirit Temple Big Mirror Flying Pot 2",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23037,7 +23037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2023",
     "location": "Spirit Temple Big Mirror Flying Pot 3",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23047,7 +23047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2024",
     "location": "Spirit Temple Big Mirror Flying Pot 4",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23057,7 +23057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2025",
     "location": "Spirit Temple Big Mirror Flying Pot 5",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23067,7 +23067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2026",
     "location": "Spirit Temple Big Mirror Flying Pot 6",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23077,7 +23077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2027",
     "location": "Spirit Temple Before Child Climb Small Wooden Crate 1",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -23087,7 +23087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2028",
     "location": "Spirit Temple Before Child Climb Small Wooden Crate 2",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Crate",
     "item": "",
     "price": null,
@@ -23097,7 +23097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2029",
     "location": "Spirit Temple Adult Boulder Silver Rupee Ledge",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23107,7 +23107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2030",
     "location": "Spirit Temple Adult Boulder Silver Rupee Front Left",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23117,7 +23117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2031",
     "location": "Spirit Temple Adult Boulder Silver Rupee Front Right",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23127,7 +23127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2032",
     "location": "Spirit Temple Adult Boulder Silver Rupee Back Right",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23137,7 +23137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2033",
     "location": "Spirit Temple Adult Boulder Silver Rupee Back Left",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23147,7 +23147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2034",
     "location": "Spirit Temple Sun Block Room Silver Rupee Left",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23157,7 +23157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2035",
     "location": "Spirit Temple Sun Block Room Silver Rupee Center Front",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23167,7 +23167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2036",
     "location": "Spirit Temple Sun Block Room Silver Rupee Center Back",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23177,7 +23177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2037",
     "location": "Spirit Temple Sun Block Room Silver Rupee Right Front",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23187,7 +23187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2038",
     "location": "Spirit Temple Sun Block Room Silver Rupee Right Back",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23197,7 +23197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2039",
     "location": "Spirit Temple Child Early Torches Silver Rupee Top Right",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23207,7 +23207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2040",
     "location": "Spirit Temple Child Early Torches Silver Rupee Bottom Right",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23217,7 +23217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2041",
     "location": "Spirit Temple Child Early Torches Silver Rupee Bottom Left",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23227,7 +23227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2042",
     "location": "Spirit Temple Child Early Torches Silver Rupee Top Left",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23237,7 +23237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2043",
     "location": "Spirit Temple Child Early Torches Silver Rupee Near Torch",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23247,7 +23247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2044",
     "location": "Spirit Temple Lobby Armos Left",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23257,7 +23257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2045",
     "location": "Spirit Temple Lobby Armos Right",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23267,7 +23267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2046",
     "location": "Spirit Temple Early Adult Beamos",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23277,7 +23277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2047",
     "location": "Spirit Temple Child Side Armos",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23287,7 +23287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2048",
     "location": "Spirit Temple Child Side Keese 1",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23297,7 +23297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2049",
     "location": "Spirit Temple Child Side Keese 2",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23307,7 +23307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2050",
     "location": "Spirit Temple Child Side Fire Keese 1",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23317,7 +23317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2051",
     "location": "Spirit Temple Child Side Fire Keese 2",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23327,7 +23327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2052",
     "location": "Spirit Temple Child Early Torches Keese 1",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23337,7 +23337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2053",
     "location": "Spirit Temple Child Early Torches Keese 2",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23347,7 +23347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2054",
     "location": "Spirit Temple Child Early Torches Keese 3",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23357,7 +23357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2055",
     "location": "Spirit Temple Child Early Torches Keese 4",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23367,7 +23367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2056",
     "location": "Spirit Temple Child Early Torches Fire Keese",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23377,7 +23377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2057",
     "location": "Spirit Temple Child Early Torches Wallmaster",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23387,7 +23387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2058",
     "location": "Spirit Temple Child Bridge Stalfos",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23397,7 +23397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2059",
     "location": "Spirit Temple Child Bridge Green Bubble",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23407,7 +23407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2060",
     "location": "Spirit Temple Child Anubis",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23417,7 +23417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2061",
     "location": "Spirit Temple Child Climb Skullwalltula Bomb Wall Left",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23427,7 +23427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2062",
     "location": "Spirit Temple Child Climb Skullwalltula Bomb Wall Right",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23437,7 +23437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2063",
     "location": "Spirit Temple Child Climb Skullwalltula Climb Wall Lower",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23447,7 +23447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2064",
     "location": "Spirit Temple Child Climb Skullwalltula Climb Wall Upper",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23457,7 +23457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2065",
     "location": "Spirit Temple Child Climb Lizalfos 1",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23467,7 +23467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2066",
     "location": "Spirit Temple Child Climb Lizalfos 2",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23477,7 +23477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2067",
     "location": "Spirit Temple Statue Room Adult Side Armos",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23487,7 +23487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2068",
     "location": "Spirit Temple Sun Block Room Beamos 1",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23497,7 +23497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2069",
     "location": "Spirit Temple Sun Block Room Beamos 2",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23507,7 +23507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2070",
     "location": "Spirit Temple Sun Block Room Beamos 3",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23517,7 +23517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2071",
     "location": "Spirit Temple Child Side Iron Knuckle",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23527,7 +23527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2072",
     "location": "Spirit Temple Early Adult Like Like",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23537,7 +23537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2073",
     "location": "Spirit Temple Early Adult Wolfos",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23547,7 +23547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2074",
     "location": "Spirit Temple Adult Climb Like Like",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23557,7 +23557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2075",
     "location": "Spirit Temple Adult Climb Wallmaster",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23567,7 +23567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2076",
     "location": "Spirit Temple Adult Climb Invisible Floormaster",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23577,7 +23577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2077",
     "location": "Spirit Temple Adult Hallway Beamos",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23587,7 +23587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2078",
     "location": "Spirit Temple Adult Anubis 1",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23597,7 +23597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2079",
     "location": "Spirit Temple Adult Anubis 2",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23607,7 +23607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2080",
     "location": "Spirit Temple Adult Anubis 3",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23617,7 +23617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2081",
     "location": "Spirit Temple Adult Anubis Room Beamos",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23627,7 +23627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2082",
     "location": "Spirit Temple Four Armos Room Armos 1",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23637,7 +23637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2083",
     "location": "Spirit Temple Four Armos Room Armos 2",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23647,7 +23647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2084",
     "location": "Spirit Temple Four Armos Room Armos 3",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23657,7 +23657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2085",
     "location": "Spirit Temple Four Armos Room Armos 4",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23667,7 +23667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2086",
     "location": "Spirit Temple Adult Side Iron Knuckle",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23677,7 +23677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2087",
     "location": "Spirit Temple Boss Key Room Torch Slug 1",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23687,7 +23687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2088",
     "location": "Spirit Temple Boss Key Room Torch Slug 2",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23697,7 +23697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2089",
     "location": "Spirit Temple Boss Key Room Torch Slug 3",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23707,7 +23707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2090",
     "location": "Spirit Temple Boss Key Room Torch Slug 4",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23717,7 +23717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2091",
     "location": "Spirit Temple Shifting Wall Lower Beamos Left",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23727,7 +23727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2092",
     "location": "Spirit Temple Shifting Wall Lower Beamos Right",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23737,7 +23737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2093",
     "location": "Spirit Temple Shifting Wall Upper Beamos Left",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23747,7 +23747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2094",
     "location": "Spirit Temple Shifting Wall Upper Beamos Right",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23757,7 +23757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2095",
     "location": "Spirit Temple Shifting Wall Skullwalltula",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23767,7 +23767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2096",
     "location": "Spirit Temple Big Mirror White Bubble 1",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23777,7 +23777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2097",
     "location": "Spirit Temple Big Mirror White Bubble 2",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23787,7 +23787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2098",
     "location": "Spirit Temple Big Mirror White Bubble 3",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23797,7 +23797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2099",
     "location": "Spirit Temple Big Mirror First Lizalfos",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23807,7 +23807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2100",
     "location": "Spirit Temple Big Mirror Second Lizalfos",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -23817,7 +23817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2101",
     "location": "Spirit Temple Twinrova Heart",
-    "region": "Spirit",
+    "area": "Spirit",
     "type": "Other",
     "item": "",
     "price": null,
@@ -23827,7 +23827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2102",
     "location": "Ice Cavern Map Chest",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -23837,7 +23837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2103",
     "location": "Ice Cavern Compass Chest",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -23847,7 +23847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2104",
     "location": "Ice Cavern Iron Boots Chest",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -23857,7 +23857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2105",
     "location": "Ice Cavern Freestanding PoH",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -23867,7 +23867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2106",
     "location": "Ice Cavern GS Spinning Scythe Room",
-    "region": "Ice",
+    "area": "Ice",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -23877,7 +23877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2107",
     "location": "Ice Cavern GS Heart Piece Room",
-    "region": "Ice",
+    "area": "Ice",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -23887,7 +23887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2108",
     "location": "Ice Cavern GS Push Block Room",
-    "region": "Ice",
+    "area": "Ice",
     "type": "GoldSkulltula",
     "item": "",
     "price": null,
@@ -23897,7 +23897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2109",
     "location": "Ice Cavern Frozen Blue Rupee",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -23907,7 +23907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2110",
     "location": "Ice Cavern Map Room Recovery Heart 1",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -23917,7 +23917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2111",
     "location": "Ice Cavern Map Room Recovery Heart 2",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -23927,7 +23927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2112",
     "location": "Ice Cavern Map Room Recovery Heart 3",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -23937,7 +23937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2113",
     "location": "Ice Cavern Push Block Room Red Rupee 1",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -23947,7 +23947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2114",
     "location": "Ice Cavern Push Block Room Red Rupee 2",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -23957,7 +23957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2115",
     "location": "Ice Cavern Push Block Room Red Rupee 3",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -23967,7 +23967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2116",
     "location": "Ice Cavern Hall Pot 1",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -23977,7 +23977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2117",
     "location": "Ice Cavern Hall Pot 2",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -23987,7 +23987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2118",
     "location": "Ice Cavern Spinning Scythe Pot 1",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -23997,7 +23997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2119",
     "location": "Ice Cavern Spinning Scythe Pot 2",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -24007,7 +24007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2120",
     "location": "Ice Cavern Spinning Scythe Pot 3",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -24017,7 +24017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2121",
     "location": "Ice Cavern Spinning Scythe Flying Pot",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24027,7 +24027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2122",
     "location": "Ice Cavern Near End Pot 1",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -24037,7 +24037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2123",
     "location": "Ice Cavern Near End Pot 2",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -24047,7 +24047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2124",
     "location": "Ice Cavern Frozen Pot",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -24057,7 +24057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2125",
     "location": "Ice Cavern Entryway Freezard 1",
-    "region": "Ice",
+    "area": "Ice",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24067,7 +24067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2126",
     "location": "Ice Cavern Entryway Freezard 2",
-    "region": "Ice",
+    "area": "Ice",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24077,7 +24077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2127",
     "location": "Ice Cavern Entryway Freezard 3",
-    "region": "Ice",
+    "area": "Ice",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24087,7 +24087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2128",
     "location": "Ice Cavern Entryway Freezard 4",
-    "region": "Ice",
+    "area": "Ice",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24097,7 +24097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2129",
     "location": "Ice Cavern Block Push Ice Keese 1",
-    "region": "Ice",
+    "area": "Ice",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24107,7 +24107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2130",
     "location": "Ice Cavern Block Push Ice Keese 2",
-    "region": "Ice",
+    "area": "Ice",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24117,7 +24117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2131",
     "location": "Ice Cavern Block Push Ice Keese 3",
-    "region": "Ice",
+    "area": "Ice",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24127,7 +24127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2132",
     "location": "Ice Cavern Near End Freezard 1",
-    "region": "Ice",
+    "area": "Ice",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24137,7 +24137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2133",
     "location": "Ice Cavern Near End Freezard 2",
-    "region": "Ice",
+    "area": "Ice",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24147,7 +24147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2134",
     "location": "Ice Cavern Wolfos",
-    "region": "Ice",
+    "area": "Ice",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24157,7 +24157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2135",
     "location": "Ice Cavern Sliding Spike Freezard",
-    "region": "Ice",
+    "area": "Ice",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24167,7 +24167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2136",
     "location": "Ice Cavern Map Room Ice Keese 1",
-    "region": "Ice",
+    "area": "Ice",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24177,7 +24177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2137",
     "location": "Ice Cavern Map Room Ice Keese 2",
-    "region": "Ice",
+    "area": "Ice",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24187,7 +24187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2138",
     "location": "Ice Cavern Map Room Ice Keese 3",
-    "region": "Ice",
+    "area": "Ice",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24197,7 +24197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2139",
     "location": "Ice Cavern Map Room Freezard Ground",
-    "region": "Ice",
+    "area": "Ice",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24207,7 +24207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2140",
     "location": "Ice Cavern Map Room Freezard Lower Platform",
-    "region": "Ice",
+    "area": "Ice",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24217,7 +24217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2141",
     "location": "Ice Cavern Map Room Freezard Upper Platform",
-    "region": "Ice",
+    "area": "Ice",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24227,7 +24227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2142",
     "location": "Ice Cavern Compass Room Keese 1",
-    "region": "Ice",
+    "area": "Ice",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24237,7 +24237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2143",
     "location": "Ice Cavern Compass Room Keese 2",
-    "region": "Ice",
+    "area": "Ice",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24247,7 +24247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2144",
     "location": "Ice Cavern Compass Room Keese 3",
-    "region": "Ice",
+    "area": "Ice",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24257,7 +24257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2145",
     "location": "Ice Cavern Spinning Scythe Silver Rupee Icicles",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24267,7 +24267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2146",
     "location": "Ice Cavern Spinning Scythe Silver Rupee Center Left",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24277,7 +24277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2147",
     "location": "Ice Cavern Spinning Scythe Silver Rupee Center Back",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24287,7 +24287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2148",
     "location": "Ice Cavern Spinning Scythe Silver Rupee Center Right",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24297,7 +24297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2149",
     "location": "Ice Cavern Spinning Scythe Silver Rupee Ledge",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24307,7 +24307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2150",
     "location": "Ice Cavern Push Block Silver Rupee Back Left",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24317,7 +24317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2151",
     "location": "Ice Cavern Push Block Silver Rupee Back Center",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24327,7 +24327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2152",
     "location": "Ice Cavern Push Block Silver Rupee Front Center",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24337,7 +24337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2153",
     "location": "Ice Cavern Push Block Silver Rupee Red Ice",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24347,7 +24347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2154",
     "location": "Ice Cavern Push Block Silver Rupee Front Left",
-    "region": "Ice",
+    "area": "Ice",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24357,7 +24357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2155",
     "location": "Gerudo Training Ground Lobby Left Chest",
-    "region": "Unknown",
+    "area": "GF",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24367,7 +24367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2156",
     "location": "Gerudo Training Ground Lobby Right Chest",
-    "region": "Unknown",
+    "area": "GF",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24377,7 +24377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2157",
     "location": "Gerudo Training Ground Stalfos Chest",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24387,7 +24387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2158",
     "location": "Gerudo Training Ground Before Heavy Block Chest",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24397,7 +24397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2159",
     "location": "Gerudo Training Ground Heavy Block First Chest",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24407,7 +24407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2160",
     "location": "Gerudo Training Ground Heavy Block Second Chest",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24417,7 +24417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2161",
     "location": "Gerudo Training Ground Heavy Block Third Chest",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24427,7 +24427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2162",
     "location": "Gerudo Training Ground Heavy Block Fourth Chest",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24437,7 +24437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2163",
     "location": "Gerudo Training Ground Eye Statue Chest",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24447,7 +24447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2164",
     "location": "Gerudo Training Ground Near Scarecrow Chest",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24457,7 +24457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2165",
     "location": "Gerudo Training Ground Hammer Room Clear Chest",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24467,7 +24467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2166",
     "location": "Gerudo Training Ground Hammer Room Switch Chest",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24477,7 +24477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2167",
     "location": "Gerudo Training Ground Freestanding Key",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -24487,7 +24487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2168",
     "location": "Gerudo Training Ground Maze Right Central Chest",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24497,7 +24497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2169",
     "location": "Gerudo Training Ground Maze Right Side Chest",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24507,7 +24507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2170",
     "location": "Gerudo Training Ground Underwater Silver Rupee Chest",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24517,7 +24517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2171",
     "location": "Gerudo Training Ground Beamos Chest",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24527,7 +24527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2172",
     "location": "Gerudo Training Ground Hidden Ceiling Chest",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24537,7 +24537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2173",
     "location": "Gerudo Training Ground Maze Path First Chest",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24547,7 +24547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2174",
     "location": "Gerudo Training Ground Maze Path Second Chest",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24557,7 +24557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2175",
     "location": "Gerudo Training Ground Maze Path Third Chest",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24567,7 +24567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2176",
     "location": "Gerudo Training Ground Maze Path Final Chest",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -24577,7 +24577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2177",
     "location": "Gerudo Training Ground Beamos Recovery Heart 1",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -24587,7 +24587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2178",
     "location": "Gerudo Training Ground Beamos Recovery Heart 2",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -24597,7 +24597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2179",
     "location": "Gerudo Training Ground Lava Room Silver Rupee Front Left",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24607,7 +24607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2180",
     "location": "Gerudo Training Ground Lava Room Silver Rupee Front Right",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24617,7 +24617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2181",
     "location": "Gerudo Training Ground Lava Room Silver Rupee Flame Circle",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24627,7 +24627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2182",
     "location": "Gerudo Training Ground Lava Room Silver Rupee Center Right",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24637,7 +24637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2183",
     "location": "Gerudo Training Ground Lava Room Silver Rupee Hookshot Target",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24647,7 +24647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2184",
     "location": "Gerudo Training Ground Underwater Silver Rupee Top",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24657,7 +24657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2185",
     "location": "Gerudo Training Ground Underwater Silver Rupee Middle",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24667,7 +24667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2186",
     "location": "Gerudo Training Ground Underwater Silver Rupee Bottom Front Right",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24677,7 +24677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2187",
     "location": "Gerudo Training Ground Underwater Silver Rupee Bottom Center",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24687,7 +24687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2188",
     "location": "Gerudo Training Ground Underwater Silver Rupee Bottom Back Left",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24697,7 +24697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2189",
     "location": "Gerudo Training Ground Boulder Room Silver Rupee Bottom Right",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24707,7 +24707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2190",
     "location": "Gerudo Training Ground Boulder Room Silver Rupee Bottom Left",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24717,7 +24717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2191",
     "location": "Gerudo Training Ground Boulder Room Silver Rupee Ceiling",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24727,7 +24727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2192",
     "location": "Gerudo Training Ground Boulder Room Silver Rupee Ledge",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24737,7 +24737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2193",
     "location": "Gerudo Training Ground Boulder Room Silver Rupee Top Left",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Other",
     "item": "",
     "price": null,
@@ -24747,7 +24747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2194",
     "location": "Gerudo Training Ground Eye Statue Wonderitem",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -24757,7 +24757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2195",
     "location": "Gerudo Training Ground Hammer Room Wonderitem",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -24767,7 +24767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2196",
     "location": "Gerudo Training Ground Beamos Wonderitem",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "Wonderitem",
     "item": "",
     "price": null,
@@ -24777,7 +24777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2197",
     "location": "Gerudo Training Ground Stalfos 1",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24787,7 +24787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2198",
     "location": "Gerudo Training Ground Stalfos 2",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24797,7 +24797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2199",
     "location": "Gerudo Training Ground Boulder Room Wallmaster",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24807,7 +24807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2200",
     "location": "Gerudo Training Ground Before Heavy Block Wolfos 1",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24817,7 +24817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2201",
     "location": "Gerudo Training Ground Before Heavy Block Wolfos 2",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24827,7 +24827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2202",
     "location": "Gerudo Training Ground Before Heavy Block Wolfos 3",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24837,7 +24837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2203",
     "location": "Gerudo Training Ground Before Heavy Block Wolfos 4",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24847,7 +24847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2204",
     "location": "Gerudo Training Ground Heavy Block Like Like 1",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24857,7 +24857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2205",
     "location": "Gerudo Training Ground Heavy Block Like Like 2",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24867,7 +24867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2206",
     "location": "Gerudo Training Ground Heavy Block Like Like 3",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24877,7 +24877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2207",
     "location": "Gerudo Training Ground Hammer Room Keese 1",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24887,7 +24887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2208",
     "location": "Gerudo Training Ground Hammer Room Keese 2",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24897,7 +24897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2209",
     "location": "Gerudo Training Ground Hammer Room Torch Slug 1",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24907,7 +24907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2210",
     "location": "Gerudo Training Ground Hammer Room Torch Slug 2",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24917,7 +24917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2211",
     "location": "Gerudo Training Ground Lava Room Front Red Bubble",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24927,7 +24927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2212",
     "location": "Gerudo Training Ground Lava Room Back Red Bubble",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24937,7 +24937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2213",
     "location": "Gerudo Training Ground Beamos",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24947,7 +24947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2214",
     "location": "Gerudo Training Ground Dinolfos 1",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24957,7 +24957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2215",
     "location": "Gerudo Training Ground Dinolfos 2",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24967,7 +24967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2216",
     "location": "Gerudo Training Ground Underwater Shell Blade 1",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24977,7 +24977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2217",
     "location": "Gerudo Training Ground Underwater Shell Blade 2",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24987,7 +24987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2218",
     "location": "Gerudo Training Ground Underwater Shell Blade 3",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -24997,7 +24997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2219",
     "location": "Gerudo Training Ground Underwater Shell Blade 4",
-    "region": "Unknown",
+    "area": "GTG",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25007,7 +25007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2220",
     "location": "Ganons Castle Forest Trial Chest",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -25017,7 +25017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2221",
     "location": "Ganons Castle Water Trial Left Chest",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -25027,7 +25027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2222",
     "location": "Ganons Castle Water Trial Right Chest",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -25037,7 +25037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2223",
     "location": "Ganons Castle Shadow Trial Front Chest",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -25047,7 +25047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2224",
     "location": "Ganons Castle Shadow Trial Golden Gauntlets Chest",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -25057,7 +25057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2225",
     "location": "Ganons Castle Light Trial First Left Chest",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -25067,7 +25067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2226",
     "location": "Ganons Castle Light Trial Second Left Chest",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -25077,7 +25077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2227",
     "location": "Ganons Castle Light Trial Third Left Chest",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -25087,7 +25087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2228",
     "location": "Ganons Castle Light Trial First Right Chest",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -25097,7 +25097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2229",
     "location": "Ganons Castle Light Trial Second Right Chest",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -25107,7 +25107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2230",
     "location": "Ganons Castle Light Trial Third Right Chest",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -25117,7 +25117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2231",
     "location": "Ganons Castle Light Trial Invisible Enemies Chest",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -25127,7 +25127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2232",
     "location": "Ganons Castle Light Trial Lullaby Chest",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -25137,7 +25137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2233",
     "location": "Ganons Castle Spirit Trial Crystal Switch Chest",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -25147,7 +25147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2234",
     "location": "Ganons Castle Spirit Trial Invisible Chest",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -25157,7 +25157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2235",
     "location": "Ganons Castle Deku Scrub Left",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Scrub",
     "item": "",
     "price": null,
@@ -25167,7 +25167,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2236",
     "location": "Ganons Castle Deku Scrub Center-Left",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Scrub",
     "item": "",
     "price": null,
@@ -25177,7 +25177,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2237",
     "location": "Ganons Castle Deku Scrub Center-Right",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Scrub",
     "item": "",
     "price": null,
@@ -25187,7 +25187,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2238",
     "location": "Ganons Castle Deku Scrub Right",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Scrub",
     "item": "",
     "price": null,
@@ -25197,7 +25197,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2239",
     "location": "Ganons Castle Shadow Trial Recovery Heart 1",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -25207,7 +25207,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2240",
     "location": "Ganons Castle Shadow Trial Recovery Heart 2",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -25217,7 +25217,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2241",
     "location": "Ganons Castle Shadow Trial Recovery Heart 3",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -25227,7 +25227,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2242",
     "location": "Ganons Castle Fire Trial Recovery Heart",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -25237,7 +25237,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2243",
     "location": "Ganons Castle Spirit Trial Recovery Heart",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Freestanding",
     "item": "",
     "price": null,
@@ -25247,7 +25247,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2244",
     "location": "Ganons Castle Water Trial Pot 1",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25257,7 +25257,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2245",
     "location": "Ganons Castle Water Trial Pot 2",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25267,7 +25267,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2246",
     "location": "Ganons Castle Water Trial Fairy Pot Drop",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25277,7 +25277,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2247",
     "location": "Ganons Castle Forest Trial Pot 1",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25287,7 +25287,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2248",
     "location": "Ganons Castle Forest Trial Pot 2",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25297,7 +25297,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2249",
     "location": "Ganons Castle Light Trial Boulder Pot",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25307,7 +25307,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2250",
     "location": "Ganons Castle Light Trial Pot 1",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25317,7 +25317,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2251",
     "location": "Ganons Castle Light Trial Pot 2",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25327,7 +25327,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2252",
     "location": "Ganons Castle Shadow Trial Like Like Pot 1",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25337,7 +25337,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2253",
     "location": "Ganons Castle Shadow Trial Like Like Pot 2",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25347,7 +25347,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2254",
     "location": "Ganons Castle Shadow Trial Pot 1",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25357,7 +25357,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2255",
     "location": "Ganons Castle Shadow Trial Pot 2",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25367,7 +25367,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2256",
     "location": "Ganons Castle Fire Trial Pot 1",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25377,7 +25377,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2257",
     "location": "Ganons Castle Fire Trial Pot 2",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25387,7 +25387,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2258",
     "location": "Ganons Castle Spirit Trial Pot 1",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25397,7 +25397,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2259",
     "location": "Ganons Castle Spirit Trial Pot 2",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25407,7 +25407,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2260",
     "location": "Ganons Castle Spirit Trial Silver Rupee Ceiling",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Other",
     "item": "",
     "price": null,
@@ -25417,7 +25417,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2261",
     "location": "Ganons Castle Spirit Trial Silver Rupee Front Right",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Other",
     "item": "",
     "price": null,
@@ -25427,7 +25427,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2262",
     "location": "Ganons Castle Spirit Trial Silver Rupee Center",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Other",
     "item": "",
     "price": null,
@@ -25437,7 +25437,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2263",
     "location": "Ganons Castle Spirit Trial Silver Rupee Back Left",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Other",
     "item": "",
     "price": null,
@@ -25447,7 +25447,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2264",
     "location": "Ganons Castle Spirit Trial Silver Rupee Back Right",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Other",
     "item": "",
     "price": null,
@@ -25457,7 +25457,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2265",
     "location": "Ganons Castle Light Trial Silver Rupee Center Left",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Other",
     "item": "",
     "price": null,
@@ -25467,7 +25467,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2266",
     "location": "Ganons Castle Light Trial Silver Rupee Center Top",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Other",
     "item": "",
     "price": null,
@@ -25477,7 +25477,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2267",
     "location": "Ganons Castle Light Trial Silver Rupee Center Right",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Other",
     "item": "",
     "price": null,
@@ -25487,7 +25487,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2268",
     "location": "Ganons Castle Light Trial Silver Rupee Left Alcove",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Other",
     "item": "",
     "price": null,
@@ -25497,7 +25497,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2269",
     "location": "Ganons Castle Light Trial Silver Rupee Right Alcove",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Other",
     "item": "",
     "price": null,
@@ -25507,7 +25507,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2270",
     "location": "Ganons Castle Fire Trial Silver Rupee Flamethrower",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Other",
     "item": "",
     "price": null,
@@ -25517,7 +25517,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2271",
     "location": "Ganons Castle Fire Trial Silver Rupee Inside Pillar",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Other",
     "item": "",
     "price": null,
@@ -25527,7 +25527,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2272",
     "location": "Ganons Castle Fire Trial Silver Rupee Right Front",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Other",
     "item": "",
     "price": null,
@@ -25537,7 +25537,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2273",
     "location": "Ganons Castle Fire Trial Silver Rupee Right Center",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Other",
     "item": "",
     "price": null,
@@ -25547,7 +25547,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2274",
     "location": "Ganons Castle Fire Trial Silver Rupee Right Back",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Other",
     "item": "",
     "price": null,
@@ -25557,7 +25557,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2275",
     "location": "Ganons Castle Forest Trial Silver Rupee Front Left",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Other",
     "item": "",
     "price": null,
@@ -25567,7 +25567,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2276",
     "location": "Ganons Castle Forest Trial Silver Rupee Front Right",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Other",
     "item": "",
     "price": null,
@@ -25577,7 +25577,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2277",
     "location": "Ganons Castle Forest Trial Silver Rupee Center Left",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Other",
     "item": "",
     "price": null,
@@ -25587,7 +25587,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2278",
     "location": "Ganons Castle Forest Trial Silver Rupee Back Center",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Other",
     "item": "",
     "price": null,
@@ -25597,7 +25597,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2279",
     "location": "Ganons Castle Forest Trial Silver Rupee Back Right",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Other",
     "item": "",
     "price": null,
@@ -25607,7 +25607,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2280",
     "location": "Ganons Castle Entry Hallway Beamos Left",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25617,7 +25617,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2281",
     "location": "Ganons Castle Entry Hallway Beamos Right",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25627,7 +25627,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2282",
     "location": "Ganons Castle Water Trial Freezard 1",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25637,7 +25637,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2283",
     "location": "Ganons Castle Water Trial Freezard 2",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25647,7 +25647,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2284",
     "location": "Ganons Castle Forest Trial Wolfos",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25657,7 +25657,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2285",
     "location": "Ganons Castle Forest Trial Beamos",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25667,7 +25667,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2286",
     "location": "Ganons Castle Light Trial Invisible Keese 1",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25677,7 +25677,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2287",
     "location": "Ganons Castle Light Trial Invisible Keese 2",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25687,7 +25687,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2288",
     "location": "Ganons Castle Light Trial Invisible Keese 3",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25697,7 +25697,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2289",
     "location": "Ganons Castle Light Trial Invisible Skulltula",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25707,7 +25707,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2290",
     "location": "Ganons Castle Light Trial Wallmaster",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25717,7 +25717,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2291",
     "location": "Ganons Castle Shadow Trial Green Bubble",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25727,7 +25727,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2292",
     "location": "Ganons Castle Shadow Trial Like Like",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25737,7 +25737,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2293",
     "location": "Ganons Castle Fire Trial Torch Slug",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25747,7 +25747,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2294",
     "location": "Ganons Castle Fire Trial Red Bubble 1",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25757,7 +25757,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2295",
     "location": "Ganons Castle Fire Trial Red Bubble 2",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25767,7 +25767,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2296",
     "location": "Ganons Castle Fire Trial Red Bubble 3",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25777,7 +25777,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2297",
     "location": "Ganons Castle Fire Trial Deepest Red Bubble",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25787,7 +25787,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2298",
     "location": "Ganons Castle Spirit Trial Beamos",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25797,7 +25797,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2299",
     "location": "Ganons Castle Spirit Trial Torch Slug 1",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25807,7 +25807,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2300",
     "location": "Ganons Castle Spirit Trial Torch Slug 2",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25817,7 +25817,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2301",
     "location": "Ganons Castle Spirit Trial Wrong Sun Wallmaster 1",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25827,7 +25827,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2302",
     "location": "Ganons Castle Spirit Trial Wrong Sun Wallmaster 2",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25837,7 +25837,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2303",
     "location": "Ganons Castle Spirit Trial Wrong Sun Wallmaster 3",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -25847,7 +25847,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2304",
     "location": "Ganons Tower Boss Key Chest",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Chest",
     "item": "",
     "price": null,
@@ -25857,7 +25857,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2305",
     "location": "Ganons Tower Pot 1",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25867,7 +25867,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2306",
     "location": "Ganons Tower Pot 2",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25877,7 +25877,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2307",
     "location": "Ganons Tower Pot 3",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25887,7 +25887,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2308",
     "location": "Ganons Tower Pot 4",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25897,7 +25897,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2309",
     "location": "Ganons Tower Pot 5",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25907,7 +25907,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2310",
     "location": "Ganons Tower Pot 6",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25917,7 +25917,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2311",
     "location": "Ganons Tower Pot 7",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25927,7 +25927,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2312",
     "location": "Ganons Tower Pot 8",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25937,7 +25937,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2313",
     "location": "Ganons Tower Pot 9",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25947,7 +25947,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2314",
     "location": "Ganons Tower Pot 10",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25957,7 +25957,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2315",
     "location": "Ganons Tower Pot 11",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25967,7 +25967,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2316",
     "location": "Ganons Tower Pot 12",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25977,7 +25977,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2317",
     "location": "Ganons Tower Pot 13",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25987,7 +25987,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2318",
     "location": "Ganons Tower Pot 14",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -25997,7 +25997,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2319",
     "location": "Ganons Tower Pot 15",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -26007,7 +26007,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2320",
     "location": "Ganons Tower Pot 16",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -26017,7 +26017,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2321",
     "location": "Ganons Tower Pot 17",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -26027,7 +26027,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2322",
     "location": "Ganons Tower Pot 18",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "Pot",
     "item": "",
     "price": null,
@@ -26037,7 +26037,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2323",
     "location": "Ganons Tower Keese 1",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -26047,7 +26047,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2324",
     "location": "Ganons Tower Keese 2",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -26057,7 +26057,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2325",
     "location": "Ganons Tower Keese 3",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -26067,7 +26067,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2326",
     "location": "Ganons Tower Keese 4",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -26077,7 +26077,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2327",
     "location": "Ganons Tower Keese 5",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -26087,7 +26087,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2328",
     "location": "Ganons Tower Keese 6",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -26097,7 +26097,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2329",
     "location": "Ganons Tower Keese 7",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -26107,7 +26107,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2330",
     "location": "Ganons Tower Dinolfos 1",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -26117,7 +26117,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2331",
     "location": "Ganons Tower Dinolfos 2",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -26127,7 +26127,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2332",
     "location": "Ganons Tower Stalfos 1",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -26137,7 +26137,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2333",
     "location": "Ganons Tower Stalfos 2",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -26147,7 +26147,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2334",
     "location": "Ganons Tower White Knuckle",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -26157,7 +26157,7 @@ export const INITIAL_CHECKS: Check[] = [
   {
     "id": "check_2335",
     "location": "Ganons Tower Black Knuckle",
-    "region": "Unknown",
+    "area": "Ganon",
     "type": "EnemyDrop",
     "item": "",
     "price": null,
@@ -26173,7 +26173,7 @@ export const REGIONS = [
   'Forest', 'Fire', 'Water', 'Shadow', 'Spirit', 'Ice', 'GTG', 'Ganon'
 ] as const;
 
-export const ENTRANCE_TYPES = ['Warp', 'Grotto', 'Dungeon', 'Interior', 'Overworld', 'Unknown'] as const;
+export const ENTRANCE_TYPES = ['Warp', 'Grotto', 'Dungeon', 'Interior', 'Hideout', 'Overworld', 'Boss', 'Unknown'] as const;
 export const CHECK_TYPES = [
   'Chest', 'GoldSkulltula', 'Song', 'Shop', 'Cow', 'Scrub', 'GrottoScrub', 'NPC', 'Boss',
   'Freestanding', 'Grass', 'Pot', 'Crate', 'Beehive', 'Wonderitem', 'GossipStone',
@@ -26896,6 +26896,7 @@ export const ALL_DESTINATIONS = [
 // Destinations organized by area for grouped selection
 export const DESTINATIONS_BY_AREA = {
   "KF": [
+    "Deku Tree Lobby",
     "KF House of Twins",
     "KF Know It All House",
     "KF Kokiri Shop",
@@ -26904,12 +26905,12 @@ export const DESTINATIONS_BY_AREA = {
     "KF Outside Deku Tree",
     "KF Sarias House",
     "KF Storms Grotto",
-    "Kokiri Forest"
+    "Kokiri Forest",
+    "LW Bridge From Forest"
   ],
-  "Fire": [
-    "Bolero of Fire Warp",
-    "Fire Temple Before Boss",
-    "Fire Temple Lower"
+  "ToT": [
+    "Temple of Time",
+    "ToT Entrance"
   ],
   "DMC": [
     "DMC Central Local",
@@ -26920,18 +26921,19 @@ export const DESTINATIONS_BY_AREA = {
     "DMC Lower Nearby",
     "DMC Upper Grotto",
     "DMC Upper Local",
-    "DMC Upper Nearby"
+    "DMC Upper Nearby",
+    "Fire Temple Lower",
+    "GC Darunias Chamber"
   ],
   "Kak": [
+    "Bottom of the Well",
     "Kak Backyard",
     "Kak Bazaar",
-    "Kak Behind Gate",
     "Kak Carpenter Boss House",
     "Kak House of Skulltula",
     "Kak Impas House",
     "Kak Impas House Back",
     "Kak Impas Ledge",
-    "Kak Impas Rooftop",
     "Kak Odd Medicine Building",
     "Kak Open Grotto",
     "Kak Potion Shop Back",
@@ -26941,19 +26943,16 @@ export const DESTINATIONS_BY_AREA = {
     "Kak Windmill",
     "Kakariko Village"
   ],
-  "ZR": [
-    "ZR Behind Waterfall",
-    "ZR Fairy Grotto",
-    "ZR Front",
-    "ZR Open Grotto",
-    "ZR Storms Grotto",
-    "Zora River"
-  ],
   "ZD": [
-    "ZD Behind King Zora",
     "ZD Shop",
     "ZD Storms Grotto",
+    "ZR Behind Waterfall",
     "Zoras Domain"
+  ],
+  "HC": [
+    "Castle Grounds",
+    "HC Great Fairy Fountain",
+    "HC Storms Grotto"
   ],
   "Market": [
     "Market",
@@ -26969,11 +26968,6 @@ export const DESTINATIONS_BY_AREA = {
     "Market Shooting Gallery",
     "Market Treasure Chest Game"
   ],
-  "Shadow": [
-    "Nocturne of Shadow Warp",
-    "Shadow Temple Before Boss",
-    "Shadow Temple Entryway"
-  ],
   "GY": [
     "Graveyard",
     "Graveyard Dampes Grave",
@@ -26981,13 +26975,12 @@ export const DESTINATIONS_BY_AREA = {
     "Graveyard Heart Piece Grave",
     "Graveyard Royal Familys Tomb",
     "Graveyard Shield Grave",
-    "Graveyard Warp Pad Region"
+    "Graveyard Warp Pad Region",
+    "Shadow Temple Entryway"
   ],
   "DMT": [
-    "DMT Cow Grotto",
-    "DMT Great Fairy Fountain",
     "DMT Owl Flight",
-    "DMT Storms Grotto"
+    "Kak Impas Rooftop"
   ],
   "GF": [
     "GF 3 Torches Jail Exterior",
@@ -26998,135 +26991,8 @@ export const DESTINATIONS_BY_AREA = {
     "GF Outside Gate",
     "GF Roof Entrance Cluster",
     "GF Storms Grotto",
-    "Gerudo Fortress"
-  ],
-  "LH": [
-    "LH Fishing Hole",
-    "LH Fishing Island",
-    "LH Grotto",
-    "LH Lab",
-    "Lake Hylia"
-  ],
-  "LLR": [
-    "LLR Grotto",
-    "LLR Stables",
-    "LLR Talons House",
-    "LLR Tower",
-    "Lon Lon Ranch"
-  ],
-  "SFM": [
-    "SFM Entryway",
-    "SFM Fairy Grotto",
-    "SFM Forest Temple Entrance Ledge",
-    "SFM Storms Grotto",
-    "SFM Wolfos Grotto",
-    "Sacred Forest Meadow"
-  ],
-  "Forest": [
-    "Forest Temple Before Boss",
-    "Forest Temple Lobby"
-  ],
-  "HF": [
-    "HF Cow Grotto",
-    "HF Fairy Grotto",
-    "HF Inside Fence Grotto",
-    "HF Near Kak Grotto",
-    "HF Near Market Grotto",
-    "HF Open Grotto",
-    "HF Southeast Grotto",
-    "HF Tektite Grotto",
-    "Hyrule Field"
-  ],
-  "Wasteland": [
-    "Wasteland Near Colossus",
-    "Wasteland Near Fortress"
-  ],
-  "Deku": [
-    "Deku Theater",
-    "Deku Tree Before Boss",
-    "Deku Tree Lobby"
-  ],
-  "GC": [
-    "GC Darunias Chamber",
-    "GC Grotto",
-    "GC Grotto Platform",
-    "GC Shop",
-    "GC Woods Warp",
-    "Goron City"
-  ],
-  "LW": [
-    "LW Beyond Mido",
-    "LW Bridge",
-    "LW Bridge From Forest",
-    "LW Forest Exit",
-    "LW Near Shortcuts Grotto",
-    "LW Scrubs Grotto",
-    "LW Underwater Entrance",
-    "Lost Woods"
-  ],
-  "OGC": [
-    "OGC Great Fairy Fountain"
-  ],
-  "Colossus": [
-    "Colossus Great Fairy Fountain",
-    "Colossus Grotto",
-    "Desert Colossus",
-    "Desert Colossus From Spirit Lobby"
-  ],
-  "Jabu": [
-    "Jabu Jabus Belly Before Boss",
-    "Jabu Jabus Belly Beginning"
-  ],
-  "ToT": [
-    "ToT Entrance"
-  ],
-  "GV": [
-    "GV Carpenter Tent",
-    "GV Fortress Side",
-    "GV Grotto Ledge",
-    "GV Octorok Grotto",
-    "GV Storms Grotto",
-    "Gerudo Valley"
-  ],
-  "Ganon": [
-    "Castle Grounds From Ganons Castle",
-    "Ganons Castle Ledge",
-    "Ganons Castle Lobby",
-    "Ganons Castle Main",
-    "Ganons Castle Tower",
-    "Phantom Ganon Boss Room"
-  ],
-  "Water": [
-    "Water Temple Before Boss",
-    "Water Temple Lobby"
-  ],
-  "Spirit": [
-    "Spirit Temple Before Boss",
-    "Spirit Temple Lobby"
-  ],
-  "Ice": [
-    "Ice Cavern Beginning"
-  ],
-  "ZF": [
-    "ZF Great Fairy Fountain",
-    "ZF Ice Ledge"
-  ],
-  "HC": [
-    "HC Great Fairy Fountain",
-    "HC Storms Grotto"
-  ],
-  "GTG": [
-    "Gerudo Training Ground Lobby"
-  ],
-  "Unknown": [
-    "Barinade Boss Room",
-    "Bongo Bongo Boss Room",
-    "Bottom of the Well",
-    "Castle Grounds",
-    "Death Mountain",
-    "Death Mountain Summit",
-    "Dodongos Cavern Before Boss",
-    "Dodongos Cavern Beginning",
+    "Gerudo Fortress",
+    "Gerudo Training Ground Lobby",
     "Hideout 1 Torch Jail",
     "Hideout 2 Torches Jail",
     "Hideout 3 Torches Jail",
@@ -27136,13 +27002,141 @@ export const DESTINATIONS_BY_AREA = {
     "Hideout Kitchen Front",
     "Hideout Kitchen Hallway",
     "Hideout Kitchen Rear",
-    "King Dodongo Boss Room",
-    "Morpha Boss Room",
-    "Queen Gohma Blue Warp",
-    "Queen Gohma Boss Room",
-    "Temple of Time",
-    "Twinrova Boss Room",
-    "Volvagia Boss Room",
+    "Wasteland Near Fortress"
+  ],
+  "LH": [
+    "LH Fishing Hole",
+    "LH Fishing Island",
+    "LH Grotto",
+    "LH Lab",
+    "Lake Hylia",
+    "Water Temple Lobby"
+  ],
+  "LLR": [
+    "LLR Grotto",
+    "LLR Stables",
+    "LLR Talons House",
+    "LLR Tower",
+    "Lon Lon Ranch"
+  ],
+  "SFM": [
+    "Forest Temple Lobby",
+    "SFM Entryway",
+    "SFM Fairy Grotto",
+    "SFM Forest Temple Entrance Ledge",
+    "SFM Storms Grotto",
+    "SFM Wolfos Grotto",
+    "Sacred Forest Meadow"
+  ],
+  "HF": [
+    "Gerudo Valley",
+    "HF Cow Grotto",
+    "HF Fairy Grotto",
+    "HF Inside Fence Grotto",
+    "HF Near Kak Grotto",
+    "HF Near Market Grotto",
+    "HF Open Grotto",
+    "HF Southeast Grotto",
+    "HF Tektite Grotto",
+    "Hyrule Field",
+    "LW Bridge",
+    "ZR Front"
+  ],
+  "LW": [
+    "Deku Theater",
+    "GC Woods Warp",
+    "LW Beyond Mido",
+    "LW Forest Exit",
+    "LW Near Shortcuts Grotto",
+    "LW Scrubs Grotto",
+    "Lost Woods"
+  ],
+  "DC": [
+    "DMT Cow Grotto",
+    "DMT Great Fairy Fountain",
+    "DMT Storms Grotto",
+    "Death Mountain",
+    "Death Mountain Summit",
+    "Dodongos Cavern Before Boss",
+    "Dodongos Cavern Beginning",
+    "Kak Behind Gate",
+    "King Dodongo Boss Room"
+  ],
+  "ZR": [
+    "LW Underwater Entrance",
+    "ZR Fairy Grotto",
+    "ZR Open Grotto",
+    "ZR Storms Grotto",
+    "Zora River"
+  ],
+  "ZF": [
+    "Ice Cavern Beginning",
+    "Jabu Jabus Belly Beginning",
+    "ZD Behind King Zora",
+    "ZF Great Fairy Fountain",
+    "ZF Ice Ledge",
     "Zoras Fountain"
+  ],
+  "Ganon": [
+    "Castle Grounds From Ganons Castle",
+    "Ganons Castle Ledge",
+    "Ganons Castle Lobby",
+    "Ganons Castle Main",
+    "Ganons Castle Tower",
+    "OGC Great Fairy Fountain"
+  ],
+  "Colossus": [
+    "Colossus Great Fairy Fountain",
+    "Colossus Grotto",
+    "Desert Colossus",
+    "Desert Colossus From Spirit Lobby",
+    "Spirit Temple Lobby",
+    "Wasteland Near Colossus"
+  ],
+  "GV": [
+    "GV Carpenter Tent",
+    "GV Fortress Side",
+    "GV Grotto Ledge",
+    "GV Octorok Grotto",
+    "GV Storms Grotto"
+  ],
+  "GC": [
+    "GC Grotto",
+    "GC Grotto Platform",
+    "GC Shop",
+    "Goron City"
+  ],
+  "Jabu": [
+    "Barinade Boss Room",
+    "Jabu Jabus Belly Before Boss"
+  ],
+  "Shadow": [
+    "Bongo Bongo Boss Room",
+    "Shadow Temple Before Boss"
+  ],
+  "Fire": [
+    "Fire Temple Before Boss",
+    "Volvagia Boss Room"
+  ],
+  "Deku": [
+    "Deku Tree Before Boss",
+    "Queen Gohma Boss Room"
+  ],
+  "Forest": [
+    "Forest Temple Before Boss",
+    "Phantom Ganon Boss Room"
+  ],
+  "Water": [
+    "Morpha Boss Room",
+    "Water Temple Before Boss"
+  ],
+  "Spirit": [
+    "Spirit Temple Before Boss",
+    "Twinrova Boss Room"
+  ],
+  "Unknown": [
+    "Bolero of Fire Warp",
+    "Nocturne of Shadow Warp",
+    "Queen Gohma Blue Warp"
   ]
 } as const;

@@ -16,53 +16,57 @@ import { GroupedSearchableSelect } from './GroupedSearchableSelect';
 
 // Function to extract area from destination name (same as in parser)
 function extractArea(entranceName: string): string {
-  const prefixes = entranceName.split(/->|Grave|House|Shop|Temple|Cavern|Fountain|Grotto/)[0].trim();
+  if (!entranceName) return '';
 
-  const areaMap: Record<string, string> = {
-    'KF': 'KF', 'Kokiri Forest': 'KF',
-    'LW': 'LW', 'Lost Woods': 'LW',
-    'SFM': 'SFM', 'Sacred Forest Meadow': 'SFM',
-    'HF': 'HF', 'Hyrule Field': 'HF',
-    'LLR': 'LLR', 'Lon Lon Ranch': 'LLR',
-    'Market': 'Market',
-    'ToT': 'ToT', 'Temple of Time': 'ToT',
-    'HC': 'HC', 'Hyrule Castle': 'HC',
-    'OGC': 'OGC', 'Outside Ganons Castle': 'OGC',
-    'Kak': 'Kak', 'Kakariko': 'Kak', 'Kakariko Village': 'Kak',
-    'GY': 'GY', 'Graveyard': 'GY',
-    'DMT': 'DMT', 'Death Mountain Trail': 'DMT',
-    'GC': 'GC', 'Goron City': 'GC',
-    'DMC': 'DMC', 'Death Mountain Crater': 'DMC',
-    'ZR': 'ZR', 'Zora River': 'ZR',
-    'ZD': 'ZD', 'Zoras Domain': 'ZD',
-    'ZF': 'ZF', 'Zoras Fountain': 'ZF',
-    'LH': 'LH', 'Lake Hylia': 'LH',
-    'GV': 'GV', 'Gerudo Valley': 'GV',
-    'GF': 'GF', 'Gerudo Fortress': 'GF',
-    'Wasteland': 'Wasteland', 'Haunted Wasteland': 'Wasteland',
-    'Colossus': 'Colossus', 'Desert Colossus': 'Colossus',
-    'Deku': 'Deku', 'Deku Tree': 'Deku',
-    'DC': 'DC', 'Dodongos Cavern': 'DC',
-    'Jabu': 'Jabu', 'Jabu Jabus Belly': 'Jabu',
-    'Forest': 'Forest', 'Forest Temple': 'Forest',
-    'Fire': 'Fire', 'Fire Temple': 'Fire',
-    'Water': 'Water', 'Water Temple': 'Water',
-    'Shadow': 'Shadow', 'Shadow Temple': 'Shadow',
-    'Spirit': 'Spirit', 'Spirit Temple': 'Spirit',
-    'Ice': 'Ice', 'Ice Cavern': 'Ice',
-    'GTG': 'GTG', 'Gerudo Training Ground': 'GTG',
-    'Ganon': 'Ganon', 'Ganons Castle': 'Ganon',
-  };
+  // Common area patterns - ORDER MATTERS! Check longer patterns first
+  const areaPatterns = [
+    // Longest patterns first to avoid partial matches
+    { pattern: /Gerudo Training Ground|GTG/, area: 'GTG' },
+    { pattern: /Ganons Castle/, area: 'Ganon' },
+    { pattern: /Outside Ganons Castle|OGC/, area: 'OGC' },
+    { pattern: /Castle Grounds/, area: 'HC' },
+    { pattern: /Kakariko Village|Kakariko|Kak/, area: 'Kak' },
+    { pattern: /Graveyard|GY/, area: 'GY' },
+    { pattern: /Death Mountain Summit/, area: 'DMT' },
+    { pattern: /Death Mountain Trail|Death Mountain|DMT/, area: 'DMT' },
+    { pattern: /Death Mountain Crater|DMC/, area: 'DMC' },
+    { pattern: /Goron City|GC/, area: 'GC' },
+    { pattern: /Zoras Fountain|ZF/, area: 'ZF' },
+    { pattern: /Zoras Domain|ZD/, area: 'ZD' },
+    { pattern: /Zora River|ZR/, area: 'ZR' },
+    { pattern: /Lake Hylia|LH/, area: 'LH' },
+    { pattern: /Gerudo Valley|GV/, area: 'GV' },
+    { pattern: /Hideout/, area: 'Hideout' },
+    { pattern: /Gerudo Fortress|GF/, area: 'GF' },
+    { pattern: /Haunted Wasteland|Wasteland/, area: 'Wasteland' },
+    { pattern: /Desert Colossus|Colossus/, area: 'Colossus' },
+    { pattern: /Kokiri Forest|KF/, area: 'KF' },
+    { pattern: /Lost Woods|LW/, area: 'LW' },
+    { pattern: /Sacred Forest Meadow|SFM/, area: 'SFM' },
+    { pattern: /Hyrule Field|HF/, area: 'HF' },
+    { pattern: /Lon Lon Ranch|LLR/, area: 'LLR' },
+    { pattern: /Hyrule Castle|HC/, area: 'HC' },
+    { pattern: /Temple of Time|ToT/, area: 'ToT' },
+    { pattern: /Market/, area: 'Market' },
+    // Dungeons - Boss rooms belong to their dungeons
+    { pattern: /Queen Gohma|Deku Tree|Deku/, area: 'Deku' },
+    { pattern: /King Dodongo|Dodongos Cavern|DC/, area: 'DC' },
+    { pattern: /Barinade|Jabu Jabus Belly|Jabu/, area: 'Jabu' },
+    { pattern: /Forest Temple|Forest/, area: 'Forest' },
+    { pattern: /Volvagia|Fire Temple|Fire/, area: 'Fire' },
+    { pattern: /Morpha|Water Temple|Water/, area: 'Water' },
+    { pattern: /Bongo Bongo|Shadow Temple|Shadow/, area: 'Shadow' },
+    { pattern: /Twinrova|Spirit Temple|Spirit/, area: 'Spirit' },
+    { pattern: /Ice Cavern|Ice/, area: 'Ice' },
+    { pattern: /Bottom of the Well|BotW/, area: 'Kak' },
+    { pattern: /Ganon/, area: 'Ganon' },
+  ];
 
-  for (const [key, value] of Object.entries(areaMap)) {
-    if (prefixes.includes(key)) {
-      return value;
+  // Test each pattern
+  for (const { pattern, area } of areaPatterns) {
+    if (pattern.test(entranceName)) {
+      return area;
     }
-  }
-
-  const firstWord = entranceName.split(/\s+/)[0];
-  if (areaMap[firstWord]) {
-    return areaMap[firstWord];
   }
 
   return 'Unknown';

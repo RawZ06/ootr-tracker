@@ -1,28 +1,7 @@
 // Type definitions for the OoTR Tracker
-
-export interface Entrance {
-  id: string;
-  from: string;
-  fromArea: string;
-  to: string;
-  toArea: string;
-  region: string;
-  type: 'Warp' | 'Grotto' | 'Dungeon' | 'Interior' | 'Overworld' | 'Unknown';
-  notes: string;
-}
-
-export interface Check {
-  id: string;
-  location: string;
-  region: string;
-  type: 'Chest' | 'GoldSkulltula' | 'Song' | 'Shop' | 'Cow' | 'Scrub' | 'GrottoScrub' | 'NPC' | 'Boss' |
-       'Freestanding' | 'Grass' | 'Pot' | 'Crate' | 'Beehive' | 'Wonderitem' | 'GossipStone' |
-       'EnemyDrop' | 'Other';
-  item: string;
-  price: number | null;
-  status: 'pending' | 'done' | 'blocked' | 'partial' | 'important';
-  notes: string;
-}
+// Entrance and Check types are auto-generated in constants.ts
+export type { Entrance, Check } from '../data/constants';
+import type { Entrance, Check } from '../data/constants';
 
 export interface Inventory {
   [itemName: string]: boolean;
@@ -39,7 +18,7 @@ export interface SaveData {
 
 export interface FilterOptions {
   searchTerm: string;
-  regions: string[];
+  areas: string[];
   types: string[];
   statuses?: string[];
   fromAreas?: string[];

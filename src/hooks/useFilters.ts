@@ -4,7 +4,7 @@ import type { Entrance, Check, FilterOptions } from '../types';
 export function useEntranceFilters(entrances: Entrance[]) {
   const [filters, setFilters] = useState<FilterOptions>({
     searchTerm: '',
-    regions: [],
+    areas: [],
     types: [],
     fromAreas: [],
     toAreas: [],
@@ -24,10 +24,6 @@ export function useEntranceFilters(entrances: Entrance[]) {
         }
       }
 
-      // Region filter
-      if (filters.regions.length > 0 && !filters.regions.includes(entrance.region)) {
-        return false;
-      }
 
       // Type filter
       if (filters.types.length > 0 && !filters.types.includes(entrance.type)) {
@@ -58,7 +54,7 @@ export function useEntranceFilters(entrances: Entrance[]) {
 export function useCheckFilters(checks: Check[]) {
   const [filters, setFilters] = useState<FilterOptions>({
     searchTerm: '',
-    regions: [],
+    areas: [],
     types: [],
     statuses: [],
   });
@@ -70,6 +66,7 @@ export function useCheckFilters(checks: Check[]) {
         const term = filters.searchTerm.toLowerCase();
         if (
           !check.location.toLowerCase().includes(term) &&
+          !check.area.toLowerCase().includes(term) &&
           !check.item.toLowerCase().includes(term) &&
           !check.notes.toLowerCase().includes(term)
         ) {
@@ -77,8 +74,8 @@ export function useCheckFilters(checks: Check[]) {
         }
       }
 
-      // Region filter
-      if (filters.regions.length > 0 && !filters.regions.includes(check.region)) {
+      // Area filter
+      if (filters.areas && filters.areas.length > 0 && !filters.areas.includes(check.area)) {
         return false;
       }
 

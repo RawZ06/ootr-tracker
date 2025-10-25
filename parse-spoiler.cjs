@@ -49,15 +49,23 @@ async function fetchEntranceTypes() {
         // Parse the Python file to extract entrance -> type mapping
         const entranceTypeMap = {};
 
-        // Regex to match entrance entries like: ('Dungeon', ('KF Outside Deku Tree -> Deku Tree Lobby', ...
-        // Format: ('Type', ('Entrance Name', { ... }), ...)
-        const regex = /\('([^']+)',\s*\('([^']+)',\s*\{/g;
+        // Match tuples like: ('Type', ('Entrance1', {...}), ('Entrance2', {...}))
+        // Both entrances in the tuple share the same type
+        const tupleRegex = /\('([^']+)',\s*\('([^']+)',\s*\{[^}]*\}\)[,\s]*(?:\('([^']+)',\s*\{[^}]*\}\))?/g;
         let match;
 
-        while ((match = regex.exec(data)) !== null) {
+        while ((match = tupleRegex.exec(data)) !== null) {
           const entranceType = match[1];
-          const entranceName = match[2];
-          entranceTypeMap[entranceName] = entranceType;
+          const entrance1 = match[2];
+          const entrance2 = match[3];
+
+          // Assign the type to the first entrance (forward)
+          entranceTypeMap[entrance1] = entranceType;
+
+          // If there's a second entrance (reverse), assign the same type
+          if (entrance2) {
+            entranceTypeMap[entrance2] = entranceType;
+          }
         }
 
         console.log(`📥 Fetched ${Object.keys(entranceTypeMap).length} entrance types from EntranceShuffle.py`);
@@ -175,109 +183,158 @@ async function main() {
 
   console.log(`\n📦 Organized ${allItemsSet.size} items into ${Object.keys(itemsByCategory).length} categories`);
 
-  // Function to extract area from entrance name
-  function extractArea(entranceName) {
-    // Common patterns to extract area
-    // Examples: "KF Outside Deku Tree -> ...", "Graveyard Dampe House", "DMT Great Fairy Fountain"
-
-    // Try to extract prefix before common separators
-    const prefixes = entranceName.split(/->|Grave|House|Shop|Temple|Cavern|Fountain|Grotto/)[0].trim();
-
-    // Common area abbreviations and names
-    const areaMap = {
-      'KF': 'KF',
-      'Kokiri Forest': 'KF',
-      'LW': 'LW',
-      'Lost Woods': 'LW',
-      'SFM': 'SFM',
-      'Sacred Forest Meadow': 'SFM',
-      'HF': 'HF',
-      'Hyrule Field': 'HF',
-      'LLR': 'LLR',
-      'Lon Lon Ranch': 'LLR',
-      'Market': 'Market',
-      'ToT': 'ToT',
-      'Temple of Time': 'ToT',
-      'HC': 'HC',
-      'Hyrule Castle': 'HC',
-      'OGC': 'OGC',
-      'Outside Ganons Castle': 'OGC',
-      'Kak': 'Kak',
-      'Kakariko': 'Kak',
-      'Kakariko Village': 'Kak',
-      'GY': 'GY',
-      'Graveyard': 'GY',
-      'DMT': 'DMT',
-      'Death Mountain Trail': 'DMT',
-      'GC': 'GC',
-      'Goron City': 'GC',
-      'DMC': 'DMC',
-      'Death Mountain Crater': 'DMC',
-      'ZR': 'ZR',
-      'Zora River': 'ZR',
-      'ZD': 'ZD',
-      'Zoras Domain': 'ZD',
-      'ZF': 'ZF',
-      'Zoras Fountain': 'ZF',
-      'LH': 'LH',
-      'Lake Hylia': 'LH',
-      'GV': 'GV',
-      'Gerudo Valley': 'GV',
-      'GF': 'GF',
-      'Gerudo Fortress': 'GF',
-      'Wasteland': 'Wasteland',
-      'Haunted Wasteland': 'Wasteland',
-      'Colossus': 'Colossus',
-      'Desert Colossus': 'Colossus',
-      'Deku': 'Deku',
-      'Deku Tree': 'Deku',
-      'DC': 'DC',
-      'Dodongos Cavern': 'DC',
-      'Jabu': 'Jabu',
-      'Jabu Jabus Belly': 'Jabu',
-      'Forest': 'Forest',
-      'Forest Temple': 'Forest',
-      'Fire': 'Fire',
-      'Fire Temple': 'Fire',
-      'Water': 'Water',
-      'Water Temple': 'Water',
-      'Shadow': 'Shadow',
-      'Shadow Temple': 'Shadow',
-      'Spirit': 'Spirit',
-      'Spirit Temple': 'Spirit',
-      'Ice': 'Ice',
-      'Ice Cavern': 'Ice',
-      'GTG': 'GTG',
-      'Gerudo Training Ground': 'GTG',
-      'Ganon': 'Ganon',
-      'Ganons Castle': 'Ganon',
+  // Build a comprehensive location -> area mapping from entrance types
+  // This maps every location/grotto/dungeon name to its area code
+  function buildLocationAreaMap(entranceTypeMap) {
+    const locationAreaMap = {
+      // Area abbreviations - direct mappings
+      'KF': 'KF', 'LW': 'LW', 'SFM': 'SFM', 'HF': 'HF', 'LLR': 'LLR',
+      'Market': 'Market', 'ToT': 'ToT', 'HC': 'HC', 'OGC': 'OGC',
+      'Kak': 'Kak', 'GY': 'GY', 'DMT': 'DMT', 'GC': 'GC', 'DMC': 'DMC',
+      'ZR': 'ZR', 'ZD': 'ZD', 'ZF': 'ZF', 'LH': 'LH',
+      'GV': 'GV', 'GF': 'GF', 'Wasteland': 'Wasteland', 'Colossus': 'Colossus',
+      'Deku': 'Deku', 'DC': 'DC', 'Jabu': 'Jabu',
+      'Forest': 'Forest', 'Fire': 'Fire', 'Water': 'Water',
+      'Shadow': 'Shadow', 'Spirit': 'Spirit', 'Ice': 'Ice',
+      'GTG': 'GTG', 'Ganon': 'Ganon',
     };
 
-    // Try to match area from the prefix
-    for (const [key, value] of Object.entries(areaMap)) {
-      if (prefixes.includes(key)) {
-        return value;
+    // Parse entrance type map to extract location areas from entrance names
+    // For each "A -> B" entrance, A tells us where B is located
+    for (const entranceName in entranceTypeMap) {
+      if (entranceName.includes(' -> ')) {
+        const [source, dest] = entranceName.split(' -> ');
+
+        // If source area is known, we can infer that dest is in that area
+        const sourceArea = extractAreaSimple(source, locationAreaMap);
+        if (sourceArea && sourceArea !== 'Unknown') {
+          // Store the destination location's area
+          if (!locationAreaMap[dest]) {
+            locationAreaMap[dest] = sourceArea;
+          }
+        }
       }
     }
 
-    // Try first word
-    const firstWord = entranceName.split(/\s+/)[0];
-    if (areaMap[firstWord]) {
-      return areaMap[firstWord];
+    return locationAreaMap;
+  }
+
+  // Simple extraction using known area names and common patterns
+  function extractAreaSimple(locationName, knownLocations) {
+    if (!locationName) return 'Unknown';
+
+    // Check if it's a known location
+    if (knownLocations[locationName]) {
+      return knownLocations[locationName];
+    }
+
+    // Check for area prefix patterns (e.g., "KF Outside Deku Tree")
+    for (const [areaCode, area] of Object.entries(knownLocations)) {
+      if (locationName.startsWith(areaCode + ' ')) {
+        return area;
+      }
+    }
+
+    // Special cases for boss rewards (no location prefix)
+    if (locationName === 'Queen Gohma') return 'Deku';
+    if (locationName === 'King Dodongo') return 'DC';
+    if (locationName === 'Barinade') return 'Jabu';
+    if (locationName === 'Phantom Ganon') return 'Forest';
+    if (locationName === 'Volvagia') return 'Fire';
+    if (locationName === 'Morpha') return 'Water';
+    if (locationName === 'Bongo Bongo') return 'Shadow';
+    if (locationName === 'Twinrova') return 'Spirit';
+
+    // Songs from NPCs
+    if (locationName === 'Song from Impa') return 'Kak';
+    if (locationName === 'Song from Malon') return 'LLR';
+    if (locationName === 'Song from Saria') return 'SFM';
+    if (locationName === 'Song from Royal Familys Tomb') return 'GY';
+    if (locationName === 'Song from Ocarina of Time') return 'ToT';
+    if (locationName === 'Song from Windmill') return 'Kak';
+
+    // Sheik songs
+    if (locationName === 'Sheik in Forest') return 'Forest';
+    if (locationName === 'Sheik in Crater') return 'DMC';
+    if (locationName === 'Sheik at Colossus') return 'Colossus';
+    if (locationName === 'Sheik at Temple') return 'Water';
+
+    // Ganon's Tower (should be Ganon area)
+    if (locationName.startsWith('Ganons Tower ')) return 'Ganon';
+
+    // Check for area name anywhere in the location name
+    const areaMatches = [
+      { pattern: /Kokiri Forest/, area: 'KF' },
+      { pattern: /Lost Woods/, area: 'LW' },
+      { pattern: /Sacred Forest Meadow/, area: 'SFM' },
+      { pattern: /Hyrule Field/, area: 'HF' },
+      { pattern: /Lon Lon Ranch/, area: 'LLR' },
+      { pattern: /Market|Market Entrance/, area: 'Market' },
+      { pattern: /Temple of Time/, area: 'ToT' },
+      { pattern: /Hyrule Castle/, area: 'HC' },
+      { pattern: /Outside Ganons Castle/, area: 'OGC' },
+      { pattern: /Kakariko|Kak/, area: 'Kak' },
+      { pattern: /Graveyard/, area: 'GY' },
+      { pattern: /Death Mountain Trail|Death Mountain Summit/, area: 'DMT' },
+      { pattern: /Goron City/, area: 'GC' },
+      { pattern: /Death Mountain Crater/, area: 'DMC' },
+      { pattern: /Zora River/, area: 'ZR' },
+      { pattern: /Zoras Domain/, area: 'ZD' },
+      { pattern: /Zoras Fountain/, area: 'ZF' },
+      { pattern: /Lake Hylia/, area: 'LH' },
+      { pattern: /Gerudo Valley/, area: 'GV' },
+      { pattern: /Gerudo Fortress/, area: 'GF' },
+      { pattern: /Hideout/, area: 'Hideout' },
+      { pattern: /Haunted Wasteland/, area: 'Wasteland' },
+      { pattern: /Desert Colossus/, area: 'Colossus' },
+      { pattern: /Gerudo Training Ground/, area: 'GTG' },
+      { pattern: /Ganons Castle/, area: 'Ganon' },
+      { pattern: /Deku Tree/, area: 'Deku' },
+      { pattern: /Dodongos Cavern/, area: 'DC' },
+      { pattern: /Jabu/, area: 'Jabu' },
+      { pattern: /Forest Temple/, area: 'Forest' },
+      { pattern: /Fire Temple/, area: 'Fire' },
+      { pattern: /Water Temple/, area: 'Water' },
+      { pattern: /Shadow Temple/, area: 'Shadow' },
+      { pattern: /Spirit Temple/, area: 'Spirit' },
+      { pattern: /Ice Cavern/, area: 'Ice' },
+      { pattern: /Bottom of the Well/, area: 'Kak' },
+    ];
+
+    for (const { pattern, area } of areaMatches) {
+      if (pattern.test(locationName)) {
+        return area;
+      }
     }
 
     return 'Unknown';
   }
 
+  // Extract area using the comprehensive location map
+  function extractArea(locationName, locationAreaMap) {
+    if (!locationName) return 'Unknown';
+
+    // Direct lookup
+    if (locationAreaMap[locationName]) {
+      return locationAreaMap[locationName];
+    }
+
+    // Fallback to simple extraction
+    return extractAreaSimple(locationName, locationAreaMap);
+  }
+
   const ALL_ITEMS = Array.from(allItemsSet).sort();
   const ALL_DESTINATIONS = Array.from(allDestinationsSet).sort();
+
+  // Build comprehensive location -> area mapping from entrance types
+  const locationAreaMap = buildLocationAreaMap(entranceTypeMap);
 
   // Group destinations by area
   const destinationsByArea = {};
   const destinationsWithoutArea = [];
 
   for (const destination of allDestinationsSet) {
-    const area = extractArea(destination);
+    const area = extractArea(destination, locationAreaMap);
     if (area && area !== 'Unknown') {
       if (!destinationsByArea[area]) {
         destinationsByArea[area] = [];
@@ -306,6 +363,38 @@ async function main() {
   const entrances = [];
   const entranceTypeStats = {};
 
+  // Map entrance types from EntranceShuffle.py
+  const entranceTypes = new Map();
+
+  if (entranceTypeMap) {
+    for (const [entranceName, officialType] of Object.entries(entranceTypeMap)) {
+      // Map official types to our simplified types
+      const typeMapping = {
+        'Dungeon': 'Dungeon',
+        'DungeonSpecial': 'Dungeon',
+        'Grotto': 'Grotto',
+        'Grave': 'Grotto',
+        'Interior': 'Interior',
+        'SpecialInterior': 'Interior',
+        'Hideout': 'Hideout',
+        'Overworld': 'Overworld',
+        'OverworldOneWay': 'Overworld',
+        'Spawn': 'Warp',
+        'WarpSong': 'Warp',
+        'OwlDrop': 'Warp',
+        'ChildSpawn': 'Warp',
+        'AdultSpawn': 'Warp',
+        'ChildBoss': 'Boss',
+        'AdultBoss': 'Boss',
+        'SpecialBoss': 'Boss',
+        'Extra': 'Unknown',
+      };
+
+      const mappedType = typeMapping[officialType] || 'Unknown';
+      entranceTypes.set(entranceName, mappedType);
+    }
+  }
+
   let entranceId = 0;
   for (const [from, to] of Object.entries(entrancesData)) {
     entranceId++;
@@ -320,37 +409,11 @@ async function main() {
       region = to.region;
     }
 
-    // Determine entrance type from EntranceShuffle.py if available
+    // Determine entrance type
     let entranceType = 'Unknown';
 
-    if (entranceTypeMap && entranceTypeMap[from]) {
-      // Use official type from EntranceShuffle.py
-      entranceType = entranceTypeMap[from];
-
-      // Map official types to our simplified types
-      const typeMapping = {
-        'Dungeon': 'Dungeon',
-        'DungeonReverse': 'Dungeon',
-        'Grotto': 'Grotto',
-        'GrottoReverse': 'Grotto',
-        'Grave': 'Grotto',
-        'GraveReverse': 'Grotto',
-        'Interior': 'Interior',
-        'InteriorReverse': 'Interior',
-        'SpecialInterior': 'Interior',
-        'SpecialInteriorReverse': 'Interior',
-        'Overworld': 'Overworld',
-        'OverworldReverse': 'Overworld',
-        'Spawn': 'Warp',
-        'SpawnReverse': 'Warp',
-        'WarpSong': 'Warp',
-        'OwlDrop': 'Warp',
-        'ChildSpawn': 'Warp',
-        'AdultSpawn': 'Warp',
-        'Extra': 'Unknown',
-      };
-
-      entranceType = typeMapping[entranceType] || 'Unknown';
+    if (entranceTypes.has(from)) {
+      entranceType = entranceTypes.get(from);
     } else {
       // Fallback: Determine entrance type based on naming patterns
       if (from.includes('Spawn') || from.includes('Warp')) {
@@ -370,7 +433,15 @@ async function main() {
     entranceTypeStats[entranceType] = (entranceTypeStats[entranceType] || 0) + 1;
 
     // Extract areas from entrance names
-    const fromArea = extractArea(from);
+    // For fromArea, only look at the part before the arrow
+    const fromPart = from.split(' -> ')[0];
+    let fromArea = extractArea(fromPart, locationAreaMap);
+
+    // Special case: Warp songs and Spawns have no fixed location (can be used from anywhere)
+    if (entranceType === 'WarpSong' || entranceType === 'Spawn') {
+      fromArea = 'Warp';
+    }
+
     const toArea = ''; // Will be filled when user selects destination
 
     entrances.push({
@@ -449,10 +520,13 @@ async function main() {
     // Track stats
     typeStats[checkType] = (typeStats[checkType] || 0) + 1;
 
+    // Extract area from location name
+    const area = extractArea(location, locationAreaMap);
+
     checks.push({
       id: `check_${String(checkId).padStart(4, '0')}`,
       location: location,
-      region: region,
+      area: area,
       type: checkType,
       item: '', // User will fill this when they find the item
       price: null, // User will fill the price for shops/scrubs
@@ -472,14 +546,14 @@ export interface Entrance {
   to: string;
   toArea: string;
   region: string;
-  type: 'Warp' | 'Grotto' | 'Dungeon' | 'Interior' | 'Overworld' | 'Unknown';
+  type: 'Warp' | 'Grotto' | 'Dungeon' | 'Interior' | 'Hideout' | 'Overworld' | 'Boss' | 'Unknown';
   notes: string;
 }
 
 export interface Check {
   id: string;
   location: string;
-  region: string;
+  area: string;
   type: 'Chest' | 'GoldSkulltula' | 'Song' | 'Shop' | 'Cow' | 'Scrub' | 'GrottoScrub' | 'NPC' | 'Boss' |
         'Freestanding' | 'Grass' | 'Pot' | 'Crate' | 'Beehive' | 'Wonderitem' | 'GossipStone' |
         'EnemyDrop' | 'Other';
@@ -505,7 +579,7 @@ export const REGIONS = [
   'Forest', 'Fire', 'Water', 'Shadow', 'Spirit', 'Ice', 'GTG', 'Ganon'
 ] as const;
 
-export const ENTRANCE_TYPES = ['Warp', 'Grotto', 'Dungeon', 'Interior', 'Overworld', 'Unknown'] as const;
+export const ENTRANCE_TYPES = ['Warp', 'Grotto', 'Dungeon', 'Interior', 'Hideout', 'Overworld', 'Boss', 'Unknown'] as const;
 export const CHECK_TYPES = [
   'Chest', 'GoldSkulltula', 'Song', 'Shop', 'Cow', 'Scrub', 'GrottoScrub', 'NPC', 'Boss',
   'Freestanding', 'Grass', 'Pot', 'Crate', 'Beehive', 'Wonderitem', 'GossipStone',
