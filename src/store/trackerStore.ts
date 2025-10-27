@@ -8,9 +8,11 @@ interface TrackerStore {
   checks: Check[];
   inventory: Inventory;
   darkMode: boolean;
+  coupledEntrances: boolean;
 
   // Entrance actions
   updateEntrance: (id: string, updates: Partial<Entrance>) => void;
+  toggleCoupledEntrances: () => void;
 
   // Check actions
   updateCheck: (id: string, updates: Partial<Check>) => void;
@@ -36,11 +38,48 @@ export const useTrackerStore = create<TrackerStore>()(
       checks: INITIAL_CHECKS,
       inventory: {},
       darkMode: false,
+      coupledEntrances: false,
 
-      updateEntrance: (id, updates) => set((state) => ({
-        entrances: state.entrances.map((e) =>
+      updateEntrance: (id, updates) => set((state) => {
+        const updatedEntrances = state.entrances.map((e) =>
           e.id === id ? { ...e, ...updates } : e
-        ),
+        );
+
+        // If coupled mode is enabled and we're updating the 'to' field, auto-fill the reverse entrance
+        if (state.coupledEntrances && updates.to !== undefined) {
+          const currentEntrance = state.entrances.find((e) => e.id === id);
+          if (currentEntrance && updates.to && updates.to.trim() !== '') {
+            // Current: from "A -> B" leads to "C -> D"
+            // Reverse: from "D -> C" should lead to "B -> A"
+
+            // Parse current entrance
+            const currentFromParts = currentEntrance.from.split(' -> '); // ["A", "B"]
+            const currentToParts = updates.to.split(' -> '); // ["C", "D"]
+
+            if (currentFromParts.length === 2 && currentToParts.length === 2) {
+              // Build reverse entrance name: "D -> C"
+              const reverseEntranceName = `${currentToParts[1]} -> ${currentToParts[0]}`;
+              const reverseEntrance = updatedEntrances.find((e) => e.from === reverseEntranceName);
+
+              if (reverseEntrance) {
+                // Reverse should lead to: "B -> A"
+                const reverseTo = `${currentFromParts[1]} -> ${currentFromParts[0]}`;
+                const reverseToFrom = extractAreaFromLocation(currentFromParts[1]);
+                const reverseToArea = extractAreaFromEntrance(reverseTo);
+
+                reverseEntrance.to = reverseTo;
+                reverseEntrance.toFrom = reverseToFrom;
+                reverseEntrance.toArea = reverseToArea;
+              }
+            }
+          }
+        }
+
+        return { entrances: updatedEntrances };
+      }),
+
+      toggleCoupledEntrances: () => set((state) => ({
+        coupledEntrances: !state.coupledEntrances,
       })),
 
       updateCheck: (id, updates) => set((state) => ({
@@ -107,11 +146,46 @@ export const useTrackerStore = create<TrackerStore>()(
           for (const entrance of updatedEntrances) {
             const spoilerDestination = spoilerData.entrances[entrance.from];
             if (spoilerDestination) {
-              const destName = typeof spoilerDestination === 'string' ? spoilerDestination : spoilerDestination.from || spoilerDestination.region;
-              if (destName) {
-                // Extract area from destination using the same logic as in EntrancesTable
-                const toArea = extractAreaFromEntrance(destName);
-                entrance.to = destName;
+              // The destination is now a full entrance name (e.g., "Kokiri Forest -> Lost Woods")
+              // We need to find which entrance key in the spoiler matches the destination
+              let destEntranceName = '';
+
+              if (typeof spoilerDestination === 'string') {
+                // Simple string destination - this is the entrance name
+                destEntranceName = spoilerDestination;
+              } else if (typeof spoilerDestination === 'object') {
+                // Object format: {region: "X", from: "Y"}
+                // We need to find the entrance that matches this destination
+                // Look through all entrances in spoiler to find the one that leads to this region
+                const targetRegion = spoilerDestination.region;
+                const targetFrom = spoilerDestination.from;
+
+                // Find entrance by matching: entrance leads to {region: targetRegion, from: targetFrom}
+                for (const [entranceName, entranceDest] of Object.entries(spoilerData.entrances)) {
+                  if (typeof entranceDest === 'object' &&
+                      entranceDest.region === targetRegion &&
+                      entranceDest.from === targetFrom) {
+                    destEntranceName = entranceName;
+                    break;
+                  } else if (typeof entranceDest === 'string' && entranceDest === targetFrom) {
+                    destEntranceName = entranceName;
+                    break;
+                  }
+                }
+
+                // Fallback: use the "from" field as destination name
+                if (!destEntranceName) {
+                  destEntranceName = targetFrom || targetRegion;
+                }
+              }
+
+              if (destEntranceName) {
+                // Extract toFrom (part before arrow) and toArea (part after arrow)
+                const parts = destEntranceName.split(' -> ');
+                const toFrom = parts.length === 2 ? extractAreaFromLocation(parts[0]) : '';
+                const toArea = extractAreaFromEntrance(destEntranceName);
+                entrance.to = destEntranceName;
+                entrance.toFrom = toFrom;
                 entrance.toArea = toArea;
               }
             }
@@ -146,9 +220,9 @@ export const useTrackerStore = create<TrackerStore>()(
   )
 );
 
-// Helper function to extract area from entrance name
-function extractAreaFromEntrance(entranceName: string): string {
-  if (!entranceName) return '';
+// Helper function to extract area from a location name
+function extractAreaFromLocation(locationName: string): string {
+  if (!locationName) return '';
 
   const areaPatterns = [
     { pattern: /Gerudo Training Ground|GTG/, area: 'GTG' },
@@ -192,10 +266,20 @@ function extractAreaFromEntrance(entranceName: string): string {
   ];
 
   for (const { pattern, area } of areaPatterns) {
-    if (pattern.test(entranceName)) {
+    if (pattern.test(locationName)) {
       return area;
     }
   }
 
   return 'Unknown';
+}
+
+// Helper function to extract area from entrance name (extracts from the part after the arrow for destinations)
+function extractAreaFromEntrance(entranceName: string): string {
+  if (!entranceName) return '';
+
+  // If this is a full entrance name (with arrow), extract from the part after the arrow
+  const parts = entranceName.split(' -> ');
+  const locationToCheck = parts.length === 2 ? parts[1] : parts[0];
+  return extractAreaFromLocation(locationToCheck);
 }

@@ -14,9 +14,20 @@ import { useEntranceFilters } from '../hooks/useFilters';
 import { ENTRANCE_TYPES, DESTINATIONS_BY_AREA } from '../data/constants';
 import { GroupedSearchableSelect } from './GroupedSearchableSelect';
 
-// Function to extract area from destination name (same as in parser)
+// Function to extract area from entrance name (extracts from the part after the arrow for destinations)
 function extractArea(entranceName: string): string {
   if (!entranceName) return '';
+
+  // If this is a full entrance name (with arrow), extract from the part after the arrow
+  const parts = entranceName.split(' -> ');
+  const locationToCheck = parts.length === 2 ? parts[1] : parts[0];
+
+  return extractAreaFromLocation(locationToCheck);
+}
+
+// Function to extract area from a location name
+function extractAreaFromLocation(locationName: string): string {
+  if (!locationName) return '';
 
   // Common area patterns - ORDER MATTERS! Check longer patterns first
   const areaPatterns = [
@@ -62,9 +73,9 @@ function extractArea(entranceName: string): string {
     { pattern: /Ganon/, area: 'Ganon' },
   ];
 
-  // Test each pattern
+  // Test each pattern against the location
   for (const { pattern, area } of areaPatterns) {
-    if (pattern.test(entranceName)) {
+    if (pattern.test(locationName)) {
       return area;
     }
   }
@@ -75,6 +86,8 @@ function extractArea(entranceName: string): string {
 export function EntrancesTable() {
   const entrances = useTrackerStore((state) => state.entrances);
   const updateEntrance = useTrackerStore((state) => state.updateEntrance);
+  const coupledEntrances = useTrackerStore((state) => state.coupledEntrances);
+  const toggleCoupledEntrances = useTrackerStore((state) => state.toggleCoupledEntrances);
 
   const { filters, setFilters, filteredEntrances } = useEntranceFilters(entrances);
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -129,6 +142,21 @@ export function EntrancesTable() {
         size: 100,
       },
       {
+        accessorKey: 'fromTo',
+        header: 'From To',
+        cell: ({ getValue }) => {
+          const area = getValue() as string;
+          return area ? (
+            <span className="status-badge bg-indigo-200 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200">
+              {area}
+            </span>
+          ) : (
+            <span className="text-gray-400">-</span>
+          );
+        },
+        size: 100,
+      },
+      {
         accessorKey: 'to',
         header: 'To',
         cell: ({ row }) => {
@@ -152,9 +180,11 @@ export function EntrancesTable() {
             <GroupedSearchableSelect
               value={currentDestination}
               onChange={(value) => {
-                // Auto-extract toArea when destination is selected
+                // Auto-extract toFrom and toArea when destination is selected
+                const parts = value.split(' -> ');
+                const toFrom = parts.length === 2 ? extractAreaFromLocation(parts[0]) : '';
                 const toArea = extractArea(value);
-                updateEntrance(row.original.id, { to: value, toArea });
+                updateEntrance(row.original.id, { to: value, toFrom, toArea });
               }}
               groupedOptions={optionsForThisRow}
               placeholder="Select destination..."
@@ -163,6 +193,21 @@ export function EntrancesTable() {
           );
         },
         size: 300,
+      },
+      {
+        accessorKey: 'toFrom',
+        header: 'To From',
+        cell: ({ getValue }) => {
+          const area = getValue() as string;
+          return area ? (
+            <span className="status-badge bg-cyan-200 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-200">
+              {area}
+            </span>
+          ) : (
+            <span className="text-gray-400">-</span>
+          );
+        },
+        size: 100,
       },
       {
         accessorKey: 'toArea',
@@ -255,15 +300,60 @@ export function EntrancesTable() {
     <div className="space-y-4">
       {/* Filters */}
       <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow space-y-3">
-        <input
-          type="text"
-          placeholder="Search entrances..."
-          value={filters.searchTerm}
-          onChange={(e) =>
-            setFilters({ ...filters, searchTerm: e.target.value })
-          }
-          className="input-field w-full"
-        />
+        <div className="flex items-center justify-between gap-4">
+          <input
+            type="text"
+            placeholder="Search entrances..."
+            value={filters.searchTerm}
+            onChange={(e) =>
+              setFilters({ ...filters, searchTerm: e.target.value })
+            }
+            className="input-field flex-1"
+          />
+
+          {/* Coupled/Decoupled Mode Toggle */}
+          <div className="flex items-center gap-3">
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              Decoupled
+            </span>
+            <button
+              onClick={() => {
+                // If switching to coupled mode (coupledEntrances is currently false)
+                if (!coupledEntrances) {
+                  const hasFilledEntrances = entrances.some(e => e.to && e.to.trim() !== '');
+                  if (hasFilledEntrances) {
+                    const confirmed = confirm(
+                      '⚠️ Coupled mode requires empty entrances.\n\n' +
+                      'All filled entrances will be cleared before enabling coupled mode.\n\n' +
+                      'Do you want to continue?'
+                    );
+                    if (!confirmed) return;
+
+                    // Clear all entrances
+                    entrances.forEach(entrance => {
+                      if (entrance.to && entrance.to.trim() !== '') {
+                        updateEntrance(entrance.id, { to: '', toArea: '' });
+                      }
+                    });
+                  }
+                }
+                toggleCoupledEntrances();
+              }}
+              className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+                coupledEntrances ? 'bg-blue-600' : 'bg-gray-300 dark:bg-gray-600'
+              }`}
+            >
+              <span
+                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                  coupledEntrances ? 'translate-x-6' : 'translate-x-1'
+                }`}
+              />
+            </button>
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              Coupled
+            </span>
+          </div>
+        </div>
 
         <div className="flex flex-wrap gap-2">
           <select
@@ -337,6 +427,86 @@ export function EntrancesTable() {
                   setFilters({
                     ...filters,
                     fromAreas: filters.fromAreas?.filter((a) => a !== area) || [],
+                  })
+                }
+              >
+                ×
+              </button>
+            </span>
+          ))}
+
+          {/* From To Filter */}
+          <select
+            value=""
+            onChange={(e) => {
+              if (e.target.value && filters.fromToAreas && !filters.fromToAreas.includes(e.target.value)) {
+                setFilters({
+                  ...filters,
+                  fromToAreas: [...(filters.fromToAreas || []), e.target.value],
+                });
+              }
+            }}
+            className="input-field"
+          >
+            <option value="">Filter From To...</option>
+            {allAreas.map((area) => (
+              <option key={area} value={area}>
+                From To {area}
+              </option>
+            ))}
+          </select>
+
+          {filters.fromToAreas && filters.fromToAreas.map((area) => (
+            <span
+              key={`fromto-${area}`}
+              className="status-badge bg-indigo-500 text-white flex items-center gap-2"
+            >
+              From To {area}
+              <button
+                onClick={() =>
+                  setFilters({
+                    ...filters,
+                    fromToAreas: filters.fromToAreas?.filter((a) => a !== area) || [],
+                  })
+                }
+              >
+                ×
+              </button>
+            </span>
+          ))}
+
+          {/* To From Filter */}
+          <select
+            value=""
+            onChange={(e) => {
+              if (e.target.value && filters.toFromAreas && !filters.toFromAreas.includes(e.target.value)) {
+                setFilters({
+                  ...filters,
+                  toFromAreas: [...(filters.toFromAreas || []), e.target.value],
+                });
+              }
+            }}
+            className="input-field"
+          >
+            <option value="">Filter To From...</option>
+            {allAreas.map((area) => (
+              <option key={area} value={area}>
+                To From {area}
+              </option>
+            ))}
+          </select>
+
+          {filters.toFromAreas && filters.toFromAreas.map((area) => (
+            <span
+              key={`tofrom-${area}`}
+              className="status-badge bg-cyan-500 text-white flex items-center gap-2"
+            >
+              To From {area}
+              <button
+                onClick={() =>
+                  setFilters({
+                    ...filters,
+                    toFromAreas: filters.toFromAreas?.filter((a) => a !== area) || [],
                   })
                 }
               >

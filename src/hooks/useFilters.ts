@@ -7,6 +7,8 @@ export function useEntranceFilters(entrances: Entrance[]) {
     areas: [],
     types: [],
     fromAreas: [],
+    fromToAreas: [],
+    toFromAreas: [],
     toAreas: [],
   });
 
@@ -32,6 +34,16 @@ export function useEntranceFilters(entrances: Entrance[]) {
 
       // From Area filter
       if (filters.fromAreas && filters.fromAreas.length > 0 && !filters.fromAreas.includes(entrance.fromArea)) {
+        return false;
+      }
+
+      // From To filter
+      if (filters.fromToAreas && filters.fromToAreas.length > 0 && !filters.fromToAreas.includes(entrance.fromTo)) {
+        return false;
+      }
+
+      // To From filter
+      if (filters.toFromAreas && filters.toFromAreas.length > 0 && !filters.toFromAreas.includes(entrance.toFrom)) {
         return false;
       }
 

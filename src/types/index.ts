@@ -22,6 +22,8 @@ export interface FilterOptions {
   types: string[];
   statuses?: string[];
   fromAreas?: string[];
+  fromToAreas?: string[];
+  toFromAreas?: string[];
   toAreas?: string[];
 }
 
