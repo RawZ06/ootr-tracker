@@ -135,7 +135,7 @@ export const useTrackerStore = create<TrackerStore>()(
       loadSampleData: async () => {
         try {
           // Load the spoiler log
-          const response = await fetch('/OoTR_1994978_44A4NP37P1_Spoilers.json');
+          const response = await fetch('/spoiler.json');
           const spoilerData = await response.json();
 
           const state = get();
