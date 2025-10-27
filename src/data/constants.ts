@@ -3,7 +3,7 @@
 
 // Re-export types and data from entrances
 export type { Entrance } from './entrances';
-export { SEED_INFO, INITIAL_ENTRANCES, ENTRANCE_TYPES, REGIONS, ALL_DESTINATIONS, DESTINATIONS_BY_AREA } from './entrances';
+export { SEED_INFO, INITIAL_ENTRANCES, ENTRANCE_TYPES, REGIONS, DESTINATIONS_BY_AREA } from './entrances';
 
 // Re-export types and data from locations (checks)
 export type { Check } from './locations';
