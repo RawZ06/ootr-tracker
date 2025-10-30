@@ -4,8 +4,8 @@
 # If you need more help, visit the Dockerfile reference guide at
 # https://docs.docker.com/engine/reference/builder/
 
-ARG NODE_VERSION=20.10.0
-ARG PNPM_VERSION=8.15.5
+ARG NODE_VERSION=22
+ARG PNPM_VERSION=10
 
 ################################################################################
 # Use node image for base image for all stages.
