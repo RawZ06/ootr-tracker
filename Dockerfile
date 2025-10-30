@@ -8,7 +8,7 @@ ARG PNPM_VERSION=10.19.0
 FROM node:${NODE_VERSION}-alpine AS base
 WORKDIR /usr/src/app
 
-RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
+RUN npm install -g pnpm@${PNPM_VERSION}
 
 ################################################################################
 # Dependencies stage
