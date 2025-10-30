@@ -11,9 +11,6 @@ RUN npm install -g pnpm@10.19.0
 # Copie les fichiers de dépendances
 COPY package.json pnpm-lock.yaml ./
 
-RUN apt-get update && apt-get install -y python3 make g++ && rm -rf /var/lib/apt/lists/*
-RUN pnpm rebuild oxc-parser || true
-
 # Installe toutes les dépendances (dev + prod)
 RUN pnpm install --frozen-lockfile
 
