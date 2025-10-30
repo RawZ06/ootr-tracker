@@ -1,11 +1,11 @@
 # syntax=docker/dockerfile:1
 
-ARG NODE_VERSION=22.9.0
+ARG NODE_VERSION=20.17.0
 ARG PNPM_VERSION=10.19.0
 
 ################################################################################
 # Base image
-FROM node:${NODE_VERSION} AS base
+FROM node:${NODE_VERSION}-alpine AS base
 WORKDIR /usr/src/app
 
 RUN npm install -g pnpm@${PNPM_VERSION}
@@ -26,7 +26,7 @@ RUN pnpm run build
 
 ################################################################################
 # Runtime stage
-FROM node:${NODE_VERSION} AS final
+FROM node:${NODE_VERSION}-alpine AS final
 WORKDIR /usr/src/app
 
 ENV NODE_ENV=production
