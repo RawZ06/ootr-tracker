@@ -5,7 +5,7 @@ ARG PNPM_VERSION=10.19.0
 
 ################################################################################
 # Base image
-FROM node:${NODE_VERSION}-alpine AS base
+FROM node:${NODE_VERSION}-slim AS base
 WORKDIR /usr/src/app
 
 RUN npm install -g pnpm@${PNPM_VERSION}
@@ -26,7 +26,7 @@ RUN pnpm run build
 
 ################################################################################
 # Runtime stage
-FROM node:${NODE_VERSION}-alpine AS final
+FROM node:${NODE_VERSION}-slim AS final
 WORKDIR /usr/src/app
 
 ENV NODE_ENV=production
