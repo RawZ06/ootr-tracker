@@ -1,76 +1,178 @@
+<script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { useTrackerStore } from '~/stores/tracker'
+import type { Check } from '~/stores/tracker'
+
+const store = useTrackerStore()
+const { checks } = storeToRefs(store)
+
+// Search and filters
+const search = ref('')
+const selectedAreas = ref<string[]>([])
+const selectedTypes = ref<string[]>([])
+const selectedStatuses = ref<string[]>([])
+
+// Get unique values for filters
+const uniqueAreas = computed(() => {
+  return [...new Set(checks.value.map(c => c.area).filter(Boolean))].sort()
+})
+
+const uniqueTypes = computed(() => {
+  return [...new Set(checks.value.map(c => c.type).filter(Boolean))].sort()
+})
+
+// Filtered checks
+const filteredChecks = computed(() => {
+  return checks.value.filter(check => {
+    if (search.value && !check.location.toLowerCase().includes(search.value.toLowerCase())) {
+      return false
+    }
+    if (selectedAreas.value.length > 0 && !selectedAreas.value.includes(check.area)) {
+      return false
+    }
+    if (selectedTypes.value.length > 0 && !selectedTypes.value.includes(check.type)) {
+      return false
+    }
+    if (selectedStatuses.value.length > 0 && !selectedStatuses.value.includes(check.status)) {
+      return false
+    }
+    return true
+  })
+})
+
+// Table columns
+const columns = [{
+  accessorKey: 'status',
+  header: 'STATUS',
+  id: 'status'
+}, {
+  accessorKey: 'location',
+  header: 'LOCATION',
+  id: 'location'
+}, {
+  accessorKey: 'area',
+  header: 'AREA',
+  id: 'area'
+}, {
+  accessorKey: 'type',
+  header: 'TYPE',
+  id: 'type'
+}, {
+  accessorKey: 'item',
+  header: 'ITEM',
+  id: 'item'
+}, {
+  accessorKey: 'price',
+  header: 'PRICE',
+  id: 'price'
+}, {
+  accessorKey: 'notes',
+  header: 'NOTES',
+  id: 'notes'
+}]
+
+// Status options
+const statusOptions = [
+  { value: 'pending', label: 'Pending' },
+  { value: 'completed', label: 'Completed' },
+  { value: 'blocked', label: 'Blocked' },
+  { value: 'important', label: 'Important' }
+]
+
+// Area colors
+const getAreaColor = (area: string) => {
+  const colors: Record<string, 'primary' | 'error' | 'success' | 'warning' | 'info' | 'neutral'> = {
+    'ToT': 'primary', 'Deku': 'success', 'DC': 'warning', 'Jabu': 'info',
+    'Forest': 'success', 'Fire': 'error', 'Water': 'info', 'Shadow': 'primary',
+    'Spirit': 'warning', 'Bottom': 'primary', 'Ice': 'info', 'GTG': 'neutral',
+    'Ganon': 'error', 'GF': 'warning', 'Hideout': 'error',
+    'KF': 'success', 'Kak': 'info', 'GY': 'primary', 'Market': 'info', 'HC': 'primary',
+    'HF': 'success', 'LH': 'info', 'ZR': 'info', 'ZD': 'info', 'ZF': 'info',
+    'DMT': 'error', 'DMC': 'error', 'GC': 'warning', 'Death': 'warning',
+    'GV': 'warning', 'LW': 'success', 'SFM': 'success', 'LLR': 'success',
+    'Colossus': 'warning', 'Wasteland': 'warning', 'Barinade': 'info', 'Bongo': 'primary'
+  }
+  return colors[area] || 'neutral'
+}
+</script>
+
 <template>
   <div>
-    <UPageHero
-      title="Nuxt Starter Template"
-      description="A production-ready starter template powered by Nuxt UI. Build beautiful, accessible, and performant applications in minutes, not hours."
-      :links="[{
-        label: 'Get started',
-        to: 'https://ui.nuxt.com/docs/getting-started/installation/nuxt',
-        target: '_blank',
-        trailingIcon: 'i-lucide-arrow-right',
-        size: 'xl'
-      }, {
-        label: 'Use this template',
-        to: 'https://github.com/nuxt-ui-templates/starter',
-        target: '_blank',
-        icon: 'i-simple-icons-github',
-        size: 'xl',
-        color: 'neutral',
-        variant: 'subtle'
-      }]"
-    />
-
-    <UPageSection
-      id="features"
-      title="Everything you need to build modern Nuxt apps"
-      description="Start with a solid foundation. This template includes all the essentials for building production-ready applications with Nuxt UI's powerful component system."
-      :features="[{
-        icon: 'i-lucide-rocket',
-        title: 'Production-ready from day one',
-        description: 'Pre-configured with TypeScript, ESLint, Tailwind CSS, and all the best practices. Focus on building features, not setting up tooling.'
-      }, {
-        icon: 'i-lucide-palette',
-        title: 'Beautiful by default',
-        description: 'Leveraging Nuxt UI\'s design system with automatic dark mode, consistent spacing, and polished components that look great out of the box.'
-      }, {
-        icon: 'i-lucide-zap',
-        title: 'Lightning fast',
-        description: 'Optimized for performance with SSR/SSG support, automatic code splitting, and edge-ready deployment. Your users will love the speed.'
-      }, {
-        icon: 'i-lucide-blocks',
-        title: '100+ components included',
-        description: 'Access Nuxt UI\'s comprehensive component library. From forms to navigation, everything is accessible, responsive, and customizable.'
-      }, {
-        icon: 'i-lucide-code-2',
-        title: 'Developer experience first',
-        description: 'Auto-imports, hot module replacement, and TypeScript support. Write less boilerplate and ship more features.'
-      }, {
-        icon: 'i-lucide-shield-check',
-        title: 'Built for scale',
-        description: 'Enterprise-ready architecture with proper error handling, SEO optimization, and security best practices built-in.'
-      }]"
-    />
-
-    <UPageSection>
-      <UPageCTA
-        title="Ready to build your next Nuxt app?"
-        description="Join thousands of developers building with Nuxt and Nuxt UI. Get this template and start shipping today."
-        variant="subtle"
-        :links="[{
-          label: 'Start building',
-          to: 'https://ui.nuxt.com/docs/getting-started/installation/nuxt',
-          target: '_blank',
-          trailingIcon: 'i-lucide-arrow-right',
-          color: 'neutral'
-        }, {
-          label: 'View on GitHub',
-          to: 'https://github.com/nuxt-ui-templates/starter',
-          target: '_blank',
-          icon: 'i-simple-icons-github',
-          color: 'neutral',
-          variant: 'outline'
-        }]"
+    <!-- Search and Filters -->
+    <div class="mb-6 space-y-4">
+      <UInput
+        v-model="search"
+        icon="i-lucide-search"
+        placeholder="Search checks..."
+        size="lg"
       />
-    </UPageSection>
+
+      <div class="flex gap-2">
+        <USelectMenu
+          v-model="selectedAreas"
+          :options="uniqueAreas"
+          placeholder="Add area filter..."
+          multiple
+          searchable
+        />
+
+        <USelectMenu
+          v-model="selectedTypes"
+          :options="uniqueTypes"
+          placeholder="Add type filter..."
+          multiple
+          searchable
+        />
+
+        <USelectMenu
+          v-model="selectedStatuses"
+          :options="statusOptions"
+          placeholder="Add status filter..."
+          option-attribute="label"
+          value-attribute="value"
+          multiple
+        />
+      </div>
+    </div>
+
+    <!-- Checks Table -->
+    <UTable
+      :data="filteredChecks"
+      :columns="columns"
+    >
+      <template #status-data="{ row }">
+        <USelectMenu
+          :model-value="(row as unknown as Check).status"
+          :options="statusOptions.map(o => o.value)"
+          @update:model-value="store.updateCheck((row as unknown as Check).id, { status: $event })"
+        />
+      </template>
+
+      <template #area-data="{ row }">
+        <UBadge
+          v-if="(row as unknown as Check).area"
+          :color="getAreaColor((row as unknown as Check).area)"
+          variant="soft"
+        >
+          {{ (row as unknown as Check).area }}
+        </UBadge>
+      </template>
+
+      <template #type-data="{ row }">
+        {{ (row as unknown as Check).type }}
+      </template>
+
+      <template #item-data="{ row }">
+        {{ (row as unknown as Check).item }}
+      </template>
+
+      <template #price-data="{ row }">
+        -
+      </template>
+
+      <template #notes-data="{ row }">
+        {{ (row as unknown as Check).notes || 'Click to add notes...' }}
+      </template>
+    </UTable>
   </div>
 </template>

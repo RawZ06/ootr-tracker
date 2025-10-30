@@ -1,4 +1,6 @@
 <script setup>
+import { useTrackerStore } from '~/stores/tracker'
+
 useHead({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
@@ -11,68 +13,140 @@ useHead({
   }
 })
 
-const title = 'Nuxt Starter Template'
-const description = 'A production-ready starter template powered by Nuxt UI. Build beautiful, accessible, and performant applications in minutes, not hours.'
+const title = 'OoT Randomizer Tracker'
+const description = 'Allsanity Tracker'
 
 useSeoMeta({
   title,
   description,
   ogTitle: title,
-  ogDescription: description,
-  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
-  twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
-  twitterCard: 'summary_large_image'
+  ogDescription: description
 })
+
+const store = useTrackerStore()
+
+// Load YAML files on mount
+onMounted(async () => {
+  if (store.checks.length === 0) {
+    await store.loadYamlFiles()
+  }
+})
+
+const handleExport = () => {
+  store.exportProgress()
+}
+
+const handleImport = async () => {
+  try {
+    await store.importProgress()
+  } catch (error) {
+    console.error('Import failed:', error)
+  }
+}
+
+const handleLoadSample = async () => {
+  try {
+    const res = await fetch('/spoiler.json')
+    const data = await res.json()
+    // TODO: Parse spoiler log and fill entrances
+    console.log('Sample data loaded:', data)
+  } catch (error) {
+    console.error('Failed to load sample:', error)
+  }
+}
+
+const handleReset = () => {
+  if (confirm('Are you sure you want to reset all data? This cannot be undone.')) {
+    store.resetAll()
+  }
+}
 </script>
 
 <template>
   <UApp>
-    <UHeader>
-      <template #left>
-        <NuxtLink to="/">
-          <AppLogo class="w-auto h-6 shrink-0" />
-        </NuxtLink>
+    <UContainer class="py-8">
+      <!-- Header -->
+      <div class="mb-8">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h1 class="text-3xl font-bold">OoT Randomizer Tracker</h1>
+            <p class="text-gray-600 dark:text-gray-400">Allsanity Tracker</p>
+          </div>
 
-        <TemplateMenu />
-      </template>
+          <div class="flex items-center gap-2">
+            <UButton
+              color="green"
+              icon="i-lucide-download"
+              @click="handleExport"
+            >
+              Export Progress
+            </UButton>
 
-      <template #right>
-        <UColorModeButton />
+            <UButton
+              color="blue"
+              icon="i-lucide-upload"
+              @click="handleImport"
+            >
+              Import Progress
+            </UButton>
 
-        <UButton
-          to="https://github.com/nuxt-ui-templates/starter"
-          target="_blank"
-          icon="i-simple-icons-github"
-          aria-label="GitHub"
-          color="neutral"
-          variant="ghost"
-        />
-      </template>
-    </UHeader>
+            <UButton
+              color="violet"
+              icon="i-lucide-flask-conical"
+              @click="handleLoadSample"
+            >
+              Load Sample
+            </UButton>
 
-    <UMain>
-      <NuxtPage />
-    </UMain>
+            <UButton
+              color="red"
+              icon="i-lucide-trash-2"
+              @click="handleReset"
+            >
+              Reset All Data
+            </UButton>
 
-    <USeparator icon="i-simple-icons-nuxtdotjs" />
+            <UColorModeButton />
+          </div>
+        </div>
 
-    <UFooter>
-      <template #left>
-        <p class="text-sm text-muted">
-          Built with Nuxt UI • © {{ new Date().getFullYear() }}
-        </p>
-      </template>
+        <!-- Tabs Navigation -->
+        <div class="flex gap-1 border-b border-gray-200 dark:border-gray-800">
+          <NuxtLink
+            to="/"
+            class="px-4 py-2 text-sm font-medium rounded-t-lg transition-colors"
+            :class="$route.path === '/' ? 'bg-white dark:bg-gray-900 text-primary border-b-2 border-primary' : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'"
+          >
+            Checks
+          </NuxtLink>
+          <NuxtLink
+            to="/entrances"
+            class="px-4 py-2 text-sm font-medium rounded-t-lg transition-colors"
+            :class="$route.path === '/entrances' ? 'bg-white dark:bg-gray-900 text-primary border-b-2 border-primary' : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'"
+          >
+            Entrances
+          </NuxtLink>
+          <NuxtLink
+            to="/pathfinder"
+            class="px-4 py-2 text-sm font-medium rounded-t-lg transition-colors"
+            :class="$route.path === '/pathfinder' ? 'bg-white dark:bg-gray-900 text-primary border-b-2 border-primary' : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'"
+          >
+            Pathfinder
+          </NuxtLink>
+          <NuxtLink
+            to="/statistics"
+            class="px-4 py-2 text-sm font-medium rounded-t-lg transition-colors"
+            :class="$route.path === '/statistics' ? 'bg-white dark:bg-gray-900 text-primary border-b-2 border-primary' : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'"
+          >
+            Statistics
+          </NuxtLink>
+        </div>
+      </div>
 
-      <template #right>
-        <UButton
-          to="https://github.com/nuxt-ui-templates/starter"
-          target="_blank"
-          icon="i-simple-icons-github"
-          aria-label="GitHub"
-          color="neutral"
-          variant="ghost"
-        />
-      </template>
-    </UFooter>
+      <!-- Page Content -->
+      <UMain>
+        <NuxtPage />
+      </UMain>
+    </UContainer>
   </UApp>
 </template>
