@@ -1,24 +1,59 @@
-# Nuxt dev/build outputs
-.output
-.data
-.nuxt
-.nitro
-.cache
-dist
+# .gitignore pour projet Nuxt (Nuxt 2 & Nuxt 3)
 
-# Node dependencies
-node_modules
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Nuxt / build outputs
+.nuxt/
+.output/
+dist/
+build/
+
+# Cache / temp
+.cache/
+.parcel-cache/
+.vite/
+.npm/
+*.tmp
 
 # Logs
-logs
+logs/
 *.log
 
-# Misc
-.DS_Store
-.fleet
-.idea
-
-# Local env files
+# Environment / secrets
 .env
-.env.*
-!.env.example
+.env.local
+.env.*.local
+.env.*.secret
+
+# Coverage / test
+coverage/
+.coverage
+nyc_output/
+
+# Serverless / hosting outputs
+.serverless/
+.vercel/
+.vercel_build/
+.netlify/
+.aws-sam/
+
+# IDEs & editors
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+.sass-cache/
+*.pem
+*.key
+*.crt

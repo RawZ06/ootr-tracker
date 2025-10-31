@@ -1,30 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  compatibilityDate: "2024-04-03",
+  devtools: { enabled: true },
+  extends: ["@nuxt/ui-pro"],
   modules: [
-    '@nuxt/eslint',
-    '@nuxt/ui',
-    '@pinia/nuxt',
-    '@pinia-plugin-persistedstate/nuxt'
+    "@nuxt/ui",
+    "@nuxt/icon",
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/color-mode",
+    "@nuxt/fonts",
+    "@nuxt/eslint",
   ],
-
-  devtools: {
-    enabled: true
-  },
-
-  css: ['~/assets/css/main.css'],
-
-  routeRules: {
-    '/': { ssr: false }
-  },
-
-  compatibilityDate: '2025-01-15',
-
-  eslint: {
-    config: {
-      stylistic: {
-        commaDangle: 'never',
-        braceStyle: '1tbs'
-      }
-    }
-  }
-})
+});
