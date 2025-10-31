@@ -1,96 +1,128 @@
 <script setup lang="ts">
+const store = useTrackerStore()
+
+// Load YAML files on mount
+onMounted(async () => {
+  if (store.checks.length === 0) {
+    await store.loadYamlFiles()
+  }
+})
+
+const handleExport = () => {
+  store.exportProgress()
+}
+
+const handleImport = async () => {
+  try {
+    await store.importProgress()
+  } catch (error) {
+    console.error('Import failed:', error)
+  }
+}
+
+const handleLoadSample = async () => {
+  try {
+    const res = await fetch('/spoiler.json')
+    const data = await res.json()
+    // TODO: Parse spoiler log and fill entrances
+    console.log('Sample data loaded:', data)
+  } catch (error) {
+    console.error('Failed to load sample:', error)
+  }
+}
+
+const handleReset = () => {
+  if (confirm('Are you sure you want to reset all data? This cannot be undone.')) {
+    store.resetAll()
+  }
+}
+
 const links = [
   {
-    label: "Documentation",
-    icon: "i-heroicons-book-open",
-    to: "/getting-started",
+    label: "Checks",
+    to: "/",
+    icon: "i-heroicons-check-circle"
   },
   {
-    label: "Playground",
-    icon: "i-simple-icons-stackblitz",
-    to: "/playground",
+    label: "Entrances",
+    to: "/entrances",
+    icon: "i-heroicons-arrow-right-circle"
   },
   {
-    label: "Roadmap",
-    icon: "i-heroicons-map",
-    to: "/roadmap",
+    label: "Pathfinder",
+    to: "/pathfinder",
+    icon: "i-heroicons-map"
   },
   {
-    label: "Pro",
-    icon: "i-heroicons-square-3-stack-3d",
-    to: "/pro",
+    label: "Statistics",
+    to: "/statistics",
+    icon: "i-heroicons-chart-bar"
   },
-  {
-    label: "Releases",
-    icon: "i-heroicons-rocket-launch",
-    to: "https://github.com/nuxt/ui/releases",
-    target: "_blank",
-  },
-];
+]
 </script>
 
 <template>
-  <UHeader :links="links">
-    <template #logo>
-      <Logo class="w-auto h-6" />
-    </template>
+  <div>
+    <UHeader :links="links">
+      <template #logo>
+        <div>
+          <h1 class="text-lg font-bold">OoT Randomizer Tracker</h1>
+          <p class="text-xs text-gray-500">Allsanity Tracker</p>
+        </div>
+      </template>
 
-    <template #right>
-      <UColorModeButton />
+      <template #right>
+        <UColorModeButton />
+      </template>
+    </UHeader>
 
-      <UButton
-        icon="i-simple-icons-github"
-        to="https://github.com/nuxt/nuxt"
-        target="_blank"
-        color="gray"
-        variant="ghost"
-      />
-    </template>
-  </UHeader>
+    <!-- Action Buttons Bar -->
+    <div class="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
+      <UContainer>
+        <div class="flex items-center justify-end gap-2 py-3">
+          <UButton
+            color="green"
+            icon="i-heroicons-arrow-down-tray"
+            size="sm"
+            @click="handleExport"
+          >
+            Export Progress
+          </UButton>
 
-  <UMain>
-    <NuxtLayout>
+          <UButton
+            color="blue"
+            icon="i-heroicons-arrow-up-tray"
+            size="sm"
+            @click="handleImport"
+          >
+            Import Progress
+          </UButton>
+
+          <UButton
+            color="violet"
+            icon="i-heroicons-beaker"
+            size="sm"
+            @click="handleLoadSample"
+          >
+            Load Sample
+          </UButton>
+
+          <UButton
+            color="red"
+            icon="i-heroicons-trash"
+            size="sm"
+            @click="handleReset"
+          >
+            Reset All Data
+          </UButton>
+        </div>
+      </UContainer>
+    </div>
+
+    <UMain>
       <NuxtPage />
-    </NuxtLayout>
-  </UMain>
+    </UMain>
 
-  <UFooter>
-    <template #left>
-      <p class="text-gray-500 dark:text-gray-400 text-sm">
-        Copyright © 2016-{{ new Date().getFullYear() }} Nuxt -
-        <NuxtLink
-          class="hover:underline"
-          to="https://github.com/nuxt/nuxt/blob/main/LICENSE"
-          target="_blank"
-        >
-          MIT License
-        </NuxtLink>
-      </p>
-    </template>
-
-    <template #right>
-      <UButton
-        to="https://x.com/nuxt_js"
-        target="_blank"
-        icon="i-simple-icons-x"
-        color="gray"
-        variant="ghost"
-      />
-      <UButton
-        to="https://discord.com/invite/ps2h6QT"
-        target="_blank"
-        icon="i-simple-icons-discord"
-        color="gray"
-        variant="ghost"
-      />
-      <UButton
-        to="https://github.com/nuxt/nuxt"
-        target="_blank"
-        icon="i-simple-icons-github"
-        color="gray"
-        variant="ghost"
-      />
-    </template>
-  </UFooter>
-  <UNotifications />
+    <UNotifications />
+  </div>
 </template>
