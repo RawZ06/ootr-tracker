@@ -3,9 +3,7 @@ const store = useTrackerStore()
 
 // Load YAML files on mount
 onMounted(async () => {
-  if (store.checks.length === 0) {
-    await store.loadYamlFiles()
-  }
+  await store.loadYamlFiles()
 })
 
 const handleExport = () => {
@@ -41,22 +39,22 @@ const links = [
   {
     label: "Checks",
     to: "/",
-    icon: "i-heroicons-check-circle"
+    icon: "i-lucide-check-circle"
   },
   {
     label: "Entrances",
     to: "/entrances",
-    icon: "i-heroicons-arrow-right-circle"
+    icon: "i-lucide-arrow-right-circle"
   },
   {
     label: "Pathfinder",
     to: "/pathfinder",
-    icon: "i-heroicons-map"
+    icon: "i-lucide-map"
   },
   {
     label: "Statistics",
     to: "/statistics",
-    icon: "i-heroicons-chart-bar"
+    icon: "i-lucide-bar-chart"
   },
 ]
 </script>
@@ -82,7 +80,7 @@ const links = [
         <div class="flex items-center justify-end gap-2 py-3">
           <UButton
             color="green"
-            icon="i-heroicons-arrow-down-tray"
+            icon="i-lucide-download"
             size="sm"
             @click="handleExport"
           >
@@ -91,7 +89,7 @@ const links = [
 
           <UButton
             color="blue"
-            icon="i-heroicons-arrow-up-tray"
+            icon="i-lucide-upload"
             size="sm"
             @click="handleImport"
           >
@@ -100,7 +98,7 @@ const links = [
 
           <UButton
             color="violet"
-            icon="i-heroicons-beaker"
+            icon="i-lucide-flask-conical"
             size="sm"
             @click="handleLoadSample"
           >
@@ -109,7 +107,7 @@ const links = [
 
           <UButton
             color="red"
-            icon="i-heroicons-trash"
+            icon="i-lucide-trash-2"
             size="sm"
             @click="handleReset"
           >

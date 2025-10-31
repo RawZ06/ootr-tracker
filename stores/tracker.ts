@@ -72,43 +72,48 @@ export const useTrackerStore = defineStore('tracker', {
   actions: {
     async loadYamlFiles() {
       try {
-        // Load items
+        // Always load items (not persisted, needed for selectors)
         const itemsRes = await fetch('/items.yaml')
         const itemsText = await itemsRes.text()
         this.items = yaml.load(itemsText) as Record<string, any>
+        console.log('Items loaded:', Object.keys(this.items).length)
 
-        // Load locations (checks)
-        const locationsRes = await fetch('/locations.yaml')
-        const locationsText = await locationsRes.text()
-        const locationsData = yaml.load(locationsText) as Record<string, any>
+        // Only load checks if empty (persisted)
+        if (this.checks.length === 0) {
+          const locationsRes = await fetch('/locations.yaml')
+          const locationsText = await locationsRes.text()
+          const locationsData = yaml.load(locationsText) as Record<string, any>
 
-        this.checks = Object.entries(locationsData).map(([name, data]: [string, any]) => ({
-          id: data.id || name,
-          location: name,
-          area: data.area || '',
-          type: data.type || 'unknown',
-          item: '',
-          price: '',
-          notes: '',
-          status: 'pending' as const
-        }))
+          this.checks = Object.entries(locationsData).map(([name, data]: [string, any]) => ({
+            id: data.id || name,
+            location: name,
+            area: data.area || '',
+            type: data.type || 'unknown',
+            item: '',
+            price: '',
+            notes: '',
+            status: 'pending' as const
+          }))
+        }
 
-        // Load entrances
-        const entrancesRes = await fetch('/entrances.yml')
-        const entrancesText = await entrancesRes.text()
-        const entrancesData = yaml.load(entrancesText) as Record<string, any>
+        // Only load entrances if empty (persisted)
+        if (this.entrances.length === 0) {
+          const entrancesRes = await fetch('/entrances.yml')
+          const entrancesText = await entrancesRes.text()
+          const entrancesData = yaml.load(entrancesText) as Record<string, any>
 
-        this.entrances = Object.entries(entrancesData).map(([name, data]: [string, any]) => ({
-          id: data.id || name,
-          from: name,
-          fromArea: data.fromArea || '',
-          fromSubArea: data.fromSubArea || '',
-          to: '',
-          toArea: data.toArea || '',
-          toSubArea: data.toSubArea || '',
-          type: this.getEntranceType(name),
-          notes: ''
-        }))
+          this.entrances = Object.entries(entrancesData).map(([name, data]: [string, any]) => ({
+            id: data.id || name,
+            from: name,
+            fromArea: data.fromArea || '',
+            fromSubArea: data.fromSubArea || '',
+            to: '',
+            toArea: data.toArea || '',
+            toSubArea: data.toSubArea || '',
+            type: this.getEntranceType(name),
+            notes: ''
+          }))
+        }
       } catch (error) {
         console.error('Error loading YAML files:', error)
       }

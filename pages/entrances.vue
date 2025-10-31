@@ -61,38 +61,42 @@ const columns = [{
   label: 'NOTES'
 }]
 
-// Area colors
-const getAreaColor = (area: string) => {
-  const colors: Record<string, string> = {
-    'ToT': 'violet', 'Deku': 'green', 'DC': 'orange', 'Jabu': 'cyan',
-    'Forest': 'green', 'Fire': 'red', 'Water': 'blue', 'Shadow': 'purple',
-    'Spirit': 'yellow', 'Bottom': 'purple', 'Ice': 'cyan', 'GTG': 'gray',
-    'Ganon': 'red', 'GF': 'orange', 'Hideout': 'red',
-    'KF': 'green', 'Kak': 'blue', 'GY': 'purple', 'Market': 'blue', 'HC': 'indigo',
-    'HF': 'lime', 'LH': 'cyan', 'ZR': 'teal', 'ZD': 'cyan', 'ZF': 'blue',
-    'DMT': 'red', 'DMC': 'red', 'GC': 'orange', 'Death': 'orange',
-    'GV': 'yellow', 'LW': 'green', 'SFM': 'green', 'LLR': 'green',
-    'Colossus': 'amber', 'Wasteland': 'yellow', 'Adult': 'blue', 'Child': 'green',
-    'Warp': 'violet', 'Temple': 'amber', 'Sacred': 'green', 'Graveyard': 'purple',
-    'Bolero': 'red', 'Minuet': 'green', 'Nocturne': 'purple', 'Prelude': 'violet',
-    'Requiem': 'yellow', 'Serenade': 'blue', 'Castle': 'indigo', 'Gerudo': 'orange',
-    'Lake': 'cyan', 'Hyrule': 'green'
-  }
-  return colors[area] || 'gray'
-}
+// Get all entrance destinations grouped by fromArea from entrances.yml
+const destinationOptionsGrouped = computed(() => {
+  const grouped: Record<string, any[]> = {}
 
-// Type colors
-const getTypeColor = (type: string) => {
-  const colors: Record<string, string> = {
-    'Warp': 'violet',
-    'Overworld': 'green',
-    'Dungeon': 'orange',
-    'Interior': 'blue',
-    'Grotto': 'gray',
-    'Hideout': 'red',
-    'Boss': 'pink'
+  entrances.value.forEach(entrance => {
+    const area = entrance.fromArea || 'Other'
+    if (!grouped[area]) {
+      grouped[area] = []
+    }
+    grouped[area].push({
+      label: entrance.from,
+      value: entrance.from,
+      fromArea: entrance.fromArea,
+      fromSubArea: entrance.fromSubArea
+    })
+  })
+
+  // Sort by area name and items within each group
+  return Object.entries(grouped)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([area, items]) => ({
+      label: area,
+      items: items.sort((a, b) => a.label.localeCompare(b.label))
+    }))
+})
+
+// Update entrance destination
+const updateDestination = (entrance: any, destination: string) => {
+  const dest = entrances.value.find(e => e.from === destination)
+  if (dest) {
+    store.updateEntrance(entrance.id, {
+      to: destination,
+      toArea: dest.fromArea,
+      toSubArea: dest.fromSubArea
+    })
   }
-  return colors[type] || 'gray'
 }
 </script>
 
@@ -103,7 +107,7 @@ const getTypeColor = (type: string) => {
       <div class="mb-6 space-y-4">
         <UInput
           v-model="search"
-          icon="i-heroicons-magnifying-glass"
+          icon="i-lucide-search"
           placeholder="Search entrances..."
           size="lg"
         />
@@ -145,33 +149,62 @@ const getTypeColor = (type: string) => {
         </template>
 
         <template #fromArea-data="{ row }">
-          <UBadge
-            v-if="row.fromArea"
-            :color="getAreaColor(row.fromArea)"
-            variant="soft"
-          >
-            {{ row.fromArea }}
-          </UBadge>
+          <div class="flex gap-1">
+            <UBadge
+              v-if="row.fromArea"
+              color="gray"
+              variant="soft"
+            >
+              {{ row.fromArea }}
+            </UBadge>
+            <UBadge
+              v-if="row.fromSubArea && row.fromSubArea !== row.fromArea"
+              color="gray"
+              variant="outline"
+            >
+              {{ row.fromSubArea }}
+            </UBadge>
+          </div>
         </template>
 
         <template #to-data="{ row }">
-          {{ row.to }}
+          <USelectMenu
+            :model-value="row.to"
+            :options="destinationOptionsGrouped"
+            searchable
+            placeholder="Select destination..."
+            @update:model-value="updateDestination(row, $event)"
+          >
+            <template #label>
+              <span v-if="row.to">{{ row.to }}</span>
+              <span v-else class="text-gray-400">-</span>
+            </template>
+          </USelectMenu>
         </template>
 
         <template #toArea-data="{ row }">
-          <UBadge
-            v-if="row.toArea"
-            :color="getAreaColor(row.toArea)"
-            variant="soft"
-          >
-            {{ row.toArea }}
-          </UBadge>
+          <div class="flex gap-1">
+            <UBadge
+              v-if="row.toArea"
+              color="gray"
+              variant="soft"
+            >
+              {{ row.toArea }}
+            </UBadge>
+            <UBadge
+              v-if="row.toSubArea && row.toSubArea !== row.toArea"
+              color="gray"
+              variant="outline"
+            >
+              {{ row.toSubArea }}
+            </UBadge>
+          </div>
         </template>
 
         <template #type-data="{ row }">
           <UBadge
             v-if="row.type"
-            :color="getTypeColor(row.type)"
+            color="gray"
             variant="soft"
           >
             {{ row.type }}
@@ -179,7 +212,12 @@ const getTypeColor = (type: string) => {
         </template>
 
         <template #notes-data="{ row }">
-          {{ row.notes || 'Click to add notes...' }}
+          <UInput
+            :model-value="row.notes"
+            placeholder="Add notes..."
+            size="sm"
+            @update:model-value="store.updateEntrance(row.id, { notes: $event })"
+          />
         </template>
       </UTable>
     </div>

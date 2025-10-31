@@ -63,21 +63,30 @@ const columns = [{
 // Status options
 const statusOptions = ['pending', 'completed', 'blocked', 'important']
 
-// Area colors
-const getAreaColor = (area: string) => {
-  const colors: Record<string, string> = {
-    'ToT': 'violet', 'Deku': 'green', 'DC': 'orange', 'Jabu': 'cyan',
-    'Forest': 'green', 'Fire': 'red', 'Water': 'blue', 'Shadow': 'purple',
-    'Spirit': 'yellow', 'Bottom': 'purple', 'Ice': 'cyan', 'GTG': 'gray',
-    'Ganon': 'red', 'GF': 'orange', 'Hideout': 'red',
-    'KF': 'green', 'Kak': 'blue', 'GY': 'purple', 'Market': 'blue', 'HC': 'indigo',
-    'HF': 'lime', 'LH': 'cyan', 'ZR': 'teal', 'ZD': 'cyan', 'ZF': 'blue',
-    'DMT': 'red', 'DMC': 'red', 'GC': 'orange', 'Death': 'orange',
-    'GV': 'yellow', 'LW': 'green', 'SFM': 'green', 'LLR': 'green',
-    'Colossus': 'amber', 'Wasteland': 'yellow', 'Barinade': 'cyan', 'Bongo': 'purple'
-  }
-  return colors[area] || 'gray'
-}
+// Get all items grouped by type from items.yaml
+const itemOptionsGrouped = computed(() => {
+  const grouped: Record<string, any[]> = {}
+
+  console.log('Total items in store:', Object.keys(store.items).length)
+
+  Object.entries(store.items).forEach(([name, data]: [string, any]) => {
+    const type = data.type || 'other'
+    if (!grouped[type]) {
+      grouped[type] = []
+    }
+    grouped[type].push({ label: name, value: name })
+  })
+
+  console.log('Grouped items:', Object.keys(grouped).map(type => `${type}: ${grouped[type].length}`))
+
+  // Sort items within each group and return formatted for USelectMenu
+  return Object.entries(grouped)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([type, items]) => ({
+      label: type.charAt(0).toUpperCase() + type.slice(1),
+      items: items.sort((a, b) => a.label.localeCompare(b.label))
+    }))
+})
 </script>
 
 <template>
@@ -87,7 +96,7 @@ const getAreaColor = (area: string) => {
       <div class="mb-6 space-y-4">
         <UInput
           v-model="search"
-          icon="i-heroicons-magnifying-glass"
+          icon="i-lucide-search"
           placeholder="Search checks..."
           size="lg"
         />
@@ -135,7 +144,7 @@ const getAreaColor = (area: string) => {
         <template #area-data="{ row }">
           <UBadge
             v-if="row.area"
-            :color="getAreaColor(row.area)"
+            color="gray"
             variant="soft"
           >
             {{ row.area }}
@@ -143,19 +152,49 @@ const getAreaColor = (area: string) => {
         </template>
 
         <template #type-data="{ row }">
-          {{ row.type }}
+          <UBadge
+            v-if="row.type"
+            color="gray"
+            variant="outline"
+          >
+            {{ row.type }}
+          </UBadge>
         </template>
 
         <template #item-data="{ row }">
-          {{ row.item }}
+          <USelectMenu
+            :model-value="row.item"
+            :options="itemOptionsGrouped"
+            searchable
+            placeholder="Select item..."
+            @update:model-value="store.updateCheck(row.id, { item: $event })"
+          >
+            <template #label>
+              <span v-if="row.item">{{ row.item }}</span>
+              <span v-else class="text-gray-400">-</span>
+            </template>
+          </USelectMenu>
         </template>
 
         <template #price-data="{ row }">
-          -
+          <UInput
+            v-if="row.type === 'Shop' || row.type === 'Scrub'"
+            :model-value="row.price"
+            type="number"
+            placeholder="0"
+            size="sm"
+            @update:model-value="store.updateCheck(row.id, { price: $event })"
+          />
+          <span v-else class="text-gray-400">-</span>
         </template>
 
         <template #notes-data="{ row }">
-          {{ row.notes || 'Click to add notes...' }}
+          <UInput
+            :model-value="row.notes"
+            placeholder="Add notes..."
+            size="sm"
+            @update:model-value="store.updateCheck(row.id, { notes: $event })"
+          />
         </template>
       </UTable>
     </div>
