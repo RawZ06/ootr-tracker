@@ -1,732 +1,964 @@
-Anubis Soul:
-  quantity: 1
-  type: soul
+Fire Medallion:
   id: item-0
-Armos Soul:
+  type: DungeonReward
   quantity: 1
-  type: soul
+Forest Medallion:
   id: item-1
-Arrows (10):
-  quantity: 35
-  type: item
+  type: DungeonReward
+  quantity: 1
+Goron Ruby:
   id: item-2
-Arrows (30):
-  quantity: 15
-  type: item
+  type: DungeonReward
+  quantity: 1
+Kokiri Emerald:
   id: item-3
-Arrows (5):
-  quantity: 2
-  type: item
+  type: DungeonReward
+  quantity: 1
+Light Medallion:
   id: item-4
-Baby Dodongo Soul:
+  type: DungeonReward
   quantity: 1
-  type: soul
+Shadow Medallion:
   id: item-5
-Barinade Soul:
+  type: DungeonReward
   quantity: 1
-  type: soul
+Spirit Medallion:
   id: item-6
-Beamos Soul:
+  type: DungeonReward
   quantity: 1
-  type: soul
+Water Medallion:
   id: item-7
-Biggoron Sword:
+  type: DungeonReward
   quantity: 1
-  type: item
+Zora Sapphire:
   id: item-8
-Biri and Bari Soul:
+  type: DungeonReward
   quantity: 1
-  type: soul
+Arrows (10):
   id: item-9
-Blue Fire Arrows:
+  type: Item
   quantity: 1
-  type: item
+Arrows (30):
   id: item-10
-Bolero of Fire:
+  type: Item
   quantity: 1
-  type: item
+Arrows (5):
   id: item-11
-Bomb Bag:
-  quantity: 3
-  type: item
+  type: Item
+  quantity: 1
+Biggoron Sword:
   id: item-12
-Bombchus (10):
-  quantity: 4
-  type: item
+  type: Item
+  quantity: 1
+Blue Fire Arrows:
   id: item-13
-Bombchus (20):
+  type: Item
   quantity: 1
-  type: item
+Bomb Bag:
   id: item-14
-Bombchus (5):
+  type: Item
   quantity: 1
-  type: item
+Bombchus (10):
   id: item-15
-Bombs (10):
-  quantity: 7
-  type: item
+  type: Item
+  quantity: 1
+Bombchus (20):
   id: item-16
-Bombs (20):
-  quantity: 2
-  type: item
+  type: Item
+  quantity: 1
+Bombchus (5):
   id: item-17
-Bombs (5):
-  quantity: 21
-  type: item
+  type: Item
+  quantity: 1
+Bombs (10):
   id: item-18
-Bongo Bongo Soul:
+  type: Item
   quantity: 1
-  type: soul
+Bombs (20):
   id: item-19
-Boomerang:
+  type: Item
   quantity: 1
-  type: item
+Bombs (5):
   id: item-20
-Bottle:
-  quantity: 3
-  type: item
+  type: Item
+  quantity: 1
+Boomerang:
   id: item-21
-Bow:
-  quantity: 3
-  type: item
+  type: Item
+  quantity: 1
+Bottle:
   id: item-22
-Broken Sword:
+  type: Item
   quantity: 1
-  type: item
+Bow:
   id: item-23
-Bubble Soul:
+  type: Item
   quantity: 1
-  type: soul
+Broken Sword:
   id: item-24
+  type: Item
+  quantity: 1
 Bunny Hood:
-  quantity: 1
-  type: item
   id: item-25
-Buy Arrows (10):
-  quantity: 2
-  type: item
-  id: item-26
-Buy Arrows (30):
+  type: Item
   quantity: 1
-  type: item
-  id: item-27
-Buy Arrows (50):
-  quantity: 1
-  type: item
-  id: item-28
-Buy Blue Fire:
-  quantity: 1
-  type: item
-  id: item-29
-Buy Bombchu (10):
-  quantity: 2
-  type: item
-  id: item-30
-Buy Bombchu (20):
-  quantity: 1
-  type: item
-  id: item-31
-Buy Bombchu (5):
-  quantity: 1
-  type: item
-  id: item-32
-Buy Bombs (10):
-  quantity: 1
-  type: item
-  id: item-33
-Buy Bombs (20):
-  quantity: 1
-  type: item
-  id: item-34
-Buy Bombs (5) for 25 Rupees:
-  quantity: 1
-  type: junk
-  id: item-35
-Buy Bombs (5) for 35 Rupees:
-  quantity: 1
-  type: junk
-  id: item-36
-Buy Bottle Bug:
-  quantity: 2
-  type: item
-  id: item-37
-Buy Deku Nut (10):
-  quantity: 1
-  type: item
-  id: item-38
-Buy Deku Nut (5):
-  quantity: 2
-  type: item
-  id: item-39
-Buy Deku Seeds (30):
-  quantity: 1
-  type: item
-  id: item-40
-Buy Deku Shield:
-  quantity: 1
-  type: item
-  id: item-41
-Buy Deku Stick (1):
-  quantity: 2
-  type: item
-  id: item-42
-Buy Fairy's Spirit:
-  quantity: 1
-  type: item
-  id: item-43
-Buy Fish:
-  quantity: 2
-  type: junk
-  id: item-44
-Buy Goron Tunic:
-  quantity: 1
-  type: item
-  id: item-45
-Buy Green Potion:
-  quantity: 1
-  type: item
-  id: item-46
-Buy Heart:
-  quantity: 1
-  type: junk
-  id: item-47
-Buy Hylian Shield:
-  quantity: 1
-  type: item
-  id: item-48
-Buy Red Potion for 30 Rupees:
-  quantity: 1
-  type: junk
-  id: item-49
-Buy Red Potion for 50 Rupees:
-  quantity: 1
-  type: junk
-  id: item-50
-Buy Zora Tunic:
-  quantity: 1
-  type: item
-  id: item-51
 Claim Check:
+  id: item-26
+  type: Item
   quantity: 1
-  type: item
-  id: item-52
 Cojiro:
+  id: item-27
+  type: Item
   quantity: 1
-  type: item
-  id: item-53
-Dark Link Soul:
-  quantity: 1
-  type: soul
-  id: item-54
-Dead hand Soul:
-  quantity: 1
-  type: soul
-  id: item-55
-Deku Baba Soul:
-  quantity: 1
-  type: soul
-  id: item-56
 Deku Nut Capacity:
-  quantity: 2
-  type: item
-  id: item-57
+  id: item-28
+  type: Item
+  quantity: 1
 Deku Nuts (10):
+  id: item-29
+  type: Item
   quantity: 1
-  type: item
-  id: item-58
 Deku Nuts (5):
-  quantity: 20
-  type: item
-  id: item-59
-Deku Scrub Soul:
+  id: item-30
+  type: Item
   quantity: 1
-  type: soul
-  id: item-60
 Deku Seeds (30):
-  quantity: 6
-  type: item
-  id: item-61
+  id: item-31
+  type: Item
+  quantity: 1
 Deku Shield:
-  quantity: 5
-  type: item
-  id: item-62
+  id: item-32
+  type: Item
+  quantity: 1
 Deku Stick (1):
-  quantity: 6
-  type: item
-  id: item-63
+  id: item-33
+  type: Item
+  quantity: 1
 Deku Stick Capacity:
-  quantity: 2
-  type: item
-  id: item-64
+  id: item-34
+  type: Item
+  quantity: 1
 Dins Fire:
+  id: item-35
+  type: Item
   quantity: 1
-  type: item
-  id: item-65
-Dodongo Soul:
-  quantity: 1
-  type: soul
-  id: item-66
 Double Defense:
+  id: item-36
+  type: Item
   quantity: 1
-  type: item
-  id: item-67
-Eponas Song:
-  quantity: 1
-  type: item
-  id: item-68
 Eyeball Frog:
+  id: item-37
+  type: Item
   quantity: 1
-  type: item
-  id: item-69
 Eyedrops:
+  id: item-38
+  type: Item
   quantity: 1
-  type: item
-  id: item-70
 Fairy Drop:
-  quantity: 15
-  type: item
-  id: item-71
+  id: item-39
+  type: Item
+  quantity: 1
 Farores Wind:
+  id: item-40
+  type: Item
   quantity: 1
-  type: item
-  id: item-72
 Fire Arrows:
+  id: item-41
+  type: Item
   quantity: 1
-  type: item
-  id: item-73
-Fish (Adult 10 lb):
-  quantity: 6
-  type: junk
-  id: item-74
-Fish (Adult 12 lb):
-  quantity: 7
-  type: junk
-  id: item-75
-Fish (Adult 16 lb):
-  quantity: 2
-  type: junk
-  id: item-76
-Fish (Child 10 lb):
-  quantity: 2
-  type: junk
-  id: item-77
-Fish (Child 6 lb):
-  quantity: 4
-  type: junk
-  id: item-78
-Fish (Child 8 lb):
-  quantity: 9
-  type: junk
-  id: item-79
 Fishing Rod:
+  id: item-42
+  type: Item
   quantity: 1
-  type: junk
-  id: item-80
-Flare Dancer Soul:
-  quantity: 1
-  type: soul
-  id: item-81
-Floormaster Soul:
-  quantity: 1
-  type: soul
-  id: item-82
-Flying Pot Soul:
-  quantity: 1
-  type: soul
-  id: item-83
-Freezard Soul:
-  quantity: 1
-  type: soul
-  id: item-84
 Gerudo Mask:
+  id: item-43
+  type: Item
   quantity: 1
-  type: item
-  id: item-85
 Gerudo Membership Card:
+  id: item-44
+  type: Item
   quantity: 1
-  type: item
-  id: item-86
 Giants Knife:
+  id: item-45
+  type: Item
   quantity: 1
-  type: item
-  id: item-87
-Gohma Larvae Soul:
-  quantity: 1
-  type: soul
-  id: item-88
-Gold Skulltula Token:
-  quantity: 100
-  type: item
-  id: item-89
 Goron Mask:
+  id: item-46
+  type: Item
   quantity: 1
-  type: item
-  id: item-90
 Goron Tunic:
+  id: item-47
+  type: Item
   quantity: 1
-  type: item
-  id: item-91
-Guay Soul:
-  quantity: 1
-  type: soul
-  id: item-92
 Heart Container:
-  quantity: 8
-  type: junk
-  id: item-93
+  id: item-48
+  type: Item
+  quantity: 1
 Hover Boots:
+  id: item-49
+  type: Item
   quantity: 1
-  type: item
-  id: item-94
-Hylian Loach:
-  quantity: 3
-  type: item
-  id: item-95
 Hylian Shield:
-  quantity: 2
-  type: item
-  id: item-96
+  id: item-50
+  type: Item
+  quantity: 1
 Ice Trap:
-  quantity: 6
-  type: item
-  id: item-97
+  id: item-51
+  type: Item
+  quantity: 1
 Iron Boots:
+  id: item-52
+  type: Item
   quantity: 1
-  type: item
-  id: item-98
-Iron Knuckle Soul:
-  quantity: 1
-  type: soul
-  id: item-99
-Jabu Jabu Tentacle Soul:
-  quantity: 1
-  type: soul
-  id: item-100
 Keaton Mask:
+  id: item-53
+  type: Item
   quantity: 1
-  type: item
-  id: item-101
-Keese Soul:
-  quantity: 1
-  type: soul
-  id: item-102
-King Dodongo Soul:
-  quantity: 1
-  type: soul
-  id: item-103
 Kokiri Sword:
+  id: item-54
+  type: Item
   quantity: 1
-  type: item
-  id: item-104
 Lens of Truth:
+  id: item-55
+  type: Item
   quantity: 1
-  type: item
-  id: item-105
 Light Arrows:
+  id: item-56
+  type: Item
   quantity: 1
-  type: item
-  id: item-106
-Like Like Soul:
-  quantity: 1
-  type: soul
-  id: item-107
-Lizalfos and Dinolfos Soul:
-  quantity: 1
-  type: soul
-  id: item-108
 Magic Bean Pack:
+  id: item-57
+  type: Item
   quantity: 1
-  type: item
-  id: item-109
 Magic Meter:
-  quantity: 2
-  type: item
-  id: item-110
+  id: item-58
+  type: Item
+  quantity: 1
 Mask of Truth:
+  id: item-59
+  type: Item
   quantity: 1
-  type: item
-  id: item-111
 Megaton Hammer:
+  id: item-60
+  type: Item
   quantity: 1
-  type: item
-  id: item-112
-Minuet of Forest:
-  quantity: 1
-  type: item
-  id: item-113
 Mirror Shield:
+  id: item-61
+  type: Item
   quantity: 1
-  type: item
-  id: item-114
-Moblin Soul:
-  quantity: 1
-  type: soul
-  id: item-115
-Morpha Soul:
-  quantity: 1
-  type: soul
-  id: item-116
 Nayrus Love:
+  id: item-62
+  type: Item
   quantity: 1
-  type: item
-  id: item-117
-Nocturne of Shadow:
-  quantity: 1
-  type: item
-  id: item-118
 Nothing:
-  quantity: 65
-  type: junk
-  id: item-119
+  id: item-63
+  type: Item
+  quantity: 1
 Ocarina:
-  quantity: 2
-  type: item
-  id: item-120
+  id: item-64
+  type: Item
+  quantity: 1
 Ocarina A Button:
+  id: item-65
+  type: Item
   quantity: 1
-  type: item
-  id: item-121
 Ocarina C down Button:
+  id: item-66
+  type: Item
   quantity: 1
-  type: item
-  id: item-122
 Ocarina C left Button:
+  id: item-67
+  type: Item
   quantity: 1
-  type: item
-  id: item-123
 Ocarina C right Button:
+  id: item-68
+  type: Item
   quantity: 1
-  type: item
-  id: item-124
 Ocarina C up Button:
+  id: item-69
+  type: Item
   quantity: 1
-  type: item
-  id: item-125
-Octorok Soul:
-  quantity: 1
-  type: soul
-  id: item-126
 Odd Mushroom:
+  id: item-70
+  type: Item
   quantity: 1
-  type: item
-  id: item-127
 Odd Potion:
+  id: item-71
+  type: Item
   quantity: 1
-  type: item
-  id: item-128
-Peahat Soul:
-  quantity: 1
-  type: soul
-  id: item-129
-Phantom Ganon Soul:
-  quantity: 1
-  type: soul
-  id: item-130
 Piece of Heart:
-  quantity: 35
-  type: junk
-  id: item-131
+  id: item-72
+  type: Item
+  quantity: 1
 Piece of Heart (Treasure Chest Game):
+  id: item-73
+  type: Item
   quantity: 1
-  type: junk
-  id: item-132
 Poachers Saw:
+  id: item-74
+  type: Item
   quantity: 1
-  type: item
-  id: item-133
 Pocket Egg:
+  id: item-75
+  type: Item
   quantity: 1
-  type: item
-  id: item-134
-Prelude of Light:
-  quantity: 1
-  type: item
-  id: item-135
 Prescription:
+  id: item-76
+  type: Item
   quantity: 1
-  type: item
-  id: item-136
 Progressive Hookshot:
-  quantity: 2
-  type: item
-  id: item-137
+  id: item-77
+  type: Item
+  quantity: 1
 Progressive Scale:
-  quantity: 2
-  type: item
-  id: item-138
+  id: item-78
+  type: Item
+  quantity: 1
 Progressive Strength Upgrade:
-  quantity: 3
-  type: item
-  id: item-139
+  id: item-79
+  type: Item
+  quantity: 1
 Progressive Wallet:
-  quantity: 3
-  type: item
-  id: item-140
-Queen Gohma Soul:
+  id: item-80
+  type: Item
   quantity: 1
-  type: soul
-  id: item-141
 Recovery Heart:
-  quantity: 204
-  type: junk
-  id: item-142
-Redead and Gibdo Soul:
+  id: item-81
+  type: Item
   quantity: 1
-  type: soul
-  id: item-143
-Requiem of Spirit:
-  quantity: 1
-  type: item
-  id: item-144
 Rupee (1):
-  quantity: 217
-  type: junk
-  id: item-145
+  id: item-82
+  type: Item
+  quantity: 1
 Rupee (Treasure Chest Game) (1):
-  quantity: 2
-  type: junk
-  id: item-146
+  id: item-83
+  type: Item
+  quantity: 1
 Rupees (20):
-  quantity: 125
-  type: junk
-  id: item-147
+  id: item-84
+  type: Item
+  quantity: 1
 Rupees (200):
-  quantity: 11
-  type: junk
-  id: item-148
+  id: item-85
+  type: Item
+  quantity: 1
 Rupees (5):
-  quantity: 1028
-  type: junk
-  id: item-149
+  id: item-86
+  type: Item
+  quantity: 1
 Rupees (50):
-  quantity: 18
-  type: junk
-  id: item-150
+  id: item-87
+  type: Item
+  quantity: 1
 Rupees (Treasure Chest Game) (20):
+  id: item-88
+  type: Item
   quantity: 1
-  type: junk
-  id: item-151
 Rupees (Treasure Chest Game) (5):
-  quantity: 2
-  type: junk
-  id: item-152
+  id: item-89
+  type: Item
+  quantity: 1
 Rutos Letter:
+  id: item-90
+  type: Item
   quantity: 1
-  type: item
-  id: item-153
-Sarias Song:
-  quantity: 1
-  type: item
-  id: item-154
-Serenade of Water:
-  quantity: 1
-  type: item
-  id: item-155
-Shabom Soul:
-  quantity: 1
-  type: soul
-  id: item-156
-Shell Blade Soul:
-  quantity: 1
-  type: soul
-  id: item-157
-Skull Kid Soul:
-  quantity: 1
-  type: soul
-  id: item-158
 Skull Mask:
+  id: item-91
+  type: Item
   quantity: 1
-  type: item
-  id: item-159
-Skulltula Soul:
-  quantity: 1
-  type: soul
-  id: item-160
-Skullwalltula Soul:
-  quantity: 1
-  type: soul
-  id: item-161
 Slingshot:
-  quantity: 3
-  type: item
-  id: item-162
-Song of Storms:
+  id: item-92
+  type: Item
   quantity: 1
-  type: item
-  id: item-163
-Song of Time:
-  quantity: 1
-  type: item
-  id: item-164
-Spike Enemy Soul:
-  quantity: 1
-  type: soul
-  id: item-165
 Spooky Mask:
+  id: item-93
+  type: Item
   quantity: 1
-  type: item
-  id: item-166
-Stalfos Soul:
-  quantity: 1
-  type: soul
-  id: item-167
-Stinger Soul:
-  quantity: 1
-  type: soul
-  id: item-168
 Stone of Agony:
+  id: item-94
+  type: Item
   quantity: 1
-  type: item
-  id: item-169
-Suns Song:
-  quantity: 1
-  type: item
-  id: item-170
-Tailpasaran Soul:
-  quantity: 1
-  type: soul
-  id: item-171
-Tektite Soul:
-  quantity: 1
-  type: soul
-  id: item-172
-Torch Slug Soul:
-  quantity: 1
-  type: soul
-  id: item-173
-Twinrova Soul:
-  quantity: 1
-  type: soul
-  id: item-174
-Volvagia Soul:
-  quantity: 1
-  type: soul
-  id: item-175
-Wallmaster Soul:
-  quantity: 1
-  type: soul
-  id: item-176
 Weird Egg:
+  id: item-95
+  type: Item
   quantity: 1
-  type: item
-  id: item-177
-Wolfos Soul:
-  quantity: 1
-  type: soul
-  id: item-178
 Zeldas Letter:
+  id: item-96
+  type: Item
   quantity: 1
-  type: item
-  id: item-179
-Zeldas Lullaby:
-  quantity: 1
-  type: item
-  id: item-180
 Zora Mask:
+  id: item-97
+  type: Item
   quantity: 1
-  type: item
-  id: item-181
 Zora Tunic:
+  id: item-98
+  type: Item
   quantity: 1
-  type: item
+Silver Rupee (Bottom of the Well Basement):
+  id: item-99
+  type: SilverRupee
+  quantity: 1
+Silver Rupee (Ganons Castle Fire Trial):
+  id: item-100
+  type: SilverRupee
+  quantity: 1
+Silver Rupee (Ganons Castle Forest Trial):
+  id: item-101
+  type: SilverRupee
+  quantity: 1
+Silver Rupee (Ganons Castle Light Trial):
+  id: item-102
+  type: SilverRupee
+  quantity: 1
+Silver Rupee (Ganons Castle Spirit Trial):
+  id: item-103
+  type: SilverRupee
+  quantity: 1
+Silver Rupee (Gerudo Training Ground Lava):
+  id: item-104
+  type: SilverRupee
+  quantity: 1
+Silver Rupee (Gerudo Training Ground Slopes):
+  id: item-105
+  type: SilverRupee
+  quantity: 1
+Silver Rupee (Gerudo Training Ground Water):
+  id: item-106
+  type: SilverRupee
+  quantity: 1
+Silver Rupee (Ice Cavern Push Block):
+  id: item-107
+  type: SilverRupee
+  quantity: 1
+Silver Rupee (Ice Cavern Spinning Scythe):
+  id: item-108
+  type: SilverRupee
+  quantity: 1
+Silver Rupee (Shadow Temple Huge Pit):
+  id: item-109
+  type: SilverRupee
+  quantity: 1
+Silver Rupee (Shadow Temple Invisible Spikes):
+  id: item-110
+  type: SilverRupee
+  quantity: 1
+Silver Rupee (Shadow Temple Scythe Shortcut):
+  id: item-111
+  type: SilverRupee
+  quantity: 1
+Silver Rupee (Spirit Temple Adult Boulders):
+  id: item-112
+  type: SilverRupee
+  quantity: 1
+Silver Rupee (Spirit Temple Child Early Torches):
+  id: item-113
+  type: SilverRupee
+  quantity: 1
+Silver Rupee (Spirit Temple Sun Block):
+  id: item-114
+  type: SilverRupee
+  quantity: 1
+Bolero of Fire:
+  id: item-115
+  type: Song
+  quantity: 1
+Eponas Song:
+  id: item-116
+  type: Song
+  quantity: 1
+Minuet of Forest:
+  id: item-117
+  type: Song
+  quantity: 1
+Nocturne of Shadow:
+  id: item-118
+  type: Song
+  quantity: 1
+Prelude of Light:
+  id: item-119
+  type: Song
+  quantity: 1
+Requiem of Spirit:
+  id: item-120
+  type: Song
+  quantity: 1
+Sarias Song:
+  id: item-121
+  type: Song
+  quantity: 1
+Serenade of Water:
+  id: item-122
+  type: Song
+  quantity: 1
+Song of Storms:
+  id: item-123
+  type: Song
+  quantity: 1
+Song of Time:
+  id: item-124
+  type: Song
+  quantity: 1
+Suns Song:
+  id: item-125
+  type: Song
+  quantity: 1
+Zeldas Lullaby:
+  id: item-126
+  type: Song
+  quantity: 1
+Gold Skulltula Token:
+  id: item-127
+  type: Token
+  quantity: 1
+Buy Arrows (10):
+  id: item-128
+  type: Shop
+  quantity: 1
+Buy Arrows (30):
+  id: item-129
+  type: Shop
+  quantity: 1
+Buy Arrows (50):
+  id: item-130
+  type: Shop
+  quantity: 1
+Buy Blue Fire:
+  id: item-131
+  type: Shop
+  quantity: 1
+Buy Bombchu (10):
+  id: item-132
+  type: Shop
+  quantity: 1
+Buy Bombchu (20):
+  id: item-133
+  type: Shop
+  quantity: 1
+Buy Bombchu (5):
+  id: item-134
+  type: Shop
+  quantity: 1
+Buy Bombs (10):
+  id: item-135
+  type: Shop
+  quantity: 1
+Buy Bombs (20):
+  id: item-136
+  type: Shop
+  quantity: 1
+Buy Bombs (5) for 25 Rupees:
+  id: item-137
+  type: Shop
+  quantity: 1
+Buy Bombs (5) for 35 Rupees:
+  id: item-138
+  type: Shop
+  quantity: 1
+Buy Bottle Bug:
+  id: item-139
+  type: Shop
+  quantity: 1
+Buy Deku Nut (10):
+  id: item-140
+  type: Shop
+  quantity: 1
+Buy Deku Nut (5):
+  id: item-141
+  type: Shop
+  quantity: 1
+Buy Deku Seeds (30):
+  id: item-142
+  type: Shop
+  quantity: 1
+Buy Deku Shield:
+  id: item-143
+  type: Shop
+  quantity: 1
+Buy Deku Stick (1):
+  id: item-144
+  type: Shop
+  quantity: 1
+Buy Fish:
+  id: item-145
+  type: Shop
+  quantity: 1
+Buy Goron Tunic:
+  id: item-146
+  type: Shop
+  quantity: 1
+Buy Green Potion:
+  id: item-147
+  type: Shop
+  quantity: 1
+Buy Hylian Shield:
+  id: item-148
+  type: Shop
+  quantity: 1
+Buy Red Potion for 30 Rupees:
+  id: item-149
+  type: Shop
+  quantity: 1
+Buy Zora Tunic:
+  id: item-150
+  type: Shop
+  quantity: 1
+Anubis Soul:
+  id: item-151
+  type: Soul
+  quantity: 1
+Armos Soul:
+  id: item-152
+  type: Soul
+  quantity: 1
+Baby Dodongo Soul:
+  id: item-153
+  type: Soul
+  quantity: 1
+Barinade Soul:
+  id: item-154
+  type: Soul
+  quantity: 1
+Beamos Soul:
+  id: item-155
+  type: Soul
+  quantity: 1
+Biri and Bari Soul:
+  id: item-156
+  type: Soul
+  quantity: 1
+Bongo Bongo Soul:
+  id: item-157
+  type: Soul
+  quantity: 1
+Bubble Soul:
+  id: item-158
+  type: Soul
+  quantity: 1
+Dark Link Soul:
+  id: item-159
+  type: Soul
+  quantity: 1
+Dead hand Soul:
+  id: item-160
+  type: Soul
+  quantity: 1
+Deku Baba Soul:
+  id: item-161
+  type: Soul
+  quantity: 1
+Deku Scrub Soul:
+  id: item-162
+  type: Soul
+  quantity: 1
+Dodongo Soul:
+  id: item-163
+  type: Soul
+  quantity: 1
+Flare Dancer Soul:
+  id: item-164
+  type: Soul
+  quantity: 1
+Floormaster Soul:
+  id: item-165
+  type: Soul
+  quantity: 1
+Flying Pot Soul:
+  id: item-166
+  type: Soul
+  quantity: 1
+Freezard Soul:
+  id: item-167
+  type: Soul
+  quantity: 1
+Gohma Larvae Soul:
+  id: item-168
+  type: Soul
+  quantity: 1
+Guay Soul:
+  id: item-169
+  type: Soul
+  quantity: 1
+Iron Knuckle Soul:
+  id: item-170
+  type: Soul
+  quantity: 1
+Jabu Jabu Tentacle Soul:
+  id: item-171
+  type: Soul
+  quantity: 1
+Keese Soul:
+  id: item-172
+  type: Soul
+  quantity: 1
+King Dodongo Soul:
+  id: item-173
+  type: Soul
+  quantity: 1
+Like Like Soul:
+  id: item-174
+  type: Soul
+  quantity: 1
+Lizalfos and Dinolfos Soul:
+  id: item-175
+  type: Soul
+  quantity: 1
+Moblin Soul:
+  id: item-176
+  type: Soul
+  quantity: 1
+Morpha Soul:
+  id: item-177
+  type: Soul
+  quantity: 1
+Octorok Soul:
+  id: item-178
+  type: Soul
+  quantity: 1
+Peahat Soul:
+  id: item-179
+  type: Soul
+  quantity: 1
+Phantom Ganon Soul:
+  id: item-180
+  type: Soul
+  quantity: 1
+Queen Gohma Soul:
+  id: item-181
+  type: Soul
+  quantity: 1
+Redead and Gibdo Soul:
   id: item-182
+  type: Soul
+  quantity: 1
+Shabom Soul:
+  id: item-183
+  type: Soul
+  quantity: 1
+Shell Blade Soul:
+  id: item-184
+  type: Soul
+  quantity: 1
+Skull Kid Soul:
+  id: item-185
+  type: Soul
+  quantity: 1
+Skulltula Soul:
+  id: item-186
+  type: Soul
+  quantity: 1
+Skullwalltula Soul:
+  id: item-187
+  type: Soul
+  quantity: 1
+Spike Enemy Soul:
+  id: item-188
+  type: Soul
+  quantity: 1
+Stalfos Soul:
+  id: item-189
+  type: Soul
+  quantity: 1
+Stinger Soul:
+  id: item-190
+  type: Soul
+  quantity: 1
+Tailpasaran Soul:
+  id: item-191
+  type: Soul
+  quantity: 1
+Tektite Soul:
+  id: item-192
+  type: Soul
+  quantity: 1
+Torch Slug Soul:
+  id: item-193
+  type: Soul
+  quantity: 1
+Twinrova Soul:
+  id: item-194
+  type: Soul
+  quantity: 1
+Volvagia Soul:
+  id: item-195
+  type: Soul
+  quantity: 1
+Wallmaster Soul:
+  id: item-196
+  type: Soul
+  quantity: 1
+Wolfos Soul:
+  id: item-197
+  type: Soul
+  quantity: 1
+Fish (Adult 10 lb):
+  id: item-198
+  type: Fish
+  quantity: 1
+Fish (Adult 12 lb):
+  id: item-199
+  type: Fish
+  quantity: 1
+Fish (Adult 16 lb):
+  id: item-200
+  type: Fish
+  quantity: 1
+Fish (Child 10 lb):
+  id: item-201
+  type: Fish
+  quantity: 1
+Fish (Child 6 lb):
+  id: item-202
+  type: Fish
+  quantity: 1
+Fish (Child 8 lb):
+  id: item-203
+  type: Fish
+  quantity: 1
+Hylian Loach:
+  id: item-204
+  type: Fish
+  quantity: 1
+Map (Bottom of the Well):
+  id: item-205
+  type: Map
+  quantity: 1
+Map (Deku Tree):
+  id: item-206
+  type: Map
+  quantity: 1
+Map (Dodongos Cavern):
+  id: item-207
+  type: Map
+  quantity: 1
+Map (Fire Temple):
+  id: item-208
+  type: Map
+  quantity: 1
+Map (Forest Temple):
+  id: item-209
+  type: Map
+  quantity: 1
+Map (Ice Cavern):
+  id: item-210
+  type: Map
+  quantity: 1
+Map (Jabu Jabus Belly):
+  id: item-211
+  type: Map
+  quantity: 1
+Map (Shadow Temple):
+  id: item-212
+  type: Map
+  quantity: 1
+Map (Spirit Temple):
+  id: item-213
+  type: Map
+  quantity: 1
+Map (Water Temple):
+  id: item-214
+  type: Map
+  quantity: 1
+Small Key (Treasure Chest Game):
+  id: item-215
+  type: TCGSmallKey
+  quantity: 1
+Compass (Bottom of the Well):
+  id: item-216
+  type: Compass
+  quantity: 1
+Compass (Deku Tree):
+  id: item-217
+  type: Compass
+  quantity: 1
+Compass (Dodongos Cavern):
+  id: item-218
+  type: Compass
+  quantity: 1
+Compass (Fire Temple):
+  id: item-219
+  type: Compass
+  quantity: 1
+Compass (Forest Temple):
+  id: item-220
+  type: Compass
+  quantity: 1
+Compass (Ice Cavern):
+  id: item-221
+  type: Compass
+  quantity: 1
+Compass (Jabu Jabus Belly):
+  id: item-222
+  type: Compass
+  quantity: 1
+Compass (Shadow Temple):
+  id: item-223
+  type: Compass
+  quantity: 1
+Compass (Spirit Temple):
+  id: item-224
+  type: Compass
+  quantity: 1
+Compass (Water Temple):
+  id: item-225
+  type: Compass
+  quantity: 1
+Small Key (Bottom of the Well):
+  id: item-226
+  type: SmallKey
+  quantity: 1
+Small Key (Fire Temple):
+  id: item-227
+  type: SmallKey
+  quantity: 1
+Small Key (Forest Temple):
+  id: item-228
+  type: SmallKey
+  quantity: 1
+Small Key (Ganons Castle):
+  id: item-229
+  type: SmallKey
+  quantity: 1
+Small Key (Gerudo Training Ground):
+  id: item-230
+  type: SmallKey
+  quantity: 1
+Small Key (Shadow Temple):
+  id: item-231
+  type: SmallKey
+  quantity: 1
+Small Key (Spirit Temple):
+  id: item-232
+  type: SmallKey
+  quantity: 1
+Small Key (Water Temple):
+  id: item-233
+  type: SmallKey
+  quantity: 1
+Boss Key (Fire Temple):
+  id: item-234
+  type: BossKey
+  quantity: 1
+Boss Key (Forest Temple):
+  id: item-235
+  type: BossKey
+  quantity: 1
+Boss Key (Shadow Temple):
+  id: item-236
+  type: BossKey
+  quantity: 1
+Boss Key (Spirit Temple):
+  id: item-237
+  type: BossKey
+  quantity: 1
+Boss Key (Water Temple):
+  id: item-238
+  type: BossKey
+  quantity: 1
+Small Key (Thieves Hideout):
+  id: item-239
+  type: HideoutSmallKey
+  quantity: 1
+Buy Fairy's Spirit:
+  id: item-240
+  type: Other
+  quantity: 1

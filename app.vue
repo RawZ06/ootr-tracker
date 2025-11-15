@@ -35,6 +35,15 @@ const handleReset = () => {
   }
 }
 
+const handleReloadYaml = async () => {
+  if (confirm('Reload locations and items from YAML files? This will update the database structure but keep your progress.')) {
+    // Clear localStorage to force reload
+    localStorage.removeItem('tracker')
+    // Reload the page to fetch fresh YAML
+    window.location.reload()
+  }
+}
+
 const links = [
   {
     label: "Checks",
@@ -103,6 +112,15 @@ const links = [
             @click="handleLoadSample"
           >
             Load Sample
+          </UButton>
+
+          <UButton
+            color="orange"
+            icon="i-lucide-refresh-cw"
+            size="sm"
+            @click="handleReloadYaml"
+          >
+            Reload YAML
           </UButton>
 
           <UButton

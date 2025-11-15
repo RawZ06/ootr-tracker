@@ -1,12 +1,16 @@
 <script setup lang="ts">
 const store = useTrackerStore()
-const { checks } = storeToRefs(store)
+const { checks, items } = storeToRefs(store)
 
 // Search and filters
 const search = ref('')
 const selectedAreas = ref<string[]>([])
 const selectedTypes = ref<string[]>([])
 const selectedStatuses = ref<string[]>([])
+
+// Pagination
+const page = ref(1)
+const pageSize = ref(50)
 
 // Get unique values for filters
 const uniqueAreas = computed(() => {
@@ -36,6 +40,21 @@ const filteredChecks = computed(() => {
   })
 })
 
+// Paginated checks
+const paginatedChecks = computed(() => {
+  const start = (page.value - 1) * pageSize.value
+  const end = start + pageSize.value
+  return filteredChecks.value.slice(start, end)
+})
+
+// Total pages
+const totalPages = computed(() => Math.ceil(filteredChecks.value.length / pageSize.value))
+
+// Reset to page 1 when filters change
+watch([search, selectedAreas, selectedTypes, selectedStatuses], () => {
+  page.value = 1
+})
+
 // Table columns
 const columns = [{
   key: 'status',
@@ -55,37 +74,98 @@ const columns = [{
 }, {
   key: 'price',
   label: 'PRICE'
-}, {
-  key: 'notes',
-  label: 'NOTES'
 }]
 
-// Status options
-const statusOptions = ['pending', 'completed', 'blocked', 'important']
+// Status options with emojis and colors
+const statusOptions = [
+  { label: 'pending', icon: 'i-lucide-clock', color: 'gray' },
+  { label: 'completed', icon: 'i-lucide-check-circle', color: 'green' },
+  { label: 'blocked', icon: 'i-lucide-x-circle', color: 'red' },
+  { label: 'important', icon: 'i-lucide-star', color: 'yellow' }
+]
 
-// Get all items grouped by type from items.yaml
-const itemOptionsGrouped = computed(() => {
-  const grouped: Record<string, any[]> = {}
+const getStatusConfig = (status: string) => {
+  return statusOptions.find(s => s.label === status) || statusOptions[0]
+}
 
-  console.log('Total items in store:', Object.keys(store.items).length)
+// Define the order of item categories in the selector
+const ITEM_CATEGORY_ORDER = [
+  'DungeonReward',
+  'Item',
+  'Song',
+  'Shop',
+  'Soul',
+  'Token',
+  'SilverRupee',
+  'Fish',
+  'Map',
+  'Compass',
+  'SmallKey',
+  'BossKey',
+  'TCGSmallKey',
+  'HideoutSmallKey',
+  'Other'
+]
 
-  Object.entries(store.items).forEach(([name, data]: [string, any]) => {
+// Get all items from items.yaml grouped by type
+const itemOptions = computed(() => {
+  if (!items.value || Object.keys(items.value).length === 0) return []
+
+  // Group items by type
+  const grouped: Record<string, string[]> = {}
+
+  Object.entries(items.value).forEach(([name, data]: [string, any]) => {
     const type = data.type || 'other'
     if (!grouped[type]) {
       grouped[type] = []
     }
-    grouped[type].push({ label: name, value: name })
+    grouped[type].push(name)
   })
 
-  console.log('Grouped items:', Object.keys(grouped).map(type => `${type}: ${grouped[type].length}`))
+  // Convert to flat array with type labels and separators
+  const result: any[] = []
 
-  // Sort items within each group and return formatted for USelectMenu
-  return Object.entries(grouped)
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([type, items]) => ({
+  // Sort types according to ITEM_CATEGORY_ORDER
+  const sortedTypes = Object.keys(grouped).sort((a, b) => {
+    const indexA = ITEM_CATEGORY_ORDER.indexOf(a)
+    const indexB = ITEM_CATEGORY_ORDER.indexOf(b)
+
+    // If both are in the order list, sort by their position
+    if (indexA !== -1 && indexB !== -1) return indexA - indexB
+    // If only A is in the list, it comes first
+    if (indexA !== -1) return -1
+    // If only B is in the list, it comes first
+    if (indexB !== -1) return 1
+    // If neither is in the list, sort alphabetically
+    return a.localeCompare(b)
+  })
+
+  sortedTypes.forEach((type, index) => {
+    // Add type label (disabled so it's not selectable)
+    result.push({
+      type: 'label',
       label: type.charAt(0).toUpperCase() + type.slice(1),
-      items: items.sort((a, b) => a.label.localeCompare(b.label))
-    }))
+      disabled: true
+    })
+
+    // Add sorted items for this type
+    grouped[type].sort().forEach(name => {
+      result.push({
+        label: name,
+        value: name
+      })
+    })
+
+    // Add separator after each group except the last
+    if (index < sortedTypes.length - 1) {
+      result.push({
+        type: 'separator',
+        disabled: true
+      })
+    }
+  })
+
+  return result
 })
 </script>
 
@@ -128,34 +208,80 @@ const itemOptionsGrouped = computed(() => {
         </div>
       </div>
 
+      <!-- Stats and Pagination Controls -->
+      <div class="mb-4 flex items-center justify-between">
+        <div class="text-sm text-gray-600 dark:text-gray-400">
+          Showing {{ paginatedChecks.length }} of {{ filteredChecks.length }} checks ({{ checks.length }} total)
+        </div>
+        <div class="flex items-center gap-2">
+          <USelectMenu
+            v-model="pageSize"
+            :options="[
+              { label: '25', value: 25 },
+              { label: '50', value: 50 },
+              { label: '100', value: 100 },
+              { label: '200', value: 200 }
+            ]"
+            value-attribute="value"
+            option-attribute="label"
+            class="w-20"
+          />
+          <span class="text-sm text-gray-600 dark:text-gray-400">per page</span>
+        </div>
+      </div>
+
       <!-- Checks Table -->
       <UTable
-        :rows="filteredChecks"
+        :rows="paginatedChecks"
         :columns="columns"
       >
+        <template #location-data="{ row }">
+          <UTooltip :text="row.location">
+            <span class="block max-w-xs truncate">{{ row.location }}</span>
+          </UTooltip>
+        </template>
         <template #status-data="{ row }">
           <USelectMenu
             :model-value="row.status"
             :options="statusOptions"
+            value-attribute="label"
             @update:model-value="store.updateCheck(row.id, { status: $event })"
-          />
+          >
+            <template #label>
+              <div class="flex items-center gap-2" :class="`text-${getStatusConfig(row.status).color}-500`">
+                <UIcon
+                  :name="getStatusConfig(row.status).icon"
+                  class="w-4 h-4"
+                />
+                <span class="capitalize">{{ row.status }}</span>
+              </div>
+            </template>
+            <template #option="{ option }">
+              <UIcon :name="option.icon" class="w-4 h-4" />
+              <span class="capitalize">{{ option.label }}</span>
+            </template>
+          </USelectMenu>
         </template>
 
         <template #area-data="{ row }">
-          <UBadge
-            v-if="row.area"
-            color="gray"
-            variant="soft"
-          >
-            {{ row.area }}
-          </UBadge>
+          <div class="max-w-[120px]">
+            <UBadge
+              v-if="row.area"
+              color="gray"
+              variant="soft"
+              size="xs"
+            >
+              {{ row.area }}
+            </UBadge>
+          </div>
         </template>
 
         <template #type-data="{ row }">
           <UBadge
             v-if="row.type"
-            color="gray"
-            variant="outline"
+            color="blue"
+            variant="subtle"
+            size="xs"
           >
             {{ row.type }}
           </UBadge>
@@ -164,16 +290,14 @@ const itemOptionsGrouped = computed(() => {
         <template #item-data="{ row }">
           <USelectMenu
             :model-value="row.item"
-            :options="itemOptionsGrouped"
+            :options="itemOptions"
             searchable
             placeholder="Select item..."
+            class="min-w-[250px]"
+            value-attribute="value"
+            option-attribute="label"
             @update:model-value="store.updateCheck(row.id, { item: $event })"
-          >
-            <template #label>
-              <span v-if="row.item">{{ row.item }}</span>
-              <span v-else class="text-gray-400">-</span>
-            </template>
-          </USelectMenu>
+          />
         </template>
 
         <template #price-data="{ row }">
@@ -187,16 +311,18 @@ const itemOptionsGrouped = computed(() => {
           />
           <span v-else class="text-gray-400">-</span>
         </template>
-
-        <template #notes-data="{ row }">
-          <UInput
-            :model-value="row.notes"
-            placeholder="Add notes..."
-            size="sm"
-            @update:model-value="store.updateCheck(row.id, { notes: $event })"
-          />
-        </template>
       </UTable>
+
+      <!-- Pagination -->
+      <div v-if="totalPages > 1" class="mt-6 flex justify-center">
+        <UPagination
+          v-model="page"
+          :total="filteredChecks.length"
+          :page-count="pageSize"
+          show-last
+          show-first
+        />
+      </div>
     </div>
   </UContainer>
 </template>
