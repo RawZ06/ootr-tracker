@@ -1,0 +1,121 @@
+# generated: 2026-01-10
+# project: NotesAllSanity
+# project_key: notesallsanity
+# tracking_system: file-system
+# story_location: _bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog → in-progress: Automatically when first story is created (via create-story)
+#   - in-progress → done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - SM typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: 2026-01-10
+project: NotesAllSanity
+project_key: notesallsanity
+tracking_system: file-system
+story_location: _bmad-output/implementation-artifacts
+
+development_status:
+  # Epic 1: Project Foundation & Technical Setup
+  epic-1: in-progress
+  1-1-initialize-angular-project-with-technology-stack: done
+  1-2-configure-primeng-and-styling-system: done
+  1-3-setup-project-structure-and-core-services-skeleton: done
+  1-4-configure-routing-with-lazy-loading: done
+  1-5-configure-development-tools-eslint-prettier-typescript-paths: done
+  epic-1-retrospective: optional
+
+  # Epic 2: Seed Import & Data Management
+  epic-2: backlog
+  2-1-define-core-data-models-for-checks-and-entrances: done
+  2-2-implement-metadata-service-with-check-reference-loading: done
+  2-3-implement-spoiler-parser-service: done
+  2-4-create-import-ui-component-with-file-upload: done
+  2-5-integrate-import-with-state-management-and-display-confirmation: done
+  2-6-handle-unmapped-checks-and-display-warnings: done
+  epic-2-retrospective: optional
+
+  # Epic 3: Check Tracking & Progress Monitoring
+  epic-3: backlog
+  3-1-create-checks-module-with-virtual-scrolling-display: done
+  3-2-implement-check-marking-done-not-done-toggle: done
+  3-3-implement-zone-filter-with-reactive-updates: done
+  3-4-implement-type-filter-and-multi-criteria-filtering: done
+  3-5-implement-toggle-to-hide-completed-checks: done
+  3-6-create-stats-module-with-global-progression-display: done
+  3-7-add-persistent-mini-progress-counter: done
+  3-8-add-detailed-zone-statistics-with-drill-down: done
+  epic-3-retrospective: optional
+
+  # Epic 4: Session Persistence & State Recovery
+  epic-4: backlog
+  4-1-define-save-data-json-format-with-snake-case-convention: ready-for-dev
+  4-2-implement-json-export-with-sha-256-checksum: ready-for-dev
+  4-3-implement-json-import-with-strict-validation: ready-for-dev
+  4-4-implement-state-restoration-with-typescript-mapping: ready-for-dev
+  4-5-create-export-ui-with-download-functionality: ready-for-dev
+  4-6-create-import-ui-with-validation-and-error-display: ready-for-dev
+  4-7-implement-import-with-state-protection-and-confirmation: ready-for-dev
+  epic-4-retrospective: optional
+
+  # Epic 5: Theme System & Extended Sessions
+  epic-5: backlog
+  5-1-implement-theme-service-with-dark-light-palettes: ready-for-dev
+  5-2-add-theme-persistence-with-localstorage: ready-for-dev
+  5-3-create-theme-toggle-ui-component: ready-for-dev
+  epic-5-retrospective: optional
+
+  # Epic 6: Entrance Tracking & Shuffle Navigation
+  epic-6: backlog
+  6-1-create-entrances-module-with-recording-interface: ready-for-dev
+  6-2-implement-auto-reducing-zone-selector: ready-for-dev
+  6-3-add-entrance-search-and-text-filtering: ready-for-dev
+  6-4-add-zone-based-filtering-and-entrance-count-display: ready-for-dev
+  6-5-implement-decoupled-entrance-mode-configuration: ready-for-dev
+  6-6-add-delete-entrance-functionality: ready-for-dev
+  epic-6-retrospective: optional
+
+  # Epic 7: Intelligent Pathfinding & Route Optimization
+  epic-7: backlog
+  7-1-create-pathfinding-module-with-zone-selection-interface: ready-for-dev
+  7-2-add-age-context-selection-child-adult: ready-for-dev
+  7-3-implement-dijkstra-pathfinding-algorithm-core: ready-for-dev
+  7-4-integrate-save-warp-as-free-teleportation-node: ready-for-dev
+  7-5-add-memoization-cache-for-performance-optimization: ready-for-dev
+  7-6-display-calculated-route-step-by-step-with-navigation: ready-for-dev
+  7-7-handle-edge-cases-and-display-no-path-message: ready-for-dev
+  epic-7-retrospective: optional
+
+  # Epic 8: Production Deployment & DevOps Pipeline
+  epic-8: backlog
+  8-1-create-multi-stage-dockerfile-for-production-build: done
+  8-2-create-nginx-configuration-for-spa-routing: done
+  8-3-create-github-actions-ci-pipeline-with-quality-gates: done
+  8-4-add-docker-build-to-ci-pipeline: done
+  8-5-configure-dependabot-for-security-updates: done
+  8-6-create-deployment-documentation-and-readme: done
+  epic-8-retrospective: optional

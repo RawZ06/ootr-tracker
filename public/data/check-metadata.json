@@ -1,0 +1,17 @@
+{
+  "GC Darunia Pot 1": { "zone": "Goron City", "type": "Pot" },
+  "GC Darunia Pot 2": { "zone": "Goron City", "type": "Pot" },
+  "KF Midos Top Left Chest": { "zone": "Kokiri Forest", "type": "Chest" },
+  "KF Midos Top Right Chest": { "zone": "Kokiri Forest", "type": "Chest" },
+  "KF Storms Grotto Chest": { "zone": "Kokiri Forest", "type": "Chest" },
+  "Deku Tree Basement Chest": { "zone": "Deku Tree", "type": "Chest" },
+  "Deku Tree Compass Chest": { "zone": "Deku Tree", "type": "Chest" },
+  "Market Treasure Chest Game Reward": { "zone": "Hyrule Market", "type": "Minigame" },
+  "Hyrule Field Freestanding PoH": { "zone": "Hyrule Field", "type": "PoH" },
+  "Lake Hylia Freestanding PoH": { "zone": "Lake Hylia", "type": "PoH" },
+  "Kakariko 10 Gold Skulltula Reward": { "zone": "Kakariko Village", "type": "GS Token" },
+  "Kakariko 20 Gold Skulltula Reward": { "zone": "Kakariko Village", "type": "GS Token" },
+  "Death Mountain Crater Volcano Freestanding PoH": { "zone": "Death Mountain Crater", "type": "PoH" },
+  "Zoras Domain Diving Minigame": { "zone": "Zoras Domain", "type": "Minigame" },
+  "Gerudo Training Ground Underwater Silver Rupee Chest": { "zone": "Gerudo Training Ground", "type": "Chest" }
+}
