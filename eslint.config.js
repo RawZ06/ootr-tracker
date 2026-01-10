@@ -25,6 +25,7 @@ module.exports = [
         localStorage: 'readonly',
         console: 'readonly',
         crypto: 'readonly',
+        setTimeout: 'readonly',
         describe: 'readonly',
         it: 'readonly',
         expect: 'readonly',

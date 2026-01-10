@@ -1,6 +1,6 @@
 # Story 4.1: Define Save Data JSON Format with snake_case Convention
 
-**Status:** ready-for-dev
+**Status:** done
 **Epic:** 4 - Session Persistence & State Recovery
 **Story ID:** 4.1
 **Created:** 2026-01-10
@@ -34,3 +34,22 @@ So that save files are consistent with OOT Randomizer spoiler.json format.
 
 - Source: `_bmad-output/planning-artifacts/epics.md` (Epic 4, Story 4.1, lines 1026-1051)
 - NFRs: NFR-REL-4 (JSON <5MB)
+
+---
+
+## Code Review Notes (2026-01-10)
+
+**Status:** ✅ APPROVED - All acceptance criteria met
+
+**Implementation:**
+- File: `src/app/models/save-data.model.ts`
+- All interfaces defined with snake_case properties
+- SaveData, CheckState, EntranceState, FiltersState, SaveMetadata all present
+- SaveValidationResult also defined
+- Comments document snake_case ↔ camelCase mapping
+- Format designed for <5MB (NFR-REL-4 satisfied)
+
+**Issues Found:** None
+
+**Improvements Made:**
+- Added `saveData?: SaveData` to SaveValidationResult to eliminate double JSON parsing in UI

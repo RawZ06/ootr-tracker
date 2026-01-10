@@ -73,13 +73,13 @@ development_status:
 
   # Epic 4: Session Persistence & State Recovery
   epic-4: backlog
-  4-1-define-save-data-json-format-with-snake-case-convention: ready-for-dev
-  4-2-implement-json-export-with-sha-256-checksum: ready-for-dev
-  4-3-implement-json-import-with-strict-validation: ready-for-dev
-  4-4-implement-state-restoration-with-typescript-mapping: ready-for-dev
-  4-5-create-export-ui-with-download-functionality: ready-for-dev
-  4-6-create-import-ui-with-validation-and-error-display: ready-for-dev
-  4-7-implement-import-with-state-protection-and-confirmation: ready-for-dev
+  4-1-define-save-data-json-format-with-snake-case-convention: done
+  4-2-implement-json-export-with-sha-256-checksum: done
+  4-3-implement-json-import-with-strict-validation: done
+  4-4-implement-state-restoration-with-typescript-mapping: done
+  4-5-create-export-ui-with-download-functionality: done
+  4-6-create-import-ui-with-validation-and-error-display: done
+  4-7-implement-import-with-state-protection-and-confirmation: done
   epic-4-retrospective: optional
 
   # Epic 5: Theme System & Extended Sessions

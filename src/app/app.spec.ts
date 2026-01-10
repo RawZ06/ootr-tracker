@@ -40,9 +40,21 @@ describe('App', () => {
     expect(flexElement).toBeTruthy();
   });
 
-  it('should have onButtonClick method', () => {
+  it('should have exportSave method', () => {
     const fixture = TestBed.createComponent(App);
     const app = fixture.componentInstance;
-    expect(app.onButtonClick).toBeDefined();
+    expect(app.exportSave).toBeDefined();
+  });
+
+  it('should have importSave method', () => {
+    const fixture = TestBed.createComponent(App);
+    const app = fixture.componentInstance;
+    expect(app.importSave).toBeDefined();
+  });
+
+  it('should have confirmImport method', () => {
+    const fixture = TestBed.createComponent(App);
+    const app = fixture.componentInstance;
+    expect(app.confirmImport).toBeDefined();
   });
 });

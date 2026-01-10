@@ -1,6 +1,6 @@
 # Story 4.3: Implement JSON Import with Strict Validation
 
-**Status:** ready-for-dev
+**Status:** done
 **Epic:** 4 - Session Persistence & State Recovery
 **Story ID:** 4.3
 **Created:** 2026-01-10
@@ -33,3 +33,22 @@ So that I can restore my session safely without corrupting my current state.
 - Source: `_bmad-output/planning-artifacts/epics.md` (Epic 4, Story 4.3, lines 1081-1107)
 - FRs: FR39, FR40, FR41
 - NFRs: NFR-REL-2, NFR-REL-3
+
+---
+
+## Code Review Notes (2026-01-10)
+
+**Status:** ✅ APPROVED - All acceptance criteria met
+
+**Implementation:**
+- File: `src/app/core/services/save-load.service.ts:121-196`
+- `validateSave(fileContent: string): Observable<SaveValidationResult>` implemented
+- Validates: JSON parseable, required fields, data types, checksum SHA-256 match
+- Returns detailed errors array if invalid (FR41)
+- NEVER modifies state during validation (NFR-REL-3) ✅
+- 100% corruption detection via checksum (NFR-REL-2) ✅
+
+**Issues Fixed:**
+- Changed version validation from `startsWith('1.')` to strict `=== '1.0'` (prevent version injection)
+- Added validation for required check fields (check_id, check_name) to prevent undefined errors
+- Returns parsed SaveData in validation result to eliminate double parsing

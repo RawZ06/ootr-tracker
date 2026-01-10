@@ -78,6 +78,13 @@
   </div>
 </header>
 
+<!-- Success Message Toast (FR37: Export success feedback) -->
+@if (showSuccessMessage()) {
+  <div class="fixed top-20 right-4 z-50 animate-fade-in">
+    <p-message severity="success" [text]="successMessage()" />
+  </div>
+}
+
 <!-- Main Content -->
 <main class="min-h-screen bg-gray-50">
   <router-outlet />
@@ -121,10 +128,12 @@
         <div><strong>Total Checks:</strong> {{ loadMetadata()!.total_checks }}</div>
         <div><strong>Completed:</strong> {{ loadMetadata()!.completed_checks }}</div>
       </div>
-      
-      <p class="text-sm text-yellow-600">
-        Warning: This will replace your current progress.
-      </p>
+
+      <!-- NFR-UX-5, NFR-REL-3: Clear warning with p-message -->
+      <p-message
+        severity="warn"
+        text="Warning: This will replace your current progress."
+      />
     </div>
   }
 

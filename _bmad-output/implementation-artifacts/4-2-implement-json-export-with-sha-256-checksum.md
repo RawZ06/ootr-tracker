@@ -1,6 +1,6 @@
 # Story 4.2: Implement JSON Export with SHA-256 Checksum
 
-**Status:** ready-for-dev
+**Status:** done
 **Epic:** 4 - Session Persistence & State Recovery
 **Story ID:** 4.2
 **Created:** 2026-01-10
@@ -35,3 +35,23 @@ So that I can save my session safely.
 - Source: `_bmad-output/planning-artifacts/epics.md` (Epic 4, Story 4.2, lines 1053-1079)
 - FRs: FR37, FR42
 - NFRs: NFR-REL-4
+
+---
+
+## Code Review Notes (2026-01-10)
+
+**Status:** ✅ APPROVED - All acceptance criteria met
+
+**Implementation:**
+- File: `src/app/core/services/save-load.service.ts:32-98`
+- `exportSave(): Observable<Blob>` implemented
+- Collects state from StateManagementService (checks, entrances, filters, stats)
+- Maps camelCase → snake_case correctly
+- SHA-256 checksum using Web Crypto API (`calculateChecksum()`)
+- Generates SaveData with version, save_date, checksum
+- Returns JSON Blob ready for download
+- Build size: 674.71 kB < 5MB ✅
+
+**Issues Fixed:**
+- Added console warning if exporting with 0 checks (prevent empty exports)
+- Fixed tests in save-load.service.spec.ts (methods renamed from exportJSON → exportSave)

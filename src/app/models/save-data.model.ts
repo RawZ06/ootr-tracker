@@ -69,4 +69,5 @@ export interface SaveValidationResult {
   valid: boolean;
   errors: string[];
   metadata?: SaveMetadata;
+  saveData?: SaveData; // Parsed SaveData if validation succeeds
 }

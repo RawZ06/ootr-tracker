@@ -13,15 +13,15 @@ describe('SaveLoadService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should have exportJSON method', () => {
-    expect(service.exportJSON).toBeDefined();
+  it('should have exportSave method', () => {
+    expect(service.exportSave).toBeDefined();
   });
 
-  it('should have importJSON method', () => {
-    expect(service.importJSON).toBeDefined();
+  it('should have importSave method', () => {
+    expect(service.importSave).toBeDefined();
   });
 
-  it('should have validateChecksum method', () => {
-    expect(service.validateChecksum).toBeDefined();
+  it('should have validateSave method', () => {
+    expect(service.validateSave).toBeDefined();
   });
 });

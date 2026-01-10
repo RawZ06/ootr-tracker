@@ -53,6 +53,8 @@ export class App {
   loadMetadata = signal<{ save_date: string; total_checks: number; completed_checks: number } | null>(null);
   loadingSave = signal(false);
   selectedSaveData = signal<SaveData | null>(null);
+  showSuccessMessage = signal(false);
+  successMessage = signal('');
 
   constructor() {
     // Subscribe to stats for mini progress counter
@@ -81,6 +83,15 @@ export class App {
       link.download = `notesallsanity-save-${date}.json`;
       link.click();
       window.URL.revokeObjectURL(url);
+
+      // FR37: Success message (Story 4.5)
+      const stats = this.stateService.getStats();
+      const entrances = this.stateService.getEntrances();
+      this.successMessage.set(
+        `Save exported successfully - ${stats.completed}/${stats.total} checks, ${entrances.length} entrances saved`
+      );
+      this.showSuccessMessage.set(true);
+      setTimeout(() => this.showSuccessMessage.set(false), 5000);
     });
   }
 
@@ -105,25 +116,31 @@ export class App {
       const reader = new FileReader();
       reader.onload = (event) => {
         const content = event.target?.result as string;
-        
+
         this.saveLoadService.validateSave(content).subscribe((result: SaveValidationResult) => {
           this.loadingSave.set(false);
 
           if (!result.valid) {
             // FR41: Display validation errors
             this.loadErrors.set(result.errors);
-          } else {
-            // FR43: Show metadata for confirmation
-            const saveData: SaveData = JSON.parse(content);
-            this.selectedSaveData.set(saveData);
+          } else if (result.saveData) {
+            // FR43: Show metadata for confirmation (no double parsing)
+            this.selectedSaveData.set(result.saveData);
             this.loadMetadata.set({
-              save_date: saveData.save_date,
-              total_checks: saveData.metadata.total_checks,
-              completed_checks: saveData.metadata.completed_checks,
+              save_date: result.saveData.save_date,
+              total_checks: result.saveData.metadata.total_checks,
+              completed_checks: result.saveData.metadata.completed_checks,
             });
           }
         });
       };
+
+      // Error handling for FileReader
+      reader.onerror = () => {
+        this.loadingSave.set(false);
+        this.loadErrors.set(['Failed to read file - file may be corrupted or inaccessible']);
+      };
+
       reader.readAsText(file);
     };
     input.click();

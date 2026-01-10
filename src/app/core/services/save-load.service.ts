@@ -78,6 +78,11 @@ export class SaveLoadService {
       total_entrances: entrances.length,
     };
 
+    // Validate minimum data (prevent empty exports)
+    if (checks.length === 0) {
+      console.warn('SaveLoadService: Exporting save with 0 checks - no spoiler data loaded');
+    }
+
     // Create save data without checksum first
     const saveDataWithoutChecksum = {
       version: this.SAVE_VERSION,
@@ -149,10 +154,10 @@ export class SaveLoadService {
       return { valid: false, errors };
     }
 
-    // Check version compatibility
-    if (!saveData.version.startsWith('1.')) {
+    // Check version compatibility (strict)
+    if (saveData.version !== this.SAVE_VERSION) {
       errors.push(
-        `Incompatible version: expected 1.x, found ${saveData.version}`
+        `Incompatible version: expected ${this.SAVE_VERSION}, found ${saveData.version}`
       );
     }
 
@@ -178,10 +183,22 @@ export class SaveLoadService {
       return { valid: false, errors };
     }
 
+    // Validate check data (FR40: Strict validation)
+    for (let i = 0; i < saveData.checks.length; i++) {
+      const check = saveData.checks[i];
+      if (!check.check_id || !check.check_name) {
+        errors.push(`Check at index ${i} missing required fields (check_id or check_name)`);
+      }
+    }
+
+    if (errors.length > 0) {
+      return { valid: false, errors };
+    }
+
     // Extract metadata for display
     const metadata: SaveMetadata = saveData.metadata;
 
-    return { valid: true, errors: [], metadata };
+    return { valid: true, errors: [], metadata, saveData };
   }
 
   /**
