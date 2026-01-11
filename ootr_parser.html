@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OoTR Spoiler Log Parser</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .input-group {
+            margin: 20px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="file"], input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+        .status.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>OoTR Spoiler Log Parser</h1>
+
+        <div class="input-group">
+            <label for="fileUpload">Upload Spoiler Log (fichier local)</label>
+            <input type="file" id="fileUpload" accept=".json,.txt">
+        </div>
+
+        <div class="divider">— OU —</div>
+
+        <div class="input-group">
+            <label for="urlInput">URL du Spoiler Log</label>
+            <input type="text" id="urlInput" placeholder="https://ootrandomizer.com/spoilers/get?id=2003884">
+        </div>
+
+        <button id="parseBtn" onclick="parseSpoilerLog()">Générer CSV</button>
+
+        <div id="status" class="status"></div>
+    </div>
+
+    <script>
+        // Scenes YAML data (préfixés OOT_ uniquement)
+        const SCENES_DATA = `
+OOT_DEKU_TREE:                           0x00
+OOT_DODONGO_CAVERN:                      0x01
+OOT_INSIDE_JABU_JABU:                    0x02
+OOT_TEMPLE_FOREST:                       0x03
+OOT_TEMPLE_FIRE:                         0x04
+OOT_TEMPLE_WATER:                        0x05
+OOT_TEMPLE_SPIRIT:                       0x06
+OOT_TEMPLE_SHADOW:                       0x07
+OOT_BOTTOM_OF_THE_WELL:                  0x08
+OOT_ICE_CAVERN:                          0x09
+OOT_GANON_TOWER:                         0x0a
+OOT_GERUDO_TRAINING_GROUND:              0x0b
+OOT_THIEVES_HIDEOUT:                     0x0c
+OOT_INSIDE_GANON_CASTLE:                 0x0d
+OOT_GANON_TOWER_COLLAPSING:              0x0e
+OOT_INSIDE_GANON_CASTLE_COLLAPSING:      0x0f
+OOT_TREASURE_SHOP:                       0x10
+OOT_LAIR_GOHMA:                          0x11
+OOT_LAIR_KING_DODONGO:                   0x12
+OOT_LAIR_BARINADE:                       0x13
+OOT_LAIR_PHANTOM_GANON:                  0x14
+OOT_LAIR_VOLVAGIA:                       0x15
+OOT_LAIR_MORPHA:                         0x16
+OOT_LAIR_TWINROVA:                       0x17
+OOT_LAIR_BONGO_BONGO:                    0x18
+OOT_LAIR_GANONDORF:                      0x19
+OOT_TOWER_COLLAPSE_EXTERIOR:             0x1a
+OOT_MARKET_ENTRANCE_CHILD_DAY:           0x1b
+OOT_MARKET_ENTRANCE_CHILD_NIGHT:         0x1c
+OOT_MARKET_ENTRANCE_ADULT:               0x1d
+OOT_BACK_ALLEY_DAY:                      0x1e
+OOT_BACK_ALLEY_NIGHT:                    0x1f
+OOT_MARKET_CHILD_DAY:                    0x20
+OOT_MARKET_CHILD_NIGHT:                  0x21
+OOT_MARKET_ADULT:                        0x22
+OOT_TEMPLE_OF_TIME_EXTERIOR_CHILD_DAY:   0x23
+OOT_TEMPLE_OF_TIME_EXTERIOR_CHILD_NIGHT: 0x24
+OOT_TEMPLE_OF_TIME_EXTERIOR_ADULT:       0x25
+OOT_KOKIRI_KNOW_IT_ALL:                  0x26
+OOT_KOKIRI_TWINS:                        0x27
+OOT_KOKIRI_MIDO:                         0x28
+OOT_KOKIRI_SARIA:                        0x29
+OOT_CARPENTER_BOSS_HOUSE:                0x2a
+OOT_BACK_ALLEY_HOUSE:                    0x2b
+OOT_BAZAAR:                              0x2c
+OOT_KOKIRI_SHOP:                         0x2d
+OOT_GORON_SHOP:                          0x2e
+OOT_ZORA_SHOP:                           0x2f
+OOT_KAKARIKO_POTION_SHOP:                0x30
+OOT_MARKET_POTION_SHOP:                  0x31
+OOT_BOMBCHU_SHOP:                        0x32
+OOT_HAPPY_MASK_SHOP:                     0x33
+OOT_LINK_HOUSE:                          0x34
+OOT_BACK_ALLEY_HOUSE2:                   0x35
+OOT_STABLE:                              0x36
+OOT_IMPA_HOUSE:                          0x37
+OOT_LABORATORY:                          0x38
+OOT_CARPENTER_TENT:                      0x39
+OOT_GRAVEKEEPER_HUT:                     0x3a
+OOT_GREAT_FAIRY_FOUNTAIN_UPGRADES:       0x3b
+OOT_FAIRY_FOUNTAIN:                      0x3c
+OOT_GREAT_FAIRY_FOUNTAIN_SPELLS:         0x3d
+OOT_GROTTOS:                             0x3e
+OOT_TOMB_REDEAD:                         0x3f
+OOT_TOMB_FAIRY:                          0x40
+OOT_TOMB_ROYAL:                          0x41
+OOT_SHOOTING_GALLERY:                    0x42
+OOT_TEMPLE_OF_TIME:                      0x43
+OOT_CHAMBER_OF_THE_SAGES:                0x44
+OOT_CASTLE_MAZE_DAY:                     0x45
+OOT_CASTLE_MAZE_NIGHT:                   0x46
+OOT_CUTSCENE_MAP:                        0x47
+OOT_TOMB_DAMPE_WINDMILL:                 0x48
+OOT_FISHING_POND:                        0x49
+OOT_CASTLE_COURTYARD:                    0x4a
+OOT_BOMBCHU_BOWLING_ALLEY:               0x4b
+OOT_RANCH_HOUSE_SILO:                    0x4c
+OOT_GUARD_HOUSE:                         0x4d
+OOT_GRANNY_POTION_SHOP:                  0x4e
+OOT_GANON_BATTLE_ARENA:                  0x4f
+OOT_HOUSE_OF_SKULLTULA:                  0x50
+OOT_HYRULE_FIELD:                        0x51
+OOT_KAKARIKO_VILLAGE:                    0x52
+OOT_GRAVEYARD:                           0x53
+OOT_ZORA_RIVER:                          0x54
+OOT_KOKIRI_FOREST:                       0x55
+OOT_SACRED_FOREST_MEADOW:                0x56
+OOT_LAKE_HYLIA:                          0x57
+OOT_ZORA_DOMAIN:                         0x58
+OOT_ZORA_FOUNTAIN:                       0x59
+OOT_GERUDO_VALLEY:                       0x5a
+OOT_LOST_WOODS:                          0x5b
+OOT_DESERT_COLOSSUS:                     0x5c
+OOT_GERUDO_FORTRESS:                     0x5d
+OOT_HAUNTED_WASTELAND:                   0x5e
+OOT_HYRULE_CASTLE:                       0x5f
+OOT_DEATH_MOUNTAIN_TRAIL:                0x60
+OOT_DEATH_MOUNTAIN_CRATER:               0x61
+OOT_GORON_CITY:                          0x62
+OOT_LON_LON_RANCH:                       0x63
+OOT_GANON_CASTLE_EXTERIOR:               0x64
+`;
+
+        let locationListData = null;
+        let scenesMap = null;
+
+        // Parse scenes data
+        function parseScenesData() {
+            const map = new Map();
+            const lines = SCENES_DATA.trim().split('\n');
+            lines.forEach(line => {
+                const match = line.match(/^(OOT_\w+):\s*(0x[0-9a-fA-F]+)/);
+                if (match) {
+                    const sceneName = match[1];
+                    const hexValue = match[2].toLowerCase();
+                    map.set(hexValue, sceneName);
+                }
+            });
+            return map;
+        }
+
+        // Normalize hex value (0x1 -> 0x01)
+        function normalizeHex(hex) {
+            const match = hex.match(/^(0x)([0-9a-fA-F]+)$/i);
+            if (!match) return hex.toLowerCase();
+
+            const prefix = match[1];
+            const value = match[2];
+
+            // Pad to 2 digits
+            return prefix + value.padStart(2, '0').toLowerCase();
+        }
+
+        // CORS proxy
+        const CORS_PROXY = 'https://corsproxy.io/?';
+
+        // Fetch LocationList.py
+        async function fetchLocationList() {
+            try {
+                const url = CORS_PROXY + encodeURIComponent('https://raw.githubusercontent.com/rrealmuto/OoT-Randomizer/refs/heads/enemy_shuffle/LocationList.py');
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Failed to fetch LocationList.py');
+                return await response.text();
+            } catch (error) {
+                throw new Error('Erreur lors du fetch de LocationList.py: ' + error.message);
+            }
+        }
+
+        // Parse LocationList.py to get scene hex for a location
+        function getSceneForLocation(locationName) {
+            if (!locationListData) return null;
+
+            const lines = locationListData.split('\n');
+
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
+
+                // Check if line contains the location name in quotes
+                // Format: ("Location Name",       (("Type", 0x2D, ...)))
+                const locationMatch = line.match(/^\s*\("([^"]+)"/);
+                if (locationMatch && locationMatch[1].trim() === locationName.trim()) {
+                    // Found the location, now extract the scene hex (2nd element of inner tuple)
+                    // There can be many spaces between location name and the inner tuple
+                    const tupleMatch = line.match(/\(\s*"[^"]+"\s*,\s*\(\s*"[^"]*"\s*,\s*(0x[0-9a-fA-F]+)/i);
+                    if (tupleMatch) {
+                        return normalizeHex(tupleMatch[1]);
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        // Get scene name from hex
+        function getSceneNameFromHex(hexValue) {
+            if (!scenesMap) return 'UNKNOWN';
+
+            const normalized = normalizeHex(hexValue);
+            return scenesMap.get(normalized) || 'UNKNOWN';
+        }
+
+        // Show status message
+        function showStatus(message, type = 'info') {
+            const statusDiv = document.getElementById('status');
+            statusDiv.textContent = message;
+            statusDiv.className = 'status ' + type;
+            statusDiv.style.display = 'block';
+        }
+
+        // Download CSV
+        function downloadCSV(csvContent, filename = 'spoiler_locations.csv') {
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', filename);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Parse spoiler log and generate CSV
+        async function parseSpoilerLog() {
+            const fileInput = document.getElementById('fileUpload');
+            const urlInput = document.getElementById('urlInput');
+            const parseBtn = document.getElementById('parseBtn');
+
+            parseBtn.disabled = true;
+            showStatus('Chargement...', 'info');
+
+            try {
+                // Initialize scenes map
+                if (!scenesMap) {
+                    scenesMap = parseScenesData();
+                }
+
+                // Fetch LocationList.py
+                showStatus('Téléchargement de LocationList.py...', 'info');
+                locationListData = await fetchLocationList();
+
+                // Get spoiler log data
+                let spoilerData;
+
+                if (fileInput.files.length > 0) {
+                    // Read from uploaded file
+                    showStatus('Lecture du fichier uploadé...', 'info');
+                    const file = fileInput.files[0];
+                    const text = await file.text();
+                    spoilerData = JSON.parse(text);
+                } else if (urlInput.value.trim()) {
+                    // Fetch from URL
+                    showStatus('Téléchargement du spoiler log depuis l\'URL...', 'info');
+                    const url = CORS_PROXY + encodeURIComponent(urlInput.value.trim());
+                    const response = await fetch(url);
+                    if (!response.ok) throw new Error('Failed to fetch spoiler log from URL');
+                    spoilerData = await response.json();
+                } else {
+                    throw new Error('Veuillez fournir un fichier ou une URL');
+                }
+
+                // Parse locations
+                showStatus('Parsing des locations...', 'info');
+
+                if (!spoilerData.locations) {
+                    throw new Error('Le spoiler log ne contient pas de clé "locations"');
+                }
+
+                // Generate CSV
+                let csv = 'location,scene\n';
+                let count = 0;
+
+                for (const locationName in spoilerData.locations) {
+                    const sceneHex = getSceneForLocation(locationName);
+                    let sceneName = 'UNKNOWN';
+
+                    if (sceneHex) {
+                        sceneName = getSceneNameFromHex(sceneHex);
+                    }
+
+                    csv += `"${locationName}","${sceneName}"\n`;
+                    count++;
+                }
+
+                // Download CSV
+                downloadCSV(csv);
+
+                showStatus(`Succès! ${count} locations traitées. Téléchargement du CSV...`, 'success');
+
+            } catch (error) {
+                showStatus('Erreur: ' + error.message, 'error');
+                console.error(error);
+            } finally {
+                parseBtn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
