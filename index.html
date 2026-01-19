@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>OOTR Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #020617;
+      --primary: #38bdf8;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #020617, var(--bg));
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    p {
+      color: var(--muted);
+      margin-bottom: 3rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    a.card {
+      background: linear-gradient(145deg, #020617, #020617cc);
+      border: 1px solid #1e293b;
+      border-radius: 1rem;
+      padding: 2rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+    }
+
+    a.card:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary);
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15);
+    }
+
+    .card h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    .card span {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>OOTR Tracker</h1>
+    <p>Sélectionne l’outil que tu veux utiliser</p>
+
+    <div class="grid">
+      <a class="card" href="tracker-oot.html">
+        <h2>Tracker OOT</h2>
+        <span>Hell Seed Ocarina of Time Randomizer</span>
+      </a>
+
+      <a class="card" href="tracker-ootmm.html">
+        <h2>Tracker OOT + MM</h2>
+        <span>Hell Seed OOTxMM/span>
+      </a>
+
+      <a class="card" href="ootr_parser.html">
+        <h2>OOTR Parser</h2>
+        <span>Generate a template from spoiler ootr</span>
+      </a>
+    </div>
+
+    <footer>
+      © RawZ06 — Tracker by Marco
+    </footer>
+  </div>
+</body>
+</html>
